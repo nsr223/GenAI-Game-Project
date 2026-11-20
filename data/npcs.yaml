@@ -1,0 +1,47 @@
+# The six suspects (Story §8, canon.md cast table). Exactly 8 people aboard: these six,
+# the victim Elena Fischer and the player. Never add NPCs.
+#
+# Fields
+#   name, role         from the canon cast table
+#   default_location   World §8.1 typical location; static for now (time-based schedules are TBD)
+#   persona_prompt     versioned persona file owned by the NPC writer (AGENTS.md §8). If the file does
+#                      not exist yet, the engine falls back to a one-line stub and logs a warning.
+#   knowledge_file     gated facts for this NPC (data/npc_knowledge/<id>.yaml), owned by the NPC writer
+
+npcs:
+  maya_chen:
+    name: Dr. Maya Chen
+    role: Research scientist
+    default_location: dry_lab
+    persona_prompt: prompts/npc/maya_chen/v1.md
+    knowledge_file: data/npc_knowledge/maya_chen.yaml
+  daniel_reyes:
+    name: Daniel Reyes
+    role: Chief engineer
+    default_location: engineering_workshop
+    persona_prompt: prompts/npc/daniel_reyes/v1.md
+    knowledge_file: data/npc_knowledge/daniel_reyes.yaml
+  thomas_blake:
+    name: Thomas Blake
+    role: Investor representative
+    default_location: mess_hall
+    persona_prompt: prompts/npc/thomas_blake/v1.md
+    knowledge_file: data/npc_knowledge/thomas_blake.yaml
+  sarah_morgan:
+    name: Capt. Sarah Morgan
+    role: Captain
+    default_location: bridge
+    persona_prompt: prompts/npc/sarah_morgan/v1.md
+    knowledge_file: data/npc_knowledge/sarah_morgan.yaml
+  olivia_hart:
+    name: Olivia Hart
+    role: Medic
+    default_location: medical_bay
+    persona_prompt: prompts/npc/olivia_hart/v1.md
+    knowledge_file: data/npc_knowledge/olivia_hart.yaml
+  lucas_weber:
+    name: Lucas Weber
+    role: Documentary filmmaker
+    default_location: editing_room
+    persona_prompt: prompts/npc/lucas_weber/v1.md
+    knowledge_file: data/npc_knowledge/lucas_weber.yaml

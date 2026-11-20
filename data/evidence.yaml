@@ -1,0 +1,260 @@
+# Evidence records (essential chain for the MVP).
+# Source: Evidence Bible §4 (catalog), §5 (chains), §8.1 (access), §10.1 (record format).
+# The bible is the source of truth; keep this file in sync through review.
+#
+# Fields (Evidence §10.1 plus engine additions)
+#   id, slug, status, name         `name` and `player_visible_summary` are player-facing
+#   location_id, object_id         where it is found (object_id may be null for testimony)
+#   source_type                    document | machine_log | testimony | analysis | physical | recording | statement | memory
+#   acquisition                    start      -> in the journal when the game begins
+#                                  inspect    -> collected by inspecting object_id (if access + prerequisites pass)
+#                                  interaction-> only granted by an interaction effect (data/interactions.yaml)
+#   access, prerequisites          conditions, both checked whenever the item would be collected
+#   player_visible_summary         the "Observed" text in the journal. No spoilers, no developer fields.
+#   verified_facts, not_established  DEVELOPER ONLY. Never shown to players or put into NPC prompts.
+#   linked_characters, linked_clues
+#   questions                      optional player-facing follow-up questions for the journal
+#   tbd, tbd_note                  provisional fields; see the PR description and Evidence §12
+
+evidence:
+  - id: EV-00
+    slug: elena_m17_warning
+    status: fixed
+    name: Elena's warning about M-17
+    location_id: dry_lab
+    object_id: null
+    source_type: memory
+    acquisition: start
+    access: {}
+    prerequisites: {}
+    player_visible_summary: >
+      Yesterday at 18:10 in the dry lab, Elena told you that experiment M-17 doesn't add up. She asked
+      you to compare the original M-17 readings with the investor-facing results and promised to explain
+      more today.
+    questions:
+      - What do the original M-17 readings show?
+    verified_facts: [elena_flagged_m17]
+    not_established: [m17_fraud_proven, maya_transfer_supported, murder_established]
+    linked_characters: []
+    linked_clues: []
+
+  - id: EV-09
+    slug: apparatus_cycle_log_2310
+    status: fixed
+    name: Apparatus cycle log
+    location_id: engineering_workshop
+    object_id: engineering_maintenance_terminal
+    source_type: machine_log
+    acquisition: inspect
+    access:
+      any_of:
+        - engineering_record_review_authorized
+        - daniel_shares_record
+    prerequisites: {}
+    player_visible_summary: >
+      At 23:10 the sampling apparatus controller resumed an interrupted weekly verification task that had
+      been left pending when automatic operation was restored. It was not the normal test day. The log
+      records the retry only: the service cover has no position sensor, and no alert was generated.
+    questions:
+      - What did the apparatus physically do at 23:10?
+    verified_facts: [apparatus_fault_2310_verified]
+    not_established: [machinery_cause_excluded, exact_time_of_death_proven, elena_alive_at_2310]
+    linked_characters: [daniel_reyes]
+    linked_clues: [EV-10, EV-11]
+    tbd: [object_id]
+    tbd_note: Possibly mirrored at wet_lab_workstation (Evidence §4.2).
+
+  - id: EV-10
+    slug: preliminary_medical_observations
+    status: proposed
+    name: Olivia's preliminary observations
+    location_id: medical_bay
+    object_id: medical_report_desk
+    source_type: testimony
+    acquisition: interaction
+    access: {}
+    prerequisites: {}
+    player_visible_summary: >
+      Olivia describes a significant, localized head injury with a scalp wound. Without a proper
+      comparison she can't yet say whether it came from the apparatus cover, a separate object or
+      something else.
+    questions:
+      - Can the injury be compared with what the apparatus actually did?
+    verified_facts: [medical_review_pending]
+    not_established: [murder_established, exact_time_of_death_proven, machinery_cause_excluded]
+    linked_characters: [olivia_hart]
+    linked_clues: [EV-09, EV-11]
+
+  - id: EV-11
+    slug: medical_technical_reconstruction
+    status: fixed_mechanism
+    name: Medical-technical reconstruction
+    location_id: medical_bay
+    object_id: medical_report_desk
+    source_type: analysis
+    acquisition: interaction
+    access: {}
+    prerequisites: medical_reconstruction_available
+    player_visible_summary: >
+      Olivia compared the injury with what the apparatus physically did at 23:10. The broad, straight edge
+      of the service cover and its constrained hinged movement cannot account for the localized injury,
+      which points to a compact object. The documented malfunction cannot explain Elena's fatal injury;
+      the apparent accident scene needs another explanation.
+    questions:
+      - If the cover didn't cause the injury, what did?
+    verified_facts: [machinery_cause_excluded, accident_theory_disproved]
+    not_established: [maya_identity_established, exact_time_of_death_proven]
+    linked_characters: [olivia_hart]
+    linked_clues: [EV-09, EV-10, EV-13, EV-14]
+    tbd: [player_visible_summary]
+    tbd_note: >
+      Contact/reach observations and nearby surfaces that also exclude a cover-induced fall are not yet
+      authored (Evidence §4.3 EV-11 "Evidence-design TBD"). Not production-ready until then.
+
+  - id: EV-13
+    slug: calibration_object_discrepancy
+    status: proposed
+    name: Calibration station discrepancy
+    location_id: wet_lab
+    object_id: wet_lab_calibration_station
+    source_type: physical
+    acquisition: inspect
+    access: wet_lab_inspection_authorized
+    prerequisites: {}
+    player_visible_summary: >
+      Something about the 2 kg stainless-steel reference mass at the calibration station doesn't match
+      routine handling. [TBD: the exact trace or handling discrepancy is not yet authored.]
+    questions:
+      - Why would the reference mass have been handled?
+    verified_facts: [calibration_object_anomaly_found]
+    not_established: [murder_weapon_established, maya_handled_object]
+    linked_characters: []
+    linked_clues: [EV-11, EV-14]
+    tbd: [player_visible_summary]
+    tbd_note: Exact trace/corroboration TBD (Evidence §4.3 EV-13, §12). Do not describe the object as missing.
+
+  - id: EV-14
+    slug: injury_object_correspondence
+    status: proposed
+    name: Injury and object comparison
+    location_id: medical_bay
+    object_id: medical_report_desk
+    source_type: analysis
+    acquisition: interaction
+    access: {}
+    prerequisites:
+      all_of:
+        - evidence_collected: EV-11
+        - evidence_collected: EV-13
+    player_visible_summary: >
+      Compared with the scene inventory, the injury is consistent with a blow from the type of
+      calibration object kept in the wet lab. [TBD: exact physical corroboration.]
+    questions: []
+    verified_facts: [blunt_force_method_supported]
+    not_established: [who_held_object, intent, exact_staging_actions]
+    linked_characters: [olivia_hart]
+    linked_clues: [EV-11, EV-13]
+    tbd: [player_visible_summary, access]
+    tbd_note: Exact trace corroboration and access protocol TBD (Evidence §4.3 EV-14).
+
+  - id: EV-16
+    slug: competitor_transfer_proposal
+    status: proposed
+    name: Draft transfer agreement
+    location_id: dry_lab
+    object_id: dry_lab_shared_workstation
+    source_type: document
+    acquisition: inspect
+    access: shared_project_records_access_granted
+    prerequisites: {}
+    player_visible_summary: >
+      A draft agreement from Maya's negotiations with Nereid Technologies. She offers unpublished control
+      code, mixer drawings, operating parameters and internal test datasets, to be delivered after a final
+      agreement, in return for compensation and a leading development role. [TBD: exact terms.]
+    questions:
+      - Who else knew about these negotiations?
+    verified_facts: [maya_transfer_plan_supported]
+    not_established: [transfer_completed, maya_killed_elena]
+    linked_characters: [maya_chen]
+    linked_clues: [EV-17]
+    tbd: [location_id, object_id, access]
+    tbd_note: >
+      Placement is dry_lab shared project records OR cabin_maya (Evidence §4.4, §12). The first option is
+      used provisionally; the authorized route is a stub request to Sarah.
+
+  - id: EV-17
+    slug: elena_preserved_notes
+    status: proposed
+    name: Elena's preserved notes
+    location_id: cabin_elena
+    object_id: cabin_desk_elena
+    source_type: document
+    acquisition: inspect
+    access: {cabin_authorized: cabin_elena}
+    prerequisites: {}
+    player_visible_summary: >
+      Elena's notes show she knew about Maya's negotiations and intended to stop the planned transfer and
+      report them. She had not seen any draft agreement. The notes also point back to the M-17
+      discrepancy. [TBD: medium and exact text.]
+    questions:
+      - Did Maya know that Elena intended to report her?
+    verified_facts: [elena_knew_of_maya_negotiations]
+    not_established: [who_attacked_elena]
+    linked_characters: [maya_chen]
+    linked_clues: [EV-16]
+    tbd: [location_id, object_id, access, player_visible_summary]
+    tbd_note: >
+      Storage is cabin_elena / cabin_desk_elena OR a research archive (Evidence §4.4, §12). The first option
+      is used provisionally; access is a stub request to Sarah for evidence preservation.
+
+  - id: EV-18
+    slug: partial_corridor_recording
+    status: proposed
+    name: Partial corridor recording
+    location_id: editing_room
+    object_id: editing_workstation
+    source_type: recording
+    acquisition: inspect
+    access:
+      any_of:
+        - lucas_shares_footage
+        - selected_media_access_granted
+    prerequisites: {}
+    player_visible_summary: >
+      [TBD, proposed] A partial view in Lucas's footage, with timestamp metadata, appears to show Maya
+      heading toward the laboratory area late that evening. It does not show what happened inside.
+    questions:
+      - Where did Maya say she was that evening?
+    verified_facts: [maya_wet_lab_area_presence_supported]
+    not_established: [entry_door_established, murder_act_recorded, exact_time_of_death_proven]
+    linked_characters: [lucas_weber, maya_chen]
+    linked_clues: [EV-19]
+    tbd: [object_id, access, player_visible_summary]
+    tbd_note: >
+      Exact clip, field of view and time TBD; object is editing_workstation or media_drive_case; sharing
+      flow (Lucas shares vs Sarah authorizes) TBD (Evidence §4.4 EV-18).
+
+  - id: EV-19
+    slug: maya_contradictory_statement
+    status: proposed
+    name: Maya's contradictory statement
+    location_id: null
+    object_id: null
+    source_type: statement
+    acquisition: interaction
+    access: {}
+    prerequisites:
+      all_of:
+        - evidence_collected: EV-18
+        - claim_recorded: {speaker: maya_chen, topic: whereabouts_critical_window}
+    player_visible_summary: >
+      Maya's earlier account of where she was does not match Lucas's recording. [TBD: her claimed alibi is
+      not yet decided.]
+    questions:
+      - Why would Maya lie about where she was?
+    verified_facts: [maya_alibi_contradicted]
+    not_established: [maya_killed_elena]
+    linked_characters: [maya_chen]
+    linked_clues: [EV-18]
+    tbd: [player_visible_summary]
+    tbd_note: Maya's precise claimed alibi is TBD across Story, Character and Evidence Bibles (Evidence §4.4 EV-19).
