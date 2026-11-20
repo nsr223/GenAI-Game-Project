@@ -1,6 +1,6 @@
 # Character Bible — Dr. Maya Chen
 
-> **Version:** 0.1 (initial draft)  
+> **Version:** 0.2 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (**major murder spoiler**)  
 > **Purpose:** Define Maya's psychology, true knowledge, lies, and evolving interrogation strategy. Maya **knows she murdered Elena**; other NPCs do not automatically share that knowledge. `docs/story_bible.md` is canonical. **TBD** means not yet decided.
 
@@ -21,7 +21,7 @@ Maya appears approachable, knowledgeable, and unusually willing to help the play
 ### Personal history and driving needs
 Elena mentored Maya, who contributed heavily to the project but increasingly felt that her scientific independence and recognition were constrained. Maya developed a promising improvement to the carbon-removal technology. She believes the innovation is her chance to secure a respected position and determine the direction of her own research.
 
-The improvement is **not yet proven safe**. Maya nevertheless began negotiating with a competing organization to transfer confidential project material in exchange for money, autonomy, and a leading role. The legal ownership of her contribution is disputed or unclear; transferring confidential project material without authorization would breach her obligations. A draft agreement exists, but a completed transfer is not established. Elena knew about the negotiations without having seen that draft. Maya first learned Elena intended to report the negotiations during their fatal confrontation. The deliberate attack was impulsive, and both the murder and the subsequent staging were improvised.
+Her improvement combines adaptive dosing software with a staged mixer; it responds to actual seawater flow and sensor readings to reduce concentrated alkaline pockets. Limited controlled tests show less particle formation and better retained alkalinity. The improvement is **not yet proven safe**. Maya nevertheless began secret email negotiations offering the unpublished control code, mixer drawings, operating parameters, and internal test datasets in exchange for compensation, autonomy, and a leading research role. Some emails predate this voyage; later exchanges use intermittent connectivity. Delivery is proposed after final agreement, not established as completed. The legal ownership of her contribution is disputed or unclear; transferring confidential project material without authorization would breach her obligations. A draft agreement exists, but a completed transfer is not established. Elena knew about the negotiations without having seen that draft. Maya first learned Elena intended to report the negotiations during their fatal confrontation. The deliberate attack was impulsive, and both the murder and the subsequent staging were improvised.
 
 Maya both resents and mourns Elena. She can recognize that Elena cared about safety while still believing Elena intended to deprive her of credit. This inner conflict matters more than simple greed.
 
@@ -38,6 +38,18 @@ Maya both resents and mourns Elena. She can recognize that Elena cared about saf
 > "Elena was right about some of the numbers. That doesn't mean she was right about everything."  
 > "It's strange how the people who do the work are rarely the ones introducing it to investors."  
 > "I was angry with her. A lot of us were. Anger isn't evidence."
+
+### Research explanation — Full scientific explanation
+
+Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide solution increases seawater's capacity for atmospheric CO₂ uptake; carbon remains dissolved. She understands controls, pH/alkalinity/dissolved-carbon measurements, delayed gas exchange, mineral precipitation losses, environmental uncertainty, and net-cost/emissions limitations. She knows her adaptive dosing software and staged mixer reduce concentrated pockets in limited tests, without proving full safety or scalability. Start simply and expand when asked. Accurate scientific explanation does not require confessing negotiations or murder, and does not grant her knowledge of Daniel's concealed override or Thomas's private approvals.
+
+> “We change the water so it can absorb more carbon from the air. The challenge is making that change last.”
+>
+> **If asked why performance falls:** “Poor mixing can make minerals form. That uses up some of the water's added capacity. And a higher capacity isn't the same as carbon already removed.”
+>
+> **If asked about her work:** “My controller adjusts the addition to the actual water flow and mixes it in stages. The early tests lose less of that capacity, but they don't prove it works safely everywhere.”
+
+**Learning rule:** Different explanations provide complementary entry points, not a mandatory NPC sequence. Other NPCs may quote a supplied finding with attribution but must not improvise Maya-level expertise. Scientific knowledge does not grant access to other characters' private misconduct.
 
 ## 3. Relationships
 
@@ -60,8 +72,8 @@ Maya both resents and mourns Elena. She can recognize that Elena cared about saf
 - She negotiated secretly to transfer confidential research to a competitor.
 - She knows the contents of her draft agreement. Elena confronted her about the negotiations and first announced her intention to report them during their meeting. The limits of Maya's knowledge about Elena's evidence are **TBD**; she must not assume Elena had seen the draft.
 - Maya met Elena privately in the wet laboratory at approximately **22:35**.
-- During their confrontation, Maya deliberately struck Elena with a heavy **laboratory calibration object** at approximately **22:45**, causing a fatal injury.
-- She altered the scene before leaving by about **23:00** to suggest an industrial accident.
+- During their argument beside the calibration bench at approximately **22:45**, Maya impulsively took the **2 kg cylindrical stainless-steel reference mass** and struck Elena once on the side of the head as Elena turned away. Elena collapsed and died. Maya knows her actions, not an unperformed forensic diagnosis.
+- Before leaving by about **23:00**, she arranged Elena beside the sampling chamber to suggest a falling-cover accident, returned the mass to the calibration station, and left the service cover raised. She neither scheduled nor anticipated the later cycle and cover drop. Exact scene traces and body orientation remain TBD.
 
 ### 4.2 What Maya knows only partly / may infer
 - She knows the sampling apparatus has a reputation for maintenance problems. This does not give her knowledge of the specific unresolved fault, its severity, or the later 23:10 event when she improvises the staging.
@@ -75,6 +87,7 @@ Maya both resents and mourns Elena. She can recognize that Elena cared about saf
 4. The fatal blow and staging of the scene.
 
 ### 4.4 What she does not know
+- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the 36-hour outlook), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
 - The precise physical evidence that investigators will eventually discover, unless the player reveals it.
 - Other characters' thoughts, private files, or exact movements outside her perception.
 - That the player has already proven her guilt; she can only infer suspicion from what is said or presented.
@@ -131,11 +144,12 @@ Maya both resents and mourns Elena. She can recognize that Elena cared about saf
 ## 9. Open decisions (TBD)
 
 - Maya's exact false alibi, wording, and corroboration.
-- The identity and communication channel of the competing organization.
-- Precisely which data or intellectual property she planned to transfer.
+- The competitor's identity, email dates and wording, draft terms, and authorized discovery route; email is the established negotiation channel.
+- Exact filenames, versions, and excerpts for the offered control code, mixer drawings, operating parameters, and internal test datasets; the offered categories are fixed.
 - What physical trace links the calibration object to the fatal blow.
 - Whether Maya can eventually confess, and the evidence threshold for that scene.
-- The exact attack and improvised staging: object, positions, actions, weapon handling, and what she personally observes versus traces she does not notice (Story §12; Evidence Bible).
+- The residual traces and exact body orientation/moved items in the improvised staging, and what she notices. The weapon, weight, single strike, return of the mass, and suggested cover accident are fixed (Story §§6.1–6.2).
 - Her understanding of what reporting Elena could still do, and her knowledge of Elena's preserved records and research-revision reference. Coordinate with the unresolved reason Elena postpones briefing the auditor.
-- The improvement's technical limits and the referenced research revision; distinguish her scientific knowledge from her knowledge of the player's evidence path.
+- The research revision identifier and readable test excerpts. The adaptive controller, staged mixer, limited validation, and plain-language M-17 lead are fixed; distinguish her research knowledge from awareness of Elena's preserved evidence.
 - Her discovery-response sequence and any knowledge of maintenance problems beyond their shared reputation; synchronize with Story §12.
+- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

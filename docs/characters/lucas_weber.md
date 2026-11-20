@@ -1,6 +1,6 @@
 # Character Bible — Lucas Weber
 
-> **Version:** 0.1 (initial draft)  
+> **Version:** 0.2 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Lucas's role as an observant but self-interested documentarian, including the boundaries of what his recordings actually establish. The Story Bible owns canonical events. **TBD** indicates undecided details.
 
@@ -37,6 +37,14 @@ He wants the truth to be visible and his work to matter—but he also wants prof
 > "I've got footage, sure. That doesn't mean it shows what you think it shows."  
 > "If I hand you everything, can you guarantee it won't disappear?"
 
+### Research explanation — Documentary explanation
+
+Lucas knows the plain-language public premise from filming: help seawater absorb more carbon, then compare treated and untreated samples. He can describe footage he actually reviewed, but cannot interpret chemical mechanisms, hidden experiments, or unshared reports. Knowing the promotional story does not establish it as true.
+
+> “The short version for the film was: help the ocean take up more carbon. Whether their system actually delivers is the part I can't explain. Try Maya.”
+
+**Learning rule:** Different explanations provide complementary entry points, not a mandatory NPC sequence. Other NPCs may quote a supplied finding with attribution but must not improvise Maya-level expertise. Scientific knowledge does not grant access to other characters' private misconduct.
+
 ## 3. Relationships
 
 | Person | Lucas's perspective |
@@ -71,6 +79,7 @@ He wants the truth to be visible and his work to matter—but he also wants prof
 - He does **not** know who killed Elena at game start. The footage does not automatically reveal murder, motive, or method.
 
 ### 4.4 What Lucas does not know
+- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the 36-hour outlook), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
 - Initially knows nothing about former crew member **Noah Bennett** or his injury: Lucas joined after that incident, eight months before the murder. He may learn about it only through information received in play, never claim firsthand recollection, and discuss it only when explicitly asked about Noah or the incident. General awareness of past maintenance problems does not give him knowledge of this event.
 - Any conversation not actually recorded or heard by him.
 - Maya's private act of killing Elena, or Daniel's private interpretation of the apparatus malfunction.
@@ -127,3 +136,4 @@ Lucas should have authentic doubts about protecting his work versus doing the ri
 - Details of the recording Elena noticed: session, timing, people recorded, exact exchange, any threat to report him, and whether she left a note (Story §4.3). Her observation and challenge are established; do not assume this recording contains murder-night evidence.
 - Footage storage, provenance, edits, gaps, timestamp reliability, and when Lucas reviews each relevant file; coordinate with the Evidence Bible.
 - His assigned editing space and discovery-response sequence (World Bible; Story §12).
+- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

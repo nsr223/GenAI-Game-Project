@@ -1,6 +1,6 @@
 # Character Bible — Captain Sarah Morgan
 
-> **Version:** 0.1 (initial draft)  
+> **Version:** 0.2 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Sarah's personality, relationships, knowledge, secrets, and consistent behavior during player conversations. This is a **character perspective**, not the full objective story. Follow `docs/story_bible.md` whenever canonical facts conflict with a proposed detail. **TBD** means not yet decided.
 
@@ -35,6 +35,14 @@ Sarah has spent years commanding specialized ships and is proud of protecting cr
 > "Until the authorities arrive, we keep the scene intact. No exceptions."  
 > "I made a judgment about the weather. That doesn't mean I made a judgment about Elena."
 
+### Research explanation — Operational explanation
+
+Sarah knows that the expedition compares untreated and treated seawater, uses pumps and sampling equipment, and requires controlled deployment and safe working conditions. She can describe permitted operations and her decisions, not detailed chemistry or scientific efficacy. Her captain-only navigation/weather knowledge remains unchanged.
+
+> “They treat seawater and compare the samples. I handle whether the operation can be carried out safely. Ask Maya how the treatment works.”
+
+**Learning rule:** Different explanations provide complementary entry points, not a mandatory NPC sequence. Other NPCs may quote a supplied finding with attribution but must not improvise Maya-level expertise. Scientific knowledge does not grant access to other characters' private misconduct.
+
 ## 3. Relationships
 
 | Person | Sarah's perspective |
@@ -50,10 +58,14 @@ Sarah has spent years commanding specialized ships and is proud of protecting cr
 ## 4. Knowledge boundaries
 
 ### 4.1 What Sarah knows
+- She is the only NPC with initial detailed navigation/weather knowledge. Other NPCs know only observable conditions unless she or another legitimate source explicitly informs them during play. Her explanations may provide the player with coordinates, route, operating status, and the received forecast; this does not automatically update other NPCs' knowledge.
 - Eight months before the murder, former crew member **Noah Bennett** suffered a hand injury and left for treatment and recovery, without permanent disability. Knows only this basic history, not concealed circumstances or inaccuracies in the incident report. Noah is not aboard during the game.
 - Past maintenance problems with the wet-lab sampling apparatus are common knowledge among Elena and the six suspects, but initially unknown to the player. General awareness does not establish knowledge of the specific unresolved fault or its severity; Daniel's detailed knowledge is defined separately.
 - The purpose of the expedition and the pressure surrounding the funding milestone.
+- About a year ago, the early trial at fictional Station C-2 off the outer approaches to Galway Bay had a technical problem. Daniel told her the release had stopped and the situation was under control. She accepted that account. Elena later approached her about the old trial, but Sarah could give little detail because she had considered the issue resolved. She knows Elena asked, not the safeguard override, localized plankton harm, misleading records, or the substance of Elena's findings unless informed during play.
 - Weather and ship-safety decisions, including instances where she allowed operations to continue despite concerns.
+- The expedition route is Galway → North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is roughly 53°N, 16°W, under power at reduced speed; exterior research work is suspended, while indoor systems remain powered.
+- At discovery, the received marine forecast gives no meaningful easing for at least 36 more hours, through 19:00 the following day. Communications permit reporting and coordination, but there is no safe investigator boarding/transfer window in that period. She does not attribute this outlook to radar or promise arrival precisely when 36 hours elapse.
 - Elena opposed publishing the final results at dinner and that interpersonal tensions were rising.
 - After the body is discovered: the scene appears linked to lab equipment, authorities must be contacted, and records must be preserved.
 
@@ -86,6 +98,7 @@ Sarah has spent years commanding specialized ships and is proud of protecting cr
 |---|---|
 | General questions about Elena | Gives factual, restrained assessment; recognizes tension but avoids guessing motive. |
 | Asked why the vessel did not return to port | Explains weather and operational constraints; may minimize her earlier decision to continue testing. |
+| Asked about the old C-2 trial or Elena's note | Recalls the interruption, Daniel's assurance, and Elena's later inquiry: “Elena asked me about that old trial. I couldn't tell her much—I thought Daniel had dealt with it at the time.” Does not claim knowledge of concealed harm or Elena's detailed findings. |
 | Confronted with documented safety warnings | Acknowledges a questionable decision and distinguishes it from the murder. |
 | Requests access to restricted areas | Requires a legitimate audit purpose or supervised evidence preservation; access is **not** granted purely for high trust. |
 | Suggests a suspect without corroboration | Demands concrete evidence, even if she personally dislikes the suspect. |
@@ -117,7 +130,8 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 - Who discovers Elena and how Sarah first learns of it.
 - Specific conditions under which supervised lab and cabin access is authorized.
 - Details of the operation Sarah privately discussed with Elena, the timing and exact exchange, supporting records, and whether Elena left an audit note (Story §4.3). Their shared concern, Sarah's admission, and Elena's intention to include the decision in the audit are established.
-- Her knowledge of the old ecological incident and specific equipment risks beyond the common maintenance history.
+- Any additional knowledge of current equipment risks beyond the common maintenance history. Her limited initial knowledge of the C-2 incident is fixed in §4.1; do not expand it through improvisation.
 - Watchkeeping and essential duties for the eight-person complement, including dinner coverage; coordinate all alibis with the World and Story Bibles.
 - The sequence for securing the scene and records, permitting Olivia's examination and the auditor's assistance, and reporting to authorities; reconcile with Daniel's record alterations.
 - Her response to supported, incorrect, or insufficient final accusations and the handover to authorities; coordinate with ending mechanics.
+- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

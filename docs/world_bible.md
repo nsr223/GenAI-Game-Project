@@ -1,6 +1,6 @@
 # Beneath the Surface — World Bible
 
-> **Status:** Initial draft (v0.1) · **Suggested repository path:** `docs/world_bible.md`  
+> **Status:** Initial draft (v0.2) · **Suggested repository path:** `docs/world_bible.md`  
 > **Audience:** Development team · **Spoilers:** Internal design reference; mentions the crime scene and restricted areas.
 >
 > **Purpose of this document:** The World Bible is the single source of truth for the **physical game world** of *Beneath the Surface*: the *RV Meridian*, its decks and rooms, how locations connect, what objects physically exist, which spaces can be accessed, and what environmental rules apply. It gives writers, artists, and developers a shared reference so navigation, dialogue, evidence placement, and visuals never contradict one another. The World Bible does **not** decide who committed the murder or what each clue proves; those facts belong to the Story Bible and Evidence Bible.
@@ -14,7 +14,7 @@
 ### 1.1 Setting
 
 - **Primary location:** *RV Meridian*, a compact, privately operated oceanographic research vessel.
-- **Region:** North Atlantic, several hundred kilometers from shore. Exact coordinates and route: **TBD**.
+- **Region / route:** Galway, Ireland → offshore North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is approximately **53°N, 16°W**, roughly **400 km west of the Irish coast**. This is an approximate narrative position, not an exact stationary waypoint; intermediate sampling stations need no fixed coordinates for the MVP.
 - **Mission:** Final-stage testing of an experimental ocean carbon-removal system.
 - **Time:** The playable story begins on the evening of Elena's warning and continues after her death the following morning. Exact calendar dates: **TBD**.
 - **People aboard:** Exactly **eight**: the player, Dr. Elena Fischer, and the six living suspects — Sarah Morgan, Daniel Reyes, Maya Chen, Thomas Blake, Olivia Hart, and Lucas Weber.
@@ -45,7 +45,7 @@
 
 ### 2.1 Deck organization
 
-The ship has **three playable levels**. These are a practical first-pass layout, not a naval architecture blueprint.
+The ship has **three confirmed playable levels**. The room connections in §2.3 are established world canon; this remains a gameplay layout rather than a naval architecture blueprint.
 
 | Deck | Function | Main playable spaces |
 |---|---|---|
@@ -91,9 +91,9 @@ The ship has **three playable levels**. These are a practical first-pass layout,
 
 **Shared door identity:** `wet_lab_door_internal` and `dry_lab_internal_door` are room-facing aliases for the same physical door, with canonical ID `lab_internal_door`. Both aliases use one shared open/closed and locked/unlocked state and the same access/log configuration. They must never be implemented as independent doors. Exact lock and logging behavior remains **TBD**.
 
-### 2.3 Canonical room connections (initial proposal)
+### 2.3 Confirmed room connections
 
-These connections are **bidirectional** unless a future design decision explicitly changes access. Stairs and corridors are traversal nodes, not separate mystery-solving scenes.
+The existing connections below are **confirmed and bidirectional**. Permissions may restrict a route without removing its physical connection. Future topology changes require a coordinated Bible update. Stairs and corridors are traversal nodes, not separate mystery-solving scenes.
 
 | Location ID | Connects directly to |
 |---|---|
@@ -148,7 +148,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `bridge_comms_console` — communications equipment; player cannot independently contact arbitrary parties.
 - `bridge_noticeboard` — shift notices and posted safety instructions (ambient details only unless defined as clues).
 
-**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. The ship may be holding position or operating at reduced speed; exact navigational status at each story time is **TBD**.
+**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. On the murder night and during the initial investigation, the ship remains under power at reduced speed in open water, maintaining steerage and adjusting its heading to the sea conditions. It is neither anchored nor precisely holding a fixed coordinate. Exterior research deployment is suspended; indoor records and the sampling station remain powered, allowing the pending 23:10 cycle. Exact headings and speeds are not clue-bearing facts and need not be simulated.
 
 ### 3.2 Wet Laboratory — Crime Scene
 
@@ -163,9 +163,10 @@ For every room below, **initial access** means the baseline permission at the be
 **Purpose and appearance.** A practical seawater-processing laboratory with anti-slip flooring, stainless-steel benches, water lines, pumps, sample containers, and an industrial sampling apparatus. The air is humid; machinery noise and a faint chemical/metallic smell distinguish it from the dry lab.
 
 **Baseline interactable objects:**
-- `wet_lab_sampling_apparatus` — central sampling equipment. Its unresolved fault is an author-facing fact; ordinary inspection does not automatically reveal the fault or its severity.
-- `wet_lab_calibration_station` — calibration tools and storage; physical object inventory is fixed here.
-- `wet_lab_sample_bench` — containers, sample rack, ordinary workspace.
+- `wet_lab_sampling_apparatus` — automated seawater sampling/filtration station with pump, rotary selector, collection weighing platform, and broad hinged metal service cover. Its worn support catch and pending verification task are author-facing facts; ordinary inspection does not automatically reveal them.
+- `wet_lab_calibration_station` — tools and storage including a **2 kg squat cylindrical stainless-steel reference mass with a defined circular rim**, used to check the sampling station's weighing platform. Do not label it a weapon in ordinary player-facing descriptions.
+- `wet_lab_sample_bench` — containers, sample rack, and controlled treated/untreated experimental tanks.
+- `wet_lab_treatment_unit` — a small flow-through dosing-and-mixing unit using prepared sodium-hydroxide solution; distinct from the sampling station and its cover. Its research controls are not freely operable by the player. No additional explorable room is introduced.
 - `wet_lab_workstation` — local equipment/status display.
 - `wet_lab_storage_cabinet` — supplies and protective equipment.
 - `wet_lab_door_main` and `wet_lab_door_internal` — two possible access routes.
@@ -464,13 +465,19 @@ object_id: engineering_maintenance_terminal
 - Distinct spaces: pump hum in wet lab, keyboard/fan noise in dry lab, tools in workshop, radio bursts on bridge.
 - Character voices should remain audible; ambient audio should support tension rather than drown out dialogue.
 
+**Fixed 23:10 sound event:** Both lab doors are closed. The resumed weekly verification task causes pump vibration; the worn support catch slips and the service cover drops with a brief metallic clunk. Tight door closure and ordinary ship noise prevent anyone elsewhere from hearing it. This is not perfect soundproofing: final positions, distances, microphones, and earlier argument/strike audibility must be checked. The controller has no cover-position sensor and generates no alert for the drop; its log records the resumed cycle, not the unsensed mechanical impact. The body is outside the cover's sweep and is not struck by the later closure.
+
 ### 7.3 Weather, sea, and visibility
 
 The storm should worsen the feeling of isolation and plausibly delay assistance, but weather must follow a **fixed state progression**, not change with each generated description.
 
-- **Opening:** Unsettled conditions; routine indoor operations still possible.
-- **After the death:** Stronger wind and rougher sea; outside deck may be unsafe.
-- **Later investigation:** Conditions remain severe or gradually stabilize as decided by the narrative team (**TBD**).
+- **Opening and murder night:** Conditions deteriorate into a heavy gale with rough seas. Essential indoor activity remains possible; exterior research work is suspended.
+- **Discovery at 07:00:** Heavy weather persists. The latest received offshore marine forecast predicts no meaningful easing for **at least another 36 hours**, through **19:00 the following day**. This is a forecast-based minimum outlook, not a promise that assistance arrives then.
+- **Initial investigation:** Keep the weather state severe throughout that 36-hour period; do not introduce a convenient calm interval. After that period, any improvement or arrival of investigators belongs to the ending design.
+
+**Forecast source:** Sarah receives marine weather forecasts/outlooks through the functioning communications system and reads them on `bridge_weather_display`. The ship's radar supports immediate navigation/observations; it does not itself predict 36 hours of storm conditions.
+
+**Isolation and operation:** In this fictional incident, offshore distance and heavy weather prevent a safe boarding/transfer window for investigators, and Sarah cannot promise a prompt safe return to port. Shore authorities remain reachable for reporting and coordination. This is a delay in physical attendance, not a universal claim that emergency rescue is impossible in every storm. The vessel remains operational at reduced speed as defined in §3.1.
 
 An NPC cannot claim perfect calm seas while the game's active weather state is severe. Storm effects also cannot erase important records unless the Story Bible and Evidence Bible specifically establish that event.
 
@@ -483,7 +490,7 @@ An NPC cannot claim perfect calm seas while the game's active weather state is s
 
 ### 7.5 Research operations
 
-The actual carbon-removal chemistry and full ship-operating procedures are intentionally **TBD**. Until approved, visual artists and LLM prompts should describe research equipment at a grounded, nontechnical level rather than inventing scientific breakthroughs, dangerous processes, or new experiments that alter the plot.
+The basic research process is fixed in Story §2.2: controlled sodium-hydroxide addition to seawater, untreated comparison samples, and tests of chemical stability and particle formation. Full ship-operating procedures remain **TBD**. The sampling/filtration station, mass-based sample check, project-required weekly verification, pending-task retry at 23:10 after Daniel restores automatic mode, and worn cover support are fixed in Story §5.2; the murder day is not the normal weekly test day. Detailed values and artifact wording remain open. Visual artists and LLM prompts must follow the established process rather than invent breakthroughs or experiments. Only Maya can explain the full science after Elena's death; generic room text and other NPCs provide plain-language observations or role-specific explanations, not omniscient research lectures.
 
 ---
 
@@ -504,6 +511,9 @@ These are **defaults for encounter design**, not alibis and not guaranteed posit
 | Elena Fischer | `dry_lab`, `wet_lab` before death | Opening warning occurs in dry lab; murder occurs in wet lab |
 
 ### 8.2 Movement and knowledge boundaries
+
+**Navigation/weather knowledge boundary:** Only Sarah initially knows the detailed route, coordinates, operating/navigation status, received forecast, and 36-hour outlook. These author-facing world facts are not shared NPC knowledge. Other characters may describe directly observable rough seas, wind, rain, ship motion, or communications they personally experienced; when asked for detailed position, forecast duration, or expected assistance, they refer the player to the captain. They may repeat a specific detail only after explicitly receiving it in play, attributing it to Sarah or the actual source. Being aboard or viewing generic room scenery does not automatically grant access to bridge information.
+
 
 - A character does not automatically know what happened in another room.
 - Hearing a noise, seeing someone in a corridor, and observing an event directly are **different evidence types**.
@@ -558,6 +568,7 @@ locations:
       - wet_lab_sampling_apparatus
       - wet_lab_calibration_station
       - wet_lab_sample_bench
+      - wet_lab_treatment_unit
       - wet_lab_workstation
       - wet_lab_storage_cabinet
 
@@ -618,17 +629,19 @@ For each exploration request, give the model only:
 
 ## 11. Open Decisions Before Production
 
+**Deferred by current scope:** NPC locations, schedules, alibis, watch assignments, and their noise/recording checks remain open for a later stage. Confirming the room graph and simple navigation/weather setup does not assign any NPC to a room.
+
 | Question | Why it matters | Proposed owner |
 |---|---|---|
-| Final top-down deck plan and walking distances | Ensures consistent navigation and possible alibi timing | World / level design |
+| Final drawing, dimensions, and walking distances | Connections are confirmed in §2.3; geometry can be refined later when alibis are addressed. | World / level design |
 | Internal wet-to-dry lab door: lock and access-log behavior | Could change Maya's route and the value of surveillance footage | Narrative + world + evidence |
 | Exact cameras, recording coverage, and blind spots | Prevents impossible video evidence | Evidence + world |
 | Which cabins are individually explorable | Controls development scope and search permissions | Gameplay + evidence |
-| Detailed wet-lab apparatus and calibration-object visuals | Makes the crime scene understandable without revealing the solution | Narrative + visual design |
+| Detailed apparatus/weapon visuals and surrounding scene geometry | Hardware, cover failure, and 2 kg reference mass are fixed; drawings must support reach/contact comparison and evaluation of a secondary fall. | Narrative + visual design + evidence |
+| Alibis, door closure, and sound propagation | Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
 | Who discovers the body, and from which route | Affects first scene, NPC movements, and scene preservation | Story team |
 | Time-based NPC schedule after the murder | Prevents people appearing in impossible places | Character + gameplay |
 | What authorizes wet-lab and private-cabin searches | Keeps player's auditor role believable | Story + gameplay |
-| Final storm timeline and ship operating status | Grounds isolation, visual effects, and physical safety constraints | Story + world |
 | Credible operations of a vessel with only eight people | Small-cast premise needs a consistent degree of automation and watchkeeping | Story + world |
 | Precise room/object artwork and asset style | Keeps generated assets visually consistent | Art + world |
 
