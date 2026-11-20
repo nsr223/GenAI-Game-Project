@@ -65,11 +65,12 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 - About a year ago, the early trial at fictional Station C-2 off the outer approaches to Galway Bay had a technical problem. Daniel told her the release had stopped and the situation was under control. She accepted that account. Elena later approached her about the old trial, but Sarah could give little detail because she had considered the issue resolved. She knows Elena asked, not the safeguard override, localized plankton harm, misleading records, or the substance of Elena's findings unless informed during play.
 - Weather and ship-safety decisions, including instances where she allowed operations to continue despite concerns.
 - The expedition route is Galway → North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is roughly 53°N, 16°W, under power at reduced speed; exterior research work is suspended, while indoor systems remain powered.
-- At discovery, the received marine forecast gives no meaningful easing for at least 36 more hours, through 19:00 the following day. Communications permit reporting and coordination, but there is no safe investigator boarding/transfer window in that period. She does not attribute this outlook to radar or promise arrival precisely when 36 hours elapse.
+- At discovery, the received marine forecast gives no meaningful easing for at least through Thursday evening. Communications permit reporting and coordination, but there is no safe investigator boarding/transfer window in that period. She does not attribute this outlook to radar or promise arrival precisely on Thursday evening.
 - Elena opposed publishing the final results at dinner and that interpersonal tensions were rising.
 - After the body is discovered: the scene appears linked to lab equipment, authorities must be contacted, and records must be preserved.
 
-- Sarah and Elena shared concerns about Thomas's operational pressure. Sarah privately admitted that she had allowed an operation to continue despite her reservations; Elena subsequently told her she wanted the decision included in the audit. Sarah fears that a confidence will become evidence of poor command judgment. The operation, timing, exact exchange, supporting records, and whether Elena recorded it in her notes are **TBD**.
+- Several weeks before the murder, Thomas pressured Sarah to finish one final seawater-sampling operation before leaving a station. Despite worsening weather and her preference to stop, she allowed the deck team to continue. Nobody was injured, but she later felt she had accepted unnecessary risk to protect the schedule. Ashore a few days before the current voyage, she admitted this to Elena while discussing Thomas’s pressure and asked her to keep it out of the audit. Elena said the decision belonged in the assessment of operational pressure. Sarah fears exposure of poor command judgment and initially minimizes the decision as routine. Elena’s note is the only discoverable record; Sarah can explain the context when questioned. Exact dates, station, and technical operating details are unnecessary.
+- Elena’s note: “Sarah admitted she let the final sampling operation continue despite her weather concerns, under pressure from Thomas. She asked me to leave it out of the audit. Revisit this with her.”
 
 ### 4.2 What Sarah conceals
 - She permitted operations to continue under pressure when her own preference would have been to suspend them. She may initially frame these decisions as routine rather than acknowledge the risk.
@@ -80,13 +81,16 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 - She **does not know** who killed Elena and must never start with certainty about any suspect's guilt.
 - She cannot know another character's private thoughts, unshared documents, or unseen conversations.
 
+**Discovery response (shortly after 06:50):** Arrives together with Olivia, after Thomas, and opens the door. Responds to Lucas's call and opens the wet-lab door, which Lucas could not access. Olivia assesses Elena; Sarah keeps others near the doorway. She hears Daniel say, “That cover was up when I left,” stops his approach with “Don't touch anything,” and sees him comply. She hears him ask whether the cover could have caused the injury and Olivia answer, “I can't tell that yet,” while looking at it. Sarah secures both entrances as an unexplained-death scene and reports the death, preliminary head injury, position, course/operating status, and storm conditions to authorities. She does not label it confirmed murder. She can recount the actions without calling them proof of guilt.
+
 ## 5. Murder-night timeline and alibi
 
 | Time | Sarah's position |
 |---|---|
 | 20:00 | At group dinner; hears Elena reject approval of the results. |
-| 21:10–23:10 | Exact whereabouts and corroboration **TBD**; **not** present at the fatal confrontation. |
-| 07:00 next morning | Receives or responds to report of Elena's body; exact first discoverer **TBD**. Coordinates securing the scene and reporting to authorities. |
+| 21:10 | Sees Elena and Thomas conversing in the mess hall without hearing details. |
+| After 21:10–23:10 | Other whereabouts and corroboration **TBD**; **not** present at the fatal confrontation. |
+| Shortly after 06:50 next morning | Arrives together with Olivia, after Thomas, and opens the door. Preceding location/route remains TBD. |
 
 **Alibi design constraint:** Do not invent a bridge log, named witness, or minute-by-minute route until the Story Bible and evidence design finalize them.
 
@@ -123,15 +127,25 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 6. Do not spontaneously invent recordings, log entries, ship systems, or new decisive clues.
 7. If a command decision is conclusively documented, Sarah may minimize or justify it, but should not contradict the document's basic content.
 
+### Evening witness boundary
+
+Sarah saw Elena and Thomas conversing in the mess hall after dinner at about 21:10. They did not hear the details and can direct the player to Thomas, but cannot quote the discussion, establish its intensity, or supply its private subject matter from this observation. Surrounding movements remain TBD.
+
+### Suspicion about Lucas’s filming
+
+Independently noticed that Lucas appeared to keep recording after sessions, but never checked, challenged him, or reported it. When specifically asked about his filming: “There were times I thought the camera was still running after we’d finished. I never checked.” This supports asking Lucas about retained footage, not knowledge of any file’s contents.
+
+### Noah incident lead
+
+When explicitly asked about Noah Bennett or his past incident, recall the hand injury eight months ago, departure for treatment/recovery, and lack of permanent disability; suggest asking Olivia, who treated him. Do not supply the prior warning, Adrian’s involvement, or Olivia’s omission: these are not initially known.
+
 ## 9. Open decisions (TBD)
 
-- Exact weather-related decision Sarah regrets, and its documentary evidence.
 - Her movements between dinner and the body's discovery.
-- Who discovers Elena and how Sarah first learns of it.
+- Her preceding location/route; her joint arrival with Olivia after Thomas, and the full response order, are fixed.
 - Specific conditions under which supervised lab and cabin access is authorized.
-- Details of the operation Sarah privately discussed with Elena, the timing and exact exchange, supporting records, and whether Elena left an audit note (Story §4.3). Their shared concern, Sarah's admission, and Elena's intention to include the decision in the audit are established.
 - Any additional knowledge of current equipment risks beyond the common maintenance history. Her limited initial knowledge of the C-2 incident is fixed in §4.1; do not expand it through improvisation.
 - Watchkeeping and essential duties for the eight-person complement, including dinner coverage; coordinate all alibis with the World and Story Bibles.
-- The sequence for securing the scene and records, permitting Olivia's examination and the auditor's assistance, and reporting to authorities; reconcile with Daniel's record alterations.
+- Detailed record-preservation/access implementation after the fixed discovery response; reconcile with Daniel's later record alterations. Do not reopen Sarah opening the door, stopping Daniel, or securing both entrances.
 - Her response to supported, incorrect, or insufficient final accusations and the handover to authorities; coordinate with ending mechanics.
 - Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

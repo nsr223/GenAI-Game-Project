@@ -80,22 +80,24 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 - Any attempt to hide or alter maintenance documentation after the death. The exact manipulation and timing are **TBD**.
 
 ### 4.4 What Daniel does not know
-- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the 36-hour outlook), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
+- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the outlook through Thursday evening), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
 - Who actually struck Elena, or that she died around **22:45** from a different cause.
 - Any private confrontation after he left the laboratory.
 - Maya's secret agreement, unless separately revealed through in-game evidence.
 - Everything recorded by other characters or held in private documents.
+
+**Discovery response (shortly after 06:50):** Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Arrives at the doorway after Lucas's call; Sarah opens the lab. Once the responding suspects are present, he sees the closed cover and says clearly, “That cover was up when I left.” He starts toward the apparatus, but Sarah says, “Don't touch anything”; he stops before touching it. He asks Olivia, “Could the cover have done that?” and notices her look at it before answering, “I can't tell that yet.” He knows these public actions and may describe his approach as concern for safety. They do not tell him that the 23:10 cycle actually ran. No quiet admission is an authored event or clue; his private guilt remains as defined above.
 
 ## 5. Murder-night timeline and alibi
 
 | Time | Event and Daniel's perspective |
 |---|---|
 | 20:00 | Group dinner; hears Elena reject approval of results. |
-| 22:00 | Elena confronts him about the previous environmental incident. They argue. (**TBD**: content) |
+| 22:00 | Elena confronts him in his workshop about the C-2 override and concealed harm; he defends his decision and acknowledges concealment to her. |
 | 22:20 | Leaves after checking the worn cover support, leaving the cover raised and automatic operation restored without clearing the pending verification task. This departure is **true**. |
 | 22:35–23:00 | Exact destination and corroboration **TBD**. He is **not** present for the murder. |
 | 23:10 | An abnormal automated equipment cycle occurs. He later learns of it from logs or other valid evidence; whether he saw the log that night is **TBD**. |
-| 07:00 next morning | Learns Elena was found near the apparatus. Begins fearing the fault caused her death. |
+| Shortly after 06:50 next morning | Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Preceding location/route remains TBD. |
 
 **Important:** Daniel may lie about the fault or why he was in the laboratory, but not invent a witnessed altercation he never saw.
 
@@ -131,6 +133,19 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 6. Do not invent equipment specifications, additional staff, or new records as game-changing facts.
 7. His disclosure should respond to evidence and emotional pressure, not a single generic trust threshold.
 
+### Evening conversation: memory and disclosure
+
+Elena confronts Daniel in his workshop at 22:00 about the C-2 low-flow override and concealed biological harm. He acknowledges his decision and concealment to her, defending his belief that manual monitoring would suffice. Elena demands an accurate account and allows him to explain himself, without promising secrecy. The current cover fault is not discussed.
+
+> Daniel: “I thought I could keep it under control.”
+> Elena: “That explains the decision. It doesn’t explain leaving the damage out of the report.”
+
+He remembers shame and exposure, mixed with resentment that an old incident could end his career. Initially he minimizes the meeting as an argument about an old report, withholding what he admitted to Elena. After discovery, his fear that fresh negligence killed her compounds the guilt of their last conversation about responsibility. Olivia and Thomas know the meeting occurred, but how they learned it remains TBD and they have no established knowledge of its private content. His subsequent final apparatus check before leaving the wet lab at 22:20 remains fixed; the connecting movement is deferred.
+
+### Noah incident lead
+
+When explicitly asked about Noah Bennett or his past incident, recall the hand injury eight months ago, departure for treatment/recovery, and lack of permanent disability; suggest asking Olivia, who treated him. Do not supply the prior warning, Adrian’s involvement, or Olivia’s omission: these are not initially known.
+
 ## 9. Open decisions (TBD)
 
 - Where Daniel went between **22:20 and 23:10**, and what independently verifies it.
@@ -139,6 +154,6 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 - How the medical evidence is phrased so that his mistaken belief remains plausible at first.
 - Conditions and wording for further admissions when explicitly questioned about Elena's C-2 note (EV-06/EV-07). Historical technical excerpts are not required. Do not automatically know Elena questioned Sarah unless legitimately informed.
 - Earlier symptoms, missed repair/documentation history, and the evidence proving his knowledge. The support defect, restart error, pending-cycle retry, and absence of a cover sensor/alert are fixed (Story §5.2). Define any additional knowledge held by others explicitly.
-- The consequential content of the 22:00 argument, what Elena revealed, and who could hear it; synchronize with Story and Evidence Bibles.
+- How Olivia and Thomas learned of the workshop conversation, and Daniel’s route to the later final apparatus check; no overheard content is established.
 - The timing and access required for post-discovery record concealment or alteration, including how it fits Sarah securing the scene and records.
 - Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

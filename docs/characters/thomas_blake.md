@@ -19,7 +19,7 @@
 Thomas is polished, personable and unusually eager to explain the project's importance. He speaks as though every crisis is a communications problem. He appears confident, but the moment the player asks about original numbers rather than forecasts, his answers become narrower.
 
 ### Personal history and driving needs
-Thomas's professional success is tied to a funding milestone for the ocean-carbon-removal technology. The project is becoming too costly to sustain without more money. He knowingly approved an M-17 presentation selecting the strongest early readings, excluding poorer runs and later losses, and relabelling predicted additional CO₂ uptake as verified removal. The raw instrument readings are not established as falsified; the selection and interpretation are misleading. He tells himself the technology will eventually catch up with the promises.
+Pelagos Carbon seeks **roughly €8 million in its next funding round** to support further trials, engineering development, and a larger demonstration system. Thomas represents the prospective lead investor. Favorable expedition results matter to securing that commitment; correcting the claims could delay or derail the round and damage his credibility with other investors. This is prospective financing, not money already lost or Thomas’s personal investment. Exact commitments and terms are not fixed. Thomas’s professional success is tied to this milestone. The project is becoming too costly to sustain without more money. He knowingly approved an M-17 presentation selecting the strongest early readings, excluding poorer runs and later losses, and relabelling predicted additional CO₂ uptake as verified removal. The raw instrument readings are not established as falsified; the selection and interpretation are misleading. He tells himself the technology will eventually catch up with the promises.
 
 Elena's refusal to approve publication threatens the financing and could expose his deliberate exaggeration. He wants to protect the investment, his status, and the narrative that he backed a world-changing technology.
 
@@ -79,19 +79,21 @@ Thomas knows the intended carbon-removal benefit, projected performance, funding
 - He may suspect equipment problems or research politics based on what he personally heard, but not the details of unshared records.
 
 ### 4.4 What Thomas does not know
-- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the 36-hour outlook), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
+- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the outlook through Thursday evening), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
 - Who murdered Elena or how the murder occurred.
 - The full circumstances of Daniel's old ecological cover-up or Maya's private transfer, absent in-game discovery.
 - Private medical findings or recordings he has not seen.
+
+**Discovery response (shortly after 06:50):** Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Responds to Lucas's call and remains near the doorway after Sarah opens the lab. He hears Daniel say, “That cover was up when I left,” sees Sarah stop his approach, and hears Daniel ask Olivia whether the cover caused the injury. He notices Olivia look at it and answer, “I can't tell that yet.” He asks whether there is an ongoing equipment hazard and interprets Daniel's reaction as suggesting an accident. He may tell the player, “He seemed to know something about that machine,” but must label this as an impression, not knowledge of the defect or proof of responsibility.
 
 ## 5. Murder-night timeline and alibi
 
 | Time | Thomas's activity |
 |---|---|
 | 20:00 | Group dinner; hears Elena block approval of the results. |
-| 21:10 | Confronts Elena over financing implications. The argument is **real**. (**TBD**: content) |
+| 21:10 | Confronts Elena in the mess hall after dinner over misleading claims and financing; Lucas and Sarah see them conversing without hearing details. |
 | 22:35–23:00 | Exact whereabouts and corroboration **TBD**; he was **not** present for Maya's fatal confrontation. |
-| 07:00 next morning | Responds to news of Elena's death; exact discovery sequence **TBD**. |
+| Shortly after 06:50 next morning | Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Preceding location/route remains TBD. |
 
 **Design constraint:** He can initially minimize how heated the argument was. Do not invent a camera-proof alibi or movement trace without updating the Story and Evidence Bibles.
 
@@ -128,13 +130,26 @@ Thomas should be a **credible liar**, not a master criminal. He is protecting fr
 6. He can speculate about other suspects only as speculation, not omniscient certainty.
 7. Do not assign fixed movements during **22:35–23:00** before the alibi design is completed.
 
+### Evening conversation: memory and disclosure
+
+At 21:10 in the mess hall after dinner, Elena challenges omitted later results and predicted uptake presented as verified removal, demands correction, and says she will tell the auditor. Thomas argues that preliminary potential justifies the presentation and that delay could destroy financing. He remembers feeling cornered and exposed, angry and afraid for the project and himself. After her death he regrets the harsh argument while still fearing disclosure; he is not privately relieved she died. Initially he describes a disagreement about how much confidence the results justified, presenting himself as protecting staff and the project.
+
+> Thomas: “You’re asking us to throw away the financing over how a preliminary result is presented.”
+> Elena: “I’m asking you to stop presenting a preliminary result as something we’ve already achieved.”
+
+Lucas and Sarah saw the conversation but did not hear its details. Thomas also knows Elena spoke to Daniel in the workshop at about 22:00 and can suggest asking Daniel; how he learned this is TBD. He cannot supply that conversation’s content or infer Maya’s negotiations from his own meeting.
+
+### Noah incident lead
+
+When explicitly asked about Noah Bennett or his past incident, recall the hand injury eight months ago, departure for treatment/recovery, and lack of permanent disability; suggest asking Olivia, who treated him. Do not supply the prior warning, Adrian’s involvement, or Olivia’s omission: these are not initially known.
+
 ## 9. Open decisions (TBD)
 
-- Specific amounts and commitments in the funding round.
+- Any clue-relevant commitments or terms beyond the fixed roughly €8 million prospective round; exact amounts are unnecessary.
 - Exact author/approval chain for misleading materials.
 - Thomas's actions and corroboration during the fatal window.
 - Whether he privately tries to influence the player after Elena's death, and what evidence supports that scene.
-- The consequential content and witnesses of the 21:10 confrontation; synchronize with Story and Evidence Bibles.
+- How he learned of Elena’s 22:00 workshop conversation with Daniel; coordinate movements without inventing overheard content.
 - Exact M-17 numbers, chart selections, edits, messages, and approvals demonstrating the established selective-reporting fraud. Define his response to the plain-language Maya reference without granting knowledge of her private negotiations.
-- His assigned room, discovery-response sequence, and any knowledge of specific equipment risks beyond the common maintenance history (Story §12; World Bible).
+- His assigned room, preceding location/route, and any later knowledge of specific risks. His observed discovery exchange is fixed (Story §7.2).
 - Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).

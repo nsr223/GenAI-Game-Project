@@ -59,7 +59,7 @@ These facts are **FIXED** and must remain consistent with the Story Bible:
 | Daniel | He helped conceal damage from an earlier deployment, knew of an unresolved apparatus fault, and left the wet lab at **22:20**. | His misconduct is provable; his belief that he caused Elena's death is false. |
 | Maya | She met Elena in the wet lab at **22:35**, killed her at approximately **22:45** using a heavy calibration object, and staged an accident before leaving by about **23:00**. | Clues must separately establish transfer motive, presence, and physical method. |
 | Apparatus | An independent abnormal automated cycle occurred at **23:10**, after Elena was murdered. | The fault log is genuine but initially ambiguous. |
-| Discovery | The body is discovered at **07:00** the next morning. | Exact discoverer and first response sequence are **TBD**. |
+| Discovery | Lucas sees Elena through the wet-lab corridor-door panel at **06:50** and calls for help without opening the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel.; Sarah opens the lab and secures an unexplained-death scene after the initial response. | Witness content is fixed in Story §7.2 and EV-26; preceding locations/routes remain TBD; the arrival order and relative intervals are fixed. The player is not a discovery witness. |
 | Cast | One player, Elena (victim), and **six living suspects** comprise the depicted shipboard cast. | No hidden eyewitness, surprise seventh suspect, or improvised crew member. |
 
 **Important forensic qualification:** The Story Bible fixes the approximate death time for the writers. **A ship's preliminary medical assessment must not claim it can pinpoint a time of death to the minute.** The player should eventually exclude the *specific machinery mechanism* through a medically and technically supported reconstruction, then use other traces and testimony to reconstruct the broader time window. The exact physical details of that reconstruction are **TBD**.
@@ -105,9 +105,9 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 ### 4.1 Opening and M-17 evidence
 
 #### `EV-00` — Elena's warning (FIXED)
-- **Type / source:** Conversation with Elena; recorded as a player-journal lead.
+- **Type / source:** The player's remembered conversation with Elena the previous evening; recorded as an initial journal lead.
 - **Location / time:** `dry_lab`, **18:10**, pre-murder.
-- **Discovery:** Opening interaction; cannot be missed in the main scenario.
+- **Discovery:** Remembered pre-game conversation, supplied as an initial M-17 lead when player control begins after the discovery response. No playable pre-murder scene or discovery-response knowledge is implied.
 - **Player receives:** Elena asks for a comparison of original M-17 readings with investor-facing results and promises an explanation tomorrow.
 - **Supports:** `elena_flagged_m17`; directs player to the experiment index and raw data.
 - **Does not prove:** Fraud, Maya's transfer, or murder.
@@ -153,6 +153,14 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 - **Player receives:** Thomas demanded favorable reporting and feared delay to the financing round.
 - **Supports:** `thomas_financial_pressure_established`.
 - **Does not prove:** His whereabouts at 22:45 or participation in the murder.
+
+### Fixed evening conversation leads
+
+At 21:10, Lucas and Sarah saw Elena and Thomas conversing in the mess hall after dinner. Either can point the player to Thomas; neither heard the content or can independently establish its intensity. Thomas’s account concerns disputed reporting, correction, and financing (Story §6). No recording is established.
+
+At 22:00, Elena confronted Daniel in his workshop about the C-2 override and omitted harm. Olivia and Thomas know the meeting happened and can point the player to Daniel; **how they learned this remains TBD** for movement design. They cannot supply its private content. Daniel initially minimizes an argument about an old report; his fuller admissions remain subject to authored disclosure conditions. Preserve speaker attribution: knowing a conversation occurred does not prove the allegations discussed.
+
+These optional testimony leads do not require finding Elena’s notes first and do not gate the medical reconstruction. Elena’s rationale for postponement and Maya’s private reasoning are fixed in Story §6; neither becomes player knowledge without a supported source.
 
 ### 4.2 Environmental cover-up and equipment evidence
 
@@ -262,7 +270,7 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 - **Supports:** `elena_knew_of_maya_negotiations`, `maya_motive_established` when combined with `EV-16`.
 - **Does not prove:** Who physically attacked Elena.
 - **Established supporting entry:** The C-2 note in `EV-06` is part of this note collection and leads to `EV-07` testimony, without requiring the historical technical records.
-- **TBD supporting entries:** Sarah's admission/audit concern and Lucas's recording incident may appear as separate entries here, linked to `EV-21` and `EV-22`. Exact content and independent corroboration remain open; notes are not automatic proof of every interpretation.
+- **Fixed supporting entries:** Sarah’s admission/request (`EV-21`), Lucas’s repeated recording violations (`EV-22`), and the brief Noah incident lead (`EV-23`) share these notes. Text is fixed below; storage/access remains open. Notes do not automatically prove every interpretation.
 
 #### `EV-18` — Partial corridor recording / media metadata (FIXED possibility; PROPOSED clip)
 - **Type / source:** Lucas's documented recording and its timestamp metadata.
@@ -291,46 +299,51 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 - **Supports:** Context for Thomas's financial motive and general pressure.
 - **Does not prove:** The murderer's identity or the timing of the fatal confrontation.
 
-#### `EV-21` — Sarah's operational decision (PROPOSED, optional)
-- **Type / source:** Bridge/weather log or Sarah's admission.
-- **Location / object:** `bridge` / `bridge_log_station`.
-- **Player receives:** Sarah continued operations under commercial pressure despite reservations.
-- **Supports:** Her defensiveness and the ship's strained atmosphere.
-- **TBD link to `EV-17`:** Prefer an entry in Elena's notes recording Sarah's private admission and Elena's intention to include the operational decision in the audit. Exact wording, detail, and corroborating records remain undecided; the underlying exchange is established in Story §4.3.
-- **Does not prove:** Any causal link to Elena's murder.
+#### `EV-21` — Sarah’s operational decision (FIXED, optional)
+- **Source:** Elena’s note, stored with `EV-17`; shared storage/access remains TBD. No additional bridge/weather record is discoverable for this thread.
+- **Text:** “Sarah admitted she let the final sampling operation continue despite her weather concerns, under pressure from Thomas. She asked me to leave it out of the audit. Revisit this with her.”
+- **Follow-up:** Sarah explains the final sampling operation several weeks ago, worsening weather, commercial pressure, and absence of injury. Her private admission/request occurred ashore a few days before the voyage.
+- **Meaning:** A lead to her judgment and defensiveness, not evidence of murder.
 
-#### `EV-22` — Lucas's unauthorized recording practice (PROPOSED, optional)
-- **Type / source:** Shot list, file metadata, or a candid conversation.
-- **Location / object:** `editing_room` / `editing_shot_list`.
-- **Player receives:** Lucas recorded more than he openly disclosed, explaining why he initially withholds material.
-- **Supports:** His conflicting incentives and access to some independent observations.
-- **TBD link to `EV-17`:** Prefer an entry in Elena's notes about noticing Lucas recording beyond the agreed session and challenging him. Exact session, wording, detail, any threat to report him, and corroboration remain undecided. Do not assume this is the recording used for `EV-18`.
-- **Does not prove:** That all rooms were monitored or that his recordings are complete.
+#### `EV-22` — Lucas’s unauthorized recording practice (FIXED background and note; optional)
+- **Source:** Elena’s note with `EV-17`; shared storage/access remains TBD.
+- **Text:** “Lucas has continued recording beyond agreed sessions more than once. I have raised this with him repeatedly. Ask what he has retained and arrange a review of the footage.”
+- **Follow-up:** Repeated challenges over recent weeks are fixed. Maya and Sarah can report their own suspicions when asked about filming, but never checked or challenged it. They cannot identify file contents from these observations.
+- **Meaning:** Grounds asking Lucas about retained material and arranging review; no automatic access to all files or proof of a specific recording. Review permissions, retention, storage, and murder-night footage remain TBD. This incident is not automatically `EV-18`.
 
-### 4.6 Noah Bennett's injury — optional supporting thread
+### 4.6 Noah Bennett’s injury — optional supporting thread
 
-**Fixed history and boundaries:** Eight months before the murder, Noah Bennett sustained a hand injury and left for treatment and recovery without permanent disability. He is a former crew member, not aboard or an additional murder-night witness. Elena, Olivia, Maya, Daniel, Thomas, and Sarah know the basic history; Lucas joined later and initially knows nothing, as does the player. Among the established cast, only Elena and Olivia initially know that Olivia recorded an ordinary handling accident while omitting a prior report of an unsafe securing mechanism. Exact equipment, injury, reporting chain, and how Elena learned the truth remain TBD (Story §4.4).
+Eight months before the murder, former sampling assistant **Noah Bennett** suffered a deep cut and a fracture to one finger when a heavy equipment-case lid slipped while he handled sampling supplies. He left for treatment and recovery, without permanent disability. The lid’s securing catch had previously been flagged as unreliable. Former equipment coordinator **Adrian Cole** had postponed replacement, expecting careful handling to suffice until a replacement arrived. Olivia described an ordinary handling accident and omitted the prior warning to protect Adrian from what she considered unfair disciplinary blame. She now acknowledges that deciding which circumstances mattered was not hers to do. Appropriate medical care is not in question. A warning does not establish that the injury was certainly preventable, but the story does not claim respecting it would have made no difference. Adrian and Noah are historical characters, not aboard or additional investigation witnesses. This incident is separate from C-2 and the current sampling-cover failure.
 
-#### `EV-23` — Lead about Noah's injury (PROPOSED, optional)
-- **Type / source:** A possible note by Elena, or an explicitly requested account from a character who knows the incident; exact route TBD.
-- **Location / object:** TBD; a note may share `EV-17`'s eventual authorized storage. No additional object or location is established here.
-- **Player receives:** The basic injury, departure, and recovery history; any note's exact wording and separation of facts from suspicions remain TBD.
-- **Supports:** A specific question about Noah and a lead to authorized incident-record review.
-- **Does not prove:** Olivia's omission, negligence in treatment, or any connection to the murder.
+Elena, Olivia, Maya, Daniel, Thomas, and Sarah know the basic injury, departure, and recovery history. Lucas joined later and initially knows nothing, as does the player. Among the onboard cast, only Elena and Olivia initially know the omitted warning and Olivia’s reason. During the last week Elena raised the incident with Olivia, who acknowledged the omission without a major confrontation; Elena said the account should be corrected. Detailed historical reports are unavailable aboard and inaccessible to Olivia at present. She remembers the central omission and motive, not exact dates, wording, or the reporting chain; these peripheral details and Elena’s earlier research route need no additional evidence design.
 
-#### `EV-24` — Noah's misleading incident account (FIXED concept; PROPOSED artifact, optional)
-- **Type / source:** The account Olivia recorded as an ordinary handling accident.
-- **Location / object:** Proposed authorized review through `medical_bay` / `medical_records_terminal`; actual record type, storage, and access TBD.
-- **Player receives:** What the recorded account says; it does not mention the prior warning.
-- **Does not prove:** By itself that a warning existed or that the omission was deliberate; requires corroboration.
+#### `EV-23` — Elena’s Noah incident lead (FIXED, optional)
+- **Source:** Elena’s note, stored with `EV-17`; shared storage/access remains TBD.
+- **Exact text:** “Noah Bennett — follow up on the incident.”
+- **Meaning:** Names Noah and an incident only; no mention of Olivia, injury, warning, or allegation.
+- **Follow-up:** On explicit questioning, Sarah, Thomas, Daniel, or Maya recall the injury/departure/recovery and point to Olivia. Lucas initially knows nothing. Directly asking Olivia is also valid; no mandatory NPC sequence.
 
-#### `EV-25` — Corroboration of the prior safety warning (FIXED underlying fact; PROPOSED artifact, optional)
-- **Type / source:** Preserved warning or other independently supported account; exact evidence, author, recipient, date, provenance, storage, and access TBD.
-- **Player receives:** Evidence that the unsafe securing mechanism had been reported before Noah's injury.
-- **Supports:** Comparison with `EV-24` and a specific confrontation about Olivia's misleading account. Define what supports her knowledge of the warning and the conditions for her admission before implementation.
-- **Does not prove:** A connection to the ecological incident, the current sampling-apparatus fault, inadequate treatment, or Elena's murder. Do not assign knowledge of the warning to Sarah or Daniel by default.
+#### `EV-24` — Olivia’s account of Noah’s incident (FIXED testimony, optional)
+- **Source:** Olivia’s honest answer when asked about Noah or the incident; no document or proof threshold required.
+- **Player receives:** The case-lid injury, recovery, omitted prior warning, protection of Adrian Cole, and Elena’s discussion with her during the last week about correcting the account.
+- **Meaning:** Speaker-attributed admission of a reporting lapse, not independent documentary verification or evidence of murder. Detailed reports are unavailable aboard; she cannot recall their exact wording/dates but remembers the substantive facts.
 
-**Disclosure and access:** Characters do not volunteer this incident in greetings or general equipment/Elena discussion. Reading a clue alone does not trigger disclosure; the player must explicitly ask about Noah or the incident. Maya, Daniel, Thomas, and Sarah provide only the basic history unless they receive more evidence in play. Olivia's admission follows authored evidence-response conditions. Lucas must not claim prior knowledge or firsthand recollection. Private records require specific authorization; clue acquisition does not automatically brief every NPC.
+#### `EV-25` — Retired proposed warning artifact
+- The warning remains a fixed historical fact explained by Olivia in `EV-24`. No separate warning document is accessible or required. Retain this ID only to avoid reusing an old clue identifier; remove it from gameplay dependencies.
+
+**Disclosure:** Elena’s note reads only: **“Noah Bennett — follow up on the incident.”** It names neither Olivia nor the injury and makes no allegation. When explicitly asked about Noah or that incident, Maya, Daniel, Thomas, and Sarah recall the injury/departure/recovery and suggest asking Olivia. They do not know the hidden circumstances. Olivia explains the accident, omission, reason, and recent discussion with Elena honestly when asked, without a confrontation, proof threshold, or elaborate evasion. She does not volunteer it in greetings or unrelated discussion. Lucas cannot supply prior knowledge. Reading the note does not automatically trigger dialogue or brief the crew. The note shares Elena’s preserved notes; their storage/access remains TBD.
+
+### 4.7 Discovery testimony
+
+#### `EV-26` — Discovery and the cover exchange (FIXED events; presentation TBD)
+- **Type / source:** Speaker-attributed recollections of the 06:50 discovery and subsequent response in the fixed order of Story §7.2, not an invented recording. Thomas first, Olivia/Sarah together, Daniel about half a minute later, then Maya shortly afterward.
+- **Location / interaction:** Question relevant NPCs wherever legitimately present. Player control begins after the response; no opening replay or preloaded journal provides these details.
+- **Lucas:** Saw Elena through the panel, could not open the door, and called for help. He does not reliably register the subsequent exchange/actions and cannot corroborate them firsthand. His question is why Elena was there, not an assertion of when she died.
+- **Sarah, Olivia, Daniel, Maya, Thomas:** Hear “That cover was up when I left,” Sarah stopping Daniel before he touches the apparatus, “Could the cover have done that?”, and Olivia's “I can't tell that yet.” They know Olivia visibly considered the cover; this is not a diagnosis. These events occur after the witnesses have arrived.
+- **Interpretations:** Thomas sees possible equipment responsibility; Maya may use Daniel's visible concern as misdirection; Sarah reports actions without assigning guilt; Olivia explains her uncertainty only as needed. Do not merge these interpretations into objective facts.
+- **Supports:** A lead to ask why Daniel left the cover raised and whether the equipment could account for the injury; establishes the public statement and attempted approach, not the truth of every inference.
+- **Does not prove:** The specific fault, that Daniel knew the 23:10 cycle ran, cause/time of death, or murder. Quiet/unheard remarks do not exist as evidence.
+- **Presentation boundary:** A discovered body is not a confirmed murder scene. The player has no firsthand or preloaded knowledge of the response. Conversations supply the details, preserving speaker/source and Lucas's exception.
 
 **MVP guidance:** Do not assume every numbered entry needs a separate interface. Several can be presented on the same terminal, and some can be conversation-derived clues. The IDs represent **logical evidence**, not necessarily separate physical props.
 
@@ -389,7 +402,7 @@ The branches show intended leads, not a mandatory discovery order. `EV-11` can b
 | Maya has unauthorized-transfer motive | `EV-16` + `EV-17` | **Yes** |
 | Maya was present during the critical window | `EV-18` + persisted alibi `EV-19` (or a future equally strong authored alternative) | **Yes** |
 | Fatal blow / weapon correspondence | `EV-11` + `EV-13` + `EV-14` | **Yes; a separate reconstruction of staging actions is not required** |
-| Sarah's compromise, Lucas's privacy lapse, Daniel's full past cover-up, Olivia's misleading injury account | `EV-07`, `EV-21`–`EV-25` | **Optional depth** |
+| Sarah's compromise, Lucas's privacy lapse, Daniel's full past cover-up, Olivia's misleading injury account | `EV-07`, `EV-21`–`EV-24` | **Optional depth** |
 
 A future balancing pass may add **alternative routes** for a required fact, but each alternative must be explicitly authored and tested. Free-text NPC improvisation is not an alternative evidence source.
 
@@ -632,7 +645,7 @@ investigation_state:
 
 - Every `location_id` and `object_id` exists in the World Bible/data.
 - Every clue ID is unique and every link points to a defined ID.
-- Fixed timestamps match the Story Bible: **18:10, 21:10, 22:20, 22:35, ~22:45, 23:10, 07:00**.
+- Fixed timestamps match the Story Bible: **18:10, 21:10, 22:20, 22:35, ~22:45, 23:10, 06:50 discovery; fixed relative arrival order per Story §7.2**.
 - Protected facts cannot appear in early player-visible summaries, ambient descriptions, or default NPC responses.
 - `machinery_cause_excluded` requires the supported `EV-11` analysis, but remains reachable with either or both motive-confrontation flags false.
 - The final accusation is reachable from discoverable evidence without relying on chance model output.
@@ -661,7 +674,8 @@ investigation_state:
 - [ ] Daniel's fear is sincere; he does not know Maya's actions.
 - [ ] Thomas may deny or rationalize fraud but cannot alter document contents.
 - [ ] Maya can mislead and deflect, but cannot rewrite timestamped evidence.
-- [ ] Lucas cannot provide recordings from nonexistent cameras.
+- [ ] Lucas cannot provide recordings from nonexistent cameras or firsthand testimony about the cover exchange he did not register.
+- [ ] Sarah, Olivia, Daniel, Maya, and Thomas retain the fixed public exchange; none treats Olivia's interest in the cover as a causal finding.
 - [ ] Olivia never supplies an exact minute of death from a cursory exam.
 - [ ] NPCs do not spontaneously invent new ship personnel, witnesses, or murder weapons.
 - [ ] Noah's incident is discussed only on explicit questioning; Lucas has no initial knowledge and other suspects do not inherit Olivia's private knowledge.
@@ -689,12 +703,11 @@ investigation_state:
 | **Elena's preserved notes and how the player finds them** | Ensures the initial hint leads fairly to the transfer motive. | Story, World |
 | **Competitor agreement's storage and access permissions** | Prevents arbitrary search of Maya's private material. | Maya, World |
 | **Exact evidence for Thomas's approval of misleading claims** | Supports a strong motive without implying he killed Elena. | Thomas, Story |
-| **Who discovers Elena and how the scene is preserved** | Determines the first official report and initial observations. | Story, Sarah, Olivia |
-| **Elena's notes linking Sarah and Lucas to their secrets** | Prefer entries within `EV-17`, linked to `EV-21`/`EV-22`; decide wording, discovery, and corroboration without inventing incident details. | Story §4.3, Sarah, Lucas |
+| **Discovery implementation and witness presentation** | Lucas and the initial response are fixed (Story §7.2, EV-26). Arrival order and relative intervals are fixed. Define preceding locations/routes and any clue-relevant examination movements; preserve the shared exchange, Lucas's exception, and the player's lack of discovery knowledge. | Story, Character Bibles, World |
+| **Supporting Elena notes: shared storage/access** | Texts for Sarah, Lucas, and Noah are fixed in EV-21–EV-23; implement their access through EV-17 without adding historical document hunts. | Story, Characters, World |
 | **Check that the combined evidence distinguishes Maya from another attacker** | Test whether the final reconstruction rules out a plausible later attacker or alternative sequence through authored alibis, timing, and/or attack/staging traces. Motive, nearby presence, and a lie alone are insufficient; precise clues remain TBD. | Story, all Character Bibles, World, Evidence |
 | **All alibis and noise consistency** | Check positions at 23:10, both lab doors closed, unheard cover clunk, and no alert. Separately settle whether the earlier argument/strike could be heard or recorded. | All Character Bibles, Story, World |
 | **Readable M-17 values, periods, and artifact wording** | The treatment process, limitations, adaptive improvement, and fraud mechanism are fixed; choose illustrative measurements and clear charts without confusing potential uptake with verified removal. | Story, Maya, Thomas, World |
-| **Noah's incident evidence, potential Elena note, and disclosure thresholds** | Defines `EV-23`–`EV-25` without inventing warning recipients, shared secret knowledge, or a link to the murder. | Story §4.4, Olivia, other Character Bibles, World |
 | **Final accusation behavior and optional ending variants** | Controls whether a wrong guess ends the game or allows further investigation. | Story, game design |
 
 **Recommended order to resolve:** (1) precise alibis and recording, (2) physical/medical mechanism, (3) reconstruction evidence and access requirements, (4) clue placement and permission paths, (5) numeric data and presentation details. The basic science and misconduct mechanisms are established; do not reopen them as unspecified technology.
@@ -719,3 +732,11 @@ When evidence is added or modified, check four questions in the pull request:
 4. **Progression:** Does each conclusion have supporting evidence and analysis, without imposing the preferred dramatic order as a mandatory sequence?
 
 **Guiding principle:** *The Story Bible defines reality. The Character Bibles define perspectives. The World Bible defines what exists. The Evidence Bible defines what can be discovered and proven. The game engine controls when; the LLMs control how people respond.*
+
+### Fixed organization, financing, and calendar context
+
+**Calendar:** Mid-December, with no fixed year or exact calendar dates. The mission departed Galway on Sunday with the player aboard. Elena is murdered Tuesday evening; discovery is Wednesday at 06:50, with player control beginning after the initial response. Historical incidents retain their relative dates (about a year ago, eight months ago, and several weeks ago).
+
+Pelagos Carbon seeks **roughly €8 million in its next funding round** to support further trials, engineering development, and a larger demonstration system. Thomas represents the prospective lead investor. Favorable expedition results matter to securing that commitment; correcting the claims could delay or derail the round and damage his credibility with other investors. This is prospective financing, not money already lost or Thomas’s personal investment. Exact commitments and terms are not fixed.
+
+Maya’s negotiation counterpart in `EV-16` is **Nereid Technologies**, a competing marine carbon-removal company offering a lead research role and development autonomy. Negotiations and a draft are established, not a completed transfer. Keep nonessential dates approximate; preserve fixed clue-relevant event times. Only Sarah initially knows the forecast of severe conditions at least through Thursday evening; this is not a promised rescue time.

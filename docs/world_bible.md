@@ -14,9 +14,11 @@
 ### 1.1 Setting
 
 - **Primary location:** *RV Meridian*, a compact, privately operated oceanographic research vessel.
+- **Project company:** Pelagos Carbon.
+- **Calendar:** Mid-December, with no fixed year or exact calendar dates. The mission departed Galway on Sunday with the player aboard. Elena is murdered Tuesday evening; discovery is Wednesday at 06:50, with player control beginning after the initial response. Historical incidents retain their relative dates (about a year ago, eight months ago, and several weeks ago).
 - **Region / route:** Galway, Ireland → offshore North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is approximately **53°N, 16°W**, roughly **400 km west of the Irish coast**. This is an approximate narrative position, not an exact stationary waypoint; intermediate sampling stations need no fixed coordinates for the MVP.
 - **Mission:** Final-stage testing of an experimental ocean carbon-removal system.
-- **Time:** The playable story begins on the evening of Elena's warning and continues after her death the following morning. Exact calendar dates: **TBD**.
+- **Time:** Player control begins after the morning discovery response. Elena's previous-evening warning remains pre-game backstory; discovery details must be learned from witnesses. Exact calendar dates: **TBD**.
 - **People aboard:** Exactly **eight**: the player, Dr. Elena Fischer, and the six living suspects — Sarah Morgan, Daniel Reyes, Maya Chen, Thomas Blake, Olivia Hart, and Lucas Weber.
 - **Situation:** Bad weather makes a prompt return or safe transfer impractical; the captain remains in contact with authorities as conditions permit.
 - **Visual tone:** Functional, lived-in, modern research vessel; not a luxury yacht, warship, or futuristic spaceship.
@@ -113,6 +115,8 @@ The existing connections below are **confirmed and bidirectional**. Permissions 
 | `equipment_storage` | `lower_corridor`, `aft_work_deck` |
 | `aft_work_deck` | `equipment_storage` |
 
+**Door viewing panels:** Most communal and working rooms have a small glazed panel in the corridor door, including the wet and dry labs. The wet-lab panel is `wet_lab_viewing_panel`; the dry-lab panel is `dry_lab_viewing_panel`. The wet-lab panel allows Lucas to notice Elena on the floor beside the apparatus from the corridor; it does not reveal the full room, precise injury, or every object. Other panel sightlines must be checked before being used as evidence. Private cabins and confidential medical spaces are exceptions; do not grant public views of private records or examinations. Panels do not grant entry or make closed doors acoustically transparent.
+
 **Movement rule:** Nobody moves instantly between disconnected locations. Any route discussed by a character or represented in logs must be physically possible on this graph. A character can still lie about their route.
 
 ### 2.4 Traversal and pacing
@@ -170,8 +174,11 @@ For every room below, **initial access** means the baseline permission at the be
 - `wet_lab_workstation` — local equipment/status display.
 - `wet_lab_storage_cabinet` — supplies and protective equipment.
 - `wet_lab_door_main` and `wet_lab_door_internal` — two possible access routes.
+- `wet_lab_viewing_panel` — small glazed panel in the main corridor door; permits the established discovery view. Lucas lacks entry authorization and cannot open this door; Sarah opens it after responding to his call.
 
-**World constraints.** After Elena's body is discovered, Sarah secures **both entrances**: the main corridor door and the shared internal door from the dry lab (`lab_internal_door`). Both routes require the same wet-lab inspection authorization; ordinary dry-lab access cannot bypass the restriction. Scene security begins after discovery, not automatically at the hidden time of the murder. The player may later perform **supervised inspection**, but may not freely move the body, operate machinery, remove physical evidence, or contaminate the scene. Descriptions must reflect the current stage of scene preservation.
+**Discovery access:** At 06:50 Lucas sees Elena through the main-door panel but cannot open the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel. Sarah opens the door when she arrives with Olivia, who approaches Elena; the others remain near the doorway. The shared cover exchange occurs after Maya arrives. The player is not a discovery witness. Sarah stops Daniel before he touches the apparatus. This is an **unexplained-death scene**, not a confirmed murder finding (Story §7.2).
+
+**World constraints.** After the initial assessment, Sarah secures **both entrances**: the main corridor door and the shared internal door from the dry lab (`lab_internal_door`). Both routes require the same wet-lab inspection authorization; ordinary dry-lab access cannot bypass the restriction. Scene security begins after discovery, not automatically at the hidden time of the murder. The player may later perform **supervised inspection**, but may not freely move the body, operate machinery, remove physical evidence, or contaminate the scene. Descriptions must reflect the current stage of scene preservation.
 
 **Important separation:** This document establishes that a calibration station and sampling apparatus physically exist. The **Evidence Bible** must specify which specific item is evidentiary, what can be examined, and what it proves. Do not automatically tell the player that a calibration object was the murder weapon.
 
@@ -193,6 +200,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `dry_lab_shared_workstation` — general research workspace.
 - `dry_lab_document_shelf` — protocols and printed reference material.
 - `dry_lab_internal_door` — access toward wet lab, subject to the same route rules.
+- `dry_lab_viewing_panel` — small glazed panel in its corridor door; exact evidence-bearing sightlines remain to be checked.
 
 **World constraints.** Access to a room does **not** imply unrestricted access to private drives, accounts, or deleted files. Dataset permissions and evidence unlocks are handled by the Evidence Bible and game state. The computers cannot freely access arbitrary real-world websites unless explicitly implemented.
 
@@ -356,7 +364,7 @@ Access is determined by **room ownership + current game phase + authorization**.
 |---|---|---|---|
 | Mess hall, main corridors | Open | Open | Open |
 | Dry laboratory | Audit-related access | Audit-related access; sensitive files still restricted | Specific additional records if granted/unlocked |
-| Wet laboratory | Routine audit access | Secured crime scene | Supervised inspection only |
+| Wet laboratory | Role-based routine access; Lucas lacks entry authorization | Secured unexplained-death scene after initial response | Supervised inspection only |
 | Bridge | Request entry | Contact/briefings with Sarah | Authorized review of relevant records |
 | Medical bay | Speak with Olivia | Speak with Olivia; private records restricted | Particular findings discussed when supported and unlocked |
 | Engineering workshop | Limited/escorted | Limited/escorted | Relevant maintenance records as investigation permits |
@@ -472,10 +480,10 @@ object_id: engineering_maintenance_terminal
 The storm should worsen the feeling of isolation and plausibly delay assistance, but weather must follow a **fixed state progression**, not change with each generated description.
 
 - **Opening and murder night:** Conditions deteriorate into a heavy gale with rough seas. Essential indoor activity remains possible; exterior research work is suspended.
-- **Discovery at 07:00:** Heavy weather persists. The latest received offshore marine forecast predicts no meaningful easing for **at least another 36 hours**, through **19:00 the following day**. This is a forecast-based minimum outlook, not a promise that assistance arrives then.
-- **Initial investigation:** Keep the weather state severe throughout that 36-hour period; do not introduce a convenient calm interval. After that period, any improvement or arrival of investigators belongs to the ending design.
+- **Discovery at 06:50:** Heavy weather persists. The latest received offshore marine forecast predicts no meaningful easing for **at least through Thursday evening**. This is a forecast-based minimum outlook, not a promise that assistance arrives then.
+- **Initial investigation:** Keep the weather state severe throughout that forecast period; do not introduce a convenient calm interval. After that period, any improvement or arrival of investigators belongs to the ending design.
 
-**Forecast source:** Sarah receives marine weather forecasts/outlooks through the functioning communications system and reads them on `bridge_weather_display`. The ship's radar supports immediate navigation/observations; it does not itself predict 36 hours of storm conditions.
+**Forecast source:** Sarah receives marine weather forecasts/outlooks through the functioning communications system and reads them on `bridge_weather_display`. The ship's radar supports immediate navigation/observations; it does not itself provide the outlook through Thursday evening.
 
 **Isolation and operation:** In this fictional incident, offshore distance and heavy weather prevent a safe boarding/transfer window for investigators, and Sarah cannot promise a prompt safe return to port. Shore authorities remain reachable for reporting and coordination. This is a delay in physical attendance, not a universal claim that emergency rescue is impossible in every storm. The vessel remains operational at reduced speed as defined in §3.1.
 
@@ -512,7 +520,7 @@ These are **defaults for encounter design**, not alibis and not guaranteed posit
 
 ### 8.2 Movement and knowledge boundaries
 
-**Navigation/weather knowledge boundary:** Only Sarah initially knows the detailed route, coordinates, operating/navigation status, received forecast, and 36-hour outlook. These author-facing world facts are not shared NPC knowledge. Other characters may describe directly observable rough seas, wind, rain, ship motion, or communications they personally experienced; when asked for detailed position, forecast duration, or expected assistance, they refer the player to the captain. They may repeat a specific detail only after explicitly receiving it in play, attributing it to Sarah or the actual source. Being aboard or viewing generic room scenery does not automatically grant access to bridge information.
+**Navigation/weather knowledge boundary:** Only Sarah initially knows the detailed route, coordinates, operating/navigation status, received forecast, and outlook through Thursday evening. These author-facing world facts are not shared NPC knowledge. Other characters may describe directly observable rough seas, wind, rain, ship motion, or communications they personally experienced; when asked for detailed position, forecast duration, or expected assistance, they refer the player to the captain. They may repeat a specific detail only after explicitly receiving it in play, attributing it to Sarah or the actual source. Being aboard or viewing generic room scenery does not automatically grant access to bridge information.
 
 
 - A character does not automatically know what happened in another room.
@@ -566,6 +574,7 @@ locations:
     access_rule: requires_authorization_after_discovery
     objects:
       - wet_lab_sampling_apparatus
+      - wet_lab_viewing_panel
       - wet_lab_calibration_station
       - wet_lab_sample_bench
       - wet_lab_treatment_unit
@@ -581,6 +590,7 @@ locations:
     access_rule: audit_access
     objects:
       - dry_lab_analysis_terminal
+      - dry_lab_viewing_panel
       - dry_lab_experiment_index
       - dry_lab_shared_workstation
       - dry_lab_document_shelf
@@ -629,7 +639,7 @@ For each exploration request, give the model only:
 
 ## 11. Open Decisions Before Production
 
-**Deferred by current scope:** NPC locations, schedules, alibis, watch assignments, and their noise/recording checks remain open for a later stage. Confirming the room graph and simple navigation/weather setup does not assign any NPC to a room.
+**Deferred by current scope:** General NPC locations, schedules, alibis, watch assignments, and noise/recording checks remain open. The discovery response is the explicit exception: Lucas at the wet-lab viewing panel at 06:50 and the fixed response order and relative intervals are established in Story §7.2. Preceding NPC locations/routes remain TBD; no further arrival-order decision is needed.
 
 | Question | Why it matters | Proposed owner |
 |---|---|---|
@@ -639,7 +649,7 @@ For each exploration request, give the model only:
 | Which cabins are individually explorable | Controls development scope and search permissions | Gameplay + evidence |
 | Detailed apparatus/weapon visuals and surrounding scene geometry | Hardware, cover failure, and 2 kg reference mass are fixed; drawings must support reach/contact comparison and evaluation of a secondary fall. | Narrative + visual design + evidence |
 | Alibis, door closure, and sound propagation | Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
-| Who discovers the body, and from which route | Affects first scene, NPC movements, and scene preservation | Story team |
+| Discovery routes and examination blocking | Lucas discovers through the wet-lab panel at 06:50; Sarah opens the door after arrival. The response order is fixed in Story §7.2. Preceding locations/routes and clue-relevant examination movements remain TBD; preserve the witnesses and Lucas's confusion. | Story + world |
 | Time-based NPC schedule after the murder | Prevents people appearing in impossible places | Character + gameplay |
 | What authorizes wet-lab and private-cabin searches | Keeps player's auditor role believable | Story + gameplay |
 | Credible operations of a vessel with only eight people | Small-cast premise needs a consistent degree of automation and watchkeeping | Story + world |
