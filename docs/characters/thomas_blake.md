@@ -1,6 +1,6 @@
 # Character Bible — Thomas Blake
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Thomas's commercial agenda, deceptive conduct, character voice, and response boundaries. He is a credible murder suspect **without being the killer**. The Story Bible owns objective events. **TBD** details are not canon.
 

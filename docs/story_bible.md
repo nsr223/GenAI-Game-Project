@@ -1,6 +1,6 @@
 # Beneath the Surface — Story Bible
 
-> **Status:** Initial draft (v0.2) · **Audience:** Development team only · **Spoilers:** Contains the murderer, motive, and solution.
+> **Status:** Initial draft (v0.3) · **Audience:** Development team only · **Spoilers:** Contains the murderer, motive, and solution.
 >
 > **Purpose of this document:** The Story Bible is the single source of truth for the narrative of *Beneath the Surface*. It records what **actually happened**, why it happened, and which facts must remain consistent across dialogue, clues, locations, and game systems. Unlike a Character Bible, it is **not** written from any suspect's perspective. It is not a prompt to give to every NPC: each NPC must receive only the information that character would know or believe.
 >

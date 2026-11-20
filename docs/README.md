@@ -1,4 +1,4 @@
-# Beneath the Surface — Documentation Guide (v0.2)
+# Beneath the Surface — Documentation Guide (v0.3)
 
 This folder contains the narrative and design references for the AI murder mystery *Beneath the Surface*. The bibles describe the same game from different perspectives: what happened, what each character knows, what exists aboard the ship, and what the player can discover.
 

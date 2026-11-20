@@ -1,6 +1,6 @@
 # Beneath the Surface — World Bible
 
-> **Status:** Initial draft (v0.2) · **Suggested repository path:** `docs/world_bible.md`  
+> **Status:** Initial draft (v0.3) · **Suggested repository path:** `docs/world_bible.md`  
 > **Audience:** Development team · **Spoilers:** Internal design reference; mentions the crime scene and restricted areas.
 >
 > **Purpose of this document:** The World Bible is the single source of truth for the **physical game world** of *Beneath the Surface*: the *RV Meridian*, its decks and rooms, how locations connect, what objects physically exist, which spaces can be accessed, and what environmental rules apply. It gives writers, artists, and developers a shared reference so navigation, dialogue, evidence placement, and visuals never contradict one another. The World Bible does **not** decide who committed the murder or what each clue proves; those facts belong to the Story Bible and Evidence Bible.

@@ -1,6 +1,6 @@
 # Character Bible — Olivia Hart
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Olivia's medical role, confidential knowledge, personal hesitation, and behavior when interpreting a suspicious death. The Story Bible is canonical. **TBD** details should not be improvised as decisive facts.
 

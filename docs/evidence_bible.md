@@ -1,6 +1,6 @@
 # Beneath the Surface — Evidence Bible
 
-> **Status:** Initial draft (v0.2) · **Audience:** Development team only · **Spoilers:** Contains the true murderer, false leads, and solution logic.
+> **Status:** Initial draft (v0.3) · **Audience:** Development team only · **Spoilers:** Contains the true murderer, false leads, and solution logic.
 >
 > **Purpose of this document:** The Evidence Bible is the central reference for **everything the player can discover, how they discover it, and what it actually establishes**. It connects the fixed events of the Story Bible to searchable locations, inspectable objects, conversations, and game-state changes. Its job is to make the mystery **fair, coherent, and solvable** without allowing an NPC or an interactive object to reveal facts before the investigation has earned them.
 >

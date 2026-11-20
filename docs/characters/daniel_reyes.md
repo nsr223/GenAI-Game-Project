@@ -1,6 +1,6 @@
 # Character Bible — Daniel Reyes
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Daniel's personality, knowledge, guilt, secrecy, and responses to evidence. His **belief that he may have caused Elena's death is mistaken**; do not replace it with knowledge of the true murderer. `docs/story_bible.md` owns canonical events. **TBD** means not yet decided.
 

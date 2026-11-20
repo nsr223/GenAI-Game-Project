@@ -1,6 +1,6 @@
 # Character Bible — Captain Sarah Morgan
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Sarah's personality, relationships, knowledge, secrets, and consistent behavior during player conversations. This is a **character perspective**, not the full objective story. Follow `docs/story_bible.md` whenever canonical facts conflict with a proposed detail. **TBD** means not yet decided.
 

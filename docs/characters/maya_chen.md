@@ -1,6 +1,6 @@
 # Character Bible — Dr. Maya Chen
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (**major murder spoiler**)  
 > **Purpose:** Define Maya's psychology, true knowledge, lies, and evolving interrogation strategy. Maya **knows she murdered Elena**; other NPCs do not automatically share that knowledge. `docs/story_bible.md` is canonical. **TBD** means not yet decided.
 

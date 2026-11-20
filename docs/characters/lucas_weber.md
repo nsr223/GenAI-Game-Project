@@ -1,6 +1,6 @@
 # Character Bible — Lucas Weber
 
-> **Version:** 0.2 (initial draft)  
+> **Version:** 0.3 (initial draft)  
 > **Audience:** Game designers, NPC developers, and testers (spoilers)  
 > **Purpose:** Define Lucas's role as an observant but self-interested documentarian, including the boundaries of what his recordings actually establish. The Story Bible owns canonical events. **TBD** indicates undecided details.
 
