@@ -18,7 +18,7 @@
 - **Calendar:** Mid-December, with no fixed year or exact calendar dates. The mission departed Galway on Sunday with the player aboard. Elena is murdered Tuesday evening; discovery is Wednesday at 06:50, with player control beginning after the initial response. Historical incidents retain their relative dates (about a year ago, eight months ago, and several weeks ago).
 - **Region / route:** Galway, Ireland → offshore North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is approximately **53°N, 16°W**, roughly **400 km west of the Irish coast**. This is an approximate narrative position, not an exact stationary waypoint; intermediate sampling stations need no fixed coordinates for the MVP.
 - **Mission:** Final-stage testing of an experimental ocean carbon-removal system.
-- **Time:** Player control begins after the morning discovery response. Elena's previous-evening warning remains pre-game backstory; discovery details must be learned from witnesses. Exact calendar dates: **TBD**.
+- **Time:** Player control begins after the morning discovery response. Elena's previous-evening warning remains pre-game backstory; discovery details must be learned from witnesses. The setting is mid-December; the year and exact calendar dates are deliberately unspecified and do not require further decisions.
 - **People aboard:** Exactly **eight**: the player, Dr. Elena Fischer, and the six living suspects — Sarah Morgan, Daniel Reyes, Maya Chen, Thomas Blake, Olivia Hart, and Lucas Weber.
 - **Situation:** Bad weather makes a prompt return or safe transfer impractical; the captain remains in contact with authorities as conditions permit.
 - **Visual tone:** Functional, lived-in, modern research vessel; not a luxury yacht, warship, or futuristic spaceship.
@@ -639,7 +639,9 @@ For each exploration request, give the model only:
 
 ## 11. Open Decisions Before Production
 
-**Deferred by current scope:** General NPC locations, schedules, alibis, watch assignments, and noise/recording checks remain open. The discovery response is the explicit exception: Lucas at the wet-lab viewing panel at 06:50 and the fixed response order and relative intervals are established in Story §7.2. Preceding NPC locations/routes remain TBD; no further arrival-order decision is needed.
+**Settled context:** Pelagos Carbon operates the research project; Nereid Technologies is Maya’s private negotiation counterpart. The mission departed Galway on Sunday, the murder occurs Tuesday evening, and discovery is Wednesday morning in mid-December. Sarah’s received forecast indicates severe weather at least through Thursday evening, not a guaranteed assistance time. Exact calendar dates and detailed historical-incident locations are not outstanding world-design decisions. These author-facing facts do not expand NPC knowledge or grant access to private negotiations.
+
+**Deferred by current scope:** General NPC locations, schedules, alibis, watch assignments, and noise/recording checks remain open. Fixed evening meetings also constrain future movements: Thomas and Elena converse in the mess hall at 21:10 on Tuesday, observed without hearing details by Lucas and Sarah; Elena confronts Daniel in his workshop at 22:00; Elena meets Maya in the wet lab at 22:35. How Olivia and Thomas learn of Daniel’s meeting remains open. The discovery response is another fixed sequence: Lucas at the wet-lab viewing panel at 06:50 and the fixed response order and relative intervals are established in Story §7.2. Preceding NPC locations/routes remain TBD; no further arrival-order decision is needed.
 
 | Question | Why it matters | Proposed owner |
 |---|---|---|
@@ -663,7 +665,7 @@ Until these are agreed, avoid hard-coding decisions into NPC prompts or inventin
 
 - **`docs/story_bible.md` — Story Bible:** Objective events, motive, murderer, murder-night timeline, and narrative progression.
 - **`docs/characters/*.md` — Character Bibles:** Individual character histories, knowledge, beliefs, secrets, voices, and behavior.
-- **`docs/evidence_bible.md` — Evidence Bible (planned):** Clues, exact placements, evidence meaning, prerequisites, and narrative unlocks.
+- **`docs/evidence_bible.md` — Evidence Bible:** Clues, exact placements, evidence meaning, prerequisites, and narrative unlocks.
 - **`data/locations.yaml` — Locations data (planned):** Machine-readable navigation graph, objects, and baseline permissions.
 - **`data/timeline.yaml` — Timeline data (planned):** Canonical events and movement constraints.
 
