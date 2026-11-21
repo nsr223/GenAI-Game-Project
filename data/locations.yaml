@@ -1,0 +1,367 @@
+# Locations, connections and inspectable objects.
+# Source: World Bible §2.1 (decks), §2.3 (connections), §3-§4 (rooms/objects), §5 (access).
+# IDs are stable (World §6.4). Connections must be reciprocal (checked by tests).
+#
+# Fields
+#   display_name  player-facing name
+#   deck          1 | 2 | 3 (stairs list both decks they join)
+#   kind          room | corridor | stairs | cabin
+#   mvp           true for the 8 MVP rooms (World §9) and the cabins/traversal nodes they need
+#   connects_to   direct, bidirectional connections
+#   access        condition (see docs/engine-api.md); omitted = always open
+#   locked_text   player-facing reason shown when access fails
+#   objects       {object_id: {name, description}}; descriptions are spoiler-free ambient text
+#   tbd           list of fields that are provisional (see tbd_note)
+#
+# Object descriptions must never reveal author-facing facts (World §3.2: don't call the
+# reference mass a weapon, don't reveal the worn support catch on ordinary inspection).
+
+shared_objects:
+  lab_internal_door:
+    name: Internal lab door
+    description: >
+      The shared internal door between the wet laboratory and the dry laboratory.
+    locations: [wet_lab, dry_lab]
+    tbd: [id]
+    tbd_note: >
+      World §3.2 uses `lab_internal_door` in its constraints text but lists `wet_lab_door_internal`;
+      §3.3 lists `dry_lab_internal_door`. One shared object `lab_internal_door` is used here until the
+      World Bible settles the ID. Lock and access-log behaviour is an open decision (World §11).
+
+locations:
+  # ---------------------------------------------------------------- Deck 03
+  bridge:
+    display_name: Bridge
+    deck: [3]
+    kind: room
+    mvp: true
+    connects_to: [upper_stairs]
+    objects:
+      bridge_navigation_console:
+        name: Navigation console
+        description: Screens showing the ship's position and route. The captain controls the consoles.
+      bridge_weather_display:
+        name: Weather display
+        description: Recorded and current conditions. Through the windows the weather is plainly getting worse.
+      bridge_log_station:
+        name: Log station
+        description: The interface for the ship's official operational record.
+      bridge_comms_console:
+        name: Communications console
+        description: Radio and satellite communication equipment. You can't contact anyone from here on your own.
+      bridge_noticeboard:
+        name: Noticeboard
+        description: Shift notices and posted safety instructions.
+
+  upper_stairs:
+    display_name: Upper stairs
+    deck: [2, 3]
+    kind: stairs
+    mvp: true
+    connects_to: [bridge, main_corridor]
+    objects: {}
+
+  # ---------------------------------------------------------------- Deck 02
+  main_corridor:
+    display_name: Main corridor
+    deck: [2]
+    kind: corridor
+    mvp: true
+    connects_to: [upper_stairs, lower_stairs, wet_lab, dry_lab, mess_hall, medical_bay, crew_quarters, editing_room]
+    objects: {}
+
+  wet_lab:
+    display_name: Wet Laboratory
+    deck: [2]
+    kind: room
+    mvp: true
+    connects_to: [main_corridor, dry_lab]
+    # Secured after discovery; both entrances need the same authorization (World §3.2, §5.1).
+    access:
+      any_of:
+        - not: wet_lab_secured
+        - wet_lab_inspection_authorized
+    locked_text: The captain has secured the wet lab. Nobody goes in without her authorization.
+    objects:
+      wet_lab_sampling_apparatus:
+        name: Sampling apparatus
+        description: >
+          An automated seawater sampling and filtration station with a pump, a rotary selector,
+          a collection weighing platform and a broad hinged metal service cover.
+      wet_lab_calibration_station:
+        name: Calibration station
+        description: >
+          Tools and storage for checking the sampling station's weighing platform, including a squat
+          2 kg stainless-steel reference mass with a defined circular rim.
+      wet_lab_sample_bench:
+        name: Sample bench
+        description: Containers, a sample rack and controlled treated and untreated experimental tanks.
+      wet_lab_treatment_unit:
+        name: Treatment unit
+        description: >
+          A small flow-through dosing-and-mixing unit using a prepared sodium-hydroxide solution.
+          Its research controls are not yours to operate.
+      wet_lab_workstation:
+        name: Lab workstation
+        description: A local equipment and status display.
+      wet_lab_storage_cabinet:
+        name: Storage cabinet
+        description: Supplies and protective equipment.
+      wet_lab_door_main:
+        name: Main door
+        description: The wet lab's door to the main corridor.
+      wet_lab_viewing_panel:
+        name: Viewing panel
+        description: A small glazed panel in the corridor door. It shows only part of the room.
+
+  dry_lab:
+    display_name: Dry Laboratory
+    deck: [2]
+    kind: room
+    mvp: true
+    connects_to: [main_corridor, wet_lab]
+    objects:
+      dry_lab_analysis_terminal:
+        name: Analysis terminal
+        description: A terminal for reviewing approved datasets and summaries.
+      dry_lab_experiment_index:
+        name: Experiment index
+        description: The catalog of experiments run on this voyage, including M-17.
+      dry_lab_shared_workstation:
+        name: Shared workstation
+        description: A general research workspace used by the science team.
+      dry_lab_document_shelf:
+        name: Document shelf
+        description: Protocols and printed reference material.
+      dry_lab_viewing_panel:
+        name: Viewing panel
+        description: A small glazed panel in the corridor door.
+
+  mess_hall:
+    display_name: Mess Hall
+    deck: [2]
+    kind: room
+    mvp: true
+    connects_to: [main_corridor]
+    objects:
+      mess_table:
+        name: Mess table
+        description: The bolted-down communal table where everyone eats and talks.
+      galley_counter:
+        name: Galley counter
+        description: Ordinary kitchen equipment.
+      mess_noticeboard:
+        name: Noticeboard
+        description: Shared notices and the meal schedule.
+      mess_coffee_station:
+        name: Coffee station
+        description: Coffee equipment and a row of personal mugs.
+
+  medical_bay:
+    display_name: Medical Bay
+    deck: [2]
+    kind: room
+    mvp: true
+    connects_to: [main_corridor]
+    objects:
+      medical_exam_station:
+        name: Examination station
+        description: Olivia's clinical workspace.
+      medical_records_terminal:
+        name: Medical records terminal
+        description: Medical documentation under strict access control. It is not open to you.
+      medical_supply_cabinet:
+        name: Supply cabinet
+        description: Secured medications and consumables.
+      medical_report_desk:
+        name: Report desk
+        description: The desk where Olivia discusses findings she is able to share.
+
+  crew_quarters:
+    display_name: Crew Quarters
+    deck: [2]
+    kind: corridor
+    mvp: true
+    connects_to: [main_corridor, cabin_player, cabin_elena, cabin_sarah, cabin_daniel, cabin_maya, cabin_thomas, cabin_olivia, cabin_lucas]
+    objects: {}
+
+  editing_room:
+    display_name: Editing Room
+    deck: [2]
+    kind: room
+    mvp: true
+    connects_to: [main_corridor]
+    objects:
+      editing_workstation:
+        name: Editing workstation
+        description: Lucas's video and audio editing setup.
+      camera_storage:
+        name: Camera storage
+        description: Cameras and removable media.
+      media_drive_case:
+        name: Media drive case
+        description: Neatly organized drives. Lucas controls them.
+      editing_shot_list:
+        name: Shot list
+        description: Pinned filming plans.
+
+  # Cabins (World §3.6). The player's own cabin is open; others need consent or authorization.
+  # Which cabins are individually explorable is an open decision (World §11).
+  cabin_player:
+    display_name: Your cabin
+    deck: [2]
+    kind: cabin
+    mvp: true
+    connects_to: [crew_quarters]
+    objects:
+      player_desk:
+        name: Desk
+        description: Your desk and case notes.
+  cabin_elena:
+    display_name: Elena's cabin
+    deck: [2]
+    kind: cabin
+    mvp: true
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_elena}
+    locked_text: Elena's cabin is locked. You need permission to go in.
+    objects:
+      cabin_desk_elena: {name: Desk, description: Elena's small desk.}
+      cabin_storage_elena: {name: Storage, description: Elena's personal belongings.}
+  cabin_sarah:
+    display_name: Captain's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_sarah}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_sarah: {name: Desk, description: A small desk.}
+      cabin_storage_sarah: {name: Storage, description: Personal belongings.}
+  cabin_daniel:
+    display_name: Daniel's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_daniel}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_daniel: {name: Desk, description: A small desk.}
+      cabin_storage_daniel: {name: Storage, description: Personal belongings.}
+  cabin_maya:
+    display_name: Maya's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_maya}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_maya: {name: Desk, description: A small desk.}
+      cabin_storage_maya: {name: Storage, description: Personal belongings.}
+  cabin_thomas:
+    display_name: Thomas's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_thomas}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_thomas: {name: Desk, description: A small desk.}
+      cabin_storage_thomas: {name: Storage, description: Personal belongings.}
+  cabin_olivia:
+    display_name: Olivia's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_olivia}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_olivia: {name: Desk, description: A small desk.}
+      cabin_storage_olivia: {name: Storage, description: Personal belongings.}
+  cabin_lucas:
+    display_name: Lucas's cabin
+    deck: [2]
+    kind: cabin
+    mvp: false
+    connects_to: [crew_quarters]
+    access: {cabin_authorized: cabin_lucas}
+    locked_text: This cabin is private.
+    objects:
+      cabin_desk_lucas: {name: Desk, description: A small desk.}
+      cabin_storage_lucas: {name: Storage, description: Personal belongings.}
+
+  lower_stairs:
+    display_name: Lower stairs
+    deck: [1, 2]
+    kind: stairs
+    mvp: true
+    connects_to: [main_corridor, lower_corridor]
+    objects: {}
+
+  # ---------------------------------------------------------------- Deck 01
+  lower_corridor:
+    display_name: Lower corridor
+    deck: [1]
+    kind: corridor
+    mvp: true
+    connects_to: [lower_stairs, engineering_workshop, engine_room, equipment_storage]
+    objects: {}
+
+  engineering_workshop:
+    display_name: Engineering Workshop
+    deck: [1]
+    kind: room
+    mvp: true
+    connects_to: [lower_corridor]
+    # World §3.8 / §5.1: "may enter with permission or while accompanied". Left open for now.
+    tbd: [access]
+    tbd_note: Entry rule (permission / escort) not yet modelled; room is open in the skeleton.
+    objects:
+      engineering_maintenance_terminal:
+        name: Maintenance terminal
+        description: Fault and service records. Access is controlled.
+      engineering_parts_cabinet:
+        name: Parts cabinet
+        description: Spare components in labeled storage.
+      engineering_workbench:
+        name: Workbench
+        description: Tools and ongoing repair work.
+      engineering_safety_board:
+        name: Safety board
+        description: Safety protocols and routine maintenance notices.
+
+  engine_room:
+    display_name: Engine Room
+    deck: [1]
+    kind: room
+    mvp: false
+    connects_to: [lower_corridor]
+    access: engine_room_escort_granted
+    locked_text: The engine room is noisy and hazardous. You'd need an escort.
+    tbd: [access]
+    tbd_note: No route to an escort is designed yet (World §4.1). Holds no evidence.
+    objects: {}
+
+  equipment_storage:
+    display_name: Equipment Storage
+    deck: [1]
+    kind: room
+    mvp: false
+    connects_to: [lower_corridor, aft_work_deck]
+    objects: {}
+
+  aft_work_deck:
+    display_name: Aft Working Deck
+    deck: [1]
+    kind: room
+    mvp: false
+    connects_to: [equipment_storage]
+    access:
+      not: {world_equals: {weather: severe}}
+    locked_text: The storm has closed the aft deck. The captain won't let anyone out there.
+    objects: {}

@@ -1,0 +1,20 @@
+# Gated knowledge for olivia_hart. Owned by the NPC writer for this character.
+# Write facts from docs/characters/olivia_hart.md (§4 knowledge, §6 disclosure rules). Never guess at §9 TBDs.
+#
+# Each fact:
+#   id      stable snake_case ID
+#   text    what the NPC knows, written as an instruction-free statement
+#   unlock  "always" (known from the start) or a condition, e.g.
+#             unlock: {evidence_collected: EV-11}
+#             unlock: {all_of: [medical_reconstruction_completed, {evidence_collected: EV-13}]}
+#           A fact whose unlock condition is false is left OUT of the prompt entirely.
+#   tbd     true = placeholder; never sent to the LLM
+#
+# Condition syntax: see docs/engine-api.md.
+
+npc_id: olivia_hart
+facts:
+  - id: olivia_hart_placeholder
+    text: "[TBD] Knowledge for this character has not been written yet."
+    unlock: always
+    tbd: true
