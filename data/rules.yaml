@@ -1,0 +1,96 @@
+# Game rules: initial state, derived flags, leads and the accusation check.
+# Source: World §5.2, Evidence §6, §9, §10.2-10.3. DEVELOPER ONLY: contains solution data.
+
+start:
+  location: cabin_player        # TBD: where player control begins is not specified (Story §5)
+  evidence: [EV-00]             # Elena's warning is an initial journal lead (Evidence §4.1)
+  tbd: [location]
+
+# World §5.2 + Evidence §10.3. Booleans live in `flags`; other world values in `world`.
+initial_state:
+  world:
+    phase: early_investigation  # pre_murder | early_investigation | later_investigation
+    weather: severe             # fair | worsening | severe
+  flags:
+    wet_lab_secured: true
+    wet_lab_inspection_authorized: false
+    bridge_record_review_authorized: false
+    engineering_record_review_authorized: false
+    selected_media_access_granted: false
+    thomas_motive_investigated: false
+    daniel_motive_investigated: false
+    medical_reconstruction_available: false
+    medical_reconstruction_completed: false
+    machinery_cause_excluded: false
+    maya_motive_established: false
+    maya_alibi_contradicted: false
+    blunt_force_method_supported: false
+    engine_room_escort_granted: false   # no route designed yet (World §4.1); keeps engine_room closed
+  private_cabin_search_authorized: []
+
+# Flags whose authored content does not exist yet. Their value is configurable here so the
+# chain stays walkable; set to false once a real source is authored.
+tbd_flags:
+  medical_mechanical_detail_sufficient:
+    value: true
+    note: Required injury/mechanism detail for the EV-11 comparison is TBD (Evidence §6.4, §10.2).
+
+# Derived flags are re-evaluated after every action. Once true they stay true.
+derived_flags:
+  medical_reconstruction_available:
+    # Evidence §10.2. The motive flags are deliberately NOT prerequisites (Evidence §6.1).
+    all_of:
+      - evidence_reviewed: EV-09
+      - evidence_reviewed: EV-10
+      - medical_mechanical_detail_sufficient
+      - medical_comparison_authorized
+  maya_motive_established:
+    all_of:
+      - evidence_reviewed: EV-16
+      - evidence_reviewed: EV-17
+  maya_alibi_contradicted:
+    evidence_reviewed: EV-19
+  blunt_force_method_supported:
+    evidence_reviewed: EV-14
+
+# Player-facing leads shown in the journal while `when` is true.
+leads:
+  - id: check_m17_records
+    when:
+      evidence_collected: EV-00
+    text: Elena asked you to compare the original M-17 readings with the investor-facing results.
+  - id: return_to_olivia
+    # Evidence §6.5: explicit lead once the reconstruction gate opens.
+    when:
+      all_of:
+        - medical_reconstruction_available
+        - not: medical_reconstruction_completed
+    text: Return to Olivia to compare medical observations with the confirmed apparatus log.
+
+# Evidence §9.1. Ending flow is TBD (Evidence §9.2, §12).
+accusation:
+  culprit: maya_chen
+  required_flags:
+    - maya_motive_established
+    - maya_alibi_contradicted
+    - machinery_cause_excluded
+    - blunt_force_method_supported
+  requires_npc_present: sarah_morgan
+  allow_continue_after_failure: true   # TBD: can the player keep investigating after a failed accusation?
+  substantiated_text: >
+    You lay out your reconstruction and the evidence behind it. Sarah records everything and secures it for
+    the investigators who will come aboard once the storm allows.
+  # Wrong and unsupported accusations deliberately get the same player-facing text, so guessing
+  # cannot reveal the culprit.
+  not_substantiated_text: >
+    Sarah hears you out, then asks for corroboration. She won't record an accusation she can't support.
+  inconclusive_text: >
+    Sarah records your account, but without corroboration it remains inconclusive.
+  requires_npc_text: You need to present your case to the captain.
+  tbd: [allow_continue_after_failure, not_substantiated_text, inconclusive_text]
+
+# Prompt assembly (game/prompts.py). Paths are relative to the repo root.
+prompts:
+  npc_rules: prompts/system/npc_rules/v3.md
+  npc_template: prompts/system/npc_template/v2.md
+  history_turns: 12             # last N messages of a conversation sent to the LLM

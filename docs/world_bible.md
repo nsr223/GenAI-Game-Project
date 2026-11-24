@@ -91,7 +91,7 @@ The ship has **three confirmed playable levels**. The room connections in §2.3 
 
 `*` The wet and dry laboratories have a **secondary internal connecting door**, in addition to their corridor doors. This route must be considered when designing alibis, camera coverage, and movement records. Its lock/log behavior is **TBD**.
 
-**Shared door identity:** `wet_lab_door_internal` and `dry_lab_internal_door` are room-facing aliases for the same physical door, with canonical ID `lab_internal_door`. Both aliases use one shared open/closed and locked/unlocked state and the same access/log configuration. They must never be implemented as independent doors. Exact lock and logging behavior remains **TBD**.
+**Shared door identity:** `lab_internal_door` is the single object ID for the physical door connecting the wet and dry laboratories. Both rooms reference this same object, with one shared open/closed and locked/unlocked state and the same access/log configuration. It must never be implemented as independent doors. Exact lock and logging behavior remains **TBD**.
 
 ### 2.3 Confirmed room connections
 
@@ -173,7 +173,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `wet_lab_treatment_unit` — a small flow-through dosing-and-mixing unit using prepared sodium-hydroxide solution; distinct from the sampling station and its cover. Its research controls are not freely operable by the player. No additional explorable room is introduced.
 - `wet_lab_workstation` — local equipment/status display.
 - `wet_lab_storage_cabinet` — supplies and protective equipment.
-- `wet_lab_door_main` and `wet_lab_door_internal` — two possible access routes.
+- `wet_lab_door_main` and `lab_internal_door` — two possible access routes.
 - `wet_lab_viewing_panel` — small glazed panel in the main corridor door; permits the established discovery view. Lucas lacks entry authorization and cannot open this door; Sarah opens it after responding to his call.
 
 **Discovery access:** At 06:50 Lucas sees Elena through the main-door panel but cannot open the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel. Sarah opens the door when she arrives with Olivia, who approaches Elena; the others remain near the doorway. The shared cover exchange occurs after Maya arrives. The player is not a discovery witness. Sarah stops Daniel before he touches the apparatus. This is an **unexplained-death scene**, not a confirmed murder finding (Story §7.2).
@@ -199,7 +199,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `dry_lab_experiment_index` — catalog of experiments, including M-17.
 - `dry_lab_shared_workstation` — general research workspace.
 - `dry_lab_document_shelf` — protocols and printed reference material.
-- `dry_lab_internal_door` — access toward wet lab, subject to the same route rules.
+- `lab_internal_door` — access toward wet lab, subject to the same route rules.
 - `dry_lab_viewing_panel` — small glazed panel in its corridor door; exact evidence-bearing sightlines remain to be checked.
 
 **World constraints.** Access to a room does **not** imply unrestricted access to private drives, accounts, or deleted files. Dataset permissions and evidence unlocks are handled by the Evidence Bible and game state. The computers cannot freely access arbitrary real-world websites unless explicitly implemented.

@@ -36,8 +36,8 @@ When changing narrative facts, check affected story, character, world, and evide
 ## 4. Git workflow
 - `main`: only milestones and final submission. **Never commit or push to `main`.**
 - `dev`: integration branch. Changes arrive only via pull request.
-- Work on your own branch: `feature/<area>-<topic>` (e.g. `feature/engine-core`, `feature/npc-maya`).
-- Small PRs, each reviewed by another team member. A human merges.
+- Work on your own branch off `dev`: `feature/<area>-<topic>` (e.g. `feature/engine-core`, `feature/npc-maya`).
+- Small PRs into `dev`; **one approving review** from another team member is enough. A human merges.
 - Never commit secrets: API keys go in `.env` (git-ignored); keep `.env.example` up to date.
 
 ## 5. Stay in your lane
