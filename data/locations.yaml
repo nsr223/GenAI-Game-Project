@@ -22,11 +22,6 @@ shared_objects:
     description: >
       The shared internal door between the wet laboratory and the dry laboratory.
     locations: [wet_lab, dry_lab]
-    tbd: [id]
-    tbd_note: >
-      World §3.2 uses `lab_internal_door` in its constraints text but lists `wet_lab_door_internal`;
-      §3.3 lists `dry_lab_internal_door`. One shared object `lab_internal_door` is used here until the
-      World Bible settles the ID. Lock and access-log behaviour is an open decision (World §11).
 
 locations:
   # ---------------------------------------------------------------- Deck 03

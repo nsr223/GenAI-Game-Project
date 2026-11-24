@@ -224,7 +224,6 @@ Run `pytest -s tests/test_content.py::test_tbd_report` for the live list. Curren
 - **Maya's alibi** (EV-19 claim text), **EV-13 trace**, **EV-14 protocol**, the EV-11 contact/reach detail. Placeholder text is marked `[TBD …]` and stripped from prompts.
 - **`medical_mechanical_detail_sufficient`**: configurable in `rules.yaml → tbd_flags` (currently `true`).
 - **Player start location** (`cabin_player`), **accusation flow** / continue after failure, **engineering-workshop escort rule**, **which cabins are explorable**, **NPC schedules** (NPCs are static).
-- **Internal lab door ID**: the World Bible uses three names (`lab_internal_door`, `wet_lab_door_internal`, `dry_lab_internal_door`). The data uses `lab_internal_door` until the bible settles it.
 - **Persona prompts and NPC knowledge** are not written yet (stubs and placeholders).
 
 ## Live leak probes (real LLM, not part of pytest)
