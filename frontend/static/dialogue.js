@@ -153,8 +153,12 @@ export function setupDialogue({currentSave, commit, canPlay, saving, refreshJour
     if (!person) return;
     el("speaker-role").textContent = person.role;
     el("speaker-name").textContent = person.name;
-    // Approved portraits can later use this slot as the image source.
-    el("portrait").querySelector("img").dataset.src = "/static/art/characters/" + person.id + ".webp";
+    // Placeholder art for now; a missing file falls back to the silhouette.
+    const portrait = el("portrait").querySelector("img");
+    portrait.hidden = true;
+    portrait.onload = () => { portrait.hidden = false; };
+    portrait.onerror = () => { portrait.hidden = true; };
+    portrait.src = "/static/art/characters/" + person.id + ".webp";
     retry = null;
     field.value = "";
     showMenu(null);

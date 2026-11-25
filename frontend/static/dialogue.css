@@ -1,12 +1,21 @@
 #people button {
-  display: block; width: 100%; margin-top: 8px; padding: 10px 0;
-  color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid #a6b2a7;
-  text-align: left; font: 22px var(--serif);
+  display: flex; align-items: center; gap: 10px; padding: 4px 16px 4px 4px;
+  color: #edfaf0; background: #183337; border: 1px solid #aecfb9; border-radius: 32px;
+  text-align: left; font: 19px var(--serif); box-shadow: 2px 3px #062a2c55;
 }
-#people button::after { content: "↗"; float: right; font: 16px var(--sans); }
+#people button:hover:not(:disabled) { background: #254c4d; border-color: #fff4c4; }
+#people button:disabled { opacity: .55; cursor: wait; }
+#people img {
+  width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: 50% 0;
+  background: #5c716e; border: 1px solid #aecfb9;
+}
+#people .talk {
+  margin-left: 4px; padding: 2px 8px; border-radius: 3px; background: #ffe7a8; color: #183337;
+  font: 600 12px var(--sans); letter-spacing: .08em; text-transform: uppercase;
+}
 body:has(#dialogue[open]) { overflow: hidden; }
 body:has(#dialogue[open]) .workspace { display: block; }
-body:has(#dialogue[open]) :is(.legend, aside) { display: none; }
+body:has(#dialogue[open]) :is(.legend, aside, #present) { display: none; }
 body:has(#dialogue[open]) .scene { height: max(40vh, calc(100dvh - 195px)); aspect-ratio: auto; }
 #dialogue {
   position: fixed; inset: auto 0 20px; width: min(1440px, 94vw); max-width: none;
@@ -33,6 +42,7 @@ body:has(#dialogue[open]) .scene { height: max(40vh, calc(100dvh - 195px)); aspe
   width: 88%; height: 51%; bottom: -5%; left: 6%; border-radius: 50% 50% 0 0;
   box-shadow: inset 2px 1px #8d9d925e;
 }
+#portrait:has(img:not([hidden])) .silhouette { display: none; }
 #portrait img { position: absolute; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 .exchange { min-width: 0; padding: clamp(14px,2vw,29px); }
 .dialogue-head { display: flex; align-items: start; justify-content: space-between; gap: 10px; }

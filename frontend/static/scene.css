@@ -82,6 +82,10 @@ body[data-mode="readonly"] .hotspot { cursor: default; }
 }
 #room-image:not([hidden]) ~ #hotspots .symbol.inspect::after { content: "+"; }
 #room-image:not([hidden]) ~ #hotspots .symbol.locked::before { content: "×"; }
+#room-image:not([hidden]) ~ #hotspots.auto .hotspot-label {
+  display: block; padding: 2px 8px; color: #edfaf0; background: #183337e0;
+  border: 1px solid #aecfb9; border-radius: 3px; font-size: clamp(11px, 1.3cqw, 15px);
+}
 #elapsed {
   position: absolute; left: clamp(66px, var(--origin-x), calc(100% - 66px)); top: var(--origin-y);
   transform: translate(-50%, -50%); z-index: 2; pointer-events: none;
@@ -101,9 +105,11 @@ body:is([data-mode="error"], [data-mode="invalid"], [data-mode="limit"], [data-m
 .notice { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
 .notice, #session-note { padding: 6px 10px; background: #e6ece3; font-size: 14px; }
 #session-note { margin: 0 0 8px; }
-#present { margin-top: 35px; border-top: 1px solid #b3bdb2; }
+#present { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0 0 12px; }
+#present[hidden] { display: none; }
+#present h3 { margin: 0; color: #48615e; font: 600 12px var(--sans); letter-spacing: .12em; text-transform: uppercase; }
 h3 { color: #48615e; margin: 16px 0 4px; }
-#people { margin: 0; }
+#people { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @media (max-width: 800px) {
   .workspace { display: flex; flex-direction: column; gap: 6px; }
@@ -114,5 +120,4 @@ h3 { color: #48615e; margin: 16px 0 4px; }
     background: var(--paper); border-block: 1px solid #a6b2a7; padding: 6px 0;
   }
   .observation .eyebrow, .observation h2, .observation .rule { display: none; }
-  #present { margin: 0 0 25px; }
 }

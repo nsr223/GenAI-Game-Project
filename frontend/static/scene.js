@@ -59,6 +59,8 @@ export function showRoom(view) {
     const buttons = items.map(([action, item], i) =>
       buttonFor(action, item, mapped ? custom[item.id] : autoPosition(i, items.length)));
     hotspots.replaceChildren(...buttons);
+    // Auto-placed hotspots don't line up with the art, so they keep visible labels.
+    hotspots.classList.toggle("auto", !mapped);
     if (hadFocus) {
       const next = !changed && buttons.find(b => b.dataset.target === focused.dataset.target);
       (next || byId("room")).focus({preventScroll: true});
@@ -77,7 +79,19 @@ export function showRoom(view) {
       button.type = "button";
       button.dataset.npc = person.id;
       button.setAttribute("aria-haspopup", "dialog");
-      button.textContent = person.name;
+      button.setAttribute("aria-label", "Talk to " + person.name);
+      const face = document.createElement("img");
+      face.alt = "";
+      face.src = "/static/art/characters/" + person.id + ".webp";
+      face.addEventListener("error", () => { face.hidden = true; });
+      const name = document.createElement("span");
+      name.className = "person-name";
+      name.textContent = person.name;
+      const talk = document.createElement("span");
+      talk.className = "talk";
+      talk.setAttribute("aria-hidden", "true");
+      talk.textContent = "Talk";
+      button.append(face, name, talk);
       return button;
     }));
   }

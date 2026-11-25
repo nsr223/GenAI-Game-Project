@@ -4,10 +4,18 @@
     "crew_quarters": [65, 22, 20, 53]
   },
   "mess_hall": {
+    "image": "/static/art/rooms/mess_hall.webp",
     "mess_table": [31, 45, 36, 29],
     "galley_counter": [9, 12, 41, 18],
     "mess_noticeboard": [62, 12, 26, 15],
     "mess_coffee_station": [8, 48, 18, 22],
     "main_corridor": [76, 40, 16, 38]
-  }
+  },
+  "bridge": { "image": "/static/art/rooms/bridge.webp" },
+  "wet_lab": { "image": "/static/art/rooms/wet_lab.webp" },
+  "dry_lab": { "image": "/static/art/rooms/dry_lab.webp" },
+  "medical_bay": { "image": "/static/art/rooms/medical_bay.webp" },
+  "crew_quarters": { "image": "/static/art/rooms/crew_quarters.webp" },
+  "editing_room": { "image": "/static/art/rooms/editing_room.webp" },
+  "engineering_workshop": { "image": "/static/art/rooms/engineering_workshop.webp" }
 }

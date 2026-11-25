@@ -31,6 +31,7 @@
     </div>
     <div class="workspace">
       <section class="drawing" aria-label="Interactive room scene">
+        <div id="present" hidden><h3>In this room</h3><div id="people"></div></div>
         <div class="scene" aria-busy="true">
           <img id="room-image" alt="" hidden>
           <div class="bulkhead" aria-hidden="true"></div>
@@ -53,7 +54,6 @@
           <button type="button" id="recovery" hidden></button>
           <button type="button" id="without-saving" hidden>Play this session without saving</button>
         </div>
-        <div id="present" hidden><h3>In this room</h3><div id="people"></div></div>
       </aside>
     </div>
     <p id="arrival" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
