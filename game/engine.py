@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from .conditions import evaluate
-from .content import Content, Evidence, Interaction, load_content
+from .content import Content, Evidence, Interaction, load_content, mentioned_groups
 from .llm import LLMClient
 from .state import Claim, GameState
 
@@ -89,10 +89,15 @@ class Game:
         return [npc_id for npc_id in self.content.npcs if self.state.npc_present(npc_id)]
 
     def available_topics(self) -> list[Interaction]:
-        """Topic interactions offered right now (their NPC is present)."""
+        """Topics offered right now: discovered (``offered_when`` met once), NPC present, and not
+        already done (a successful ``once`` topic leaves the menu)."""
+        s = self.state
         return [
             i for i in self.content.interactions.values()
-            if i.trigger == "topic" and self.state.npc_present(i.npc)
+            if i.trigger == "topic"
+            and i.id in s.offered_topics
+            and s.npc_present(i.npc)
+            and not (i.once and s.has_completed(i.id))
         ]
 
     def view(self) -> dict:
@@ -172,8 +177,11 @@ class Game:
         if location_id not in here.connects_to:
             return ActionResult(False, f"You can't get to {c.locations[location_id].display_name} directly from here.")
         target = c.locations[location_id]
+        self._notice(location_id)
         if not self.can_enter(location_id):
-            return ActionResult(False, target.locked_text)
+            events: list[dict] = []
+            self._refresh_derived(events)  # a locked door can make a request topic appear
+            return ActionResult(False, target.locked_text, events=events)
         s.location = location_id
         events = [{"type": "moved", "id": location_id, "name": target.display_name}]
         self._refresh_derived(events)
@@ -187,6 +195,7 @@ class Game:
         if obj is None or s.location not in obj.location_ids:
             # Undefined objects get no invented clue (Evidence §7.4).
             return ActionResult(False, "There's nothing like that to inspect here.")
+        self._notice(object_id)
         events: list[dict] = []
         lines = [obj.description]
         for ev in c.evidence.values():
@@ -224,7 +233,8 @@ class Game:
         if (blocked := self._begin()) is not None:
             return blocked
         inter = self.content.interactions.get(interaction_id)
-        if inter is None or inter.trigger != "topic":
+        if inter is None or inter.trigger != "topic" or inter.id not in self.state.offered_topics:
+            # Undiscovered topics can't be asked, even by a client that knows their ids.
             return ActionResult(False, "That isn't something you can do here.")
         if not self.state.npc_present(inter.npc):
             return ActionResult(False, f"{self.content.npcs[inter.npc].name} isn't here.")
@@ -259,6 +269,10 @@ class Game:
 
         events: list[dict] = []
         narration: list[str] = []
+        # Only the player's own words count; the NPC's reply is never scanned.
+        for group in mentioned_groups(c, message):
+            if not s.has_mentioned(npc_id, group):
+                s.mentions.setdefault(npc_id, []).append(group)
         for ev_id in present:
             for inter in c.interactions.values():
                 if inter.trigger == "present" and inter.npc == npc_id and inter.evidence == ev_id:
@@ -398,3 +412,15 @@ class Game:
             if lid not in s.active_leads:
                 events.append({"type": "lead_added", "id": lid})
         s.active_leads = active
+        for inter in self.content.interactions.values():
+            if (
+                inter.trigger == "topic"
+                and inter.id not in s.offered_topics
+                and evaluate(inter.offered_when, s)
+            ):
+                s.offered_topics.append(inter.id)
+                events.append({"type": "topic_offered", "id": inter.id, "npc": inter.npc, "label": inter.label})
+
+    def _notice(self, thing_id: str) -> None:
+        if thing_id not in self.state.noticed:
+            self.state.noticed.append(thing_id)

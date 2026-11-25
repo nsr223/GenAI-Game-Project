@@ -40,7 +40,7 @@ class PlayerVoice:
             raise RuntimeError(VOICE_ERROR) from None
 
 
-def notices(events, view):
+def notices(events, view, partner=None):
     lines = []
     for event in events:
         kind = event["type"]
@@ -53,6 +53,17 @@ def notices(events, view):
             lead = next((lead for lead in view["leads"] if lead["id"] == event["id"]), None)
             if lead:
                 lines.append("New lead · " + lead["text"])
+    return lines + topic_notices(events, view, partner)
+
+
+def topic_notices(events, view, partner=None):
+    """'New topic' lines; names the person unless it is the one the player is talking to."""
+    names = {person["id"]: person["name"] for person in view.get("suspects", [])}
+    lines = []
+    for event in events:
+        if event["type"] == "topic_offered":
+            who = "" if event["npc"] == partner else " for " + names.get(event["npc"], "someone")
+            lines.append(f"New topic{who} · {event['label']}")
     return lines
 
 

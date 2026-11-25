@@ -36,7 +36,11 @@ def test_action_sequence(client):
     locked = next(e for e in result["view"]["exits"] if e["id"] == "wet_lab")
     refused = send(client, "move", result["save"], "wet_lab")
     assert refused["view"]["location"]["id"] == "main_corridor"
-    assert refused["message"] == locked["locked_text"]
+    # The locked door also reveals a question for the captain (topic discovery).
+    assert refused["message"] == (locked["locked_text"] + "\nNew topic for Capt. Sarah Morgan · "
+                                  "Ask for a supervised inspection of the wet lab")
+    assert {"type": "topic_offered", "npc": "sarah_morgan",
+            "label": "Ask for a supervised inspection of the wet lab"} in refused["events"]
     moved = send(client, "move", refused["save"], "mess_hall")
     forged = send(client, "move", moved["save"], "wet_lab")
     assert forged["view"]["location"]["id"] == "mess_hall"

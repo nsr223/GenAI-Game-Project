@@ -62,6 +62,9 @@ def player_events(events, view):
             public.append({"type": kind, "name": player_text(event["name"])})
         elif kind == "lead_added" and event["id"] in leads:
             public.append({"type": kind, "text": leads[event["id"]]})
+        elif kind == "topic_offered":
+            # Label only: interaction ids can describe undiscovered clues.
+            public.append({"type": kind, "npc": event["npc"], "label": player_text(event["label"])})
         elif kind in ("moved", "claim_recorded", "evidence_reviewed"):
             public.append({"type": kind})
     return public

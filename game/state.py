@@ -38,6 +38,11 @@ class GameState:
     completed_interactions: list[str] = field(default_factory=list)
     active_leads: list[str] = field(default_factory=list)
     conversations: dict[str, list[dict]] = field(default_factory=dict)
+    # Topic discovery: what the player has looked at, which keyword groups they raised with whom,
+    # and which topics have been offered so far (offered topics stay offered).
+    noticed: list[str] = field(default_factory=list)
+    mentions: dict[str, list[str]] = field(default_factory=dict)
+    offered_topics: list[str] = field(default_factory=list)
     turn: int = 0
     game_over: bool = False
     ending: str | None = None
@@ -83,6 +88,15 @@ class GameState:
 
     def npc_present(self, npc_id: str) -> bool:
         return self.npc_locations.get(npc_id) == self.location
+
+    def has_noticed(self, thing_id: str) -> bool:
+        return thing_id in self.noticed
+
+    def has_mentioned(self, npc_id: str, group: str) -> bool:
+        return group in self.mentions.get(npc_id, [])
+
+    def has_completed(self, interaction_id: str) -> bool:
+        return interaction_id in self.completed_interactions
 
     # ------------------------------------------------------------------ persistence
 

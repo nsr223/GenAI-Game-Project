@@ -49,17 +49,24 @@ def test_topic_refusal_and_evidence_are_engine_results(session):
     state = start("medical_bay")
     def topic(state, topic_id):
         return server.topic({"save": state["save"], "target": "olivia_hart", "topic": topic_id})
-    refused = topic(state, "discuss_reconstruction_with_olivia")
-    assert "I can't give you a reliable cause yet" in refused["message"]
-    assert refused["view"]["evidence"] == state["view"]["evidence"]
-    result = topic(refused, "ask_olivia_initial_observations")
+    follow_up = "Compare the injury with the apparatus record"
+    assert follow_up not in [t["label"] for t in state["view"]["topics"]]
+    assert topic(state, "discuss_reconstruction_with_olivia")["error"] == "invalid_action"  # not offered yet
+    result = topic(state, "ask_olivia_initial_observations")
     assert result["message"] == "Olivia shares what she can from her initial examination."
-    assert result["view"]["turn"] == 5
+    assert result["view"]["turn"] == 4
     evidence = next(event for event in result["events"] if event["type"] == "evidence_collected")
-    assert result["history"]["olivia_hart"][-1]["content"] == "New evidence · " + evidence["name"]
-    resumed = server.act({"action": "resume", "save": result["save"]}, server.app.state.key,
+    notes = [entry["content"] for entry in result["history"]["olivia_hart"]]
+    assert "New evidence · " + evidence["name"] in notes
+    assert "New topic · " + follow_up in notes
+    assert any(note.startswith("New topic for Capt. Sarah Morgan · ") for note in notes)
+    assert follow_up in [t["label"] for t in result["view"]["topics"]]
+    refused = topic(result, "discuss_reconstruction_with_olivia")
+    assert "I can't give you a reliable cause yet" in refused["message"]
+    assert refused["view"]["evidence"] == result["view"]["evidence"]
+    resumed = server.act({"action": "resume", "save": refused["save"]}, server.app.state.key,
                          server.app.state.content)
-    assert resumed["history"] == result["history"]
+    assert resumed["history"] == refused["history"]
     assert not model.calls
 
 

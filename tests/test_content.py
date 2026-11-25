@@ -142,6 +142,32 @@ def test_validation_rejects_locked_hint_on_non_inspect_evidence(tmp_path, repo_r
         load_content(data, root=tmp_path)
 
 
+@pytest.mark.parametrize("offered_when, error", [
+    ({"mentioned": {"npc": "sarah_morgan", "about": "typo_group"}}, "unknown keyword group 'typo_group'"),
+    ({"noticed": "no_such_thing"}, "noticed 'no_such_thing' is neither an object nor a location"),
+    ({"completed": "no_such_topic"}, "unknown interaction 'no_such_topic'"),
+])
+def test_validation_catches_bad_offered_when(tmp_path, repo_root, offered_when, error):
+    data = tmp_path / "data"
+    shutil.copytree(repo_root / "data", data)
+    raw = yaml.safe_load((data / "interactions.yaml").read_text(encoding="utf-8"))
+    topic = next(i for i in raw["interactions"] if i["id"] == "request_wet_lab_inspection")
+    topic["offered_when"] = offered_when
+    (data / "interactions.yaml").write_text(yaml.safe_dump(raw), encoding="utf-8")
+    with pytest.raises(ContentError, match=error):
+        load_content(data, root=tmp_path)
+
+
+def test_keyword_matching_is_whole_word_and_case_insensitive(content):
+    from game.content import mentioned_groups
+    assert "footage" in mentioned_groups(content, "Any FOOTAGE from last night?")
+    assert "project_records" in mentioned_groups(content, "What about the M-17 results?")
+    assert "elena_cabin" in mentioned_groups(content, "Can we check Elena's notes?")
+    assert mentioned_groups(content, "Hello, how are you?") == []
+    assert "engineering_records" not in mentioned_groups(content, "Is the recorder working?")
+    assert "footage" not in mentioned_groups(content, "filmmaker")  # 'film' is not a whole word here
+
+
 def test_tbd_report(content):
     """Not a pass/fail check: prints every provisional decision (run with -s to see it)."""
     report = content.tbd_report()

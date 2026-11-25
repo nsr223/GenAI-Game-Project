@@ -24,6 +24,7 @@ def test_handlers_walk_move_inspect_talk_present_accuse(app):
     saved, log, *_ = app.do_review(saved, log, "EV-00")
     for target in ["main_corridor", "upper_stairs", "bridge"]:
         saved, log, *_ = app.do_move(saved, log, target)
+    saved, log, *_ = app.do_talk(saved, log, "sarah_morgan", "May I inspect the wet lab?", [])
     saved, log, *_ = app.do_topic(saved, log, "request_wet_lab_inspection")
     out = app.do_accuse(saved, log, "maya_chen")
     saved, log = out[0], out[1]

@@ -20,7 +20,7 @@ from starlette.concurrency import run_in_threadpool
 from backend.config import make_llm
 from game import Game, load_content
 
-from .dialogue import NO_ANSWER, PlayerVoice, line, notices, record_notes, transcripts
+from .dialogue import NO_ANSWER, PlayerVoice, line, notices, record_notes, topic_notices, transcripts
 from .journal import journal_page, offered_topics, player_events, player_text, scene_view
 from .saves import MAX_TOKEN, InvalidSave, pack_snapshot, startup_secret, unpack
 
@@ -152,12 +152,15 @@ def act(body, key, content, *, endpoint="action", voice=None):
         narration = NO_ANSWER
     if action == "talk" and not result.ok and any(not game.state.has_collected(item) for item in present):
         narration = "You don't have that evidence."
+    if endpoint == "action" and narration:
+        # Moving or inspecting can reveal a new question for someone; say so in the field notes.
+        narration = "\n".join([narration, *topic_notices(events, view)])
     if narration:
         narration = player_text(narration)
     if endpoint != "action" and any(p["id"] == target for p in view["npcs_present"]):
         if narration:
             extra.append(line("narration", narration))
-        extra.extend(line("notice", notice) for notice in notices(events, view))
+        extra.extend(line("notice", notice) for notice in notices(events, view, partner=target))
         if result.ok or failed or action == "topic":
             record_notes(notes, target, len(conversations.get(target, [])), extra)
     if view["game_over"]:
