@@ -26,7 +26,7 @@
 **MVP tip:** build the essential chain first; optional threads add depth later.
 
 ## TBDs blocking a solvable MVP (recommended order, Evidence §12)
-1. **Maya's false alibi** and evidence-team implementation of **Lucas's clip**. The shot of Maya heading toward the labs around 22:30–22:35 is fixed; camera position, coverage, metadata, audio, and review/access remain open. Remember the internal wet/dry lab door (World §8.3).
+1. Evidence-team implementation of **Lucas's clip** and Maya’s post-contradiction response. Her initial false alibi is fixed (Story §7.1 / EV-19). The shot of Maya heading toward the labs around 22:30–22:35 is fixed; camera position, coverage, metadata, audio, and review/access remain open. Remember the internal wet/dry lab door (World §8.3).
 2. **Physical/medical mechanism**: the trace on the reference mass, and what excludes a cover-induced fall.
 3. **Reconstruction access**: what `medical_mechanical_detail_sufficient` and `medical_comparison_authorized` mean in-story.
 4. **Placement and permissions**: where Elena's preserved notes are (EV-17) and where the draft agreement is (EV-16). No password guessing.
@@ -35,7 +35,12 @@
 
 Actual evening movements are fixed in Story §7.1. Elena announces her intended Daniel visit to Olivia/Thomas; they do not witness it. Lucas learns Wednesday’s severe-weather forecast during his roughly 45-minute bridge session with Sarah. Sarah stays on the bridge overnight; the others retire by 23:00. Dinner coverage is settled: nobody on the bridge, propulsion engine on hold, electrical/monitoring systems powered, and Sarah connected directly for notifications of unexpected monitored events (intentional story simplification).
 
-Still open: claimed accounts and independent corroboration; dinner dialogue beyond Elena’s refusal; exact additional bridge briefing details; relief/rest, lookout, and discovery watch coverage; earlier argument/strike audibility; Daniel’s post-discovery record alterations. The 23:10 clunk stays unheard. Olivia’s fictional *Clinical Care Review* magazine is atmosphere, not evidence.
+Still open: remaining claimed accounts and corroboration beyond the fixed bedtime observations; dinner dialogue beyond Elena’s refusal; exact additional bridge briefing details; relief/rest, lookout, and discovery watch coverage; earlier argument/strike audibility; Daniel’s post-discovery record alterations. The 23:10 clunk stays unheard. Olivia’s fictional *Clinical Care Review* magazine is atmosphere, not evidence.
+
+
+**Sleeping rooms / alibi (Story §7.1, World §3.6):** Two rooms, two bunk beds each. Room A: Olivia above Maya, Lucas above Elena. Room B: Sarah above Thomas, Daniel above the player. Olivia sees Maya in bed and Elena’s bunk empty around 22:20; she sleeps before Maya leaves around 22:30. Maya returns around 22:57. Lucas organizes equipment and reviews earlier Tuesday daytime footage around 22:35–22:55, not the evening footage; around 23:00 he sees Maya and Olivia apparently asleep. Maya is awake and hears him arrive. Her fixed lie is: “I was already in bed when Olivia came in. I did not leave the room again that night.” EV-18 contradicts it. Neither bedtime sighting proves continuous presence. Daniel sees Thomas snoring around 22:20. Sarah’s watch assignment is public, not continuous independent corroboration. Lucas wakes around 06:40–06:45, again sees Elena’s empty bunk and goes to check the labs, discovering her at 06:50.
+
+**Daniel/Elena sighting:** Their workshop confrontation is 21:50–22:00; maintenance is 22:05–22:15; Daniel and Olivia talk around 22:15–22:20. Daniel and Elena notice each other during maintenance while she works in the dry lab. If told Olivia’s later empty-bunk observation, Daniel can offer his earlier sighting as context, not proof of Elena’s exact location at 22:20 or afterward.
 
 ## Hand-off to code
 Once decided, put clue records into `data/evidence.yaml` and rooms into `data/locations.yaml` (formats: Evidence §10.1, World §10.1). The engine reads data, not prose.

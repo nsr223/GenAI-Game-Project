@@ -96,20 +96,22 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 
 ## 5. Murder-night timeline and alibi
 
+**Assigned sleeping place:** Room A, lower berth beneath Olivia. Room A houses Elena, Maya, Olivia and Lucas; Room B houses Thomas, Daniel, Sarah and the player. Each room has two bunk beds. Room access does not authorize searching a roommate’s possessions.
+
 | Time | Actual activity / character perspective |
 |---|---|
 | 20:00–20:40 | Group dinner; Elena refuses publication approval. Other dinner dialogue remains TBD. |
-| 20:40–about 21:50 | Works in the dry lab. Before Elena leaves around 21:45, Elena says she is going to Daniel’s workshop and proposes their private wet-lab meeting shortly after half past ten (22:35). Maya accepts, finishes her work, and goes to her cabin. |
-| About 21:50–22:30 | In her cabin. |
+| 20:40–about 21:50 | Works in the dry lab. Before Elena leaves around 21:45, Elena says she is going to Daniel’s workshop and proposes their private wet-lab meeting shortly after half past ten (22:35). Maya accepts, finishes her work, and goes to Room A. |
+| About 21:50–22:30 | In Room A; Olivia sees her in the lower bunk around 22:20. Waits until Olivia is asleep, then leaves quietly around 22:30. |
 | About 22:30–22:35 | Takes the main corridor toward the wet lab for the meeting. Lucas’s incidental recording is author knowledge, not automatically hers. |
 | 22:35 | Meets Elena privately in the wet lab. |
 | ~22:45 | Kills Elena with the reference mass. |
 | ~22:45–22:55 | Stages an apparent accident and returns the mass to its station. |
-| ~22:55–23:00 | Leaves through the wet-lab corridor door, closes it, and returns to her cabin before 23:00. Remains there awake and distressed. |
-| 23:10 | In her cabin; neither hears nor knows about the independent apparatus malfunction. |
+| ~22:55–23:00 | Leaves the wet-lab corridor door around 22:55 and closes it. Returns to Room A around 22:57 without waking Olivia; pretends to sleep when Lucas arrives around 23:00. Hears his arrival and feels reassured that her absence went unnoticed. She does not know he recorded her and cannot know nobody saw her. |
+| 23:10 | In Room A; neither hears nor knows about the independent apparatus malfunction. |
 | Shortly after 06:50 next morning | Arrives last, shortly after Daniel, before the public cover remark and exchange. Preceding location/route remains TBD. |
 
-**Claimed alibi: TBD.** Maya must lie or materially omit her wet-lab presence during the fatal window. The exact invented location, timing, and corroboration must be settled **together** with the Story and Evidence Bibles. Do not improvise a fixed alibi in an NPC run.
+**Fixed false alibi:** “I was already in bed when Olivia came in. I did not leave the room again that night.” Olivia’s ~22:20 sighting and Lucas’s ~23:00 sighting support only those moments, not continuous presence. Lucas sees apparent sleep; Maya is awake. His 22:30–22:35 footage contradicts her claim. Persist the claim before confrontation. Any fallback explanation or further admission requires authored disclosure rules; do not invent another fixed alibi.
 
 ## 6. Deception strategy and disclosure
 
@@ -170,7 +172,7 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 ## 9. Open decisions (TBD)
 
-- Maya's exact false alibi, wording, and corroboration.
+- Her response after the fixed alibi is contradicted; no invented replacement alibi.
 - Email dates and wording, draft terms, and authorized discovery route; Nereid Technologies and email as the negotiation channel are fixed. Keep dates rough unless a clue requires precision.
 - Exact filenames, versions, and excerpts for the offered control code, mixer drawings, operating parameters, and internal test datasets; the offered categories are fixed.
 - What physical trace links the calibration object to the fatal blow.

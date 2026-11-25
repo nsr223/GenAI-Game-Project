@@ -52,7 +52,7 @@ The ship has **three confirmed playable levels**. The room connections in §2.3 
 | Deck | Function | Main playable spaces |
 |---|---|---|
 | **Deck 03 — Command** | Navigation and contact with shore | Bridge / communications station |
-| **Deck 02 — Research & Living** | Scientific work, social spaces, sleeping, medical care | Wet lab, dry lab, mess hall & galley, medical bay, accommodation corridor/cabins, documentary editing room |
+| **Deck 02 — Research & Living** | Scientific work, social spaces, sleeping, medical care | Wet lab, dry lab, mess hall & galley, medical bay, accommodation passage/shared sleeping rooms, documentary editing room |
 | **Deck 01 — Engineering & Working Deck** | Maintenance, propulsion support, research equipment handling | Engineering workshop; auxiliary engine room, equipment storage, exterior aft work deck |
 
 ### 2.2 Schematic map
@@ -72,10 +72,10 @@ The ship has **three confirmed playable levels**. The room connections in §2.3 
    |                 Main Corridor                  |
    +--+---------+---------+---------+---------+-----+
       |         |         |         |         |
-   Wet Lab   Mess Hall  Medical   Cabins    Editing
+   Wet Lab   Mess Hall  Medical   Quarters  Editing
       |      & Galley     Bay     Corridor    Room
    Dry Lab*                         |
-      |                        Private cabins
+      |                        Shared sleeping rooms
       +---- Main Corridor      (controlled access)
                        |
                   Lower Stairs
@@ -106,7 +106,9 @@ The existing connections below are **confirmed and bidirectional**. Permissions 
 | `dry_lab` | `main_corridor`, `wet_lab` |
 | `mess_hall` | `main_corridor` |
 | `medical_bay` | `main_corridor` |
-| `crew_quarters` | `main_corridor`, individual cabin doors |
+| `crew_quarters` | `main_corridor`, `sleeping_room_a`, `sleeping_room_b` |
+| `sleeping_room_a` | `crew_quarters` |
+| `sleeping_room_b` | `crew_quarters` |
 | `editing_room` | `main_corridor` |
 | `lower_stairs` | `main_corridor`, `lower_corridor` |
 | `lower_corridor` | `lower_stairs`, `engineering_workshop`, `engine_room`, `equipment_storage` |
@@ -115,7 +117,7 @@ The existing connections below are **confirmed and bidirectional**. Permissions 
 | `equipment_storage` | `lower_corridor`, `aft_work_deck` |
 | `aft_work_deck` | `equipment_storage` |
 
-**Door viewing panels:** Most communal and working rooms have a small glazed panel in the corridor door, including the wet and dry labs. The wet-lab panel is `wet_lab_viewing_panel`; the dry-lab panel is `dry_lab_viewing_panel`. The wet-lab panel allows Lucas to notice Elena on the floor beside the apparatus from the corridor; it does not reveal the full room, precise injury, or every object. Other panel sightlines must be checked before being used as evidence. Private cabins and confidential medical spaces are exceptions; do not grant public views of private records or examinations. Panels do not grant entry or make closed doors acoustically transparent.
+**Door viewing panels:** Most communal and working rooms have a small glazed panel in the corridor door, including the wet and dry labs. The wet-lab panel is `wet_lab_viewing_panel`; the dry-lab panel is `dry_lab_viewing_panel`. The wet-lab panel allows Lucas to notice Elena on the floor beside the apparatus from the corridor; it does not reveal the full room, precise injury, or every object. Other panel sightlines must be checked before being used as evidence. Shared sleeping rooms and confidential medical spaces are exceptions; do not grant public views of private records or examinations. Panels do not grant entry or make closed doors acoustically transparent.
 
 **Movement rule:** Nobody moves instantly between disconnected locations. Any route discussed by a character or represented in logs must be physically possible on this graph. A character can still lie about their route.
 
@@ -224,7 +226,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `mess_noticeboard` — shared notices and meal schedule.
 - `mess_coffee_station` — ambient interaction hotspot.
 
-**World constraints.** Ideal location for organic NPC encounters, group conversations, and reconstructing the dinner discussion. Olivia reads the fictional medical magazine *Clinical Care Review* here around 22:10–22:20 on the murder night; it is atmosphere, not evidence or a searchable clue document. The room is public, so characters should not treat conversations here as automatically private. New decisive clues must not appear just because an LLM describes an interesting object.
+**World constraints.** Ideal location for organic NPC encounters, group conversations, and reconstructing the dinner discussion. Olivia reads the fictional medical magazine *Clinical Care Review* here around 22:10–22:15 on the murder night; it is atmosphere, not evidence or a searchable clue document. The room is public, so characters should not treat conversations here as automatically private. New decisive clues must not appear just because an LLM describes an interesting object.
 
 ### 3.5 Medical Bay
 
@@ -252,31 +254,30 @@ For every room below, **initial access** means the baseline permission at the be
 |---|---|
 | **ID** | `crew_quarters` |
 | **Deck** | 02 — Research & Living |
-| **Connected to** | `main_corridor`; individual private cabin doors |
+| **Connected to** | `main_corridor`; the doors to Room A and Room B |
 | **Main NPC association** | All onboard individuals |
-| **Initial access** | Corridor accessible; cabins are private and normally locked or access-controlled |
+| **Initial access** | Passage accessible; assigned occupants have room access, while personal storage remains private |
 
-**Purpose and appearance.** A short accommodation passage with eight compact assigned cabins. Each contains a narrow bed, storage, small desk, and a few character-specific possessions. The player has their own cabin, which can serve as a quiet place to review notes.
+**Purpose and appearance.** A short accommodation passage serves **two shared four-person sleeping rooms**, each with **two bunk beds** (eight berths total). There are no individual private cabins. Each occupant has assigned personal storage; the player reviews notes at a shared desk in Room B.
 
-**Proposed cabin IDs:**
-- `cabin_player`
-- `cabin_elena`
-- `cabin_sarah`
-- `cabin_daniel`
-- `cabin_maya`
-- `cabin_thomas`
-- `cabin_olivia`
-- `cabin_lucas`
+| Room ID | Bunk bed | Upper berth | Lower berth |
+|---|---|---|---|
+| `sleeping_room_a` | 1 | Olivia | Maya |
+| `sleeping_room_a` | 2 | Lucas | Elena |
+| `sleeping_room_b` | 1 | Sarah | Thomas |
+| `sleeping_room_b` | 2 | Daniel | Player |
+
+Sarah’s berth is unused during her publicly known overnight bridge watch. Olivia can see Maya in the lower berth when entering around 22:20; Lucas can observe both Maya and Olivia in their berths on returning around 23:00, as well as Elena’s empty lower berth. These are in-room observations, not corridor visibility through a private-room door. Maya quietly leaves and returns without waking Olivia; bunk placement does not provide continuous surveillance.
 
 **Baseline interactable objects:**
-- `player_desk` — player case notes/journal (optional UI shortcut).
-- `cabin_door_<character>` — access gate for each cabin.
-- `cabin_desk_<character>` — character-specific furniture; contents not automatically accessible.
-- `cabin_storage_<character>` — personal belongings; contents decided in Evidence Bible.
+- `player_desk` — shared Room B desk for player notes/journal (optional UI shortcut).
+- `sleeping_room_door_a`, `sleeping_room_door_b` — room entry gates.
+- `berth_<character>` — assigned berth within the room above.
+- `personal_storage_<character>` — individually private belongings; evidence contents and search authorization remain separately defined.
 
-**World constraints.** The player may not search another person's possessions solely because that cabin appears on the map. Permission, consent, or a story-authorized investigation step is required. Elena's cabin can become an important late or mid-game scene, but the precise authorization and preserved files are **TBD**.
+**World constraints.** Occupants may enter their assigned sleeping room. Shared-room access does not authorize searching a roommate’s belongings. Consent or specific investigation authorization is required. Elena’s preserved notes and Maya’s draft may be in their personal storage in Room A, but placement and discovery/access remain **TBD**. The former `cabin_<character>` room IDs are replaced by the two room IDs above; these are design changes, not an automatic runtime schema migration.
 
-**MVP note.** Render the quarters as one corridor and make only cabins with meaningful interactions individually explorable. The others can remain doors with dialogue flavor, reducing art and navigation work.
+**MVP note.** Render the accommodation passage and two shared sleeping rooms; keep personal-storage permissions separate from room-entry permissions.
 
 ### 3.7 Documentary Editing Room
 
@@ -360,7 +361,7 @@ Spaces such as ballast tanks, bilges, fuel systems, inaccessible service ducts, 
 
 ### 5.1 General access model
 
-Access is determined by **room ownership + current game phase + authorization**. Familiarity or high NPC trust alone does not grant authority to search a cabin or operate dangerous equipment.
+Access is determined by **room ownership + current game phase + authorization**. Familiarity or high NPC trust alone does not grant authority to search personal belongings or operate dangerous equipment.
 
 | Area | Before death | After death, early investigation | Later authorized investigation |
 |---|---|---|---|
@@ -371,7 +372,7 @@ Access is determined by **room ownership + current game phase + authorization**.
 | Medical bay | Speak with Olivia | Speak with Olivia; private records restricted | Particular findings discussed when supported and unlocked |
 | Engineering workshop | Limited/escorted | Limited/escorted | Relevant maintenance records as investigation permits |
 | Editing room | Speak with Lucas | Speak with Lucas | Specific footage may be shared through Lucas/authorized preservation |
-| Private cabins | Own cabin only by default | Others restricted | Only specified cabins with consent or appropriate authorization |
+| Shared sleeping rooms | Assigned room only by default | Others restricted | Specific room/possession consent or appropriate authorization |
 | Exterior aft deck | Conditions permitting | May be closed by storm | Opens only when safe and authorized |
 
 ### 5.2 Suggested state variables
@@ -384,7 +385,7 @@ world_state:
   weather: worsening  # fair | worsening | severe
   wet_lab_secured: false
   wet_lab_inspection_authorized: false
-  private_cabin_search_authorized: []
+  personal_storage_search_authorized: []
   bridge_record_review_authorized: false
   engineering_record_review_authorized: false
   selected_media_access_granted: false
@@ -424,7 +425,7 @@ The motive-investigation flags track progress only; they are not mandatory prere
 | **Ambient** | Adds atmosphere, no factual consequence | Coffee mug, warning poster |
 | **Inspectable** | Provides stable descriptive information | Workbench, navigation display |
 | **Evidence-bearing** | Can reveal a predefined clue | Maintenance terminal, selected media file |
-| **Access gate** | Controls entry or permissions | Secured wet-lab door, cabin door |
+| **Access gate** | Controls entry or permissions | Secured wet-lab door, sleeping-room door |
 | **Conversation anchor** | Gives a natural topic for questioning | M-17 analysis terminal, equipment fault board |
 | **Safety-restricted** | Cannot be freely operated | Bridge controls, sampling apparatus, engines |
 
@@ -515,7 +516,7 @@ These are **defaults for encounter design**, not alibis and not guaranteed posit
 | Sarah Morgan | `bridge` | May meet player in mess hall or secure the wet lab after discovery |
 | Daniel Reyes | `engineering_workshop` | May visit wet lab for maintenance when scripted |
 | Maya Chen | `dry_lab` | May visit mess hall or other areas when supported by game state |
-| Thomas Blake | `mess_hall`, `crew_quarters` | Exact workspace/cabin use TBD |
+| Thomas Blake | `mess_hall`, `crew_quarters` | Room B lower berth beneath Sarah; workspace details TBD |
 | Olivia Hart | `medical_bay` | May attend incident locations when required |
 | Lucas Weber | `editing_room`, `mess_hall` | Can record in permitted spaces at specified times |
 | Elena Fischer | `dry_lab`, `wet_lab` before death | Opening warning occurs in dry lab; murder occurs in wet lab |
@@ -547,13 +548,13 @@ The first playable version should support these **eight core rooms**:
 3. `dry_lab`
 4. `mess_hall`
 5. `medical_bay`
-6. `crew_quarters` (with a few accessible sub-cabins)
+6. `crew_quarters` (with two shared sleeping rooms)
 7. `editing_room`
 8. `engineering_workshop`
 
 **Implement first:** A 2D ship map or location selection UI, a visual for each core room, a set of inspection hotspots, NPC conversations, permission-aware navigation, and a journal/evidence inventory.
 
-**Can be simplified or postponed:** Detailed engine room, full exterior deck, individual art for all eight cabins, realistic navigation simulators, free-roaming NPC animation, and complex equipment controls.
+**Can be simplified or postponed:** Detailed engine room, full exterior deck, detailed art for the two shared sleeping rooms, realistic navigation simulators, free-roaming NPC animation, and complex equipment controls.
 
 **Scope rule:** An unimplemented area should not contain mandatory evidence. If the Evidence Bible relies on it, bring that area into the MVP or move the clue through an agreed narrative revision.
 
@@ -650,12 +651,12 @@ For each exploration request, give the model only:
 | Final drawing, dimensions, and walking distances | Connections are confirmed in §2.3; geometry can be refined later when alibis are addressed. | World / level design |
 | Internal wet-to-dry lab door: lock and access-log behavior | Could change Maya's route and the value of surveillance footage | Narrative + world + evidence |
 | Exact cameras, recording coverage, and blind spots | Prevents impossible video evidence | Evidence + world |
-| Which cabins are individually explorable | Controls development scope and search permissions | Gameplay + evidence |
+| Shared-room exploration and personal-storage permissions | Controls development scope and search permissions | Gameplay + evidence |
 | Detailed apparatus/weapon visuals and surrounding scene geometry | Hardware, cover failure, and 2 kg reference mass are fixed; drawings must support reach/contact comparison and evaluation of a secondary fall. | Narrative + visual design + evidence |
 | Alibi verification, sightlines, and sound propagation | Actual movements and door closures are fixed in Story §7.1. Realize Elena/Daniel’s mutual awareness during his check without another conversation. Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
 | Discovery routes and examination blocking | Lucas discovers through the wet-lab panel at 06:50; Sarah opens the door after arrival. The response order is fixed in Story §7.2. Preceding locations/routes and clue-relevant examination movements remain TBD; preserve the witnesses and Lucas's confusion. | Story + world |
 | Time-based NPC schedule after the murder | Prevents people appearing in impossible places | Character + gameplay |
-| What authorizes wet-lab and private-cabin searches | Keeps player's auditor role believable | Story + gameplay |
+| What authorizes wet-lab, shared-room and personal-storage searches | Keeps player's auditor role believable | Story + gameplay |
 | Credible operations of a vessel with only eight people | Small-cast premise needs a consistent degree of automation and watchkeeping | Story + world |
 | Precise room/object artwork and asset style | Keeps generated assets visually consistent | Art + world |
 

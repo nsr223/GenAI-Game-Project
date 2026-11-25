@@ -26,7 +26,7 @@ main_corridor — wet_lab, dry_lab, mess_hall, medical_bay, crew_quarters, editi
 wet_lab — dry_lab            (shared internal door: one object `lab_internal_door`)
 lower_stairs — lower_corridor — engineering_workshop, engine_room, equipment_storage
 equipment_storage — aft_work_deck
-crew_quarters — cabin_player, cabin_elena, cabin_sarah, cabin_daniel, cabin_maya, cabin_thomas, cabin_olivia, cabin_lucas
+crew_quarters — sleeping_room_a (Elena/Maya/Olivia/Lucas), sleeping_room_b (Thomas/Daniel/Sarah/player)
 ```
 MVP core rooms (World §9): `bridge, wet_lab, dry_lab, mess_hall, medical_bay, crew_quarters, editing_room, engineering_workshop`. Corridors and stairs are traversal nodes only. **Unimplemented rooms must not hold mandatory evidence.**
 
@@ -37,7 +37,7 @@ world_state:
   weather: severe
   wet_lab_secured: true
   wet_lab_inspection_authorized: false
-  private_cabin_search_authorized: []
+  personal_storage_search_authorized: []
   bridge_record_review_authorized: false
   engineering_record_review_authorized: false
   selected_media_access_granted: false
@@ -62,7 +62,7 @@ Also persist **NPC claims** (speaker, time, topic) so later contradictions can b
 | EV-00 | Elena's M-17 warning | journal at start | none |
 | EV-01–03 | M-17 index, raw data, investor summary | dry_lab | audit access |
 | EV-04–05 | Revision history, Thomas's pressure message | dry_lab | audit/specific access |
-| EV-06, 17, 21–23 | Elena's preserved notes (incl. C-2, Maya, Sarah, Lucas, Noah entries) | **storage TBD** (cabin_elena?) | authorization TBD |
+| EV-06, 17, 21–23 | Elena's preserved notes (incl. C-2, Maya, Sarah, Lucas, Noah entries) | **storage TBD** (Room A / personal_storage_elena?) | authorization TBD |
 | EV-07 | Sarah/Daniel testimony on C-2 | conversation | — |
 | EV-08–09 | Apparatus fault record, 23:10 cycle log | engineering_workshop | `engineering_record_review_authorized` or Daniel shares |
 | EV-10 | Olivia's preliminary observations | medical_bay | conversation |
@@ -70,7 +70,7 @@ Also persist **NPC claims** (speaker, time, topic) so later contradictions can b
 | EV-12–13 | Scene inspection, reference-mass anomaly | wet_lab | `wet_lab_inspection_authorized` |
 | EV-14 | Injury/weapon correspondence | medical_bay | EV-11 + EV-13 |
 | EV-15 | Maya's improvement history | dry_lab | audit access |
-| EV-16 | Draft Nereid agreement | dry_lab or cabin_maya (**TBD**) | authorized route |
+| EV-16 | Draft Nereid agreement | dry_lab or Room A / personal_storage_maya (**TBD**) | authorized route |
 | EV-18 | Lucas's partial corridor recording | editing_room | Lucas shares or Sarah authorizes |
 | EV-19 | Maya's contradictory statement | conversation | persisted claim vs EV-18 |
 | EV-20, 24, 26 | Dinner, Noah and discovery testimony | conversation | optional |
@@ -95,11 +95,13 @@ When the player presents evidence, send the **evidence ID plus its verified cont
 
 ## Validation tests worth writing (Evidence §10.4, §11; World §10.4)
 - Every location/object/evidence ID referenced exists, and every connection is reciprocal.
-- Fixed times match: 18:10, 21:10, 22:20, 22:35, ~22:45, 23:10, 06:50.
+- Fixed times match: 18:10, 21:10, 21:50, 22:15, 22:35, ~22:45, 23:10, 06:50.
 - `machinery_cause_excluded` is reachable with both motive flags false.
 - Casual talk to Thomas or Daniel does **not** unlock EV-11.
 - A correct accusation without the four flags does not count as a win.
 - A restricted room can't be entered via conversation alone.
 
 ## Open decisions that affect the engine
-Ending/accusation flow · storage and access of Elena's notes · EV-16 placement · Maya's alibi (EV-19) · what authorizes the wet-lab and cabin searches · `medical_mechanical_detail_sufficient` content. **Stub these as config, don't invent canon.**
+Ending/accusation flow · storage and access of Elena's notes · EV-16 placement · Maya's post-contradiction response (EV-19 claim is fixed) · what authorizes the wet-lab and personal-storage searches · `medical_mechanical_detail_sufficient` content. **Stub these as config, don't invent canon.**
+
+**Design/runtime migration boundary:** The bibles now specify two shared rooms and personal-storage permissions. Existing runtime data/tests may still use eight `cabin_*` rooms and the old cabin-search flag; migrate those together in a separate engine/content change. Room entry never grants access to a roommate’s belongings.

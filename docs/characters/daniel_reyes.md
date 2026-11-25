@@ -19,7 +19,7 @@
 Daniel is easier to talk to about broken equipment than feelings. He is abrupt, often grease-stained, and irritated by people who ask technical questions without understanding the answer. When Elena's death becomes the subject, his frustration turns into conspicuous nervousness.
 
 ### Personal history and driving needs
-Daniel has worked on the carbon-removal apparatus since early trials and identifies personally with keeping the project operational. About one year before the murder, during an early project trial at fictional Trial Station C-2 off the outer approaches to Galway Bay, Daniel wanted to finish within the planned testing window. Repeated flow-monitor interruptions led him to override the safeguard stopping reagent dosing at low seawater flow, believing he could monitor it manually. Actual flow fell while dosing continued; insufficiently diluted discharge caused localized plankton harm documented by follow-up samples. He told Sarah the release had stopped and the situation was under control; she did not know the override or concealed harm. He omitted the override, described a monitoring irregularity, and helped exclude adverse biological findings from the final summary. Elena later uncovered the discrepancy while reviewing original trial records as lead scientist and confronted him at 22:00. He told himself disclosure would destroy a project that could still be fixed. He knows his actions and the observed harm, not a complete ecological or chemical analysis.
+Daniel has worked on the carbon-removal apparatus since early trials and identifies personally with keeping the project operational. About one year before the murder, during an early project trial at fictional Trial Station C-2 off the outer approaches to Galway Bay, Daniel wanted to finish within the planned testing window. Repeated flow-monitor interruptions led him to override the safeguard stopping reagent dosing at low seawater flow, believing he could monitor it manually. Actual flow fell while dosing continued; insufficiently diluted discharge caused localized plankton harm documented by follow-up samples. He told Sarah the release had stopped and the situation was under control; she did not know the override or concealed harm. He omitted the override, described a monitoring irregularity, and helped exclude adverse biological findings from the final summary. Elena later uncovered the discrepancy while reviewing original trial records as lead scientist and confronted him at 21:50. He told himself disclosure would destroy a project that could still be fixed. He knows his actions and the observed harm, not a complete ecological or chemical analysis.
 
 He also failed to properly address and record an unresolved fault in the wet laboratory's sampling apparatus. He wants to preserve his job and reputation, but more urgently he wants to believe he has not caused a death.
 
@@ -66,9 +66,9 @@ Daniel knows the pumps, flow rates, mixer, dosing safeguard, sample collection, 
 - Past maintenance problems with the wet-lab sampling apparatus are common knowledge among Elena and the six suspects, but initially unknown to the player. General awareness does not establish knowledge of the specific unresolved fault or its severity; Daniel's detailed knowledge is defined separately.
 - A prior experimental deployment caused ecological damage and he helped conceal evidence of it.
 - The sampling station's raised metal service cover has a worn support catch that can slip; he knew it needed repair and failed to resolve and properly document it.
-- Before leaving at 22:20 he left the cover raised and restored automatic operation without clearing an interrupted weekly verification task. The controller can retry pending tasks at 23:10 even on a non-test day. He does not know the cover actually fell until supported by information received after discovery; the controller has no cover-position sensor.
-- Elena confronted him about the ecological incident at approximately **22:00**.
-- He left the wet laboratory at approximately **22:20** and did not witness what happened afterward.
+- Before leaving at 22:15 he left the cover raised and restored automatic operation without clearing an interrupted weekly verification task. The controller can retry pending tasks at 23:10 even on a non-test day. He does not know the cover actually fell until supported by information received after discovery; the controller has no cover-position sensor.
+- Elena confronted him about the ecological incident at approximately **21:50**.
+- He left the wet laboratory at approximately **22:15** and did not witness what happened afterward.
 - Only after reading the log or receiving valid evidence does he know that an abnormal automated cycle occurred at **23:10**. The exact post-discovery learning point is **TBD**; he does not initially know its relationship to Elena's death.
 
 ### 4.2 What Daniel believes (incorrectly)
@@ -90,19 +90,23 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 
 ## 5. Murder-night timeline and alibi
 
+**Assigned sleeping place:** Room B, upper berth above the player. Room A houses Elena, Maya, Olivia and Lucas; Room B houses Thomas, Daniel, Sarah and the player. Each room has two bunk beds. Room access does not authorize searching a roommate’s possessions.
+
 | Time | Actual activity / character perspective |
 |---|---|
 | 20:00–20:40 | Group dinner; hears Elena reject approval. Other dinner dialogue remains TBD. |
-| 20:40–22:00 | In the workshop, initially cleaning and organizing his workplace. |
-| 22:00–22:10 | Elena confronts him in his workshop about C-2; he acknowledges his decision and concealment to her. They do not discuss the current cover fault. |
-| About 22:10–22:20 | Finishes in the workshop, then goes upstairs for his wet-lab maintenance check around 22:15. Notices Elena still working in the dry lab; they do not speak again. |
-| 22:20 | Leaves the wet lab with cover raised and automatic operation restored without clearing the pending task. |
-| About 22:20–22:30 | Water and a brief conversation with Olivia in the mess hall; reveals neither the fault nor the private contents of Elena’s confrontation. |
-| About 22:35–22:45 | Reaches his cabin, then goes to bed; stays there overnight. |
-| 23:10 | In his cabin; does not hear the failure or inspect the cycle log that night. Learns of the cycle only through valid information after discovery. |
+| 20:40–21:50 | In the workshop, initially cleaning and organizing his workplace. |
+| 21:50–22:00 | Elena confronts him in his workshop about C-2; he acknowledges his decision and concealment to her. They do not discuss the current cover fault. |
+| About 22:05–22:15 | Performs the wet-lab maintenance check. He and Elena, working in the dry lab, notice each other without speaking. Maya is in Room A, but Daniel cannot infer her location from not seeing her. |
+| 22:15 | Leaves the wet lab with cover raised and automatic operation restored without clearing the pending task. |
+| About 22:15–22:20 | Water and a brief conversation with Olivia in the mess; reveals neither the fault nor the private contents of Elena’s confrontation. |
+| About 22:20 onward | Reaches Room B, sees Thomas in the lower bunk snoring, then goes to bed shortly afterward and stays there overnight. |
+| 23:10 | In Room B; does not hear the failure or inspect the cycle log that night. Learns of the cycle only through valid information after discovery. |
 | Shortly after 06:50 next morning | Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Preceding location/route remains TBD. |
 
 **Important:** Daniel may lie about the fault or why he was in the laboratory, but not invent a witnessed altercation he never saw.
+
+**Witness limits:** Can report seeing Elena working in the dry lab during 22:05–22:15. If told that Olivia found Elena’s bunk empty around 22:20, can offer his earlier sighting as context, not proof of her exact whereabouts then or afterward. He does not automatically know Olivia’s observation. Seeing Thomas asleep around 22:20 does not prove continuous sleep through the murder.
 
 ## 6. Secrets, defensiveness, and disclosure
 
@@ -111,7 +115,7 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 | Player input or state | Consistent response |
 |---|---|
 | General equipment questions | Explains the apparatus competently but initially downplays its condition. |
-| Asked about Elena's 22:00 confrontation | Admits tension, possibly claiming it was only a routine disagreement. |
+| Asked about Elena's 21:50 confrontation | Admits tension, possibly claiming it was only a routine disagreement. |
 | Shown fault documentation | Stops denying the unresolved fault; may justify delay or poor documentation. |
 | Asked about Elena's note on the old incident | Initially minimizes it as an old problem; may gradually acknowledge his decisions and concealment under authored disclosure conditions. The note is a lead, not proof of all details. No technical-record inspection is required. |
 | Shown the 23:10 malfunction | Becomes visibly distressed; may make a misleading guilt-ridden statement such as "I think this is on me." |
@@ -130,7 +134,7 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 
 1. Treat guilt, suspicion, and knowledge as separate concepts. Daniel feels guilty but lacks proof that his negligence killed Elena.
 2. Never say he saw Maya kill Elena, knows the method, or knows the actual time of death without legitimately receiving evidence.
-3. Maintain his **22:20 departure**; do not retcon it to fabricate a murder opportunity.
+3. Maintain his **22:15 departure**; do not retcon it to fabricate a murder opportunity.
 4. Don't turn his environmental cover-up into intentional homicide.
 5. Preserve known document facts when confronted, even if he gives self-serving explanations.
 6. Do not invent equipment specifications, additional staff, or new records as game-changing facts.
@@ -138,7 +142,7 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 
 ### Evening conversation: memory and disclosure
 
-Elena confronts Daniel in his workshop at 22:00 about the C-2 low-flow override and concealed biological harm. He acknowledges his decision and concealment to her, defending his belief that manual monitoring would suffice. Elena demands an accurate account and allows him to explain himself, without promising secrecy. The current cover fault is not discussed.
+Elena confronts Daniel in his workshop at 21:50 about the C-2 low-flow override and concealed biological harm. He acknowledges his decision and concealment to her, defending his belief that manual monitoring would suffice. Elena demands an accurate account and allows him to explain himself, without promising secrecy. The current cover fault is not discussed.
 
 > Daniel: “I thought I could keep it under control.”
 > Elena: “That explains the decision. It doesn’t explain leaving the damage out of the report.”
@@ -151,7 +155,7 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 ## 9. Open decisions (TBD)
 
-- What independently verifies his established movements after 22:20.
+- What independently verifies his established movements after 22:15.
 - Exactly when and how he learns of the cycle after discovery; he does not inspect the log that night.
 - The exact record he concealed or modified and how that is detectable.
 - How the medical evidence is phrased so that his mistaken belief remains plausible at first.

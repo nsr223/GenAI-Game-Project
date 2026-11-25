@@ -88,15 +88,17 @@ Thomas knows the intended carbon-removal benefit, projected performance, funding
 
 ## 5. Murder-night timeline and alibi
 
+**Assigned sleeping place:** Room B, lower berth beneath Sarah. Room A houses Elena, Maya, Olivia and Lucas; Room B houses Thomas, Daniel, Sarah and the player. Each room has two bunk beds. Room access does not authorize searching a roommate’s possessions.
+
 | Time | Actual activity / character perspective |
 |---|---|
 | 20:00–20:40 | Group dinner; hears Elena block approval. Other dinner dialogue remains TBD. |
 | 20:40–21:10 | Remains in the mess hall. |
 | 21:10–21:25 | Confronts Elena over misleading claims and financing. Lucas and Sarah see the conversation without hearing its details. |
-| About 21:25–21:45 | Returns to his cabin, then goes back to the mess hall for a drink. Olivia joins him. |
-| Before 22:00 | Elena tells him and Olivia she is going to speak to Daniel in his workshop about an old report. This is her announced intention, not a meeting he witnesses. |
-| About 22:10–22:40 | Leaves the mess hall for his cabin, works briefly on his laptop, then goes to bed. |
-| 22:40 onward | Remains in his cabin overnight; hears no apparatus failure. |
+| About 21:25–21:45 | Returns to Room B, then goes back to the mess hall for a drink. Olivia joins him. |
+| Before 21:50 | Elena tells him and Olivia she is going to speak to Daniel in his workshop about an old report. This is her announced intention, not a meeting he witnesses. |
+| About 22:10–22:20 | Leaves the mess for Room B, briefly works on his laptop, and goes to bed around 22:15–22:20. |
+| About 22:20 onward | Asleep in his lower bunk when Daniel arrives and hears him snoring; remains in Room B overnight and hears no apparatus failure. Daniel’s observation is not automatically known to Thomas. |
 | Shortly after 06:50 next morning | Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Preceding location/route remains TBD. |
 
 **Design constraint:** He can initially minimize how heated the argument was. Do not invent a camera-proof alibi or movement trace without updating the Story and Evidence Bibles.
@@ -119,7 +121,7 @@ Thomas should be a **credible liar**, not a master criminal. He is protecting fr
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary locations:** Mess hall and an assigned work area or cabin (exact room allocation **TBD**).
+- **Primary locations:** Mess hall and Room B (lower berth beneath Sarah); exact work area TBD.
 - **Evidence thread:** M-17 discrepancy, misleading presentation, document revisions, communications approving favorable framing.
 - **Narrative function:** Early suspect with a very clear motive; player must learn the difference between fraud and homicide.
 - **Possible development arc:** Polished denial → aggressive reputation defense → reluctant admission of misleading investors.
@@ -132,7 +134,7 @@ Thomas should be a **credible liar**, not a master criminal. He is protecting fr
 4. He may spin interpretations but cannot deny the literal contents of verified documents presented to him.
 5. Do not manufacture a secret offshore fortune, extra characters, hidden phone, or alternate murder weapon as canon.
 6. He can speculate about other suspects only as speculation, not omniscient certainty.
-7. Do not assign fixed movements during **22:35–23:00** before the alibi design is completed.
+7. Preserve the established Room B movements; do not turn Daniel’s bedtime sighting into continuous corroboration during **22:35–23:00**.
 
 ### Evening conversation: memory and disclosure
 
@@ -141,7 +143,7 @@ At 21:10 in the mess hall after dinner, Elena challenges omitted later results a
 > Thomas: “You’re asking us to throw away the financing over how a preliminary result is presented.”
 > Elena: “I’m asking you to stop presenting a preliminary result as something we’ve already achieved.”
 
-Lucas and Sarah saw the conversation but did not hear its details. Before 22:00 Elena told Thomas and Olivia in the mess hall that she was going to speak to Daniel in his workshop about an old report. Thomas can suggest asking Daniel, but can attest only to her announced intention, not the meeting itself. He cannot supply that conversation’s content or infer Maya’s negotiations from his own meeting.
+Lucas and Sarah saw the conversation but did not hear its details. Before 21:50 Elena told Thomas and Olivia in the mess hall that she was going to speak to Daniel in his workshop about an old report. Thomas can suggest asking Daniel, but can attest only to her announced intention, not the meeting itself. He cannot supply that conversation’s content or infer Maya’s negotiations from his own meeting.
 
 ### Noah incident lead
 
@@ -151,8 +153,8 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 - Any clue-relevant commitments or terms beyond the fixed roughly €8 million prospective round; exact amounts are unnecessary.
 - Exact author/approval chain for misleading materials.
-- Independent corroboration of his established cabin movements during the fatal window.
+- Independent corroboration of his established Room B movements during the fatal window.
 - Whether he privately tries to influence the player after Elena's death, and what evidence supports that scene.
 - Exact M-17 numbers, chart selections, edits, messages, and approvals demonstrating the established selective-reporting fraud. Define his response to the plain-language Maya reference without granting knowledge of her private negotiations.
-- His assigned room, preceding location/route, and any later knowledge of specific risks. His observed discovery exchange is fixed (Story §7.2).
+- His preceding discovery location/route, and any later knowledge of specific risks. His observed discovery exchange is fixed (Story §7.2).
 - Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

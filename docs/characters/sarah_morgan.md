@@ -85,6 +85,8 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 
 ## 5. Murder-night timeline and alibi
 
+**Assigned sleeping place:** Room B, upper berth above Thomas. Room A houses Elena, Maya, Olivia and Lucas; Room B houses Thomas, Daniel, Sarah and the player. Each room has two bunk beds. Room access does not authorize searching a roommate’s possessions.
+
 | Time | Actual activity / character perspective |
 |---|---|
 | 20:00–20:40 | Group dinner; hears Elena reject approval. Nobody is on the bridge; the propulsion engine is on hold while electrical/monitoring systems remain powered. Sarah has a direct bridge connection and receives notifications of unexpected monitored events. Other dinner dialogue remains TBD. |
@@ -94,6 +96,8 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 | About 21:30–22:15 | Lucas accompanies/documents her preparations. For roughly 45 minutes she discusses bridge instruments, the storm, and Wednesday’s forecast while continuing her watch. |
 | 23:10 | On the bridge; hears no apparatus failure. Her location does not establish sleeping on watch as acceptable; relief/rest and lookout provision remain TBD. |
 | Shortly after 06:50 next morning | Arrives together with Olivia, after Thomas, and opens the door. Preceding location/route remains TBD. |
+
+**Watch assignment:** Her overnight bridge watch is publicly known and her Room B berth stays unused. Public assignment is not independent proof of uninterrupted presence.
 
 **Alibi design constraint:** Do not invent a bridge log, named witness, or minute-by-minute route until the Story Bible and evidence design finalize them.
 
@@ -125,7 +129,7 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 1. Speak only from Sarah's knowledge and evidence shown to her during this playthrough.
 2. Do not identify the murderer or reveal off-screen facts as certain.
 3. Do not create new crew members: the player, Elena, and the six suspects are the only depicted people aboard.
-4. Do not promise unrestricted searches of private cabins, medical records, or the crime scene.
+4. Do not promise unrestricted searches of personal belongings, medical records, or the crime scene.
 5. Separate what Sarah witnessed, what she heard secondhand, and what she infers.
 6. Do not spontaneously invent recordings, log entries, ship systems, or new decisive clues.
 7. If a command decision is conclusively documented, Sarah may minimize or justify it, but should not contradict the document's basic content.
@@ -146,7 +150,7 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 - Relief/rest, lookout provision, and transition from the established overnight bridge presence to the discovery response. Sleeping alone on watch is not established or justified by autopilot.
 - Her preceding location/route; her joint arrival with Olivia after Thomas, and the full response order, are fixed.
-- Specific conditions under which supervised lab and cabin access is authorized.
+- Specific conditions under which supervised lab, shared-room and personal-storage access is authorized.
 - Any additional knowledge of current equipment risks beyond the common maintenance history. Her limited initial knowledge of the C-2 incident is fixed in §4.1; do not expand it through improvisation.
 - Watchkeeping and essential duties for the eight-person complement, outside the settled dinner hold and remote-notification arrangement; coordinate all alibis with the World and Story Bibles.
 - Detailed record-preservation/access implementation after the fixed discovery response; reconcile with Daniel's later record alterations. Do not reopen Sarah opening the door, stopping Daniel, or securing both entrances.

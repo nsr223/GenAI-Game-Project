@@ -96,18 +96,22 @@ Olivia knows the broad aim of helping seawater absorb carbon and that the alkali
 
 ## 5. Murder-night timeline and alibi
 
+**Assigned sleeping place:** Room A, upper berth above Maya. Room A houses Elena, Maya, Olivia and Lucas; Room B houses Thomas, Daniel, Sarah and the player. Each room has two bunk beds. Room access does not authorize searching a roommate’s possessions.
+
 | Time | Actual activity / character perspective |
 |---|---|
 | 20:00–20:40 | Group dinner; witnesses Elena’s refusal. Other dinner dialogue remains TBD. |
 | 20:40–about 21:45 | Finishes routine tasks in the medical bay, then joins Thomas in the mess hall. |
-| Before 22:00 | Elena tells her and Thomas she is going to speak to Daniel in his workshop about an old report. Olivia does not witness that meeting or hear its contents. |
-| About 22:10–22:20 | After Thomas leaves, reads the fictional medical magazine *Clinical Care Review* in the mess hall. This is incidental atmosphere, not evidence. |
-| About 22:20–22:30 | Briefly talks with Daniel, without learning about the cover fault or the private workshop discussion. |
-| About 22:30–22:45 | Returns to her cabin and goes to bed. Remains there overnight; hears no apparatus failure. |
+| Before 21:50 | Elena tells her and Thomas she is going to speak to Daniel in his workshop about an old report. Olivia does not witness that meeting or hear its contents. |
+| About 22:10–22:15 | After Thomas leaves, reads the fictional medical magazine Clinical Care Review in the mess. This is incidental atmosphere, not evidence. |
+| About 22:15–22:20 | Briefly talks with Daniel, without learning about the cover fault or private workshop discussion. |
+| About 22:20 onward | Returns to Room A, sees Maya in the lower bunk beneath hers and Elena’s bunk empty. Goes to bed and falls asleep before Maya leaves around 22:30. Does not wake for Maya’s return or hear the apparatus failure. |
 | Shortly after 06:50 next morning | Arrives together with Sarah, after Thomas. Sarah opens the door and Olivia begins assessing Elena. Preceding location/route remains TBD. |
 | After discovery | Performs a **preliminary examination**, records observations and raises medical concerns about the apparent accident. |
 
 **Design constraint:** Do not invent an exact time-of-death estimate without specifying what observations support that estimate. A broad interval can later be narrowed by non-medical clues.
+
+**Witness limits:** “Maya was in bed when I came in, around twenty past ten. Elena’s bed was empty. I fell asleep soon afterward.” Cannot attest that Maya stayed all night or was truly asleep. Does not know Elena’s later location or Daniel’s earlier sighting unless explicitly told.
 
 ## 6. Secrets, defensiveness, and disclosure
 
@@ -144,7 +148,7 @@ Olivia's hesitation should be ethical and personal, not a device for hiding a de
 
 ### Lead to Daniel’s evening conversation
 
-Before 22:00, Elena tells Olivia and Thomas in the mess hall that she is going to speak to Daniel in his workshop about an old report. Olivia can suggest asking him, but knows only Elena’s announced intention. She does not witness the meeting or know its private content. Later she speaks briefly to Daniel in the mess hall without learning that content or the apparatus fault.
+Before 21:50, Elena tells Olivia and Thomas in the mess hall that she is going to speak to Daniel in his workshop about an old report. Olivia can suggest asking him, but knows only Elena’s announced intention. She does not witness the meeting or know its private content. Later she speaks briefly to Daniel in the mess hall without learning that content or the apparatus fault.
 
 ### Recollection of the report
 
@@ -153,7 +157,7 @@ Before 22:00, Elena tells Olivia and Thomas in the mess hall that she is going t
 ## 9. Open decisions (TBD)
 
 - Exact authored observation wording and corroboration for the established head injury; distinguish visible findings from the skull/brain injury known to the authors. Complete the scene comparison excluding a secondary fall, not just a superficial shape comparison.
-- Independent corroboration of her established movements and cabin retirement.
+- Independent corroboration of her established movements and Room A retirement beyond the fixed sightings.
 - Her preceding location/route; her joint arrival with Sarah after Thomas is fixed. She is not the discoverer.
 - The content and disclosure boundaries of Elena's private conversations, without inventing knowledge of the negotiations or murder.
 - Which verified apparatus observations Olivia needs to compare with the injury and exclude the malfunction; proof of death before 23:10 is not required.

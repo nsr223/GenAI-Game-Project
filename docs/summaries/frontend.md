@@ -12,7 +12,7 @@
 6. **Journal / evidence inventory.**
 7. **Accusation screen**: present reasoning and evidence to Sarah (exact flow **TBD**).
 
-Can be postponed (World §9): engine room, exterior deck, art for all 8 cabins, NPC animation, equipment controls.
+Can be postponed (World §9): engine room, exterior deck, detailed art for the two shared sleeping rooms, NPC animation, equipment controls.
 
 ## The UI never decides game logic
 All "can I enter / did I unlock / is this a win" questions go to the engine. The UI renders whatever state the engine returns. Agree on the engine API with the backend owner before building screens.
@@ -37,4 +37,4 @@ Each item shows **Observed** (exact text/clip/statement), optional **Interpretat
 - Leads like "Return to Olivia to compare…" appear only when the engine says the gate is open (Evidence §6.5).
 
 ## Open decisions affecting UI
-Accusation flow and endings · which cabins are explorable · whether wet-lab inspection is a separate "supervised" mode · how the 06:50 opening is presented (briefing or conversations).
+Accusation flow and endings · shared-room exploration and private-storage access · whether wet-lab inspection is a separate "supervised" mode · how the 06:50 opening is presented (briefing or conversations).
