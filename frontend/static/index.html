@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102e33">
+  <title>Beneath the Surface · RV Meridian</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/scene.css">
+  <link rel="stylesheet" href="/static/dialogue.css">
+  <link rel="stylesheet" href="/static/journal.css">
+  <link rel="stylesheet" href="/static/case.css">
+  <script type="module" src="/static/player.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="mark" aria-hidden="true">≋</span>Beneath the Surface</div>
+    <div class="vessel-tools"><span class="vessel">RV Meridian</span>
+      <button class="journal-open" type="button" aria-haspopup="dialog" aria-keyshortcuts="J" disabled>Journal</button>
+      <details id="game-menu"><summary>Menu</summary><button type="button" id="new-game" disabled>New investigation</button></details>
+    </div>
+  </header>
+  <main id="investigation">
+    <div class="location-bar">
+      <div><p class="eyebrow" id="deck">Location</p><h1 id="room" tabindex="-1">Opening scene…</h1></div>
+      <p class="turn">Turn <b id="turn">—</b></p>
+    </div>
+    <div id="temporary-notice" class="notice" role="status" hidden>
+      <span>Saved progress lasts only until this server stops.</span>
+      <button type="button" id="dismiss-temporary" aria-label="Dismiss temporary save notice">Dismiss</button>
+    </div>
+    <div class="workspace">
+      <section class="drawing" aria-label="Interactive room scene">
+        <div id="present" hidden><h3>In this room</h3><div id="people"></div></div>
+        <div class="scene" aria-busy="true">
+          <img id="room-image" alt="" hidden>
+          <div class="bulkhead" aria-hidden="true"></div>
+          <div id="hotspots"></div>
+          <span id="elapsed" aria-hidden="true" hidden></span>
+        </div>
+        <div class="legend" aria-label="Scene symbols">
+          <span><i class="symbol inspect"></i>Inspect</span>
+          <span><i class="symbol move"></i>Exit</span>
+          <span><i class="symbol locked"></i>Locked</span>
+        </div>
+      </section>
+      <aside>
+        <div class="observation">
+          <p class="eyebrow">Field notes</p>
+          <h2>Observation</h2>
+          <div class="rule"></div>
+          <p id="session-note" role="status" hidden>Saving is off. Progress is lost when you close or reload this tab.</p>
+          <p id="message" role="status" aria-live="polite" aria-atomic="true">Opening scene…</p>
+          <button type="button" id="recovery" hidden></button>
+          <button type="button" id="without-saving" hidden>Play this session without saving</button>
+        </div>
+      </aside>
+    </div>
+    <p id="arrival" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+  </main>
+  <main id="ending" hidden aria-labelledby="ending-title">
+    <article>
+      <p class="eyebrow">RV Meridian · Captain’s record</p>
+      <h1 id="ending-title" tabindex="-1">Investigation closed</h1>
+      <p id="ending-text"></p>
+      <p id="ending-counts"></p>
+      <div class="case-actions"><button id="ending-journal">Read the journal</button><button id="ending-new">New investigation</button></div>
+      <p id="ending-note" role="status"></p>
+      <div id="ending-recovery"></div>
+    </article>
+  </main>
+  <dialog id="dialogue" aria-labelledby="speaker-name" aria-describedby="speaker-role">
+    <div class="encounter">
+      <div id="portrait" aria-hidden="true"><div class="silhouette"></div><img alt="" hidden></div>
+      <section class="exchange">
+        <header class="dialogue-head">
+          <div><p id="speaker-role"></p><h2 id="speaker-name"></h2></div>
+          <div class="encounter-tools"><button type="button" class="journal-open" aria-haspopup="dialog" aria-keyshortcuts="J" disabled>Journal</button>
+            <button type="button" id="leave">Leave</button></div>
+        </header>
+        <div class="transcript" tabindex="0" aria-label="Conversation history">
+          <p id="reaction" role="status" tabindex="-1" hidden></p>
+          <p id="empty">Ask your first question.</p>
+          <ol id="lines"></ol>
+          <p id="thinking" hidden></p>
+        </div>
+        <div class="dialogue-tools">
+          <button type="button" id="present-case" aria-haspopup="dialog" hidden>Present your case</button>
+          <button type="button" id="topics-toggle" aria-expanded="false" aria-controls="choices">Topics</button>
+          <button type="button" id="evidence-toggle" aria-expanded="false" aria-controls="choices">Show evidence</button>
+        </div>
+        <div id="choices" hidden></div>
+        <form id="composer">
+          <label class="sr-only" for="question">Your question</label>
+          <input id="question" type="text" placeholder="Ask a question…" autocomplete="off" dir="auto" aria-describedby="counter">
+          <span id="counter">0 / 500</span><button id="send" type="submit">Send</button>
+        </form>
+        <p id="dialogue-note" hidden></p>
+        <div id="spoken" class="sr-only" role="log" aria-label="New dialogue" aria-live="polite" aria-relevant="additions"></div>
+      </section>
+    </div>
+  </dialog>
+  <dialog id="case-file" class="case-dialog" aria-labelledby="case-title">
+    <header><p class="eyebrow">Captain’s record</p><h2 id="case-title" tabindex="-1">Present your case</h2></header>
+    <p>Everything you have collected will be presented to Captain Morgan.</p>
+    <div id="case-records"></div>
+    <fieldset><legend>Who are you accusing?</legend><div id="suspects"></div></fieldset>
+    <div class="case-actions"><button id="case-back">Back to conversation</button><button id="case-next" disabled>Continue</button></div>
+  </dialog>
+  <dialog id="decision" class="case-dialog" aria-labelledby="decision-title" aria-describedby="decision-text">
+    <h2 id="decision-title"></h2><p id="decision-text"></p>
+    <div class="case-actions"><button id="decision-cancel" autofocus>Cancel</button><button id="decision-confirm">Confirm</button></div>
+  </dialog>
+  <dialog id="journal" aria-labelledby="journal-title">
+    <header class="book-head">
+      <div class="book-heading"><p>RV Meridian</p><h2 id="journal-title">Investigation journal</h2></div>
+      <button type="button" id="close-journal" autofocus>Close journal</button>
+    </header>
+    <nav class="book-nav" aria-label="Journal sections">
+      <button type="button" data-section="evidence">Evidence</button>
+      <button type="button" data-section="statements">Statements</button>
+      <button type="button" data-section="leads">Leads</button>
+      <button type="button" id="compare-open">Compare (0/2)</button>
+    </nav>
+    <p id="book-status" role="status" hidden></p>
+    <div id="book-scroll"><div id="book-page"></div></div>
+  </dialog>
+  <audio id="ambience" loop preload="none"></audio>
+</body>
+</html>

@@ -17,151 +17,34 @@
 #   result_text player-facing outcome text
 #   blocked_text player-facing text when `requires` (or an evidence gate) fails
 #   once        default true: effects apply only the first time; afterwards result_text is repeated
+#               (and a successful `once` topic leaves the topic menu)
+#   offered_when  topic only, default always: condition for the topic to appear in the menu. Once
+#               it has appeared it stays. Use it so the player needs a reason before a request
+#               shows up, e.g. {noticed: <object or location id>} (inspected it / tried to enter),
+#               {mentioned: {npc, about: <keyword group>}} (the player's OWN words to that NPC;
+#               NPC replies are never scanned) or {completed: <interaction id>}.
 #   tbd, tbd_note  provisional fields
+#
+# DISCOVERY (PROPOSED): every `offered_when` below is a game-design proposal, not canon. Basic
+# questions are offered from the start; requests and follow-ups appear once the player has found
+# a reason. Marked `tbd: [offered_when]` so the story/evidence owners can review them.
 #
 # STUB REQUESTS: what actually makes Sarah (or Daniel/Lucas) grant each authorization is an open story
 # decision (World §11 "What authorizes wet-lab and private-cabin searches", Evidence §12). Until it is
 # decided these requests always succeed. They are marked `tbd: [requires]`.
 
+# Words or phrases the player may use; matched case-insensitively as whole words ("M-17" -> "m 17").
+keyword_groups:
+  medical: [injury, injuries, wound, wounds, medical, examination, cause of death, autopsy, post mortem, body]
+  wet_lab: [wet lab, wet laboratory, crime scene, the scene, where she died, where elena died]
+  engineering_records: [record, records, log, logs, maintenance, terminal, apparatus, machine, machinery, fault, faults, service]
+  project_records: [project records, project files, shared records, shared files, research data, data, files, workstation, m17, m 17]
+  elena_cabin: [cabin, her room, elena s room, notes, her notes, elena s notes, belongings, her things]
+  footage: [footage, film, filming, filmed, camera, cameras, video, videos, recording, recordings, recorded, clip, clips]
+
 interactions:
-  # ----------------------------------------------------------- Olivia / medical chain
-  - id: ask_olivia_initial_observations
-    trigger: topic
-    label: Ask about her initial observations
-    npc: olivia_hart
-    requires: {}
-    effects:
-      collect_evidence: [EV-10]
-    result_text: Olivia shares what she can from her initial examination.
-    blocked_text: Olivia can't share that right now.
-
-  - id: discuss_reconstruction_with_olivia
-    trigger: topic
-    label: Compare the injury with the apparatus record
-    npc: olivia_hart
-    requires: medical_reconstruction_available
-    effects:
-      collect_evidence: [EV-11]
-      set_flags: [medical_reconstruction_completed, machinery_cause_excluded]
-    result_text: Olivia works through the comparison with you, step by step.
-    # Re-check response, Evidence §6.5.
-    blocked_text: >
-      "I can't give you a reliable cause yet. We need to know exactly what that apparatus did, and compare
-      it with the injuries. The initial scene isn't enough."
-
-  - id: compare_injury_with_calibration_object
-    trigger: topic
-    label: Compare the injury with what you saw at the calibration station
-    npc: olivia_hart
-    requires:
-      all_of:
-        - evidence_collected: EV-11
-        - evidence_collected: EV-13
-    effects:
-      collect_evidence: [EV-14]
-    result_text: Olivia compares the injury description with your notes from the wet lab.
-    blocked_text: Olivia says she has nothing to compare that with yet.
-    tbd: [requires]
-    tbd_note: Access protocol for the EV-14 comparison is TBD (Evidence §4.3).
-
-  - id: request_medical_comparison
-    trigger: topic
-    label: Ask for a formal medical comparison to be authorized
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      set_flags: [medical_comparison_authorized]
-    result_text: Sarah authorizes Olivia to compare her findings with the technical records.
-    blocked_text: Sarah isn't ready to authorize that.
-    tbd: [npc, requires]
-    tbd_note: medical_comparison_authorized is a proposed flag; who grants it and why is TBD (Evidence §10.2).
-
-  # ----------------------------------------------------------- Authorization stubs
-  - id: request_wet_lab_inspection
-    trigger: topic
-    label: Ask for a supervised inspection of the wet lab
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      set_flags: [wet_lab_inspection_authorized]
-    result_text: Sarah agrees to a supervised inspection of the wet lab. Look, don't touch.
-    blocked_text: Sarah refuses for now.
-    tbd: [requires]
-    tbd_note: Story reason for granting wet-lab inspection is TBD (World §11).
-
-  - id: request_engineering_records
-    trigger: topic
-    label: Ask to review the engineering maintenance records
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      set_flags: [engineering_record_review_authorized]
-    result_text: Sarah authorizes you to review the relevant maintenance records.
-    blocked_text: Sarah refuses for now.
-    tbd: [requires]
-    tbd_note: "Story reason TBD (Evidence §8.1: Sarah's permission or Daniel's cooperation)."
-
-  - id: ask_daniel_for_records
-    trigger: topic
-    label: Ask Daniel to show you the apparatus records
-    npc: daniel_reyes
-    requires: {}
-    effects:
-      set_flags: [daniel_shares_record]
-    result_text: Daniel agrees to show you the apparatus records on the maintenance terminal.
-    blocked_text: Daniel won't show you the records.
-    tbd: [requires]
-    tbd_note: When Daniel cooperates is TBD (see docs/characters/daniel_reyes.md §6).
-
-  - id: request_shared_records_review
-    trigger: topic
-    label: Ask for access to the shared project records
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      set_flags: [shared_project_records_access_granted]
-    result_text: Sarah authorizes access to the shared project records for your audit.
-    blocked_text: Sarah refuses for now.
-    tbd: [npc, requires]
-    tbd_note: Provisional route to EV-16; placement and authorization TBD (Evidence §4.4, §12).
-
-  - id: request_cabin_elena_search
-    trigger: topic
-    label: Ask to examine Elena's cabin to preserve her records
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      authorize_cabin: cabin_elena
-    result_text: Sarah gives you access to Elena's cabin to preserve her records.
-    blocked_text: Sarah refuses for now.
-    tbd: [requires]
-    tbd_note: Authorization for Elena's cabin and storage of her notes are TBD (World §3.6, Evidence §4.4).
-
-  - id: ask_lucas_for_footage
-    trigger: topic
-    label: Ask Lucas to share his recordings from last night
-    npc: lucas_weber
-    requires: {}
-    effects:
-      set_flags: [lucas_shares_footage]
-    result_text: Lucas agrees to let you look through his footage on the editing workstation.
-    blocked_text: Lucas won't share his footage.
-    tbd: [requires]
-    tbd_note: Sharing flow TBD (Evidence §4.4 EV-18).
-
-  - id: request_media_preservation
-    trigger: topic
-    label: Ask Sarah to authorize preserving Lucas's footage
-    npc: sarah_morgan
-    requires: {}
-    effects:
-      set_flags: [selected_media_access_granted]
-    result_text: Sarah authorizes preservation and review of the relevant footage.
-    blocked_text: Sarah refuses for now.
-    tbd: [requires]
-    tbd_note: Sharing flow TBD (Evidence §4.4 EV-18).
-
-  # ----------------------------------------------------------- Claims and presentations
+  # ----------------------------------------------------------- Whereabouts (one per suspect)
+  # Everyone gets the same basic question, so asking Maya is not singled out.
   - id: ask_maya_whereabouts
     trigger: topic
     label: Ask Maya where she was last night
@@ -177,6 +60,245 @@ interactions:
     tbd: [effects]
     tbd_note: Maya's claimed alibi is TBD (Evidence §4.4 EV-19, docs/characters/maya_chen.md §9).
 
+  - id: ask_daniel_whereabouts
+    trigger: topic
+    label: Ask Daniel where he was last night
+    npc: daniel_reyes
+    requires: {}
+    effects:
+      record_claim: {topic: whereabouts_critical_window, text: "[TBD] Daniel's account of the evening.", tbd: true}
+    result_text: Daniel gives you his account of last night. You make a note of it.
+    blocked_text: Daniel doesn't answer.
+    tbd: [effects]
+    tbd_note: Claimed whereabouts TBD; actual movements in Story §7.1 (feature/finalize-investigation).
+
+  - id: ask_thomas_whereabouts
+    trigger: topic
+    label: Ask Thomas where he was last night
+    npc: thomas_blake
+    requires: {}
+    effects:
+      record_claim: {topic: whereabouts_critical_window, text: "[TBD] Thomas's account of the evening.", tbd: true}
+    result_text: Thomas gives you his account of last night. You make a note of it.
+    blocked_text: Thomas doesn't answer.
+    tbd: [effects]
+    tbd_note: Claimed whereabouts TBD; actual movements in Story §7.1 (feature/finalize-investigation).
+
+  - id: ask_sarah_whereabouts
+    trigger: topic
+    label: Ask Sarah where she was last night
+    npc: sarah_morgan
+    requires: {}
+    effects:
+      record_claim: {topic: whereabouts_critical_window, text: "[TBD] Sarah's account of the evening.", tbd: true}
+    result_text: Sarah gives you her account of last night. You make a note of it.
+    blocked_text: Sarah doesn't answer.
+    tbd: [effects]
+    tbd_note: Claimed whereabouts TBD; actual movements in Story §7.1 (feature/finalize-investigation).
+
+  - id: ask_olivia_whereabouts
+    trigger: topic
+    label: Ask Olivia where she was last night
+    npc: olivia_hart
+    requires: {}
+    effects:
+      record_claim: {topic: whereabouts_critical_window, text: "[TBD] Olivia's account of the evening.", tbd: true}
+    result_text: Olivia gives you her account of last night. You make a note of it.
+    blocked_text: Olivia doesn't answer.
+    tbd: [effects]
+    tbd_note: Claimed whereabouts TBD; actual movements in Story §7.1 (feature/finalize-investigation).
+
+  - id: ask_lucas_whereabouts
+    trigger: topic
+    label: Ask Lucas where he was last night
+    npc: lucas_weber
+    requires: {}
+    effects:
+      record_claim: {topic: whereabouts_critical_window, text: "[TBD] Lucas's account of the evening.", tbd: true}
+    result_text: Lucas gives you his account of last night. You make a note of it.
+    blocked_text: Lucas doesn't answer.
+    tbd: [effects]
+    tbd_note: Claimed whereabouts TBD; actual movements in Story §7.1 (feature/finalize-investigation).
+
+  # ----------------------------------------------------------- Olivia / medical chain
+  - id: ask_olivia_initial_observations
+    trigger: topic
+    label: Ask about her initial observations
+    npc: olivia_hart
+    requires: {}
+    effects:
+      collect_evidence: [EV-10]
+    result_text: Olivia shares what she can from her initial examination.
+    blocked_text: Olivia can't share that right now.
+
+  - id: discuss_reconstruction_with_olivia
+    trigger: topic
+    label: Compare the injury with the apparatus record
+    npc: olivia_hart
+    offered_when: {completed: ask_olivia_initial_observations}
+    requires: medical_reconstruction_available
+    effects:
+      collect_evidence: [EV-11]
+      set_flags: [medical_reconstruction_completed, machinery_cause_excluded]
+    result_text: Olivia works through the comparison with you, step by step.
+    # Re-check response, Evidence §6.5.
+    blocked_text: >
+      "I can't give you a reliable cause yet. We need to know exactly what that apparatus did, and compare
+      it with the injuries. The initial scene isn't enough."
+    tbd: [offered_when]
+    tbd_note: Offered after Olivia's initial observations (PROPOSED discovery rule).
+
+  - id: compare_injury_with_calibration_object
+    trigger: topic
+    label: Compare the injury with what you saw at the calibration station
+    npc: olivia_hart
+    # Hidden until both pieces exist: the label itself would point at the calibration station.
+    offered_when:
+      all_of:
+        - evidence_collected: EV-11
+        - evidence_collected: EV-13
+    requires:
+      all_of:
+        - evidence_collected: EV-11
+        - evidence_collected: EV-13
+    effects:
+      collect_evidence: [EV-14]
+    result_text: Olivia compares the injury description with your notes from the wet lab.
+    blocked_text: Olivia says she has nothing to compare that with yet.
+    tbd: [requires, offered_when]
+    tbd_note: Access protocol for the EV-14 comparison is TBD (Evidence §4.3). offered_when is PROPOSED.
+
+  - id: request_medical_comparison
+    trigger: topic
+    label: Ask for a formal medical comparison to be authorized
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - completed: ask_olivia_initial_observations
+        - mentioned: {npc: sarah_morgan, about: medical}
+    requires: {}
+    effects:
+      set_flags: [medical_comparison_authorized]
+    result_text: Sarah authorizes Olivia to compare her findings with the technical records.
+    blocked_text: Sarah isn't ready to authorize that.
+    tbd: [npc, requires, offered_when]
+    tbd_note: medical_comparison_authorized is a proposed flag; who grants it and why is TBD (Evidence §10.2).
+
+  # ----------------------------------------------------------- Authorization stubs
+  - id: request_wet_lab_inspection
+    trigger: topic
+    label: Ask for a supervised inspection of the wet lab
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - noticed: wet_lab             # tried the secured door
+        - noticed: lab_internal_door   # looked at the inner door from the dry lab
+        - mentioned: {npc: sarah_morgan, about: wet_lab}
+    requires: {}
+    effects:
+      set_flags: [wet_lab_inspection_authorized]
+    result_text: Sarah agrees to a supervised inspection of the wet lab. Look, don't touch.
+    blocked_text: Sarah refuses for now.
+    tbd: [requires, offered_when]
+    tbd_note: Story reason for granting wet-lab inspection is TBD (World §11).
+
+  - id: request_engineering_records
+    trigger: topic
+    label: Ask to review the engineering maintenance records
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - noticed: engineering_maintenance_terminal
+        - mentioned: {npc: sarah_morgan, about: engineering_records}
+    requires: {}
+    effects:
+      set_flags: [engineering_record_review_authorized]
+    result_text: Sarah authorizes you to review the relevant maintenance records.
+    blocked_text: Sarah refuses for now.
+    tbd: [requires, offered_when]
+    tbd_note: "Story reason TBD (Evidence §8.1: Sarah's permission or Daniel's cooperation)."
+
+  - id: ask_daniel_for_records
+    trigger: topic
+    label: Ask Daniel to show you the apparatus records
+    npc: daniel_reyes
+    offered_when:
+      any_of:
+        - noticed: engineering_maintenance_terminal
+        - mentioned: {npc: daniel_reyes, about: engineering_records}
+    requires: {}
+    effects:
+      set_flags: [daniel_shares_record]
+    result_text: Daniel agrees to show you the apparatus records on the maintenance terminal.
+    blocked_text: Daniel won't show you the records.
+    tbd: [requires, offered_when]
+    tbd_note: When Daniel cooperates is TBD (see docs/characters/daniel_reyes.md §6).
+
+  - id: request_shared_records_review
+    trigger: topic
+    label: Ask for access to the shared project records
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - noticed: dry_lab_shared_workstation
+        - mentioned: {npc: sarah_morgan, about: project_records}
+    requires: {}
+    effects:
+      set_flags: [shared_project_records_access_granted]
+    result_text: Sarah authorizes access to the shared project records for your audit.
+    blocked_text: Sarah refuses for now.
+    tbd: [npc, requires, offered_when]
+    tbd_note: Provisional route to EV-16; placement and authorization TBD (Evidence §4.4, §12).
+
+  - id: request_cabin_elena_search
+    trigger: topic
+    label: Ask to examine Elena's cabin to preserve her records
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - noticed: cabin_elena         # tried the locked cabin door
+        - mentioned: {npc: sarah_morgan, about: elena_cabin}
+    requires: {}
+    effects:
+      authorize_cabin: cabin_elena
+    result_text: Sarah gives you access to Elena's cabin to preserve her records.
+    blocked_text: Sarah refuses for now.
+    tbd: [requires, offered_when]
+    tbd_note: Authorization for Elena's cabin and storage of her notes are TBD (World §3.6, Evidence §4.4).
+
+  - id: ask_lucas_for_footage
+    trigger: topic
+    label: Ask Lucas to share his recordings from last night
+    npc: lucas_weber
+    offered_when:
+      any_of:
+        - noticed: editing_workstation
+        - mentioned: {npc: lucas_weber, about: footage}
+    requires: {}
+    effects:
+      set_flags: [lucas_shares_footage]
+    result_text: Lucas agrees to let you look through his footage on the editing workstation.
+    blocked_text: Lucas won't share his footage.
+    tbd: [requires, offered_when]
+    tbd_note: Sharing flow TBD (Evidence §4.4 EV-18).
+
+  - id: request_media_preservation
+    trigger: topic
+    label: Ask Sarah to authorize preserving Lucas's footage
+    npc: sarah_morgan
+    offered_when:
+      any_of:
+        - noticed: editing_workstation
+        - mentioned: {npc: sarah_morgan, about: footage}
+    requires: {}
+    effects:
+      set_flags: [selected_media_access_granted]
+    result_text: Sarah authorizes preservation and review of the relevant footage.
+    blocked_text: Sarah refuses for now.
+    tbd: [requires, offered_when]
+    tbd_note: Sharing flow TBD (Evidence §4.4 EV-18).
+
+  # ----------------------------------------------------------- Evidence presentations
   - id: maya_confronted_with_recording
     trigger: present
     npc: maya_chen

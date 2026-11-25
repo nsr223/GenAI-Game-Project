@@ -14,6 +14,12 @@ Conditions are plain YAML values:
     {cabin_authorized: cabin_elena}
     {world_equals: {weather: severe}}
     {npc_present: olivia_hart}    -> NPC is in the player's current location
+    {noticed: engineering_maintenance_terminal}
+                                  -> the player inspected this object or tried to enter this location
+    {mentioned: {npc: sarah_morgan, about: engineering_records}}
+                                  -> the player's own message to that NPC used a word of that keyword group
+    {completed: ask_olivia_initial_observations}
+                                  -> that interaction has succeeded
 
 The engine evaluates these; an LLM never does.
 """
@@ -37,6 +43,9 @@ class ConditionContext(Protocol):
     def cabin_authorized(self, cabin_id: str) -> bool: ...
     def world_value(self, key: str) -> Any: ...
     def npc_present(self, npc_id: str) -> bool: ...
+    def has_noticed(self, thing_id: str) -> bool: ...
+    def has_mentioned(self, npc_id: str, group: str) -> bool: ...
+    def has_completed(self, interaction_id: str) -> bool: ...
 
 
 LEAF_KEYS = {
@@ -46,6 +55,9 @@ LEAF_KEYS = {
     "cabin_authorized",
     "world_equals",
     "npc_present",
+    "noticed",
+    "mentioned",
+    "completed",
 }
 GROUP_KEYS = {"all_of", "any_of", "not"}
 
@@ -87,13 +99,20 @@ def evaluate(cond: Any, ctx: ConditionContext) -> bool:
         return all(ctx.world_value(k) == v for k, v in value.items())
     if key == "npc_present":
         return ctx.npc_present(value)
+    if key == "noticed":
+        return ctx.has_noticed(value)
+    if key == "mentioned":
+        _require_keys(value, {"npc", "about"}, key)
+        return ctx.has_mentioned(value["npc"], value["about"])
+    if key == "completed":
+        return ctx.has_completed(value)
     raise ConditionError(f"Unknown condition key {key!r}")
 
 
 def iter_references(cond: Any) -> Iterator[tuple[str, Any]]:
     """Yield ``(kind, value)`` for everything a condition refers to (used by content validation).
 
-    Kinds: flag, evidence, claim, cabin, world, npc.
+    Kinds: flag, evidence, claim, cabin, world, npc, noticed, mention, interaction.
     """
     if is_trivially_true(cond):
         return
@@ -124,6 +143,13 @@ def iter_references(cond: Any) -> Iterator[tuple[str, Any]]:
             yield ("world", k)
     elif key == "npc_present":
         yield ("npc", value)
+    elif key == "noticed":
+        yield ("noticed", value)
+    elif key == "mentioned":
+        _require_keys(value, {"npc", "about"}, key)
+        yield ("mention", (value["npc"], value["about"]))
+    elif key == "completed":
+        yield ("interaction", value)
     else:
         raise ConditionError(f"Unknown condition key {key!r}")
 

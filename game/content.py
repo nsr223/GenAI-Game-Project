@@ -5,13 +5,14 @@ Content is read-only at runtime. All mutable state lives in :mod:`game.state`.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 import yaml
 
-from .conditions import ConditionError, iter_references
+from .conditions import ConditionError, is_trivially_true, iter_references
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA_DIR = REPO_ROOT / "data"
@@ -73,6 +74,7 @@ class Evidence:
     not_established: tuple[str, ...]
     linked_characters: tuple[str, ...]
     linked_clues: tuple[str, ...]
+    locked_hint: str = ""  # shown on inspect while access/prerequisites still fail
     tbd: tuple[str, ...] = ()
     tbd_note: str = ""
 
@@ -108,6 +110,7 @@ class Interaction:
     result_text: str = ""
     blocked_text: str = ""
     once: bool = True
+    offered_when: Any = "always"  # topic only: when the topic first appears (sticky once true)
     tbd: tuple[str, ...] = ()
     tbd_note: str = ""
 
@@ -121,6 +124,8 @@ class Content:
     npcs: dict[str, Npc]
     interactions: dict[str, Interaction]
     rules: dict
+    # Keyword groups for `mentioned` conditions: group -> normalised words/phrases.
+    keyword_groups: dict[str, tuple[str, ...]] = field(default_factory=dict)
 
     def path(self, relative: str) -> Path:
         """Resolve a repo-relative path from the data files."""
@@ -177,6 +182,18 @@ def _tuple(value: Any) -> tuple:
     if isinstance(value, (list, tuple)):
         return tuple(value)
     return (value,)
+
+
+def normalize_words(text: str) -> str:
+    """Lower-case ``text`` reduced to single-spaced words, for whole-word keyword matching."""
+    return " ".join(re.findall(r"[a-z0-9]+", text.lower()))
+
+
+def mentioned_groups(content: "Content", message: str) -> list[str]:
+    """Keyword groups whose words or phrases occur as whole words in ``message``."""
+    padded = f" {normalize_words(message)} "
+    return [group for group, words in content.keyword_groups.items()
+            if any(f" {word} " in padded for word in words)]
 
 
 def load_content(data_dir: str | Path | None = None, root: str | Path | None = None) -> Content:
@@ -255,6 +272,7 @@ def load_content(data_dir: str | Path | None = None, root: str | Path | None = N
             not_established=_tuple(spec.get("not_established")),
             linked_characters=_tuple(spec.get("linked_characters")),
             linked_clues=_tuple(spec.get("linked_clues")),
+            locked_hint=(spec.get("locked_hint") or "").strip(),
             tbd=_tuple(spec.get("tbd")),
             tbd_note=spec.get("tbd_note", ""),
         )
@@ -290,7 +308,14 @@ def load_content(data_dir: str | Path | None = None, root: str | Path | None = N
         )
 
     interactions: dict[str, Interaction] = {}
-    for spec in _read_yaml(data_dir / "interactions.yaml").get("interactions") or []:
+    interactions_raw = _read_yaml(data_dir / "interactions.yaml")
+    keyword_groups: dict[str, tuple[str, ...]] = {}
+    for group, words in (interactions_raw.get("keyword_groups") or {}).items():
+        if not isinstance(words, list) or not words or not all(isinstance(w, str) and w.strip() for w in words):
+            errors.append(f"keyword group {group}: needs a non-empty list of words")
+            continue
+        keyword_groups[group] = tuple(normalize_words(w) for w in words)
+    for spec in interactions_raw.get("interactions") or []:
         inter_id = spec.get("id")
         if inter_id in interactions:
             errors.append(f"duplicate interaction id {inter_id}")
@@ -305,6 +330,7 @@ def load_content(data_dir: str | Path | None = None, root: str | Path | None = N
             result_text=(spec.get("result_text") or "").strip(),
             blocked_text=(spec.get("blocked_text") or "").strip(),
             once=bool(spec.get("once", True)),
+            offered_when=spec.get("offered_when", "always"),
             tbd=_tuple(spec.get("tbd")),
             tbd_note=spec.get("tbd_note", ""),
         )
@@ -319,6 +345,7 @@ def load_content(data_dir: str | Path | None = None, root: str | Path | None = N
         npcs=npcs,
         interactions=interactions,
         rules=rules,
+        keyword_groups=keyword_groups,
     )
     errors.extend(validate(content))
     if errors:
@@ -361,6 +388,16 @@ def validate(content: Content) -> list[str]:
                 errors.append(f"{where}: unknown world key {value!r}")
             elif kind == "npc" and value not in npcs:
                 errors.append(f"{where}: unknown npc {value!r}")
+            elif kind == "noticed" and value not in objs and value not in locs:
+                errors.append(f"{where}: noticed {value!r} is neither an object nor a location")
+            elif kind == "mention":
+                npc_id, group = value
+                if npc_id not in npcs:
+                    errors.append(f"{where}: unknown npc {npc_id!r}")
+                if group not in content.keyword_groups:
+                    errors.append(f"{where}: unknown keyword group {group!r}")
+            elif kind == "interaction" and value not in content.interactions:
+                errors.append(f"{where}: unknown interaction {value!r}")
 
     # Locations and the room graph
     for loc in locs.values():
@@ -398,6 +435,8 @@ def validate(content: Content) -> list[str]:
                 errors.append(f"evidence {ev.id}: object {ev.object_id} is not in {ev.location_id}")
         if ev.acquisition == "inspect" and not ev.object_id:
             errors.append(f"evidence {ev.id}: acquisition 'inspect' needs an object_id")
+        if ev.locked_hint and ev.acquisition != "inspect":
+            errors.append(f"evidence {ev.id}: locked_hint only applies to acquisition 'inspect'")
         if not ev.player_visible_summary:
             errors.append(f"evidence {ev.id}: missing player_visible_summary")
         for clue in ev.linked_clues:
@@ -442,6 +481,10 @@ def validate(content: Content) -> list[str]:
         if claim is not None and not claim.get("topic"):
             errors.append(f"{where}: record_claim needs a topic")
         check_condition(f"{where} requires", inter.requires)
+        if inter.trigger == "topic":
+            check_condition(f"{where} offered_when", inter.offered_when)
+        elif not is_trivially_true(inter.offered_when) and inter.offered_when != "always":
+            errors.append(f"{where}: offered_when only applies to topic interactions")
 
     # Interaction-only evidence must be reachable by some interaction
     granted = {e for i in content.interactions.values() for e in i.effects.get("collect_evidence", [])}

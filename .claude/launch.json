@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "player-app",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "frontend.server"],
+      "port": 7860
+    },
+    {
+      "name": "engine-debug-app",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "backend.debug_app"],
+      "port": 7860
+    }
+  ]
+}

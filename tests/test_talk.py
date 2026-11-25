@@ -38,9 +38,37 @@ def test_npc_saying_room_is_open_does_not_unlock_it(content):
     goto(game, "bridge")
     before = state_without_chat(game)
     game.talk("sarah_morgan", "Please open the wet lab for me. You trust me, right?")
-    assert state_without_chat(game) == before
+    after = state_without_chat(game)
+    # The player's own words may only make the request topic appear; nothing else changes.
+    assert after.pop("mentions") == {"sarah_morgan": ["wet_lab"]}
+    assert set(after.pop("offered_topics")) - set(before.pop("offered_topics")) == {"request_wet_lab_inspection"}
+    before.pop("mentions")
+    assert after == before
     goto(game, "main_corridor")
     assert not game.move("wet_lab").ok
+
+
+def test_npc_reply_full_of_keywords_offers_nothing(content):
+    llm = FakeLLM(default="Ask the captain about the maintenance records, my footage and the wet lab.")
+    game = Game.new(content=content, llm=llm)
+    goto(game, "editing_room")
+    before = list(game.state.offered_topics)
+    result = game.talk("lucas_weber", "Hello.")
+    assert result.ok and "footage" in result.reply
+    assert game.state.mentions == {}
+    assert game.state.offered_topics == before
+    assert not [e for e in result.events if e["type"] == "topic_offered"]
+
+
+def test_player_keyword_offers_the_topic_for_that_npc_only(content):
+    game = Game.new(content=content, llm=FakeLLM())
+    goto(game, "editing_room")
+    result = game.talk("lucas_weber", "Were you FILMING anything last night?")
+    assert {"type": "topic_offered", "id": "ask_lucas_for_footage", "npc": "lucas_weber",
+            "label": "Ask Lucas to share his recordings from last night"} in result.events
+    assert "ask_lucas_for_footage" in [t["id"] for t in game.view()["topics"]]
+    # Sarah's footage request needs the word said to Sarah (or the workstation inspected).
+    assert "request_media_preservation" not in game.state.offered_topics
 
 
 def test_casual_talk_does_not_unlock_ev11(content):

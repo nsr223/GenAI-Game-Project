@@ -54,12 +54,12 @@ Every **action** returns an `ActionResult` and increments `turn`. **Queries** ha
 | `game.journal()` | query | Evidence board, recorded statements and leads. Shape below. |
 | `game.leads()` | query | Active leads `[{id, text}]` (also inside `view()` and `journal()`). |
 | `game.can_enter(location_id)` | query | Would a move there pass the access check (ignores adjacency)? |
-| `game.available_topics()` | query | Topic interactions whose NPC is present. |
+| `game.available_topics()` | query | Topics in the menu right now: **discovered** (their `offered_when` has been true once), NPC present, and not already done (a successful `once` topic leaves the menu). See [Topic discovery](#topic-discovery). |
 | `game.move(location_id)` | action | Moves to an adjacent location if its access condition holds. |
-| `game.inspect(object_id)` | action | Describes an object in the current room. Collects any evidence on it whose access and prerequisites hold. |
+| `game.inspect(object_id)` | action | Describes an object in the current room. Collects any evidence on it whose access and prerequisites hold. While they don't, it adds that evidence's `locked_hint` (if any) to the message. |
 | `game.review(evidence_id)` | action | Marks collected evidence as reviewed. **Gates use "reviewed"**, so call this when the player opens an entry. |
-| `game.interact(interaction_id)` | action | Runs a deterministic topic ("Ask about…", "Ask for access…") with a present NPC. Blocked topics return `ok=False` and an in-world refusal. |
-| `game.talk(npc_id, message, present=[...])` | action | Free-text chat with a present NPC, optionally showing collected evidence. Presentation rules run first (deterministically), then the LLM voices the reply. |
+| `game.interact(interaction_id)` | action | Runs a deterministic topic ("Ask about…", "Ask for access…") with a present NPC. Undiscovered topics are refused like unknown ids. Blocked topics return `ok=False` and an in-world refusal. |
+| `game.talk(npc_id, message, present=[...])` | action | Free-text chat with a present NPC, optionally showing collected evidence. The **player's** message is matched against keyword groups (may offer topics), presentation rules run (deterministically), then the LLM voices the reply. The reply is never scanned. |
 | `game.present_evidence(npc_id, evidence_id, message="")` | action | Shortcut for `talk(..., present=[evidence_id])`. |
 | `game.accuse(suspect_id)` | action | Presents the case to the captain (she must be present). See [Accusation](#accusation). |
 | `game.to_dict()` / `Game.from_dict(d, llm=...)` | save/load | JSON-serialisable save game (state only; content is reloaded from `data/`). |
@@ -88,6 +88,7 @@ ActionResult(
 | `lead_added` | `id` | a new lead appears (e.g. "Return to Olivia…") |
 | `claim_recorded` | `speaker`, `topic` | an NPC statement was stored |
 | `interaction_completed` | `id` | a topic or presentation rule fired for the first time |
+| `topic_offered` | `id`, `npc`, `label` | a topic was discovered (once per topic; may be for an NPC who isn't here). Show the label, not the id: ids can describe undiscovered clues |
 | `accusation` | `suspect`, `outcome` | after `accuse` |
 
 ### `view()` shape
@@ -127,6 +128,16 @@ Locked exits are listed with `accessible: False`, so the map can show them as bl
 
 A wrong suspect and a correct but unsupported guess return the **same** `outcome` (`"not_substantiated"`) and the same text, so guessing can't reveal the culprit. The distinction is stored in `debug_state()["accusations_made"]`. Whether the player may continue afterwards is **TBD**: it's `rules.yaml → accusation.allow_continue_after_failure` (currently `true`; `false` ends the game as `"inconclusive"`).
 
+### Topic discovery
+
+A topic appears in `view()["topics"]` only after its `offered_when` condition has been true once (default `always`). Basic questions (each suspect's whereabouts, Olivia's initial observations) are offered from the start. Requests and follow-ups appear when the player has a reason:
+
+- **Inspecting** an object or **trying a locked door** records it as `noticed`. For example, the maintenance terminal offers "review the engineering records" to Sarah and "show the apparatus records" to Daniel.
+- **Saying** a keyword to an NPC records `mentioned {npc, about: group}`. For example, "Did you film anything?" to Lucas offers his footage topic. Groups are defined in `interactions.yaml → keyword_groups`. Matching is deterministic: lower-case, whole words, no LLM.
+- **Completing** a topic can offer a follow-up (`completed: <id>`).
+
+Each new topic emits one `topic_offered` event. The current discovery rules are PROPOSED (`tbd: [offered_when]`).
+
 ## Guarantees the UI can rely on
 
 - `view()`, `journal()` and `events` never contain internal flags, developer-only evidence fields (`verified_facts`, `not_established`) or the culprit.
@@ -165,14 +176,21 @@ claim_recorded: {speaker: maya_chen, topic: whereabouts_critical_window}
 cabin_authorized: cabin_elena
 world_equals: {weather: severe}
 npc_present: olivia_hart     # NPC is in the player's room
+noticed: engineering_maintenance_terminal   # inspected this object / tried to enter this location
+mentioned: {npc: sarah_morgan, about: engineering_records}   # player's own words, keyword group
+completed: ask_olivia_initial_observations  # that interaction succeeded
 ```
-The loader rejects unknown flags, evidence IDs, cabins, NPCs, world keys and claim topics that nothing records. Typos fail at startup, not mid-game.
+The loader rejects unknown flags, evidence IDs, cabins, NPCs, world keys, keyword groups, noticed IDs, interaction IDs and claim topics that nothing records. Typos fail at startup, not mid-game.
 
 ### Files
 
 - **`locations.yaml`** (World §10.1 plus `kind`, `mvp`, `access`, `locked_text`): rooms, reciprocal `connects_to`, objects with spoiler-free descriptions, and `shared_objects` for the one door both labs share.
-- **`evidence.yaml`** (Evidence §10.1 plus `acquisition: start|inspect|interaction`, `questions`, `tbd`, `tbd_note`): `access` and `prerequisites` are checked whenever an item would be collected, however it's collected.
-- **`interactions.yaml`**: `trigger: topic` (button while the NPC is present) or `trigger: present` (fires when `evidence` is shown to `npc`), plus `requires`, `effects` (`collect_evidence`, `set_flags`, `authorize_cabin`, `record_claim`), `result_text`, `blocked_text`, and `once` (default true).
+- **`evidence.yaml`** (Evidence §10.1 plus `acquisition: start|inspect|interaction`, `questions`, `locked_hint`, `tbd`, `tbd_note`): `access` and `prerequisites` are checked whenever an item would be collected, however it's collected.
+  - `locked_hint` (optional, `inspect` evidence only): player-facing line shown when the object is inspected but the evidence can't be collected yet. It should say *who could grant access*, never *what the evidence contains*. Current hints (EV-09, EV-16, EV-18) are PROPOSED wording, listed in the TBD report.
+- **`interactions.yaml`**: `keyword_groups` (group → words/phrases), then `interactions`.
+  - Each is `trigger: topic` (button while the NPC is present, once discovered) or `trigger: present` (fires when `evidence` is shown to `npc`).
+  - Common fields: `requires`, `effects` (`collect_evidence`, `set_flags`, `authorize_cabin`, `record_claim`), `result_text`, `blocked_text` and `once` (default true).
+  - Topic-only field: `offered_when` (default `always`), meaning when the button first appears. `requires` is whether asking succeeds.
 - **`rules.yaml`**: start location and evidence, initial `world`/`flags`, configurable `tbd_flags`, sticky `derived_flags` (e.g. the EV-11 gate from Evidence §10.2), `leads`, `accusation`, prompt file versions.
 - **`npcs.yaml`**: the six suspects with `default_location` (World §8.1, static for now), `persona_prompt` and `knowledge_file`.
 - **`npc_knowledge/<npc>.yaml`**: `facts: [{id, text, unlock, tbd}]`.

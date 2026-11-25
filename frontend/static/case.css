@@ -1,0 +1,39 @@
+#game-menu { position: relative; font: 500 .9rem var(--sans); }
+#game-menu summary { cursor: pointer; padding: .45rem; }
+#game-menu button { position: absolute; top: 100%; right: 0; z-index: 2; white-space: nowrap; background: var(--paper); }
+.case-dialog, #game-menu button, #ending button { color: var(--ink); }
+.case-dialog {
+  background: var(--paper); border: 1px solid #697d76; border-top: 4px solid #aa8151;
+  padding: clamp(1rem,3vw,2.3rem); width: min(46rem,94vw); max-height: 92dvh;
+  overscroll-behavior: contain; overflow-wrap: anywhere;
+}
+.case-dialog::backdrop { background: #12272bd6; }
+#decision { max-width: 31rem; }
+.case-dialog p { margin: .65rem 0 1rem; }
+#case-records { border-block: 1px solid #a6b2a7; max-height: 27dvh; overflow: auto; padding: .5rem .35rem; }
+#case-records h3 { margin: .5rem 0 .3rem; }
+#case-records a { color: #315853; text-underline-offset: .16em; }
+#case-records :is(p,ul) { margin: .2rem 0 .7rem; }
+#case-records ul { padding-inline-start: 1.2rem; }
+#case-file fieldset { border: 0; margin: 1rem 0; padding: 0; }
+#case-file legend { font: 1.45rem var(--serif); margin-bottom: .5rem; }
+#suspects { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(15rem,100%),1fr)); gap: .35rem; }
+#suspects label { display: flex; align-items: center; gap: .45rem; padding: .45rem; border: 1px solid #afb7aa; cursor: pointer; }
+.case-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.case-actions button, #game-menu button { border: 1px solid #65786d; border-radius: 3px; padding: .5rem .85rem; background: transparent; }
+#case-next:enabled, #decision-confirm, #ending #ending-journal { background: var(--ink); color: var(--paper); }
+#reaction { border-left: 2px solid #bd9867; padding-left: .8rem; font: italic 1.18rem/1.4 var(--serif); }
+#ending { min-height: 100dvh; display: grid; align-items: center; padding: 2rem 0; }
+#ending article { width: min(38rem,100%); margin-inline: auto; border-top: 3px solid #8b7756; padding: 1.6rem .25rem; }
+#ending-text { font: 1.5rem/1.5 var(--serif); }
+#ending-counts { border-top: 1px solid #a6b2a7; padding-top: 1rem; margin-bottom: 1.5rem; font: .9rem var(--mono); }
+#ending-note:empty { display: none; }
+.dialogue-tools { flex-wrap: wrap; }
+
+.transcript:has(#reaction:not([hidden])) :is(#empty, #lines) { display: none; }
+#dialogue:has(#reaction:not([hidden])) #choices { display: none; }
+@media (min-width: 760px) {
+  #case-file { width: min(58rem, 94vw); }
+  #case-records { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 1.3rem; }
+  #case-records section + section { border-inline-start: 1px solid #c8cdbf; padding-inline-start: 1rem; }
+}

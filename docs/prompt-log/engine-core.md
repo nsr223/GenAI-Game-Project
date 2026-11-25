@@ -68,3 +68,13 @@ Owner prompt: *"i added the key, do the rest on your own"* (after asking how to 
 | Leak probes: invented alibi, invented "Captain Vance", captain redirecting access to Maya, medic deflecting. | NPC rules v1 → v2 → v3 and template v2 (see `prompts/system/CHANGELOG.md`), each A/B-tested on the same model with `backend/leak_probe.py`; transcripts in `prompts/system/transcripts/`. |
 
 Caveat: personas and knowledge are still stubs, and each probe is a single sample at temperature 0.7. The probes must be rerun once NPC writers add real personas.
+
+## 6. Follow-up: integration with the player UI (`feature/app-integration`, 2026-11-25)
+
+| Owner prompt (summary) | What was done |
+|---|---|
+| "Bring Erik's visuals with the backend together … a starting point" | Branch from Erik's `feature/game-visuals`; placeholder art cut from the concept sheets into `frontend/static/art/`; people shown as cards with portrait + Talk above the scene. |
+| "Can I do something with the objects I can inspect?" → "Yes, add hints" | Optional `locked_hint` on inspect evidence, so a locked clue tells the player whom to ask (EV-09, EV-16, EV-18; wording PROPOSED). |
+| "It's strange that you can simply click on each [request] directly … only depending on the conversation. Make a plan first." | Plan approved, then **topic discovery**: `offered_when` per topic, built from three new deterministic conditions: `noticed` (inspected / tried a locked door), `mentioned` (keyword group in the *player's* message) and `completed`. Requests start hidden; whereabouts questions exist for all six suspects so Maya is not singled out. |
+
+**Design decision:** keywords instead of an LLM intent classifier. Evidence §7.4 requires discoveries to be deterministic. An extra classifier call per message would also halve the free Gemini quota (20 requests/day). Tests prove an NPC reply full of keywords offers nothing.
