@@ -47,3 +47,16 @@ Four built-in ImageGen outputs drawn from words. The four inputs share a 34-word
 | People: Thomas, Daniel | Light from below, which can look sinister | The prompts assigned light directions only to differ | No light from below on faces; nobody looks guilty |
 | People: Sarah | Looks upward and away, reads as haughty rather than listening | "Turns one ear" drawn as a full profile | Three-quarter view, eyes near the player |
 | People: Maya | Reads as very young for an accomplished scientist | The prompt gave no age | State an age for every person |
+
+## Remaining dialogue sprites (prompts ready, images pending)
+
+The dialogue panel still shows a silhouette for Maya, Daniel, Olivia and Lucas. These four prompts start from the accepted identity basis in [People v2](concepts/people/v2.md) and apply the fixes listed in the review above. The first paragraph is the same 34-word block as the identity sheets (line, paper, wash, finish; no camera or lamp). Each prompt gets only that person's crop of [People v2](concepts/people/v2.webp) as identity reference, never a finished portrait, so no pose or framing is inherited from Thomas or Sarah. Looks remain PROPOSED until the team signs off on the concept sheet.
+
+| Asset | Version | Identity reference | Reason from the review | Selection |
+| --- | --- | --- | --- | --- |
+| Maya Chen | [v1](characters/maya_chen/v1.md) | Maya crop, People v2 | "Reads as very young": state an age (about 33) and add tiredness under the eyes. Keep her diagram-tracing hand as her own gesture, now aimed at the listener. Warm and patient; nothing in face or light suggests guilt. | Pending |
+| Daniel Reyes | [v1](characters/daniel_reyes/v1.md) | Daniel crop, People v2 | "Light from below can look sinister": light now from screen-right and above. The steel pipe coupling is removed, because a compact metal object in his hands could read as a clue. His touch-habit becomes a thumb working at grease on his knuckles. | Pending |
+| Olivia Hart | [v1](characters/olivia_hart/v1.md) | Olivia crop, People v2 | Keeps her accepted crossed-forearm posture and side light. Age stated (about 45). Stethoscope, medical symbols and red cross excluded (props rule; protected emblem). | Pending |
+| Lucas Weber | [v1](characters/lucas_weber/v1.md) | Lucas crop, People v2 | Keeps the framing gesture, but the raised hand must stay inside the sprite margin. Age stated (about 27). No camera, so the gesture carries his job without a prop. | Pending |
+
+Each of the four has its own silhouette against the two finished sprites: Thomas has an open V jacket and a straight stance, Sarah a closed high collar and level shoulders. Maya leans forward with one raised hand, Daniel rounds his shoulders over low hands, Olivia makes a horizontal arm oval, Lucas twists away with a high hand. Run-time target as for Thomas and Sarah: 480 × 525 WebP with true alpha in `frontend/static/art/characters/<id>.webp`.
