@@ -1,0 +1,28 @@
+{
+  "_comment": "Audio manifest (PROPOSED). Paths are relative to /static/audio/. Every room plays the base layers plus its own layer, all looping. Volumes are starting points in 0-1; files are already level-matched (music -20/-24 dBFS RMS, ambience -28 to -36, one-shots peak -4.5). Prompts and logs: prompts/assets/music, prompts/assets/sfx, CHANGELOG.md.",
+  "music": {
+    "title": {"file": "music/title_theme.ogg", "loop": true, "volume": 0.7},
+    "investigation": {"file": "music/investigation_loop.ogg", "loop": true, "volume": 0.35},
+    "accusation": {"file": "music/accusation.ogg", "loop": true, "volume": 0.7},
+    "ending": {"file": "music/ending.ogg", "loop": false, "volume": 0.7}
+  },
+  "ambience": {
+    "base": ["ambience/ship_hum.ogg", "ambience/storm_window.ogg"],
+    "rooms": {
+      "bridge": "ambience/bridge.ogg",
+      "wet_lab": "ambience/wet_lab.ogg",
+      "dry_lab": "ambience/dry_lab.ogg",
+      "mess_hall": "ambience/mess_hall.ogg",
+      "engineering_workshop": "ambience/engineering_workshop.ogg",
+      "engine_room": "ambience/engineering_workshop.ogg"
+    },
+    "_rooms_without_own_layer": "medical_bay, crew_quarters, editing_room, cabins, corridors and stairs play the base layers only",
+    "volume": 0.6
+  },
+  "sfx": {
+    "move_room": {"file": "sfx/footsteps_metal.ogg", "volume": 0.5},
+    "door": {"file": "sfx/door_steel.ogg", "volume": 0.5},
+    "journal_open": {"file": "sfx/page_turn.ogg", "volume": 0.6},
+    "evidence_added": {"file": "sfx/page_turn.ogg", "volume": 0.6}
+  }
+}

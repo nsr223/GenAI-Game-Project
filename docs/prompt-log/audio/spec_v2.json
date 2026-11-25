@@ -1,0 +1,12 @@
+[
+ {"id": "accusation", "kind": "music", "version": 2, "seconds": 30, "seed": 1,
+  "prompt": "Slow-building tense orchestral underscore for a quiet confrontation, low cello and double bass ostinato, soft distant timpani, sustained dissonant violins slowly rising, restrained and suspenseful, 80 bpm, no fast percussion."},
+ {"id": "wet_lab", "kind": "sfx", "version": 2, "seconds": 10, "seed": 1, "negative": "music, speech, hiss, high pitched whine, low quality",
+  "prompt": "Low steady hum of a water pump with gentle water flowing through pipes, muffled machinery in a laboratory"},
+ {"id": "dry_lab", "kind": "sfx", "version": 2, "seconds": 10, "seed": 1, "negative": "music, speech, silence, low quality",
+  "prompt": "Computer fans humming steadily in a small room with occasional keyboard typing"},
+ {"id": "engineering_workshop", "kind": "sfx", "version": 2, "seconds": 10, "seed": 1, "negative": "music, speech, hiss, grinding, high pitched, low quality",
+  "prompt": "Steady low rumble of machinery in a ship engine room with an occasional metal clank"},
+ {"id": "door_steel", "kind": "sfx", "version": 2, "seconds": 3, "seed": 1, "negative": "music, speech, low quality",
+  "prompt": "A single heavy metal door closing with a loud latch clunk"}
+]

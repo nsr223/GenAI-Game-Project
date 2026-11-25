@@ -60,3 +60,47 @@ The dialogue panel still shows a silhouette for Maya, Daniel, Olivia and Lucas. 
 | Lucas Weber | [v1](characters/lucas_weber/v1.md) | Lucas crop, People v2 | Keeps the framing gesture, but the raised hand must stay inside the sprite margin. Age stated (about 27). No camera, so the gesture carries his job without a prop. | Pending |
 
 Each of the four has its own silhouette against the two finished sprites: Thomas has an open V jacket and a straight stance, Sarah a closed high collar and level shoulders. Maya leans forward with one raised hand, Daniel rounds his shoulders over low hands, Olivia makes a horizontal arm oval, Lucas twists away with a high hand. Run-time target as for Thomas and Sarah: 480 × 525 WebP with true alpha in `frontend/static/art/characters/<id>.webp`.
+
+### Pre-run review of the v1 sprite prompts → v2 (no images generated yet)
+
+v1 was checked against the two accepted sprites and against known generator behaviour before spending any generations. Measured on the final Thomas and Sarah WebPs (480 × 525): hair top 2–4 px below the edge, waist crop at 518–524 px, head about 106–137 px wide (≈ 28 % of the width), figure spanning 77–89 % of the width.
+
+| Asset | Version | Problem found in v1 | Cause in the prompt | Change in v2 |
+| --- | --- | --- | --- | --- |
+| All four | [Maya v2](characters/maya_chen/v2.md), [Daniel v2](characters/daniel_reyes/v2.md), [Olivia v2](characters/olivia_hart/v2.md), [Lucas v2](characters/lucas_weber/v2.md) | Would come out smaller than Thomas and Sarah in the same panel | "A small transparent margin on every side" with no scale; the finals fill the canvas | Scale stated in words that survive any canvas size: hair just below the top edge, head about a quarter of the width, shoulders across most of it. Square canvas, cropped to 480 × 525 afterwards. |
+| All four | v2 | Risk of copying the sketchiness of the concept sheet | The concept sheet asked for "hardly any marks" and a few thin washes; v1 used it as the only reference | Take face, hair and colours from the crop but draw "a finished dialogue portrait: more resolved face and hands than the sketch". |
+| All four | v2 | Long "No …" list at the end (12–14 items) | Image models often draw what a negative names; a long list also dilutes the prompt | Background stated positively ("empty transparent background"); a short "Exclude" list of only the items that matter for each person. |
+| All four | v2 | One dense paragraph mixed identity, pose, light and framing | Hard to edit one aspect without touching the others, and hard to compare versions | Fixed order with labels: identity, Pose, Light, Framing, background. Later versions can change one line and log it. |
+| Maya | v2 | "Warm and patient, no smile and no frown" asks for warmth and forbids its usual sign | Contradictory expression words | "A quiet, tired warmth around the eyes, lips relaxed": warmth without a smile that could read as smug. |
+| Daniel | v2 | "Draw a new pose without the pipe coupling" still names the object | Mentioning the coupling invites it back | Asks for "empty hands"; tools and metal objects only in Exclude. |
+| Lucas | v2 | The raised L-hand is the part most likely to be cut by the edge | Hand position given relative to the eye line, not the canvas | Hand beside the shoulder, "fingertips clear of the edge". |
+
+## Music and sound (v1 and v2)
+
+Generated locally with the open models the course recommends: **MusicGen** (`facebook/musicgen-small`, music) and **AudioLDM** (`cvssp/audioldm-s-full-v2`, ambience and effects), seed 1, on CPU. The scripts, both prompt specs and the measurement tool are in [`docs/prompt-log/audio/`](../../docs/prompt-log/audio/). Each generation has its own file in `music/<id>/vN.md` or `sfx/<id>/vN.md` with the exact prompt, settings and result. Selected files are in `frontend/static/audio/`, listed in its `audio.json`.
+
+**How results were judged.** Nobody listened to v1 inside the game yet. Every clip was measured instead: loudness (RMS, peak), loudness spread over time, energy share per frequency band, spectral flatness (hiss-like near 1, tonal near 0), plus a spectrogram ([v1](../../docs/prompt-log/audio/img/01-spectrograms-v1.webp), [v2](../../docs/prompt-log/audio/img/02-spectrograms-v2.webp)). A clip was rejected when the numbers contradicted the World Bible audio direction (§7.2): constant low hums, audible but not fatiguing, dialogue stays audible. **Please listen and overrule.**
+
+| Asset | Version | What the measurement showed | Cause in the prompt | Change | Selection |
+| --- | --- | --- | --- | --- | --- |
+| Title theme | [v1](music/title_theme/v1.md) | Tonal, sparse, no drums | — | — | Selected |
+| Investigation loop | [v1](music/investigation_loop/v1.md) | Low, steady, quiet; fits under dialogue | — | — | Selected, made into a seamless loop |
+| Accusation | [v1](music/accusation/v1.md) | Fast broadband ticking through the whole clip; abrupt cut at 28 s | "insistent", "deep timpani hits", 90 bpm | Slower, softer percussion, "restrained", "no fast percussion" | Rejected |
+| Accusation | [v2](music/accusation/v2.md) | Smooth, low, no ticking | — | — | Selected |
+| Ending | [v1](music/ending/v1.md) | Calm, tonal piano and strings | — | — | Selected |
+| Storm (window) | [v1](sfx/storm_window/v1.md) | Steady rain and wind with gusts | — | — | Selected, base layer in every room |
+| Ship hum | [v1](sfx/ship_hum/v1.md) | 99 % below 200 Hz, steady | — | — | Selected, base layer in every room |
+| Wet lab | [v1](sfx/wet_lab/v1.md) | Flat hiss with whistling tones | Nothing said the hum should be low or gentle | "low steady", "gentle", "muffled"; negative "hiss, whine" | Rejected |
+| Wet lab | [v2](sfx/wet_lab/v2.md) | Low pump hum with a regular stroke | — | — | Selected |
+| Dry lab | [v1](sfx/dry_lab/v1.md) | Almost silent (-71 dBFS) | "Quiet" and "soft" taken literally | Steady fans, no "quiet"; negative "silence" | Rejected |
+| Dry lab | [v2](sfx/dry_lab/v2.md) | Audible, but bright fan hiss | Fan noise is broadband by nature | 2.5 kHz low-pass in post instead of a third generation | Selected |
+| Bridge | [v1](sfx/bridge/v1.md) | Radio static, crackle bursts, wind | — | — | Selected |
+| Workshop | [v1](sfx/engineering_workshop/v1.md) | Dense grinding, 90 % above 1 kHz | "tools clanking" drew grinding/cutting noise | "steady low rumble … occasional metal clank"; negative "grinding" | Rejected |
+| Workshop | [v2](sfx/engineering_workshop/v2.md) | Low rumble, regular clank | — | — | Selected, also used for the engine room |
+| Mess hall | [v1](sfx/mess_hall/v1.md) | Rain texture with small clinks, quieter | — | — | Selected |
+| Steel door | [v1](sfx/door_steel/v1.md) | Four door events in one clip | 5 s and "opening and closing" invite several events | "A single … closing", 3 s | Rejected |
+| Steel door | [v2](sfx/door_steel/v2.md) | One heavy slam | — | Cut to 1.6 s | Selected |
+| Footsteps | [v1](sfx/footsteps_metal/v1.md) | Even steps with metallic ring | — | Cut to 2.5 s | Selected |
+| Page turn | [v1](sfx/page_turn/v1.md) | Two paper rustles | — | First rustle only, 1.0 s | Selected |
+
+Nineteen generations, five rejected. Not yet made: voices (TTS) and a room layer for the medical bay, crew quarters and editing room (they play the base layers only).
