@@ -158,7 +158,7 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 
 At 21:10, Lucas and Sarah saw Elena and Thomas conversing in the mess hall after dinner. Either can point the player to Thomas; neither heard the content or can independently establish its intensity. Thomas’s account concerns disputed reporting, correction, and financing (Story §6). No recording is established.
 
-At 22:00, Elena confronted Daniel in his workshop about the C-2 override and omitted harm. Olivia and Thomas know the meeting happened and can point the player to Daniel; **how they learned this remains TBD** for movement design. They cannot supply its private content. Daniel initially minimizes an argument about an old report; his fuller admissions remain subject to authored disclosure conditions. Preserve speaker attribution: knowing a conversation occurred does not prove the allegations discussed.
+At 22:00, Elena confronted Daniel in his workshop about the C-2 override and omitted harm. Before leaving for the workshop, Elena tells Olivia and Thomas in the mess hall that she is going to speak to Daniel about an old report. They can report her stated intention and direct the player to Daniel, but did not witness or hear the workshop conversation. Daniel can confirm it occurred; neither Olivia nor Thomas knows its private content. Daniel initially minimizes an argument about an old report; his fuller admissions remain subject to authored disclosure conditions. Preserve speaker attribution and distinguish an announced intention from witnessed attendance.
 
 These optional testimony leads do not require finding Elena’s notes first and do not gate the medical reconstruction. Elena’s rationale for postponement and Maya’s private reasoning are fixed in Story §6; neither becomes player knowledge without a supported source.
 
@@ -272,11 +272,11 @@ These optional testimony leads do not require finding Elena’s notes first and 
 - **Established supporting entry:** The C-2 note in `EV-06` is part of this note collection and leads to `EV-07` testimony, without requiring the historical technical records.
 - **Fixed supporting entries:** Sarah’s admission/request (`EV-21`), Lucas’s repeated recording violations (`EV-22`), and the brief Noah incident lead (`EV-23`) share these notes. Text is fixed below; storage/access remains open. Notes do not automatically prove every interpretation.
 
-#### `EV-18` — Partial corridor recording / media metadata (FIXED possibility; PROPOSED clip)
+#### `EV-18` — Partial corridor recording / media metadata (FIXED story content; implementation TBD)
 - **Type / source:** Lucas's documented recording and its timestamp metadata.
 - **Location / object:** `editing_room` / `editing_workstation` or `media_drive_case`.
 - **Access:** Lucas willingly shares relevant footage or Sarah authorizes preservation/review; exact flow **TBD**.
-- **Player receives (proposed):** A partial view indicating Maya moved toward the laboratory area during the critical window, without showing the actual confrontation or murder. Exact field of view/time **TBD**.
+- **Fixed story content:** Returning from the bridge toward the editing room around 22:30–22:35, Lucas captures a corridor shot showing Maya heading toward the labs, without noticing her. He returns his equipment without reviewing it that night. The shot does not show the confrontation or murder. Exact camera position, coverage, timestamp metadata, audio, and review/access implementation are the evidence team’s **TBDs**.
 - **Supports:** `maya_wet_lab_area_presence_supported` when compared to her stated alibi.
 - **Does not prove:** Entry through a specific door, the murder act, or precise time of death.
 - **Consistency note:** The wet and dry labs also have an internal connecting door. Camera coverage must not imply an impossible view of both routes.
@@ -295,7 +295,7 @@ These optional testimony leads do not require finding Elena’s notes first and 
 #### `EV-20` — Dinner argument testimony (PROPOSED)
 - **Type / source:** Cross-checked recollections from participants.
 - **Location / interaction:** `mess_hall` or permitted NPC conversations.
-- **Player receives:** Elena refused to endorse publication at dinner; witnesses recall escalating tension.
+- **Player receives:** Elena refused to endorse publication during the 20:00–20:40 dinner. Exact other topics, wording, and participant reactions/recollections are **TBD** (Story §12); do not invent dialogue or import the separate 21:10 confrontation’s private content.
 - **Supports:** Context for Thomas's financial motive and general pressure.
 - **Does not prove:** The murderer's identity or the timing of the fatal confrontation.
 
@@ -309,7 +309,7 @@ These optional testimony leads do not require finding Elena’s notes first and 
 - **Source:** Elena’s note with `EV-17`; shared storage/access remains TBD.
 - **Text:** “Lucas has continued recording beyond agreed sessions more than once. I have raised this with him repeatedly. Ask what he has retained and arrange a review of the footage.”
 - **Follow-up:** Repeated challenges over recent weeks are fixed. Maya and Sarah can report their own suspicions when asked about filming, but never checked or challenged it. They cannot identify file contents from these observations.
-- **Meaning:** Grounds asking Lucas about retained material and arranging review; no automatic access to all files or proof of a specific recording. Review permissions, retention, storage, and murder-night footage remain TBD. This incident is not automatically `EV-18`.
+- **Meaning:** Grounds asking Lucas about retained material and arranging review; no automatic access to all files or proof of a specific recording. Review permissions, retention, storage, and technical implementation of the fixed murder-night footage remain TBD. This incident is not automatically `EV-18`.
 
 ### 4.6 Noah Bennett’s injury — optional supporting thread
 
@@ -698,7 +698,7 @@ investigation_state:
 | **Medical/scene corroboration of the established mechanism** | The fatal head injury, cover failure, and compact-object comparison are fixed. Define observable contact/reach evidence and exclude a secondary fall into nearby surfaces; proof of death before 23:10 is not required. | Story, Olivia, Daniel, World |
 | **Actual comparative evidence and authorized access needed for reconstruction** | Supports a defensible conclusion without requiring either motive confrontation. | Story, Olivia, Evidence |
 | **Maya's exact false alibi** | Needed to make `EV-18` + `EV-19` a fair contradiction. | Maya, Lucas, Story |
-| **Lucas's camera placement, clip contents, metadata, and recording time** | Prevents implausible coverage or an all-solving video. | Lucas, World |
+| **Lucas’s camera placement, metadata, and coverage** | The return from the bridge and incidental shot of Maya heading toward the labs around 22:30–22:35 are fixed. Evidence team implements exact view, timing metadata, audio, and discovery/review without expanding the story content. | Lucas, World |
 | **Reference mass trace and scene corroboration** | The 2 kg mass, strike, and return to the station are fixed. Define remaining discoverable traces without an unrealistic instant lab test. | Story, World, Olivia |
 | **Elena's preserved notes and how the player finds them** | Ensures the initial hint leads fairly to the transfer motive. | Story, World |
 | **Competitor agreement's storage and access permissions** | Prevents arbitrary search of Maya's private material. | Maya, World |
@@ -706,11 +706,11 @@ investigation_state:
 | **Discovery implementation and witness presentation** | Lucas and the initial response are fixed (Story §7.2, EV-26). Arrival order and relative intervals are fixed. Define preceding locations/routes and any clue-relevant examination movements; preserve the shared exchange, Lucas's exception, and the player's lack of discovery knowledge. | Story, Character Bibles, World |
 | **Supporting Elena notes: shared storage/access** | Texts for Sarah, Lucas, and Noah are fixed in EV-21–EV-23; implement their access through EV-17 without adding historical document hunts. | Story, Characters, World |
 | **Check that the combined evidence distinguishes Maya from another attacker** | Test whether the final reconstruction rules out a plausible later attacker or alternative sequence through authored alibis, timing, and/or attack/staging traces. Motive, nearby presence, and a lie alone are insufficient; precise clues remain TBD. | Story, all Character Bibles, World, Evidence |
-| **All alibis and noise consistency** | Check positions at 23:10, both lab doors closed, unheard cover clunk, and no alert. Separately settle whether the earlier argument/strike could be heard or recorded. | All Character Bibles, Story, World |
+| **Alibi verification and noise consistency** | Actual positions and movements are fixed in Story §7.1; establish claims/corroboration. Preserve both lab doors closed, unheard 23:10 clunk, and no alert. Separately settle whether the earlier argument/strike could be heard or recorded. | All Character Bibles, Story, World |
 | **Readable M-17 values, periods, and artifact wording** | The treatment process, limitations, adaptive improvement, and fraud mechanism are fixed; choose illustrative measurements and clear charts without confusing potential uptake with verified removal. | Story, Maya, Thomas, World |
 | **Final accusation behavior and optional ending variants** | Controls whether a wrong guess ends the game or allows further investigation. | Story, game design |
 
-**Recommended order to resolve:** (1) precise alibis and recording, (2) physical/medical mechanism, (3) reconstruction evidence and access requirements, (4) clue placement and permission paths, (5) numeric data and presentation details. The basic science and misconduct mechanisms are established; do not reopen them as unspecified technology.
+**Recommended order to resolve:** (1) claimed alibis, corroboration, and implementation of the established recording, (2) physical/medical mechanism, (3) reconstruction evidence and access requirements, (4) clue placement and permission paths, (5) numeric data and presentation details. The basic science and misconduct mechanisms are established; do not reopen them as unspecified technology.
 
 ---
 

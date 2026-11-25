@@ -96,13 +96,17 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Maya's actual activity |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | Group dinner; witnesses Elena refuse to approve publication. |
-| 22:35 | Meets Elena privately in the wet laboratory. |
-| ~22:45 | Kills Elena with the calibration object during the confrontation. |
-| 22:45–23:00 | Rearranges the scene to resemble an equipment accident, then leaves. |
-| 23:10 | An independent apparatus malfunction occurs. Maya did **not** cause it. |
+| 20:00–20:40 | Group dinner; Elena refuses publication approval. Other dinner dialogue remains TBD. |
+| 20:40–about 21:50 | Works in the dry lab. Before Elena leaves around 21:45, Elena says she is going to Daniel’s workshop and proposes their private wet-lab meeting shortly after half past ten (22:35). Maya accepts, finishes her work, and goes to her cabin. |
+| About 21:50–22:30 | In her cabin. |
+| About 22:30–22:35 | Takes the main corridor toward the wet lab for the meeting. Lucas’s incidental recording is author knowledge, not automatically hers. |
+| 22:35 | Meets Elena privately in the wet lab. |
+| ~22:45 | Kills Elena with the reference mass. |
+| ~22:45–22:55 | Stages an apparent accident and returns the mass to its station. |
+| ~22:55–23:00 | Leaves through the wet-lab corridor door, closes it, and returns to her cabin before 23:00. Remains there awake and distressed. |
+| 23:10 | In her cabin; neither hears nor knows about the independent apparatus malfunction. |
 | Shortly after 06:50 next morning | Arrives last, shortly after Daniel, before the public cover remark and exchange. Preceding location/route remains TBD. |
 
 **Claimed alibi: TBD.** Maya must lie or materially omit her wet-lab presence during the fatal window. The exact invented location, timing, and corroboration must be settled **together** with the Story and Evidence Bibles. Do not improvise a fixed alibi in an NPC run.
@@ -145,7 +149,7 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 
 ### Fatal conversation: intentions, memory, and disclosure
 
-Elena requested the 22:35 wet-lab meeting earlier to discuss Maya’s research and future. Maya expects an uncomfortable discussion but intends persuasion, not violence. She first describes the negotiations as career exploration, then insists the work is hers. Elena acknowledges her contribution but rejects unauthorized transfer of confidential material, and announces for the first time that she will report the negotiations.
+Before leaving the dry lab for Daniel’s workshop around 21:45, Elena proposed the 22:35 wet-lab meeting to discuss Maya’s research and future; Maya accepted. Maya expects an uncomfortable discussion but intends persuasion, not violence. She first describes the negotiations as career exploration, then insists the work is hers. Elena acknowledges her contribution but rejects unauthorized transfer of confidential material, and announces for the first time that she will report the negotiations.
 
 > Elena: “Your contribution deserves recognition. That doesn’t make the project’s confidential work yours to hand over.”
 > Maya: “You keep saying it’s my contribution. Somehow it’s never my decision.”
@@ -174,4 +178,4 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 - The residual traces and exact body orientation/moved items in the improvised staging, and what she notices. The weapon, weight, single strike, return of the mass, and suggested cover accident are fixed (Story §§6.1–6.2).
 - The research revision identifier and readable test excerpts. The adaptive controller, staged mixer, limited validation, and plain-language M-17 lead are fixed; distinguish her research knowledge from awareness of Elena's preserved evidence.
 - Her preceding location/route, plus any later knowledge of specific maintenance risks. Her observed discovery exchange is fixed (Story §7.2).
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

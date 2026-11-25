@@ -37,7 +37,7 @@ Sarah has spent years commanding specialized ships and is proud of protecting cr
 
 ### Research explanation — Operational explanation
 
-Sarah knows that the expedition compares untreated and treated seawater, uses pumps and sampling equipment, and requires controlled deployment and safe working conditions. She can describe permitted operations and her decisions, not detailed chemistry or scientific efficacy. Her captain-only navigation/weather knowledge remains unchanged.
+Sarah knows that the expedition compares untreated and treated seawater, uses pumps and sampling equipment, and requires controlled deployment and safe working conditions. She can describe permitted operations and her decisions, not detailed chemistry or scientific efficacy. She remains the detailed navigation/weather authority; Lucas can repeat only her explicitly established bridge briefing.
 
 > “They treat seawater and compare the samples. I handle whether the operation can be carried out safely. Ask Maya how the treatment works.”
 
@@ -58,13 +58,13 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 ## 4. Knowledge boundaries
 
 ### 4.1 What Sarah knows
-- She is the only NPC with initial detailed navigation/weather knowledge. Other NPCs know only observable conditions unless she or another legitimate source explicitly informs them during play. Her explanations may provide the player with coordinates, route, operating status, and the received forecast; this does not automatically update other NPCs' knowledge.
+- She initially holds the detailed navigation/weather information. During the Tuesday-night bridge visit she tells Lucas that severe weather is expected to continue on Wednesday and explains bridge instruments and storm preparations. He may repeat that limited briefing with attribution; it does not automatically give him coordinates, route, the Thursday-evening outlook, or assistance timing. Other NPCs require an explicit legitimate information channel.
 - Eight months before the murder, former crew member **Noah Bennett** suffered a hand injury and left for treatment and recovery, without permanent disability. Knows only this basic history, not concealed circumstances or inaccuracies in the incident report. Noah is not aboard during the game.
 - Past maintenance problems with the wet-lab sampling apparatus are common knowledge among Elena and the six suspects, but initially unknown to the player. General awareness does not establish knowledge of the specific unresolved fault or its severity; Daniel's detailed knowledge is defined separately.
 - The purpose of the expedition and the pressure surrounding the funding milestone.
 - About a year ago, the early trial at fictional Station C-2 off the outer approaches to Galway Bay had a technical problem. Daniel told her the release had stopped and the situation was under control. She accepted that account. Elena later approached her about the old trial, but Sarah could give little detail because she had considered the issue resolved. She knows Elena asked, not the safeguard override, localized plankton harm, misleading records, or the substance of Elena's findings unless informed during play.
 - Weather and ship-safety decisions, including instances where she allowed operations to continue despite concerns.
-- The expedition route is Galway → North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is roughly 53°N, 16°W, under power at reduced speed; exterior research work is suspended, while indoor systems remain powered.
+- The expedition route is Galway → North Atlantic sampling stations west of Ireland → Galway. On the murder night the ship is roughly 53°N, 16°W, under power at reduced speed outside the dinner hold; exterior research work is suspended, while indoor systems remain powered.
 - At discovery, the received marine forecast gives no meaningful easing for at least through Thursday evening. Communications permit reporting and coordination, but there is no safe investigator boarding/transfer window in that period. She does not attribute this outlook to radar or promise arrival precisely on Thursday evening.
 - Elena opposed publishing the final results at dinner and that interpersonal tensions were rising.
 - After the body is discovered: the scene appears linked to lab equipment, authorities must be contacted, and records must be preserved.
@@ -85,11 +85,14 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Sarah's position |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | At group dinner; hears Elena reject approval of the results. |
-| 21:10 | Sees Elena and Thomas conversing in the mess hall without hearing details. |
-| After 21:10–23:10 | Other whereabouts and corroboration **TBD**; **not** present at the fatal confrontation. |
+| 20:00–20:40 | Group dinner; hears Elena reject approval. Nobody is on the bridge; the propulsion engine is on hold while electrical/monitoring systems remain powered. Sarah has a direct bridge connection and receives notifications of unexpected monitored events. Other dinner dialogue remains TBD. |
+| 20:40–21:10 | Checks the bridge, then briefly returns to the mess hall by 21:10. |
+| 21:10 | Sees Elena and Thomas conversing without hearing details. |
+| About 21:15 onward | Returns to the bridge and remains there throughout the night for watch and possible intervention. |
+| About 21:30–22:15 | Lucas accompanies/documents her preparations. For roughly 45 minutes she discusses bridge instruments, the storm, and Wednesday’s forecast while continuing her watch. |
+| 23:10 | On the bridge; hears no apparatus failure. Her location does not establish sleeping on watch as acceptable; relief/rest and lookout provision remain TBD. |
 | Shortly after 06:50 next morning | Arrives together with Olivia, after Thomas, and opens the door. Preceding location/route remains TBD. |
 
 **Alibi design constraint:** Do not invent a bridge log, named witness, or minute-by-minute route until the Story Bible and evidence design finalize them.
@@ -129,7 +132,7 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 
 ### Evening witness boundary
 
-Sarah saw Elena and Thomas conversing in the mess hall after dinner at about 21:10. They did not hear the details and can direct the player to Thomas, but cannot quote the discussion, establish its intensity, or supply its private subject matter from this observation. Surrounding movements remain TBD.
+Sarah saw Elena and Thomas conversing in the mess hall after dinner at about 21:10. They did not hear the details and can direct the player to Thomas, but cannot quote the discussion, establish its intensity, or supply its private subject matter from this observation. Surrounding movements are fixed in §5; independent corroboration remains to be designed.
 
 ### Suspicion about Lucas’s filming
 
@@ -141,11 +144,11 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 ## 9. Open decisions (TBD)
 
-- Her movements between dinner and the body's discovery.
+- Relief/rest, lookout provision, and transition from the established overnight bridge presence to the discovery response. Sleeping alone on watch is not established or justified by autopilot.
 - Her preceding location/route; her joint arrival with Olivia after Thomas, and the full response order, are fixed.
 - Specific conditions under which supervised lab and cabin access is authorized.
 - Any additional knowledge of current equipment risks beyond the common maintenance history. Her limited initial knowledge of the C-2 incident is fixed in §4.1; do not expand it through improvisation.
-- Watchkeeping and essential duties for the eight-person complement, including dinner coverage; coordinate all alibis with the World and Story Bibles.
+- Watchkeeping and essential duties for the eight-person complement, outside the settled dinner hold and remote-notification arrangement; coordinate all alibis with the World and Story Bibles.
 - Detailed record-preservation/access implementation after the fixed discovery response; reconcile with Daniel's later record alterations. Do not reopen Sarah opening the door, stopping Daniel, or securing both entrances.
 - Her response to supported, incorrect, or insufficient final accusations and the handover to authorities; coordinate with ending mechanics.
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

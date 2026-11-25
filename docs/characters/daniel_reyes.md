@@ -69,7 +69,7 @@ Daniel knows the pumps, flow rates, mixer, dosing safeguard, sample collection, 
 - Before leaving at 22:20 he left the cover raised and restored automatic operation without clearing an interrupted weekly verification task. The controller can retry pending tasks at 23:10 even on a non-test day. He does not know the cover actually fell until supported by information received after discovery; the controller has no cover-position sensor.
 - Elena confronted him about the ecological incident at approximately **22:00**.
 - He left the wet laboratory at approximately **22:20** and did not witness what happened afterward.
-- Only after reading the log or receiving valid evidence does he know that an abnormal automated cycle occurred at **23:10**. When he learns this is **TBD**; he does not initially know its relationship to Elena's death.
+- Only after reading the log or receiving valid evidence does he know that an abnormal automated cycle occurred at **23:10**. The exact post-discovery learning point is **TBD**; he does not initially know its relationship to Elena's death.
 
 ### 4.2 What Daniel believes (incorrectly)
 After Elena is found near the equipment, he fears the unresolved fault **might have killed her**. Only once he learns of the 23:10 malfunction does he connect his fear to that specific cycle. His fear is sincere. Depending on questioning, he may speak as though he is morally responsible, but he has not witnessed the fatal event and cannot know that the malfunction caused it.
@@ -90,13 +90,16 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Event and Daniel's perspective |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | Group dinner; hears Elena reject approval of results. |
-| 22:00 | Elena confronts him in his workshop about the C-2 override and concealed harm; he defends his decision and acknowledges concealment to her. |
-| 22:20 | Leaves after checking the worn cover support, leaving the cover raised and automatic operation restored without clearing the pending verification task. This departure is **true**. |
-| 22:35–23:00 | Exact destination and corroboration **TBD**. He is **not** present for the murder. |
-| 23:10 | An abnormal automated equipment cycle occurs. He later learns of it from logs or other valid evidence; whether he saw the log that night is **TBD**. |
+| 20:00–20:40 | Group dinner; hears Elena reject approval. Other dinner dialogue remains TBD. |
+| 20:40–22:00 | In the workshop, initially cleaning and organizing his workplace. |
+| 22:00–22:10 | Elena confronts him in his workshop about C-2; he acknowledges his decision and concealment to her. They do not discuss the current cover fault. |
+| About 22:10–22:20 | Finishes in the workshop, then goes upstairs for his wet-lab maintenance check around 22:15. Notices Elena still working in the dry lab; they do not speak again. |
+| 22:20 | Leaves the wet lab with cover raised and automatic operation restored without clearing the pending task. |
+| About 22:20–22:30 | Water and a brief conversation with Olivia in the mess hall; reveals neither the fault nor the private contents of Elena’s confrontation. |
+| About 22:35–22:45 | Reaches his cabin, then goes to bed; stays there overnight. |
+| 23:10 | In his cabin; does not hear the failure or inspect the cycle log that night. Learns of the cycle only through valid information after discovery. |
 | Shortly after 06:50 next morning | Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Preceding location/route remains TBD. |
 
 **Important:** Daniel may lie about the fault or why he was in the laboratory, but not invent a witnessed altercation he never saw.
@@ -140,7 +143,7 @@ Elena confronts Daniel in his workshop at 22:00 about the C-2 low-flow override 
 > Daniel: “I thought I could keep it under control.”
 > Elena: “That explains the decision. It doesn’t explain leaving the damage out of the report.”
 
-He remembers shame and exposure, mixed with resentment that an old incident could end his career. Initially he minimizes the meeting as an argument about an old report, withholding what he admitted to Elena. After discovery, his fear that fresh negligence killed her compounds the guilt of their last conversation about responsibility. Olivia and Thomas know the meeting occurred, but how they learned it remains TBD and they have no established knowledge of its private content. His subsequent final apparatus check before leaving the wet lab at 22:20 remains fixed; the connecting movement is deferred.
+He remembers shame and exposure, mixed with resentment that an old incident could end his career. Initially he minimizes the meeting as an argument about an old report, withholding what he admitted to Elena. After discovery, his fear that fresh negligence killed her compounds the guilt of their last conversation about responsibility. Olivia and Thomas heard Elena announce her intended workshop visit, not the conversation itself. Daniel must not assume he knows she told them unless informed. His subsequent route and silent sighting of Elena are fixed in §5.
 
 ### Noah incident lead
 
@@ -148,12 +151,12 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 ## 9. Open decisions (TBD)
 
-- Where Daniel went between **22:20 and 23:10**, and what independently verifies it.
-- Whether he accessed the fault log that night or only after the body was discovered.
+- What independently verifies his established movements after 22:20.
+- Exactly when and how he learns of the cycle after discovery; he does not inspect the log that night.
 - The exact record he concealed or modified and how that is detectable.
 - How the medical evidence is phrased so that his mistaken belief remains plausible at first.
 - Conditions and wording for further admissions when explicitly questioned about Elena's C-2 note (EV-06/EV-07). Historical technical excerpts are not required. Do not automatically know Elena questioned Sarah unless legitimately informed.
 - Earlier symptoms, missed repair/documentation history, and the evidence proving his knowledge. The support defect, restart error, pending-cycle retry, and absence of a cover sensor/alert are fixed (Story §5.2). Define any additional knowledge held by others explicitly.
-- How Olivia and Thomas learned of the workshop conversation, and Daniel’s route to the later final apparatus check; no overheard content is established.
+- Exact sightlines supporting the silent Elena/Daniel sighting during his maintenance check; neither gains knowledge of private actions from it.
 - The timing and access required for post-discovery record concealment or alteration, including how it fits Sarah securing the scene and records.
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

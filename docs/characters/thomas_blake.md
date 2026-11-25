@@ -88,11 +88,15 @@ Thomas knows the intended carbon-removal benefit, projected performance, funding
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Thomas's activity |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | Group dinner; hears Elena block approval of the results. |
-| 21:10 | Confronts Elena in the mess hall after dinner over misleading claims and financing; Lucas and Sarah see them conversing without hearing details. |
-| 22:35–23:00 | Exact whereabouts and corroboration **TBD**; he was **not** present for Maya's fatal confrontation. |
+| 20:00–20:40 | Group dinner; hears Elena block approval. Other dinner dialogue remains TBD. |
+| 20:40–21:10 | Remains in the mess hall. |
+| 21:10–21:25 | Confronts Elena over misleading claims and financing. Lucas and Sarah see the conversation without hearing its details. |
+| About 21:25–21:45 | Returns to his cabin, then goes back to the mess hall for a drink. Olivia joins him. |
+| Before 22:00 | Elena tells him and Olivia she is going to speak to Daniel in his workshop about an old report. This is her announced intention, not a meeting he witnesses. |
+| About 22:10–22:40 | Leaves the mess hall for his cabin, works briefly on his laptop, then goes to bed. |
+| 22:40 onward | Remains in his cabin overnight; hears no apparatus failure. |
 | Shortly after 06:50 next morning | Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Preceding location/route remains TBD. |
 
 **Design constraint:** He can initially minimize how heated the argument was. Do not invent a camera-proof alibi or movement trace without updating the Story and Evidence Bibles.
@@ -137,7 +141,7 @@ At 21:10 in the mess hall after dinner, Elena challenges omitted later results a
 > Thomas: “You’re asking us to throw away the financing over how a preliminary result is presented.”
 > Elena: “I’m asking you to stop presenting a preliminary result as something we’ve already achieved.”
 
-Lucas and Sarah saw the conversation but did not hear its details. Thomas also knows Elena spoke to Daniel in the workshop at about 22:00 and can suggest asking Daniel; how he learned this is TBD. He cannot supply that conversation’s content or infer Maya’s negotiations from his own meeting.
+Lucas and Sarah saw the conversation but did not hear its details. Before 22:00 Elena told Thomas and Olivia in the mess hall that she was going to speak to Daniel in his workshop about an old report. Thomas can suggest asking Daniel, but can attest only to her announced intention, not the meeting itself. He cannot supply that conversation’s content or infer Maya’s negotiations from his own meeting.
 
 ### Noah incident lead
 
@@ -147,9 +151,8 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 - Any clue-relevant commitments or terms beyond the fixed roughly €8 million prospective round; exact amounts are unnecessary.
 - Exact author/approval chain for misleading materials.
-- Thomas's actions and corroboration during the fatal window.
+- Independent corroboration of his established cabin movements during the fatal window.
 - Whether he privately tries to influence the player after Elena's death, and what evidence supports that scene.
-- How he learned of Elena’s 22:00 workshop conversation with Daniel; coordinate movements without inventing overheard content.
 - Exact M-17 numbers, chart selections, edits, messages, and approvals demonstrating the established selective-reporting fraud. Define his response to the plain-language Maya reference without granting knowledge of her private negotiations.
 - His assigned room, preceding location/route, and any later knowledge of specific risks. His observed discovery exchange is fixed (Story §7.2).
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

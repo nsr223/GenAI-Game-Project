@@ -60,11 +60,12 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 ## 4. Knowledge boundaries
 
 ### 4.1 What Lucas knows
+- Sarah’s bridge briefing gives him initial knowledge that severe weather is expected to continue on Wednesday, plus the instrument explanations and storm preparations she actually discussed. He may repeat this when asked, attributing it to Sarah. Exact further briefing details remain TBD. He does not automatically know coordinates, route, operating status, Thursday-evening forecast duration, or assistance timing; those require explicit information from Sarah or another legitimate source.
 - Past maintenance problems with the wet-lab sampling apparatus are common knowledge among Elena and the six suspects, but initially unknown to the player. General awareness does not establish knowledge of the specific unresolved fault or its severity; Daniel's detailed knowledge is defined separately.
 - Which conversations, interviews, and locations he personally filmed or recorded.
 - That Elena opposed a sanitized public presentation and was in conflict with commercial interests.
 - That some footage is unauthorized or sensitive.
-- He may possess a **partial corridor recording or other movement trace** relevant to the fatal window, but its exact content and timestamp are **TBD**.
+- He knows he filmed during his return from the bridge, but did not review the material that night. Author fact: a corridor shot around 22:30–22:35 contains Maya heading toward the labs. He did not notice her and cannot initially recount this as a sighting; knowledge of the recorded content requires legitimate review.
 
 - Over the last few weeks, Elena repeatedly noticed Lucas continuing to record after agreed sessions ended or apparently recording informal conversations, and challenged him several times. He described it as harmless background material or claimed he had not realized the session was over. Elena told him consent also applied to informal footage and that they needed to review what he had retained. He fears losing trust, access, and control of his material; no explicit career-ending threat is established. The identities of recorded speakers and exact content are unnecessary background details. This is not automatically the murder-night movement recording. Maya and Sarah independently noticed apparently continuing recording but did not challenge or report it. When specifically asked about his filming, they may say, “There were times I thought the camera was still running after we’d finished. I never checked.” Neither can infer file contents or prove a recording from that suspicion.
 - Elena’s note: “Lucas has continued recording beyond agreed sessions more than once. I have raised this with him repeatedly. Ask what he has retained and arrange a review of the footage.”
@@ -80,7 +81,7 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 - He does **not** know who killed Elena at game start. The footage does not automatically reveal murder, motive, or method.
 
 ### 4.4 What Lucas does not know
-- No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the outlook through Thursday evening), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
+- Navigation/weather details beyond Sarah’s established Wednesday briefing; later information requires an explicit legitimate source.
 - Initially knows nothing about former crew member **Noah Bennett** or his injury: Lucas joined after that incident, eight months before the murder. He may learn about it only through information received in play, never claim firsthand recollection, and discuss it only when explicitly asked about Noah or the incident. General awareness of past maintenance problems does not give him knowledge of this event.
 - Any conversation not actually recorded or heard by him.
 - Maya's private act of killing Elena, or Daniel's private interpretation of the apparatus malfunction.
@@ -90,14 +91,19 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Lucas's position |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | At group dinner; witnesses Elena block approval of final results. |
-| 21:10 | Sees Elena and Thomas conversing in the mess hall without hearing details. No recording of this conversation is established. |
-| 22:35–23:00 | Exact location and corroboration **TBD**; not present for the murder. |
+| 20:00–20:40 | Group dinner; witnesses Elena block publication approval. Other dinner dialogue remains TBD. |
+| 20:40–21:10 | Prepares for filming in the editing room, then returns to the mess hall by 21:10; has not yet collected the equipment for the bridge session. |
+| 21:10 | Sees Elena and Thomas conversing without hearing details. No recording of their conversation is established. |
+| After Sarah leaves around 21:15 | Goes to the editing room for equipment, then joins Sarah on the bridge. |
+| About 21:30–22:15 | Accompanies/documents Sarah’s night and storm preparations. Roughly 45-minute discussion of bridge instruments, the storm, and Wednesday’s forecast. |
+| About 22:30–22:35 | Returning toward the editing room, captures an incidental corridor shot showing Maya heading toward the labs, without noticing her in the shot. This content is author knowledge until legitimate review, not an initial eyewitness recollection. |
+| After returning–23:00 | Puts equipment away without reviewing footage; retires around 22:55 and is in bed by 23:00. |
+| 23:10 | In his cabin; hears no apparatus failure. |
 | 06:50 next morning | Discovers Elena through the wet-lab door panel; calls for help without opening the door. Remains shaken and does not register the later exchange. |
 
-**Footage constraint:** A proposed corridor clip may place someone near the lab without depicting the murder itself. Do not assign its field of view, metadata, or precise content until the Evidence Bible establishes them.
+**Footage constraint:** The incidental corridor shot of Maya heading toward the labs is fixed story content. Exact camera position, coverage, metadata, audio, access, and interpretation belong to the evidence team. No murder is shown; do not preload Lucas with knowledge of unreviewed content.
 
 ## 6. Secrets, defensiveness, and disclosure
 
@@ -132,14 +138,14 @@ Lucas should have authentic doubts about protecting his work versus doing the ri
 
 ### Evening witness boundary
 
-Lucas saw Elena and Thomas conversing in the mess hall after dinner at about 21:10. They did not hear the details and can direct the player to Thomas, but cannot quote the discussion, establish its intensity, or supply its private subject matter from this observation. Surrounding movements remain TBD.
+Lucas saw Elena and Thomas conversing in the mess hall after dinner at about 21:10. They did not hear the details and can direct the player to Thomas, but cannot quote the discussion, establish its intensity, or supply its private subject matter from this observation. Surrounding movements are fixed in §5; independent corroboration remains to be designed.
 
 ## 9. Open decisions (TBD)
 
 - Which exact pre-murder interactions were filmed, by whom, and with what consent.
-- Content, timestamp and camera position of any corridor recording.
-- Lucas's whereabouts during **22:35–23:00**.
+- Evidence-team implementation of the fixed corridor shot: camera position/coverage, metadata, audio, and exact timestamp within the agreed approximate movement window.
+- Exact additional instrument/forecast explanations from Sarah’s bridge briefing; do not improvise numbers or expand his weather knowledge.
 - Whether the player must unlock access to files through dialogue or a separate evidence-recovery interaction.
 - Footage storage, provenance, edits, gaps, timestamp reliability, and when Lucas reviews each relevant file; coordinate with the Evidence Bible.
-- His assigned editing space and exact walk leading to the 06:50 viewing-panel discovery. The discovery actions and lack of reliable subsequent observations are fixed (Story §7.2).
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- His exact walk leading to the 06:50 viewing-panel discovery. The discovery actions and lack of reliable subsequent observations are fixed (Story §7.2).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

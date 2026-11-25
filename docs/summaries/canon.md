@@ -36,14 +36,18 @@ Noah Bennett and Adrian Cole are **backstory only**, not aboard.
 | Time | Event |
 |---|---|
 | 18:10 | Elena warns the player in the dry lab (backstory, not playable) |
-| 20:00 | Dinner; Elena refuses to endorse publication |
+| 20:00–20:40 | Dinner; Elena refuses to endorse publication; remaining discussion TBD |
 | 21:10 | Thomas argues with Elena in the mess hall |
+| ~21:30–22:15 | Lucas documents Sarah’s bridge preparations; learns Wednesday’s severe-weather forecast |
 | 22:00 | Elena confronts Daniel in his workshop about C-2 |
 | 22:20 | Daniel leaves the wet lab: cover left raised, pending cycle not cleared |
+| ~22:30–22:35 | Lucas incidentally films Maya heading toward the labs; does not notice her or review footage that night |
 | 22:35 | Maya meets Elena in the wet lab |
 | ~22:45 | Maya kills Elena |
 | 23:10 | Automated cycle resumes, cover drops (nobody hears it, no alert) |
 | 06:50 | Lucas sees Elena through the door panel and calls for help |
+
+Actual evening movements and retirements are fixed in Story §7.1; claims and corroboration remain separate. By 23:00 the surviving others are in their cabins; Sarah stays on the bridge overnight. During dinner nobody is on the bridge: the propulsion engine is on hold, electrical/monitoring systems remain powered, and Sarah receives bridge notifications through a direct connection. This is an intentional story simplification. Relief/rest and discovery-response coverage remain TBD; autopilot does not justify sleeping on watch. Lucas may repeat Sarah’s limited Wednesday forecast briefing, not all navigation/weather facts.
 
 Play begins **after** the discovery response. The player learns the details only through witnesses.
 
@@ -64,4 +68,4 @@ Guessing Maya without that evidence is **not** a full win. Confession is optiona
 - **TBD** in a bible means *not decided*. Don't silently decide it in code or prompts; ask the team.
 
 ## Biggest open TBDs that block a complete game
-Maya's false alibi · what Lucas's footage shows · where Elena's preserved notes are stored · physical trace on the reference mass · how the accusation/ending works. Full lists: Story §12, World §11, Evidence §12, each character §9.
+Maya's false alibi · technical realization/access of Lucas’s fixed corridor shot · where Elena's preserved notes are stored · physical trace on the reference mass · how the accusation/ending works. Full lists: Story §12, World §11, Evidence §12, each character §9.

@@ -96,10 +96,14 @@ Olivia knows the broad aim of helping seawater absorb carbon and that the alkali
 
 ## 5. Murder-night timeline and alibi
 
-| Time | Olivia's position |
+| Time | Actual activity / character perspective |
 |---|---|
-| 20:00 | At group dinner; witnesses Elena's refusal to approve final reporting. |
-| 22:35–23:00 | Exact location and corroboration **TBD**; not present for the murder. |
+| 20:00–20:40 | Group dinner; witnesses Elena’s refusal. Other dinner dialogue remains TBD. |
+| 20:40–about 21:45 | Finishes routine tasks in the medical bay, then joins Thomas in the mess hall. |
+| Before 22:00 | Elena tells her and Thomas she is going to speak to Daniel in his workshop about an old report. Olivia does not witness that meeting or hear its contents. |
+| About 22:10–22:20 | After Thomas leaves, reads the fictional medical magazine *Clinical Care Review* in the mess hall. This is incidental atmosphere, not evidence. |
+| About 22:20–22:30 | Briefly talks with Daniel, without learning about the cover fault or the private workshop discussion. |
+| About 22:30–22:45 | Returns to her cabin and goes to bed. Remains there overnight; hears no apparatus failure. |
 | Shortly after 06:50 next morning | Arrives together with Sarah, after Thomas. Sarah opens the door and Olivia begins assessing Elena. Preceding location/route remains TBD. |
 | After discovery | Performs a **preliminary examination**, records observations and raises medical concerns about the apparent accident. |
 
@@ -140,7 +144,7 @@ Olivia's hesitation should be ethical and personal, not a device for hiding a de
 
 ### Lead to Daniel’s evening conversation
 
-Olivia knows Elena spoke with Daniel in his workshop at about 22:00 and can suggest the player ask him about it. How she learned this is TBD for movement design. She has no established knowledge of the conversation’s private content; do not invent overheard remarks or a particular route.
+Before 22:00, Elena tells Olivia and Thomas in the mess hall that she is going to speak to Daniel in his workshop about an old report. Olivia can suggest asking him, but knows only Elena’s announced intention. She does not witness the meeting or know its private content. Later she speaks briefly to Daniel in the mess hall without learning that content or the apparatus fault.
 
 ### Recollection of the report
 
@@ -149,9 +153,9 @@ Olivia knows Elena spoke with Daniel in his workshop at about 22:00 and can sugg
 ## 9. Open decisions (TBD)
 
 - Exact authored observation wording and corroboration for the established head injury; distinguish visible findings from the skull/brain injury known to the authors. Complete the scene comparison excluding a secondary fall, not just a superficial shape comparison.
-- Olivia's location during the fatal window.
+- Independent corroboration of her established movements and cabin retirement.
 - Her preceding location/route; her joint arrival with Sarah after Thomas is fixed. She is not the discoverer.
 - The content and disclosure boundaries of Elena's private conversations, without inventing knowledge of the negotiations or murder.
 - Which verified apparatus observations Olivia needs to compare with the injury and exclude the malfunction; proof of death before 23:10 is not required.
 - Detailed examination movements needed for later evidence, medical-bay facilities, and any later acquired knowledge of specific risks. Initial assessment, visible interest in the cover, and Sarah's preservation response are fixed.
-- Alibi/noise consistency: fix the character's location at 23:10 so the brief cover clunk is unheard behind both closed lab doors amid normal ship noise. This is an authoring constraint, not automatic NPC knowledge of the failure. Separately resolve audibility of the earlier argument/strike; check any recording microphones (Story §§5.2, 7.1).
+- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.

@@ -152,7 +152,9 @@ For every room below, **initial access** means the baseline permission at the be
 - `bridge_comms_console` — communications equipment; player cannot independently contact arbitrary parties.
 - `bridge_noticeboard` — shift notices and posted safety instructions (ambient details only unless defined as clues).
 
-**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. On the murder night and during the initial investigation, the ship remains under power at reduced speed in open water, maintaining steerage and adjusting its heading to the sea conditions. It is neither anchored nor precisely holding a fixed coordinate. Exterior research deployment is suspended; indoor records and the sampling station remain powered, allowing the pending 23:10 cycle. Exact headings and speeds are not clue-bearing facts and need not be simulated.
+**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. Except for the dinner hold below, on the murder night and during the initial investigation the ship remains under power at reduced speed in open water, maintaining steerage and adjusting its heading to the sea conditions. It is neither anchored nor precisely holding a fixed coordinate. Exterior research deployment is suspended; indoor records and the sampling station remain powered, allowing the pending 23:10 cycle. Exact headings and speeds are not clue-bearing facts and need not be simulated. Sarah remains on the bridge overnight, with Lucas documenting her preparations for roughly 45 minutes around 21:30–22:15. An autopilot could assist steering, but its installation/configuration is not established and it cannot justify sleeping or unattended watchkeeping. Relief/rest, additional lookout provision, and coverage during the discovery response remain TBD.
+
+**Dinner hold (20:00–20:40):** Everyone is in the mess hall and nobody is on the bridge. The propulsion engine is on hold; electrical power, indoor systems, and bridge monitoring remain available. Sarah has a direct connection to the bridge and is notified if an unexpected monitored event occurs. This is an intentional story simplification, not an unresolved staffing question. Normal reduced-speed operation resumes after dinner. These notifications do not detect the later service-cover drop: the apparatus has no cover-position sensor and produces no alert for that event.
 
 ### 3.2 Wet Laboratory — Crime Scene
 
@@ -222,7 +224,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `mess_noticeboard` — shared notices and meal schedule.
 - `mess_coffee_station` — ambient interaction hotspot.
 
-**World constraints.** Ideal location for organic NPC encounters, group conversations, and reconstructing the dinner discussion. The room is public, so characters should not treat conversations here as automatically private. New decisive clues must not appear just because an LLM describes an interesting object.
+**World constraints.** Ideal location for organic NPC encounters, group conversations, and reconstructing the dinner discussion. Olivia reads the fictional medical magazine *Clinical Care Review* here around 22:10–22:20 on the murder night; it is atmosphere, not evidence or a searchable clue document. The room is public, so characters should not treat conversations here as automatically private. New decisive clues must not appear just because an LLM describes an interesting object.
 
 ### 3.5 Medical Bay
 
@@ -520,7 +522,7 @@ These are **defaults for encounter design**, not alibis and not guaranteed posit
 
 ### 8.2 Movement and knowledge boundaries
 
-**Navigation/weather knowledge boundary:** Only Sarah initially knows the detailed route, coordinates, operating/navigation status, received forecast, and outlook through Thursday evening. These author-facing world facts are not shared NPC knowledge. Other characters may describe directly observable rough seas, wind, rain, ship motion, or communications they personally experienced; when asked for detailed position, forecast duration, or expected assistance, they refer the player to the captain. They may repeat a specific detail only after explicitly receiving it in play, attributing it to Sarah or the actual source. Being aboard or viewing generic room scenery does not automatically grant access to bridge information.
+**Navigation/weather knowledge boundary:** Sarah initially knows the detailed route, coordinates, operating/navigation status, received forecast, and outlook through Thursday evening. Lucas is a limited exception: during the Tuesday-night bridge visit she explains the instruments, storm preparations, and forecast of continuing severe weather on Wednesday (the discovery day). He may repeat that briefing when asked, attributing it to Sarah; exact additional forecast details remain TBD. He does not automatically know coordinates, route, the Thursday-evening outlook, or assistance timing. Other characters know only directly observable conditions or information explicitly received through a legitimate channel. Author-facing world facts and generic scenery do not grant NPC knowledge; later updates require an explicit source.
 
 
 - A character does not automatically know what happened in another room.
@@ -641,7 +643,7 @@ For each exploration request, give the model only:
 
 **Settled context:** Pelagos Carbon operates the research project; Nereid Technologies is Maya’s private negotiation counterpart. The mission departed Galway on Sunday, the murder occurs Tuesday evening, and discovery is Wednesday morning in mid-December. Sarah’s received forecast indicates severe weather at least through Thursday evening, not a guaranteed assistance time. Exact calendar dates and detailed historical-incident locations are not outstanding world-design decisions. These author-facing facts do not expand NPC knowledge or grant access to private negotiations.
 
-**Deferred by current scope:** General NPC locations, schedules, alibis, watch assignments, and noise/recording checks remain open. Fixed evening meetings also constrain future movements: Thomas and Elena converse in the mess hall at 21:10 on Tuesday, observed without hearing details by Lucas and Sarah; Elena confronts Daniel in his workshop at 22:00; Elena meets Maya in the wet lab at 22:35. How Olivia and Thomas learn of Daniel’s meeting remains open. The discovery response is another fixed sequence: Lucas at the wet-lab viewing panel at 06:50 and the fixed response order and relative intervals are established in Story §7.2. Preceding NPC locations/routes remain TBD; no further arrival-order decision is needed.
+**Established movements:** Story §7.1 fixes the evening routes, retirements, Sarah’s overnight bridge presence, Lucas’s bridge session and incidental corridor shot, and Elena’s advance statement to Olivia/Thomas about visiting Daniel. Remaining work concerns claims/corroboration, geometry and recording implementation, watch relief/rest and coverage, and discovery-response routes. The fixed discovery order is unchanged.
 
 | Question | Why it matters | Proposed owner |
 |---|---|---|
@@ -650,7 +652,7 @@ For each exploration request, give the model only:
 | Exact cameras, recording coverage, and blind spots | Prevents impossible video evidence | Evidence + world |
 | Which cabins are individually explorable | Controls development scope and search permissions | Gameplay + evidence |
 | Detailed apparatus/weapon visuals and surrounding scene geometry | Hardware, cover failure, and 2 kg reference mass are fixed; drawings must support reach/contact comparison and evaluation of a secondary fall. | Narrative + visual design + evidence |
-| Alibis, door closure, and sound propagation | Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
+| Alibi verification, sightlines, and sound propagation | Actual movements and door closures are fixed in Story §7.1. Realize Elena/Daniel’s mutual awareness during his check without another conversation. Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
 | Discovery routes and examination blocking | Lucas discovers through the wet-lab panel at 06:50; Sarah opens the door after arrival. The response order is fixed in Story §7.2. Preceding locations/routes and clue-relevant examination movements remain TBD; preserve the witnesses and Lucas's confusion. | Story + world |
 | Time-based NPC schedule after the murder | Prevents people appearing in impossible places | Character + gameplay |
 | What authorizes wet-lab and private-cabin searches | Keeps player's auditor role believable | Story + gameplay |
