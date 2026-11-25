@@ -94,6 +94,7 @@ def test_player_facing_text_does_not_call_the_mass_a_weapon(content):
     texts += [o.name for o in content.objects.values()]
     texts += [e.player_visible_summary for e in content.evidence.values()]
     texts += [e.name for e in content.evidence.values()]
+    texts += [e.locked_hint for e in content.evidence.values()]
     texts += [i.label for i in content.interactions.values()]
     texts += [i.result_text for i in content.interactions.values()]
     for text in texts:
@@ -117,6 +118,27 @@ def test_validation_catches_unknown_flag(tmp_path, repo_root):
     ev["evidence"][1]["access"] = "typo_flag"
     (data / "evidence.yaml").write_text(yaml.safe_dump(ev), encoding="utf-8")
     with pytest.raises(ContentError, match="unknown flag 'typo_flag'"):
+        load_content(data, root=tmp_path)
+
+
+def test_locked_hints_do_not_reveal_the_evidence(content):
+    hinted = [e for e in content.evidence.values() if e.locked_hint]
+    assert {e.id for e in hinted} >= {"EV-09", "EV-16", "EV-18"}
+    for ev in hinted:
+        assert ev.acquisition == "inspect"
+        assert ev.name.lower() not in ev.locked_hint.lower(), ev.id
+        for name in ("Maya", "Nereid", "23:10", "Elena"):
+            assert name not in ev.locked_hint, (ev.id, name)
+
+
+def test_validation_rejects_locked_hint_on_non_inspect_evidence(tmp_path, repo_root):
+    data = tmp_path / "data"
+    shutil.copytree(repo_root / "data", data)
+    ev = yaml.safe_load((data / "evidence.yaml").read_text(encoding="utf-8"))
+    ev10 = next(e for e in ev["evidence"] if e["id"] == "EV-10")
+    ev10["locked_hint"] = "Come back later."
+    (data / "evidence.yaml").write_text(yaml.safe_dump(ev), encoding="utf-8")
+    with pytest.raises(ContentError, match="EV-10: locked_hint only applies"):
         load_content(data, root=tmp_path)
 
 

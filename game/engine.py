@@ -191,13 +191,17 @@ class Game:
         lines = [obj.description]
         for ev in c.evidence.values():
             if (
-                ev.acquisition == "inspect"
-                and ev.object_id == object_id
-                and ev.location_id == s.location
-                and not s.has_collected(ev.id)
-                and self._collect(ev, events)
+                ev.acquisition != "inspect"
+                or ev.object_id != object_id
+                or ev.location_id != s.location
+                or s.has_collected(ev.id)
             ):
+                continue
+            if self._collect(ev, events):
                 lines.append(f"New evidence: {ev.name}.")
+            elif ev.locked_hint:
+                # Tells the player that coming back later can pay off; never reveals the content.
+                lines.append(ev.locked_hint)
         self._refresh_derived(events)
         return ActionResult(True, "\n".join(lines), events=events)
 

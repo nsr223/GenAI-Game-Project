@@ -56,7 +56,7 @@ Every **action** returns an `ActionResult` and increments `turn`. **Queries** ha
 | `game.can_enter(location_id)` | query | Would a move there pass the access check (ignores adjacency)? |
 | `game.available_topics()` | query | Topic interactions whose NPC is present. |
 | `game.move(location_id)` | action | Moves to an adjacent location if its access condition holds. |
-| `game.inspect(object_id)` | action | Describes an object in the current room. Collects any evidence on it whose access and prerequisites hold. |
+| `game.inspect(object_id)` | action | Describes an object in the current room. Collects any evidence on it whose access and prerequisites hold. While they don't, it adds that evidence's `locked_hint` (if any) to the message. |
 | `game.review(evidence_id)` | action | Marks collected evidence as reviewed. **Gates use "reviewed"**, so call this when the player opens an entry. |
 | `game.interact(interaction_id)` | action | Runs a deterministic topic ("Ask about…", "Ask for access…") with a present NPC. Blocked topics return `ok=False` and an in-world refusal. |
 | `game.talk(npc_id, message, present=[...])` | action | Free-text chat with a present NPC, optionally showing collected evidence. Presentation rules run first (deterministically), then the LLM voices the reply. |
@@ -171,7 +171,8 @@ The loader rejects unknown flags, evidence IDs, cabins, NPCs, world keys and cla
 ### Files
 
 - **`locations.yaml`** (World §10.1 plus `kind`, `mvp`, `access`, `locked_text`): rooms, reciprocal `connects_to`, objects with spoiler-free descriptions, and `shared_objects` for the one door both labs share.
-- **`evidence.yaml`** (Evidence §10.1 plus `acquisition: start|inspect|interaction`, `questions`, `tbd`, `tbd_note`): `access` and `prerequisites` are checked whenever an item would be collected, however it's collected.
+- **`evidence.yaml`** (Evidence §10.1 plus `acquisition: start|inspect|interaction`, `questions`, `locked_hint`, `tbd`, `tbd_note`): `access` and `prerequisites` are checked whenever an item would be collected, however it's collected.
+  - `locked_hint` (optional, `inspect` evidence only): player-facing line shown when the object is inspected but the evidence can't be collected yet. It should say *who could grant access*, never *what the evidence contains*. Current hints (EV-09, EV-16, EV-18) are PROPOSED wording, listed in the TBD report.
 - **`interactions.yaml`**: `trigger: topic` (button while the NPC is present) or `trigger: present` (fires when `evidence` is shown to `npc`), plus `requires`, `effects` (`collect_evidence`, `set_flags`, `authorize_cabin`, `record_claim`), `result_text`, `blocked_text`, and `once` (default true).
 - **`rules.yaml`**: start location and evidence, initial `world`/`flags`, configurable `tbd_flags`, sticky `derived_flags` (e.g. the EV-11 gate from Evidence §10.2), `leads`, `accusation`, prompt file versions.
 - **`npcs.yaml`**: the six suspects with `default_location` (World §8.1, static for now), `persona_prompt` and `knowledge_file`.

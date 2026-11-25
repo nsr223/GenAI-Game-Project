@@ -31,6 +31,26 @@ def test_ev09_requires_record_access(game):
     assert {"type": "evidence_collected", "id": "EV-09", "name": "Apparatus cycle log"} in result.events
 
 
+def test_locked_evidence_shows_hint_until_access(game):
+    hint = game.content.evidence["EV-09"].locked_hint
+    locked = inspect_at(game, "engineering_workshop", "engineering_maintenance_terminal")
+    assert hint and hint in locked.message
+    assert locked.events == [] and not game.state.has_collected("EV-09")
+
+    do(game, "request_engineering_records")
+    opened = inspect_at(game, "engineering_workshop", "engineering_maintenance_terminal")
+    assert hint not in opened.message
+    assert "New evidence: Apparatus cycle log." in opened.message
+
+    again = inspect_at(game, "engineering_workshop", "engineering_maintenance_terminal")
+    assert hint not in again.message and "New evidence" not in again.message
+
+
+def test_objects_without_evidence_get_no_hint(game):
+    result = inspect_at(game, "engineering_workshop", "engineering_workbench")
+    assert result.message == game.content.objects["engineering_workbench"].description
+
+
 def test_ev09_via_daniel_sharing(game):
     do(game, "ask_daniel_for_records")
     inspect_at(game, "engineering_workshop", "engineering_maintenance_terminal")

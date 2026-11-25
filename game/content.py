@@ -73,6 +73,7 @@ class Evidence:
     not_established: tuple[str, ...]
     linked_characters: tuple[str, ...]
     linked_clues: tuple[str, ...]
+    locked_hint: str = ""  # shown on inspect while access/prerequisites still fail
     tbd: tuple[str, ...] = ()
     tbd_note: str = ""
 
@@ -255,6 +256,7 @@ def load_content(data_dir: str | Path | None = None, root: str | Path | None = N
             not_established=_tuple(spec.get("not_established")),
             linked_characters=_tuple(spec.get("linked_characters")),
             linked_clues=_tuple(spec.get("linked_clues")),
+            locked_hint=(spec.get("locked_hint") or "").strip(),
             tbd=_tuple(spec.get("tbd")),
             tbd_note=spec.get("tbd_note", ""),
         )
@@ -398,6 +400,8 @@ def validate(content: Content) -> list[str]:
                 errors.append(f"evidence {ev.id}: object {ev.object_id} is not in {ev.location_id}")
         if ev.acquisition == "inspect" and not ev.object_id:
             errors.append(f"evidence {ev.id}: acquisition 'inspect' needs an object_id")
+        if ev.locked_hint and ev.acquisition != "inspect":
+            errors.append(f"evidence {ev.id}: locked_hint only applies to acquisition 'inspect'")
         if not ev.player_visible_summary:
             errors.append(f"evidence {ev.id}: missing player_visible_summary")
         for clue in ev.linked_clues:

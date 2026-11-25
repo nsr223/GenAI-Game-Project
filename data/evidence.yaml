@@ -61,8 +61,11 @@ evidence:
     not_established: [machinery_cause_excluded, exact_time_of_death_proven, elena_alive_at_2310]
     linked_characters: [daniel_reyes]
     linked_clues: [EV-10, EV-11]
-    tbd: [object_id]
-    tbd_note: Possibly mirrored at wet_lab_workstation (Evidence §4.2).
+    locked_hint: >
+      The records are locked behind engineering credentials. The chief engineer could open them for you,
+      or the captain could authorize a review.
+    tbd: [object_id, locked_hint]
+    tbd_note: Possibly mirrored at wet_lab_workstation (Evidence §4.2). locked_hint is PROPOSED wording.
 
   - id: EV-10
     slug: preliminary_medical_observations
@@ -177,10 +180,13 @@ evidence:
     not_established: [transfer_completed, maya_killed_elena]
     linked_characters: [maya_chen]
     linked_clues: [EV-17]
-    tbd: [location_id, object_id, access]
+    locked_hint: >
+      Most project folders here are restricted. Reviewing the shared records would need the captain's
+      authorization.
+    tbd: [location_id, object_id, access, locked_hint]
     tbd_note: >
       Placement is dry_lab shared project records OR cabin_maya (Evidence §4.4, §12). The first option is
-      used provisionally; the authorized route is a stub request to Sarah.
+      used provisionally; the authorized route is a stub request to Sarah. locked_hint is PROPOSED wording.
 
   - id: EV-17
     slug: elena_preserved_notes
@@ -229,10 +235,13 @@ evidence:
     not_established: [entry_door_established, murder_act_recorded, exact_time_of_death_proven]
     linked_characters: [lucas_weber, maya_chen]
     linked_clues: [EV-19]
-    tbd: [object_id, access, player_visible_summary]
+    locked_hint: >
+      The footage on this workstation belongs to the documentary. Lucas could share it, or the captain
+      could authorize access to selected material.
+    tbd: [object_id, access, player_visible_summary, locked_hint]
     tbd_note: >
       Exact clip, field of view and time TBD; object is editing_workstation or media_drive_case; sharing
-      flow (Lucas shares vs Sarah authorizes) TBD (Evidence §4.4 EV-18).
+      flow (Lucas shares vs Sarah authorizes) TBD (Evidence §4.4 EV-18). locked_hint is PROPOSED wording.
 
   - id: EV-19
     slug: maya_contradictory_statement
