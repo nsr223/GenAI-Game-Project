@@ -100,3 +100,12 @@ Sessions for the player UI and the visual style, 2026-11-24. Owner: Erik Söhner
 - **Failure observed:** following a related entry with the keyboard while a review was saved lost the focus. Found by one of the reviewer's own attacks, not by the 14 checks.
 - **Change, and why:** one line gives each link a stable key, with a test that failed before and passes after.
 - **What this shows:** the audit marked several of the builder's checks as only partly supported by its data; asking for evidence per check found that, a pass/fail list had not.
+
+### 13. [Accusation, ending and restart](game-visuals/13-accusation.md) · gpt-6.2-astra
+- **Technique:** few-shot; two worked examples from engine runs; fairness defined as a measurable comparison instead of a wish.
+- **Result:** 11 of 11 checks; 440 failed submissions gave one screenshot per screen size and one response body outside the save; the case was won by clicking in 55 turns; 140 tests with Playwright ([report](game-visuals/evidence/13-build-report.md), [case](game-visuals/img/13-case.webp), [ending](game-visuals/img/13-ending.webp)).
+- **Own test by the coordinator, one run:** won from a new game through the server; every failed accusation identical for all six people without findings, and for the five others with all findings; no verdict readable in the decoded save of two failed accusations; closed game, forged verdict and missing captain refused; ending kept after reload; restart works; console clean.
+- **Better than asked:** the builder found that the engine stores whether a guess was "correct but unsupported" in the state, so a decoded save would have revealed the culprit. New saves leave it out.
+- **Failure observed:** a list of small design points rather than errors: nothing tells the player that reading a collected entry moves the case forward, the summary is clipped at 720 px, and Sarah's reaction to being accused herself is the same as for others.
+- **Cause:** partly the engine (review gates without a hint, no text for Sarah), partly the prompt, which forbade restyling.
+- **Change, and why:** reported to the engine and story owners; the clipping goes into the restyle.

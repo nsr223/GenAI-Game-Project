@@ -1,3 +1,4 @@
+import {setupCase} from "./case.js";
 import {setupJournal} from "./journal.js";
 import {setupDialogue} from "./dialogue.js";
 import {clearRoom, loadLayout, showRoom} from "./scene.js";
@@ -35,18 +36,22 @@ let timer;
 let seenTemporaryKey;
 
 const dialogue = setupDialogue({
-  currentSave: () => displayed, canPlay: () => mode === "ready",
-  saving: () => !sessionOnly, commit: commitDialogue
+  currentSave: () => displayed, canPlay: () => mode === "ready" && !closed,
+  saving: () => !sessionOnly, commit: commitDialogue, refreshJournal: () => journal.refresh()
 });
 
 const journal = setupJournal({
   review: async (id, caseId) => {
     await dialogue.afterReply();
     while (running) await actionDone;
-    if (mode === "ready" && currentCase === caseId && journal.unread(id)) await perform("review", id);
+    if (mode === "ready" && !closed && currentCase === caseId && journal.unread(id)) await perform("review", id);
   },
   waiting: () => dialogue.waiting(), saving: () => !sessionOnly
 });
+
+let closed = false;
+let latest;
+const caseFile = setupCase({journal, perform, canAct: () => mode === "ready", sessionOnly: () => sessionOnly});
 
 function status(next, text) {
   mode = next;
@@ -58,6 +63,7 @@ function status(next, text) {
   }
   for (const button of document.querySelectorAll("#people button")) button.disabled = next !== "ready";
   message.textContent = text;
+  caseFile.mode(next);
   if (next === "busy") {
     // Keep an activated recovery button mounted and focused during its request.
     recovery.setAttribute("aria-disabled", "true");
@@ -117,22 +123,25 @@ async function request(action, save, target) {
   return result;
 }
 
-function render(result, save, writable, ownDialogue = false, keepObservation = false) {
+function render(result, save, writable, ownDialogue = false, keepObservation = false, reaction = false) {
+  latest = result;
+  closed = Boolean(result.ending);
   currentCase = result.case;
   displayed = save;
   const recoveryFocused = document.activeElement === recovery || document.activeElement === withoutSaving;
   showRoom(result.view);
   lastObservation = ownDialogue || keepObservation ? lastObservation : result.message || defaultMessage;
   status(writable ? "ready" : "readonly", writable ? lastObservation : elsewhere);
-  dialogue.update(result, writable, ownDialogue);
+  dialogue.update(result, writable && !closed, ownDialogue);
+  caseFile.update(result, writable, reaction);
   journal.update(result);
-  if (writable && recoveryFocused) room.focus({preventScroll: true});
+  if (writable && !closed && recoveryFocused) room.focus({preventScroll: true});
 }
 
 // Slow model calls run outside the save lock. Only the compare-and-write is serialized.
 async function commitDialogue(result, expected, current) {
   async function commit() {
-    if (!current() || running || mode !== "ready") return false;
+    if (closed || !current() || running || mode !== "ready") return false;
     if (!sessionOnly) {
       if (fallback) {
         if (!await fallback.commit(expected, result.save, current)) return false;
@@ -173,7 +182,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
   actionDone = new Promise(resolve => { done = resolve; });
   const expectedCase = currentCase;
   const previousMode = mode;
-  let pending;
+  let pending, pendingReaction = false;
   status("busy", intent === "sync" ? "Updating the scene…" : "Action in progress…");
   startTimer(button);
   retry = () => perform(intent, target, expected, button?.isConnected ? button : undefined);
@@ -208,7 +217,10 @@ async function perform(intent = "sync", target, expected = displayed, button) {
       if (action !== "resume" && !sessionOnly) channel?.postMessage("updating");
       await loadLayout();
       let result = await request(action, action === "new" ? null : stored, target);
-      if (intent === "review" && action === "resume" && writable && result.case === expectedCase &&
+      if (action === "accuse" && !result.error) {
+        result = {...latest, ...result, view: {...latest.view, turn: result.turn}, events: [], reply: null};
+      }
+      if (intent === "review" && action === "resume" && !result.ending && writable && result.case === expectedCase &&
           result.journal?.evidence.some(e => e.id === target && !e.reviewed)) {
         action = "review";
         result = await request(action, stored, target);
@@ -226,6 +238,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
           displayed = stored;
           dialogue.leave();
           journal.clear();
+          caseFile.dismiss();
           clearRoom();
         }
         const next = {invalid_save: "invalid", save_limit: "limit"}[result.error] || "error";
@@ -235,6 +248,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
 
       if (action !== "resume" && !sessionOnly) {
         pending = result;
+        pendingReaction = action === "accuse";
         if (fallback) {
           if (!await fallback.commit(stored, result.save)) {
             pending = undefined;
@@ -245,13 +259,22 @@ async function perform(intent = "sync", target, expected = displayed, button) {
           writeSave(result.save);
         }
       }
-      render(result, action === "resume" ? stored : result.save, writable, false, intent === "review");
+      render(result, action === "resume" ? stored : result.save, writable, false, intent === "review", action === "accuse");
       return;
     }
   };
 
   try {
-    if (locks && !sessionOnly) await locks.request(slot, execute);
+    if (locks && !sessionOnly && (intent === "accuse" || intent === "review")) {
+      // Coalesce identical decisions before tabs queue for the shared save.
+      // Even a stale localStorage read in a second renderer cannot resubmit one.
+      const decision = [slot, expectedCase, intent, intent === "review" ? target : expected.slice(-64)].join(".");
+      await locks.request(decision, {ifAvailable: true}, async lock => {
+        if (lock) return locks.request(slot, execute);
+        intent = "sync";
+        await locks.request(decision, () => locks.request(slot, execute));
+      });
+    } else if (locks && !sessionOnly) await locks.request(slot, execute);
     else await execute();
   } catch (error) {
     if (error instanceof StorageUnavailable || error?.name === "SecurityError") {
@@ -259,7 +282,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
         sessionOnly = true;
         note.hidden = false;
         fallback?.release().catch(() => {});
-        if (pending) render(pending, pending.save, true);
+        if (pending) render(pending, pending.save, true, false, false, pendingReaction);
         else if (previousMode === "invalid") await perform("new");
         else {
           if (displayed === undefined) {
@@ -297,7 +320,7 @@ document.addEventListener("keydown", event => {
 });
 scene.addEventListener("click", event => {
   const button = event.target.closest(".hotspot");
-  if (!button || mode !== "ready" || event.detail > 1) return;
+  if (closed || !button || mode !== "ready" || event.detail > 1) return;
   perform(button.dataset.action, button.dataset.target, displayed, button);
 });
 recovery.addEventListener("click", () => {

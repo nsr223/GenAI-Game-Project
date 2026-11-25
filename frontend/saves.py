@@ -36,7 +36,12 @@ def pack_game(game, key: bytes) -> str:
 def pack_snapshot(data, notes, key):
     if notes:
         data["dialogue_notes"] = notes
-    conversations = data["state"]["conversations"]
+    # The engine never consults its diagnostic verdict on a previous guess.
+    # Keep the player's history without making that verdict recoverable from a save.
+    state = data["state"]
+    state["accusations_made"] = [{k: entry[k] for k in ("suspect", "turn")}
+                                 for entry in state.get("accusations_made", [])]
+    conversations = state["conversations"]
     for npc, messages in conversations.items():
         dropped = max(0, len(messages) - MAX_CONVERSATION_MESSAGES)
         if dropped and npc in notes:

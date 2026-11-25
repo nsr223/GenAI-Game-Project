@@ -30,6 +30,7 @@ function words(tag, text, cls) {
 
 export function setupJournal({review, waiting, saving}) {
   let book, caseId, opener, section = "evidence", selected, mode = "busy";
+  let browsingOnly = false;
   let pins = [], prior = new Set(), offsets = new Map();
   const pending = new Set();
   let reviewQueue = Promise.resolve();
@@ -51,13 +52,15 @@ export function setupJournal({review, waiting, saving}) {
   function availability() {
     const available = book && (mode === "ready" || mode === "readonly");
     const count = book?.evidence.filter(e => !e.reviewed).length || 0;
+    const showCount = book && el("reaction").hidden;
     for (const opener of openers) {
       opener.disabled = !available;
-      opener.textContent = book ? 'Journal · ' + count : "Journal";
-      opener.setAttribute("aria-label", book ? 'Journal, ' + count + ' unread evidence' : "Journal");
+      opener.textContent = showCount ? 'Journal · ' + count : "Journal";
+      opener.setAttribute("aria-label", showCount ? 'Journal, ' + count + ' unread evidence' : "Journal");
     }
     if (!book || !dialog.open) return;
-    if (mode === "readonly") hint("Read-only in this tab. Take over in the room to mark evidence as reviewed.");
+    if (browsingOnly) hint("Read-only journal.");
+    else if (mode === "readonly") hint("Read-only in this tab. Take over in the room to mark evidence as reviewed.");
     else if (mode === "busy") hint("Updating the investigation…");
     else if (mode !== "ready") hint("Close the journal to return to the investigation and continue.");
     else if (pending.size && waiting()) hint("Your review will be recorded after the reply.");
@@ -66,7 +69,7 @@ export function setupJournal({review, waiting, saving}) {
   }
 
   function mark(item) {
-    if (item.reviewed || !["ready", "busy"].includes(mode) || pending.has(item.id)) return;
+    if (browsingOnly || item.reviewed || !["ready", "busy"].includes(mode) || pending.has(item.id)) return;
     const investigation = caseId;
     pending.add(item.id);
     availability();
@@ -232,8 +235,10 @@ export function setupJournal({review, waiting, saving}) {
     catch { /* The current tab still remembers visits in memory. */ }
   }
 
-  function open(from) {
+  function open(from, destination, readOnly = false) {
     if (dialog.open || !book || !["ready", "readonly"].includes(mode)) return;
+    browsingOnly = readOnly;
+    if (destination) { section = destination; selected = null; }
     opener = from;
     draw();
     dialog.showModal();
@@ -263,13 +268,14 @@ export function setupJournal({review, waiting, saving}) {
     if (event.defaultPrevented || event.repeat || event.isComposing || event.key.toLowerCase() !== "j" ||
         event.ctrlKey || event.metaKey || event.altKey || waiting() ||
         event.target.closest("input, textarea, select, [contenteditable]:not([contenteditable=false])")) return;
-    if (!dialog.open && ["ready", "readonly"].includes(mode)) {
+    if (!dialog.open && !document.querySelector("#decision[open]") && ["ready", "readonly"].includes(mode)) {
       event.preventDefault();
-      open(document.activeElement);
+      open(document.activeElement, undefined, !el("ending").hidden || el("case-file").open);
     }
   });
 
   return {
+    open, close, refresh: availability,
     mode(next) { mode = next; availability(); },
     clear() { close(); book = null; caseId = null; page.replaceChildren(); availability(); },
     unread(id) { return Boolean(book?.evidence.some(e => e.id === id && !e.reviewed)); },

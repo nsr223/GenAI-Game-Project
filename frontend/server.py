@@ -67,11 +67,13 @@ def act(body, key, content, *, endpoint="action", voice=None):
         return BAD_ACTION
     action = body.get("action") if endpoint == "action" else endpoint
     token, target = body.get("save"), body.get("target")
-    if endpoint == "action" and action not in ("new", "resume", "move", "inspect", "review"):
+    if endpoint == "action" and action not in ("new", "resume", "move", "inspect", "review", "accuse"):
         return BAD_ACTION
-    if action in ("move", "inspect", "topic", "talk", "review"):
+    if action in ("move", "inspect", "topic", "talk", "review", "accuse"):
         if not isinstance(target, str) or not 0 < len(target) <= 128:
             return BAD_ACTION
+    if action == "accuse" and set(body) != {"action", "save", "target"}:
+        return BAD_ACTION
     if action == "talk":
         message, present = body.get("message", ""), body.get("present", [])
         if (not isinstance(message, str) or not isinstance(present, list) or len(present) > 1
@@ -81,6 +83,7 @@ def act(body, key, content, *, endpoint="action", voice=None):
             return {"error": "invalid_message", "message": "Write 1–500 characters or choose evidence."}
 
     notes = {}
+    ending = None
     if action == "new" and token is None:
         game = Game.new(content=content)
         case = secrets.token_hex(12)
@@ -88,6 +91,14 @@ def act(body, key, content, *, endpoint="action", voice=None):
         try:
             data = unpack(token, key)
             game = Game.from_dict(data, content=content, llm=voice)
+            ending = data.get("closing_text")
+            if game.state.game_over:
+                if game.state.ending not in ("substantiated", "inconclusive") or not game.state.accusations_made:
+                    return BAD_SAVE
+                if ending is not None and not isinstance(ending, str):
+                    return BAD_SAVE
+            elif game.state.ending is not None or ending is not None:
+                return BAD_SAVE
             notes = data.get("dialogue_notes", {})
             case = data.get("journal_case") or hashlib.sha256(token.encode()).hexdigest()[:24]
             game.view()
@@ -97,12 +108,19 @@ def act(body, key, content, *, endpoint="action", voice=None):
         if action == "new":
             return BAD_ACTION
 
+    if game.state.game_over and action != "resume":
+        return {"error": "closed", "message": "The investigation is closed."}
+
     result = None
     extra = []
     if action == "move":
         result = game.move(target)
     elif action == "inspect":
         result = game.inspect(target)
+    elif action == "accuse":
+        result = game.accuse(target)
+        if not result.ok:
+            return BAD_ACTION
     elif action == "review":
         if not game.state.has_collected(target):
             return {"error": "unavailable_entry", "message": "This entry is unavailable."}
@@ -142,11 +160,19 @@ def act(body, key, content, *, endpoint="action", voice=None):
         extra.extend(line("notice", notice) for notice in notices(events, view))
         if result.ok or failed or action == "topic":
             record_notes(notes, target, len(conversations.get(target, [])), extra)
+    if view["game_over"]:
+        # A new ending keeps its original wording across reloads and content updates.
+        ending = ending or narration or game.content.rules["accusation"][view["ending"] + "_text"].strip()
+        snapshot["closing_text"] = ending
     try:
         unchanged = action == "resume" or (action == "review" and result is None)
         save = token if unchanged else pack_snapshot(snapshot, notes, key)
     except InvalidSave:
         return {"error": "save_limit", "message": "This action would exceed the save size limit."}
+    if action == "accuse":
+        # Accusing changes only the turn and closure. Never retransmit the notebook
+        # or the engine's diagnostic distinction between two unsupported cases.
+        return {"save": save, "turn": view["turn"], "message": narration, "ending": ending}
     history = transcripts(view, conversations, notes)
     if action == "talk" and not result.ok and not failed and target in history:
         history[target].extend(extra)
@@ -154,7 +180,7 @@ def act(body, key, content, *, endpoint="action", voice=None):
         history[npc] = [line(entry["role"], player_text(entry["content"])) for entry in lines
                         if entry["role"] in ("user", "assistant", "narration", "notice")]
     journal = journal_page(game)
-    return {"save": save, "case": case, "view": scene_view(view, journal), "journal": journal,
+    return {"ending": ending, "save": save, "case": case, "view": scene_view(view, journal), "journal": journal,
             "message": narration, "events": player_events(events, view),
             "history": history, "retryable": failed,
             "reply": player_text(result.reply) if result and result.reply else None}

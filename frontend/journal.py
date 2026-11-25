@@ -41,6 +41,7 @@ def scene_view(view, journal):
 
     return {
         "turn": view["turn"],
+        "suspects": [named(item) for item in view["suspects"]],
         "location": {**named(view["location"]), "deck": view["location"]["deck"]},
         "exits": [{**named(item), "accessible": item["accessible"],
                   "locked_text": player_text(item["locked_text"]) if item["locked_text"] else None}

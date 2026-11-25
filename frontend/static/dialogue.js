@@ -31,7 +31,7 @@ async function queued(endpoint, body, signal) {
   });
 }
 
-export function setupDialogue({currentSave, commit, canPlay, saving}) {
+export function setupDialogue({currentSave, commit, canPlay, saving, refreshJournal}) {
   let state, person, pending, timer, retry, menu, opening = true;
 
   let replyDone, finishReply;
@@ -89,6 +89,8 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
     el("send").textContent = retry ? "Retry" : "Send";
     el("send").setAttribute("aria-disabled", String(Boolean(pending) || invalid ||
       (!field.value.trim() && !retry)));
+    el("present-case").hidden = person?.id !== "sarah_morgan";
+    el("present-case").disabled = Boolean(pending);
     el("topics-toggle").hidden = !state?.view.topics.some(t => t.npc === person?.id);
     for (const id of ["topics-toggle", "evidence-toggle"]) {
       el(id).disabled = Boolean(pending);
@@ -124,10 +126,18 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
     el("thinking").hidden = true;
   }
 
+  function clearReaction() {
+    if (!el("reaction").hidden) {
+      el("reaction").hidden = true;
+      refreshJournal();
+    }
+  }
+
   function leave() {
     if (!person) return;
     const opener = document.querySelector('[data-npc="' + CSS.escape(person.id) + '"]');
     stopWaiting();
+    clearReaction();
     person = null;
     remember();
     panel.close();
@@ -161,6 +171,7 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
     if (pending || !person || !canPlay()) return;
     const message = field.value;
     if (Array.from(message).length > limit || (endpoint === "talk" && !option && !message.trim())) return;
+    clearReaction();
     const expected = currentSave();
     const ticket = new AbortController();
     const current = () => pending === ticket && !ticket.signal.aborted && currentSave() === expected;
@@ -261,7 +272,7 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
   };
   el("composer").onsubmit = e => { e.preventDefault(); submit(retry?.endpoint || "talk", retry?.option); };
   for (const id of ["topics-toggle", "evidence-toggle"]) {
-    el(id).onclick = () => showMenu(menu === id ? null : id);
+    el(id).onclick = () => { clearReaction(); showMenu(menu === id ? null : id); };
   }
 
   return {
