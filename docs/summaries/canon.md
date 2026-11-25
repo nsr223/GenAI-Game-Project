@@ -41,7 +41,7 @@ Noah Bennett and Adrian Cole are **backstory only**, not aboard.
 | ~21:30–22:15 | Lucas documents Sarah’s bridge preparations; learns Wednesday’s severe-weather forecast |
 | 21:50 | Elena confronts Daniel in his workshop about C-2 |
 | 22:15 | Daniel leaves the wet lab: cover left raised, pending cycle not cleared |
-| ~22:30–22:35 | Lucas incidentally films Maya heading toward the labs; does not notice her or review that evening footage that night |
+| ~22:30–22:35 | Lucas incidentally films Maya heading toward the labs; does not notice her or review any footage that night |
 | 22:35 | Maya meets Elena in the wet lab |
 | ~22:45 | Maya kills Elena |
 | 23:10 | Automated cycle resumes, cover drops (nobody hears it, no alert) |
@@ -52,7 +52,7 @@ Actual evening movements and retirements are fixed in Story §7.1; claims and co
 Play begins **after** the discovery response. The player learns the details only through witnesses.
 
 
-**Sleeping rooms / alibi (Story §7.1, World §3.6):** Two rooms, two bunk beds each. Room A: Olivia above Maya, Lucas above Elena. Room B: Sarah above Thomas, Daniel above the player. Olivia sees Maya in bed and Elena’s bunk empty around 22:20; she sleeps before Maya leaves around 22:30. Maya returns around 22:57. Lucas organizes equipment and reviews earlier Tuesday daytime footage around 22:35–22:55, not the evening footage; around 23:00 he sees Maya and Olivia apparently asleep. Maya is awake and hears him arrive. Her fixed lie is: “I was already in bed when Olivia came in. I did not leave the room again that night.” EV-18 contradicts it. Neither bedtime sighting proves continuous presence. Daniel sees Thomas snoring around 22:20. Sarah’s watch assignment is public, not continuous independent corroboration. Lucas wakes around 06:40–06:45, again sees Elena’s empty bunk and goes to check the labs, discovering her at 06:50.
+**Sleeping rooms / alibi (Story §7.1, World §3.6):** Two rooms, two bunk beds each. Room A: Olivia above Maya, Lucas above Elena. Room B: Sarah above Thomas, Daniel above the player. Olivia sees Maya in bed and Elena’s bunk empty around 22:20; she sleeps before Maya leaves around 22:30. Maya returns around 22:57. Lucas organizes his equipment and the day’s recording files around 22:35–22:55 as part of his usual daily routine, without reviewing any footage; around 23:00 he sees Maya and Olivia apparently asleep. Maya is awake and hears him arrive. Her fixed lie is: “I was already in bed when Olivia came in. I did not leave the room again that night.” EV-18 contradicts it. Neither bedtime sighting proves continuous presence. Daniel sees Thomas snoring around 22:20. Sarah’s watch assignment is public, not continuous independent corroboration. Lucas wakes around 06:40–06:45, again sees Elena’s empty bunk and goes to check the labs, discovering her at 06:50.
 
 **Daniel/Elena sighting:** Their workshop confrontation is 21:50–22:00; maintenance is 22:05–22:15; Daniel and Olivia talk around 22:15–22:20. Daniel and Elena notice each other during maintenance while she works in the dry lab. If told Olivia’s later empty-bunk observation, Daniel can offer his earlier sighting as context, not proof of Elena’s exact location at 22:20 or afterward.
 
