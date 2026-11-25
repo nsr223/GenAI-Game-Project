@@ -34,6 +34,7 @@ async function queued(endpoint, body, signal) {
 export function setupDialogue({currentSave, commit, canPlay, saving}) {
   let state, person, pending, timer, retry, menu, opening = true;
 
+  let replyDone, finishReply;
   function remember(waiting = false) {
     try {
       if (person && saving()) sessionStorage.setItem(marker, JSON.stringify({npc: person.id, waiting}));
@@ -71,10 +72,12 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
   }
 
   function history() {
+    const top = transcript.scrollTop;
+    const reading = el("journal").open && top + transcript.clientHeight < transcript.scrollHeight - 2;
     el("lines").replaceChildren();
     el("empty").hidden = false;
     (state.history?.[person.id] || []).forEach(append);
-    transcript.scrollTop = transcript.scrollHeight;
+    transcript.scrollTop = reading ? top : transcript.scrollHeight;
   }
 
   function buttons() {
@@ -116,6 +119,8 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
     clearInterval(timer);
     pending?.abort();
     pending = null;
+    finishReply?.();
+    finishReply = null;
     el("thinking").hidden = true;
   }
 
@@ -171,6 +176,7 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
     }
     retry = null;
     pending = ticket;
+    replyDone = new Promise(resolve => { finishReply = resolve; });
     const start = performance.now();
     showMenu(null);
     append({role: "user", content: outgoing});
@@ -231,7 +237,7 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
         // failure must leave the reload marker until the player acknowledges it.
         remember(!acknowledged);
         buttons();
-        transcript.scrollTop = transcript.scrollHeight;
+        if (!el("journal").open) transcript.scrollTop = transcript.scrollHeight;
       }
     }
   }
@@ -260,17 +266,21 @@ export function setupDialogue({currentSave, commit, canPlay, saving}) {
 
   return {
     leave,
+    waiting: () => Boolean(pending),
+    afterReply: () => pending ? replyDone : undefined,
     update(result, writable, ownCommit = false) {
       const changed = state?.save !== result.save;
+      const previousHistory = state?.history?.[person?.id];
       state = result;
       if (person && (!writable || !result.view.npcs_present.some(p => p.id === person.id))) leave();
       if (person && changed) {
-        if (pending && !ownCommit) {
+        const interrupted = pending && !ownCommit;
+        if (interrupted) {
           stopWaiting();
           remember();
           note("The investigation continued in another tab. Ask again to continue.");
         }
-        history();
+        if (interrupted || JSON.stringify(previousHistory) !== JSON.stringify(result.history?.[person.id])) history();
         showMenu(menu);
       }
       if (opening) {

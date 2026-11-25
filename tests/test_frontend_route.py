@@ -24,7 +24,10 @@ def send(client, action, save=None, target=None):
 
 def test_action_sequence(client):
     fresh = send(client, "new")
-    assert fresh["view"] == Game.new().view()
+    start = Game.new().view()
+    for key in ("turn", "exits", "objects", "npcs_present", "evidence", "topics"):
+        assert fresh["view"][key] == start[key]
+    assert fresh["view"]["location"] == {k: start["location"][k] for k in ("id", "name", "deck")}
     result = send(client, "inspect", fresh["save"], "player_desk")
     assert result["view"]["turn"] == 1 and result["message"]
     for target in ("crew_quarters", "main_corridor"):

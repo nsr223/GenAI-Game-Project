@@ -85,3 +85,18 @@ Sessions for the player UI and the visual style, 2026-11-24. Owner: Erik Söhner
 - **Cause in the prompt:** the check listed engine flags, evidence, prompts and knowledge, but not labels built from event fields. The prompt had asked for notices from `events`.
 - **Change, and why:** the notice now says only "Statement recorded", with a test; later prompts name every event field as untrusted for display. Fixed by the coordinator.
 - **Open:** real models, real personas (none exist on `dev`), other browsers, touch, screen readers; the talk endpoint has no limit per player, so a public deployment could use up the model quota.
+
+### 11. [Journal](game-visuals/11-journal.md) · gpt-6.2-astra
+- **Technique:** few-shot; three worked examples, their data and turns taken from engine runs. Unlike prompt 10, it lists the fields that may be shown instead of the ones that may not.
+- **Question answered:** keep the signed browser save; filter every response outside it, including the `events` list that still carried internal topic ids after the fix in entry 10.
+- **Result:** code, tests and most browser checks were done when a weekly usage limit stopped the worker; it wrote no report. 132 tests pass, 1 browser test is skipped without Playwright ([entry](game-visuals/img/11-journal.webp), [compare](game-visuals/img/11-compare.webp)).
+- **Own tests by the coordinator, one run:** 238 server responses from playing through the reachable ship, scanned outside the save for engine flags, uncollected evidence ids, interaction ids, "TBD" and the internal topic: none found, with 9 evidence entries collected and none empty. Reviewing twice uses one turn and one request; forged review refused; a typed question and a late reply survive opening the journal; console clean.
+- **What this shows:** naming what is allowed caught what a list of forbidden things had missed twice.
+- **Open:** the worker's own scores, the two-tab and session-only checks in my run, a screen reader, other browsers. It still looks more like a document than an investigator's notebook.
+
+### 12. [Verify and finish the journal](game-visuals/12-journal-finish.md) · gpt-6.2-sol, new session
+- **Technique:** zero-shot; independent reviewer who audits the builder's data, invents three attacks and fixes only confirmed failures.
+- **Result:** all 14 checks of prompt 11 shown; ten two-tab races with one review each; the gate leads back to Olivia ([report](game-visuals/evidence/12-review-report.md)). 134 tests with Playwright, 132 and two clean skips without. The coordinator reran the suite both ways and the 238-response scan.
+- **Failure observed:** following a related entry with the keyboard while a review was saved lost the focus. Found by one of the reviewer's own attacks, not by the 14 checks.
+- **Change, and why:** one line gives each link a stable key, with a test that failed before and passes after.
+- **What this shows:** the audit marked several of the builder's checks as only partly supported by its data; asking for evidence per check found that, a pass/fail list had not.

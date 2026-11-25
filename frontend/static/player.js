@@ -1,3 +1,4 @@
+import {setupJournal} from "./journal.js";
 import {setupDialogue} from "./dialogue.js";
 import {clearRoom, loadLayout, showRoom} from "./scene.js";
 import {isSlotChange, openFallback, readSave, slot, StorageUnavailable, writeSave} from "./save-slot.js";
@@ -19,6 +20,8 @@ const recoveryLabels = {
   limit: "Return to investigation", readonly: "Take over",
 };
 let displayed;
+let currentCase;
+let actionDone;
 let running = false;
 let syncPending = false;
 let retry;
@@ -36,8 +39,18 @@ const dialogue = setupDialogue({
   saving: () => !sessionOnly, commit: commitDialogue
 });
 
+const journal = setupJournal({
+  review: async (id, caseId) => {
+    await dialogue.afterReply();
+    while (running) await actionDone;
+    if (mode === "ready" && currentCase === caseId && journal.unread(id)) await perform("review", id);
+  },
+  waiting: () => dialogue.waiting(), saving: () => !sessionOnly
+});
+
 function status(next, text) {
   mode = next;
+  journal.mode(next);
   document.body.dataset.mode = next;
   scene.setAttribute("aria-busy", String(next === "busy"));
   for (const button of scene.querySelectorAll("button")) {
@@ -104,13 +117,15 @@ async function request(action, save, target) {
   return result;
 }
 
-function render(result, save, writable, ownDialogue = false) {
+function render(result, save, writable, ownDialogue = false, keepObservation = false) {
+  currentCase = result.case;
   displayed = save;
   const recoveryFocused = document.activeElement === recovery || document.activeElement === withoutSaving;
   showRoom(result.view);
-  lastObservation = ownDialogue ? lastObservation : result.message || defaultMessage;
+  lastObservation = ownDialogue || keepObservation ? lastObservation : result.message || defaultMessage;
   status(writable ? "ready" : "readonly", writable ? lastObservation : elsewhere);
   dialogue.update(result, writable, ownDialogue);
+  journal.update(result);
   if (writable && recoveryFocused) room.focus({preventScroll: true});
 }
 
@@ -154,6 +169,9 @@ async function perform(intent = "sync", target, expected = displayed, button) {
     return;
   }
   running = true;
+  let done;
+  actionDone = new Promise(resolve => { done = resolve; });
+  const expectedCase = currentCase;
   const previousMode = mode;
   let pending;
   status("busy", intent === "sync" ? "Updating the scene…" : "Action in progress…");
@@ -189,7 +207,12 @@ async function perform(intent = "sync", target, expected = displayed, button) {
 
       if (action !== "resume" && !sessionOnly) channel?.postMessage("updating");
       await loadLayout();
-      const result = await request(action, action === "new" ? null : stored, target);
+      let result = await request(action, action === "new" ? null : stored, target);
+      if (intent === "review" && action === "resume" && writable && result.case === expectedCase &&
+          result.journal?.evidence.some(e => e.id === target && !e.reviewed)) {
+        action = "review";
+        result = await request(action, stored, target);
+      }
       if (!sessionOnly && fallback && (action === "resume" || result.error)) {
         const latest = await fallback.read();
         if (latest.stored !== stored || latest.writable !== writable) {
@@ -202,6 +225,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
           // Retain the refused token until the player explicitly starts a new game.
           displayed = stored;
           dialogue.leave();
+          journal.clear();
           clearRoom();
         }
         const next = {invalid_save: "invalid", save_limit: "limit"}[result.error] || "error";
@@ -221,7 +245,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
           writeSave(result.save);
         }
       }
-      render(result, action === "resume" ? stored : result.save, writable);
+      render(result, action === "resume" ? stored : result.save, writable, false, intent === "review");
       return;
     }
   };
@@ -251,6 +275,7 @@ async function perform(intent = "sync", target, expected = displayed, button) {
     }
   } finally {
     running = false;
+    done();
     if (syncPending) {
       syncPending = false;
       synchronize();
