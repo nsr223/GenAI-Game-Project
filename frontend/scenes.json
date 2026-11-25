@@ -1,0 +1,13 @@
+{
+  "cabin_player": {
+    "player_desk": [15, 45, 32, 26],
+    "crew_quarters": [65, 22, 20, 53]
+  },
+  "mess_hall": {
+    "mess_table": [31, 45, 36, 29],
+    "galley_counter": [9, 12, 41, 18],
+    "mess_noticeboard": [62, 12, 26, 15],
+    "mess_coffee_station": [8, 48, 18, 22],
+    "main_corridor": [76, 40, 16, 38]
+  }
+}
