@@ -1,0 +1,257 @@
+{
+ "type": "object",
+ "properties": {
+  "work": {
+   "type": "string"
+  },
+  "rooms": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "viewpoint": {
+      "type": "string",
+      "enum": [
+       "eye-level",
+       "low",
+       "high",
+       "seated",
+       "doorway",
+       "corner",
+       "over-shoulder"
+      ]
+     },
+     "depth": {
+      "type": "string",
+      "enum": [
+       "panoramic",
+       "one-point",
+       "flat-frontal",
+       "layered",
+       "vertical",
+       "enclosed"
+      ]
+     },
+     "form": {
+      "type": "string",
+      "enum": [
+       "horizontal",
+       "vertical",
+       "round",
+       "diagonal",
+       "grid",
+       "tangle",
+       "empty"
+      ]
+     },
+     "light_source": {
+      "type": "string",
+      "enum": [
+       "window",
+       "ceiling",
+       "lamp",
+       "screen",
+       "work-light",
+       "doorway",
+       "several"
+      ]
+     },
+     "light_quality": {
+      "type": "string",
+      "enum": [
+       "hard",
+       "soft",
+       "glow",
+       "backlight",
+       "pool"
+      ]
+     },
+     "accent": {
+      "type": "string",
+      "enum": [
+       "red",
+       "orange",
+       "yellow",
+       "green",
+       "teal",
+       "blue",
+       "violet",
+       "neutral"
+      ]
+     },
+     "brightness": {
+      "type": "string",
+      "enum": [
+       "very-dark",
+       "dark",
+       "mid",
+       "light",
+       "very-light"
+      ]
+     },
+     "density": {
+      "type": "string",
+      "enum": [
+       "sparse",
+       "ordered",
+       "lived-in",
+       "crowded"
+      ]
+     },
+     "description": {
+      "type": "string"
+     },
+     "feeling": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "viewpoint",
+     "depth",
+     "form",
+     "light_source",
+     "light_quality",
+     "accent",
+     "brightness",
+     "density",
+     "description",
+     "feeling"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "people": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "silhouette": {
+      "type": "string",
+      "enum": [
+       "column",
+       "square",
+       "wedge",
+       "pear",
+       "oval",
+       "diagonal",
+       "angular",
+       "arc"
+      ]
+     },
+     "posture": {
+      "type": "string",
+      "enum": [
+       "upright",
+       "leaning-back",
+       "leaning-forward",
+       "hunched",
+       "sideways",
+       "seated"
+      ]
+     },
+     "hands": {
+      "type": "string",
+      "enum": [
+       "folded",
+       "crossed",
+       "holding-object",
+       "in-pockets",
+       "gesturing",
+       "wiping",
+       "at-sides",
+       "behind-back",
+       "touching-face"
+      ]
+     },
+     "gaze": {
+      "type": "string",
+      "enum": [
+       "direct",
+       "away",
+       "down",
+       "side-glance",
+       "past-viewer",
+       "up"
+      ]
+     },
+     "crop": {
+      "type": "string",
+      "enum": [
+       "close",
+       "bust",
+       "waist-up",
+       "hip-up"
+      ]
+     },
+     "clothing": {
+      "type": "string",
+      "enum": [
+       "structured",
+       "loose",
+       "layered",
+       "fitted",
+       "workwear",
+       "uniform"
+      ]
+     },
+     "accent": {
+      "type": "string",
+      "enum": [
+       "red",
+       "orange",
+       "yellow",
+       "green",
+       "teal",
+       "blue",
+       "violet",
+       "neutral"
+      ]
+     },
+     "light_quality": {
+      "type": "string",
+      "enum": [
+       "hard",
+       "soft",
+       "glow",
+       "backlight",
+       "pool"
+      ]
+     },
+     "description": {
+      "type": "string"
+     },
+     "feeling": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "silhouette",
+     "posture",
+     "hands",
+     "gaze",
+     "crop",
+     "clothing",
+     "accent",
+     "light_quality",
+     "description",
+     "feeling"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "work",
+  "rooms",
+  "people"
+ ],
+ "additionalProperties": false
+}
