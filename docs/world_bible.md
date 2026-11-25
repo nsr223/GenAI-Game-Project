@@ -117,6 +117,8 @@ The existing connections below are **confirmed and bidirectional**. Permissions 
 | `equipment_storage` | `lower_corridor`, `aft_work_deck` |
 | `aft_work_deck` | `equipment_storage` |
 
+**Fixed window observations:** Elena and Daniel see each other through the window in the internal wet/dry lab door during 22:05–22:15, without speaking. Around 22:35 Lucas’s moving camera captures Maya inside the wet lab through the corridor-door window for a few seconds, talking to someone outside the window’s limited view. Elena is not visible; only Lucas’s footsteps/movement are audible, with no intelligible speech. Nobody registers the argument or strike. Exact framing must preserve these fixed limits.
+
 **Door viewing panels:** Most communal and working rooms have a small glazed panel in the corridor door, including the wet and dry labs. The wet-lab panel is `wet_lab_viewing_panel`; the dry-lab panel is `dry_lab_viewing_panel`. The wet-lab panel allows Lucas to notice Elena on the floor beside the apparatus from the corridor; it does not reveal the full room, precise injury, or every object. Other panel sightlines must be checked before being used as evidence. Shared sleeping rooms and confidential medical spaces are exceptions; do not grant public views of private records or examinations. Panels do not grant entry or make closed doors acoustically transparent.
 
 **Movement rule:** Nobody moves instantly between disconnected locations. Any route discussed by a character or represented in logs must be physically possible on this graph. A character can still lie about their route.
@@ -143,7 +145,7 @@ For every room below, **initial access** means the baseline permission at the be
 | **Deck** | 03 — Command |
 | **Connected to** | `upper_stairs` |
 | **Main NPC association** | Captain Sarah Morgan |
-| **Initial access** | Knock/request entry; ordinary conversation possible, consoles controlled |
+| **Initial access** | Conversation with Sarah available; consoles and records require authorization |
 
 **Purpose and appearance.** Compact ship's bridge with navigation screens, chart display, radar/AIS, weather readouts, radio and satellite communication equipment, and a captain's desk. Windows overlook the sea and make worsening weather visible.
 
@@ -154,7 +156,7 @@ For every room below, **initial access** means the baseline permission at the be
 - `bridge_comms_console` — communications equipment; player cannot independently contact arbitrary parties.
 - `bridge_noticeboard` — shift notices and posted safety instructions (ambient details only unless defined as clues).
 
-**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. Except for the dinner hold below, on the murder night and during the initial investigation the ship remains under power at reduced speed in open water, maintaining steerage and adjusting its heading to the sea conditions. It is neither anchored nor precisely holding a fixed coordinate. Exterior research deployment is suspended; indoor records and the sampling station remain powered, allowing the pending 23:10 cycle. Exact headings and speeds are not clue-bearing facts and need not be simulated. Sarah remains on the bridge overnight, with Lucas documenting her preparations for roughly 45 minutes around 21:30–22:15. An autopilot could assist steering, but its installation/configuration is not established and it cannot justify sleeping or unattended watchkeeping. Relief/rest, additional lookout provision, and coverage during the discovery response remain TBD.
+**World constraints.** The player cannot alter navigation, disable communications, or issue shipwide instructions. Any access to official records requires an authorized workflow. Except for the dinner hold and brief discovery-response stop below, on the murder night and during the initial investigation the ship remains under power at reduced speed in open water, maintaining steerage and adjusting its heading to the sea conditions. It is neither anchored nor precisely holding a fixed coordinate. Exterior research deployment is suspended; indoor records and the sampling station remain powered, allowing the pending 23:10 cycle. Exact headings and speeds are not clue-bearing facts and need not be simulated. Sarah remains on the bridge overnight, with Lucas documenting her preparations for roughly 45 minutes around 21:30–22:15. At Lucas’s scream Sarah stops propulsion and enables existing automatic supervision, leaving the bridge unattended for a few minutes while securing the scene and briefing the player. Electrical/monitoring systems remain powered. She then returns, restarts propulsion and resumes control. This is an intentional story simplification. She was awake all night and is slightly tired, without impact on investigation conversations; further watch/rest detail is omitted.
 
 **Dinner hold (20:00–20:40):** Everyone is in the mess hall and nobody is on the bridge. The propulsion engine is on hold; electrical power, indoor systems, and bridge monitoring remain available. Sarah has a direct connection to the bridge and is notified if an unexpected monitored event occurs. This is an intentional story simplification, not an unresolved staffing question. Normal reduced-speed operation resumes after dinner. These notifications do not detect the later service-cover drop: the apparatus has no cover-position sensor and produces no alert for that event.
 
@@ -180,9 +182,11 @@ For every room below, **initial access** means the baseline permission at the be
 - `wet_lab_door_main` and `lab_internal_door` — two possible access routes.
 - `wet_lab_viewing_panel` — small glazed panel in the main corridor door; permits the established discovery view. Lucas lacks entry authorization and cannot open this door; Sarah opens it after responding to his call.
 
-**Discovery access:** At 06:50 Lucas sees Elena through the main-door panel but cannot open the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel. Sarah opens the door when she arrives with Olivia, who approaches Elena; the others remain near the doorway. The shared cover exchange occurs after Maya arrives. The player is not a discovery witness. Sarah stops Daniel before he touches the apparatus. This is an **unexplained-death scene**, not a confirmed murder finding (Story §7.2).
+**Scene boundary:** Barrier tape marks off Elena’s body, which remains in the wet lab during playable investigation. Authorized access permits closer inspection; an additional reference-mass inspection gate is an Evidence Bible TBD.
 
-**World constraints.** After the initial assessment, Sarah secures **both entrances**: the main corridor door and the shared internal door from the dry lab (`lab_internal_door`). Both routes require the same wet-lab inspection authorization; ordinary dry-lab access cannot bypass the restriction. Scene security begins after discovery, not automatically at the hidden time of the murder. The player may later perform **supervised inspection**, but may not freely move the body, operate machinery, remove physical evidence, or contaminate the scene. Descriptions must reflect the current stage of scene preservation.
+**Discovery access:** At 06:50 Lucas sees Elena through the main-door panel but cannot open the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel. Sarah opens the door when she arrives with Olivia, who approaches Elena; the others remain near the doorway. The shared cover exchange occurs after Maya arrives. The player arrives after the initial response/cover exchange and hears only Sarah’s limited opening briefing (Story §7.3). Sarah stops Daniel before he touches the apparatus. This is an **unexplained-death scene**, not a confirmed murder finding (Story §7.2).
+
+**World constraints.** After the initial assessment, Sarah secures **both entrances**: the main corridor door and the shared internal door from the dry lab (`lab_internal_door`). Both routes require the same wet-lab inspection authorization; ordinary dry-lab access cannot bypass the restriction. During Sarah’s opening speech the corridor door is open but entry remains prohibited; an open door is not access permission. Scene security begins after discovery, not automatically at the hidden time of the murder. The player may later perform **authorized close inspection**, but may not freely move the body, operate machinery, remove physical evidence, or contaminate the scene. Descriptions must reflect the current stage of scene preservation.
 
 **Important separation:** This document establishes that a calibration station and sampling apparatus physically exist. The **Evidence Bible** must specify which specific item is evidentiary, what can be examined, and what it proves. Do not automatically tell the player that a calibration object was the murder weapon.
 
@@ -194,7 +198,7 @@ For every room below, **initial access** means the baseline permission at the be
 | **Deck** | 02 — Research & Living |
 | **Connected to** | `main_corridor`, `wet_lab` |
 | **Main NPC association** | Elena Fischer; Maya Chen; player during audit |
-| **Initial access** | Generally accessible to the player for audit-related work |
+| **Initial access** | Conversation with Maya available; investigation/inspection requires Sarah’s grant after Elena’s warning |
 
 **Purpose and appearance.** A quieter, climate-controlled data workspace with computers, instrument dashboards, monitor walls, scientific notes, and storage for electronic records. This is where Elena privately warns the player about **experiment M-17 at 18:10**.
 
@@ -275,7 +279,7 @@ Sarah’s berth is unused during her publicly known overnight bridge watch. Oliv
 - `berth_<character>` — assigned berth within the room above.
 - `personal_storage_<character>` — individually private belongings; evidence contents and search authorization remain separately defined.
 
-**World constraints.** Occupants may enter their assigned sleeping room. Shared-room access does not authorize searching a roommate’s belongings. Consent or specific investigation authorization is required. Elena’s preserved notes and Maya’s draft may be in their personal storage in Room A, but placement and discovery/access remain **TBD**. The former `cabin_<character>` room IDs are replaced by the two room IDs above; these are design changes, not an automatic runtime schema migration.
+**World constraints.** Occupants may enter their assigned sleeping room. Shared-room access does not authorize searching a roommate’s belongings. Consent or specific investigation authorization is required. Elena’s preserved notes and Maya’s transfer draft are in their respective personal storage in Room A. Exact media/containers remain **TBD**. Sarah authorizes Elena’s belongings based on her previous-evening warning and Maya’s belongings when shown EV-18; no other personal belongings currently contain evidence. The former `cabin_<character>` room IDs are replaced by the two room IDs above; these are design changes, not an automatic runtime schema migration.
 
 **MVP note.** Render the accommodation passage and two shared sleeping rooms; keep personal-storage permissions separate from room-entry permissions.
 
@@ -366,14 +370,16 @@ Access is determined by **room ownership + current game phase + authorization**.
 | Area | Before death | After death, early investigation | Later authorized investigation |
 |---|---|---|---|
 | Mess hall, main corridors | Open | Open | Open |
-| Dry laboratory | Audit-related access | Audit-related access; sensitive files still restricted | Specific additional records if granted/unlocked |
-| Wet laboratory | Role-based routine access; Lucas lacks entry authorization | Secured unexplained-death scene after initial response | Supervised inspection only |
+| Dry laboratory | Audit-related access | Conversation with Maya available; inspection requires Sarah’s grant following Elena’s warning | Specific additional records if granted/unlocked |
+| Wet laboratory | Role-based routine access; Lucas lacks entry authorization | Secured unexplained-death scene after initial response | Authorized close inspection; reference-mass gate TBD |
 | Bridge | Request entry | Contact/briefings with Sarah | Authorized review of relevant records |
 | Medical bay | Speak with Olivia | Speak with Olivia; private records restricted | Particular findings discussed when supported and unlocked |
-| Engineering workshop | Limited/escorted | Limited/escorted | Relevant maintenance records as investigation permits |
+| Engineering workshop | Limited/escorted | Conversation with Daniel available; searches restricted | Relevant maintenance records as investigation permits |
 | Editing room | Speak with Lucas | Speak with Lucas | Specific footage may be shared through Lucas/authorized preservation |
 | Shared sleeping rooms | Assigned room only by default | Others restricted | Specific room/possession consent or appropriate authorization |
 | Exterior aft deck | Conditions permitting | May be closed by storm | Opens only when safe and authorized |
+
+**Fixed opening access:** After Sarah’s limited briefing outside the open wet lab, a cut places the player in Room B with access to their own belongings. NPC conversations at the fixed locations above remain available; there is no room-entrance dialogue mechanic. Conversation access is not permission to inspect rooms, records or possessions. Asking Sarah about Elena’s previous-evening M-17 warning grants dry-lab inspection and access to Elena’s belongings. Other room searches require relevant leads and Sarah’s authorization. Owners may consent to searches of their own possessions; only Sarah can override refusal on serious evidence. Showing Sarah EV-18 of Maya inside the wet lab around 22:35 authorizes a search of Maya’s belongings. Room A access never grants unrestricted searches of its occupants’ storage. The engine implements these grants.
 
 ### 5.2 Suggested state variables
 
@@ -509,17 +515,17 @@ The basic research process is fixed in Story §2.2: controlled sodium-hydroxide 
 
 ### 8.1 Natural character locations
 
-These are **defaults for encounter design**, not alibis and not guaranteed positions at specific times.
+These are **fixed positions throughout playable investigation after the opening cut**, not alibis for the previous night. NPCs do not move between rooms during player-controlled investigation.
 
-| Character | Typical location(s) | Notes |
+| Character | Fixed gameplay location | Notes |
 |---|---|---|
-| Sarah Morgan | `bridge` | May meet player in mess hall or secure the wet lab after discovery |
-| Daniel Reyes | `engineering_workshop` | May visit wet lab for maintenance when scripted |
-| Maya Chen | `dry_lab` | May visit mess hall or other areas when supported by game state |
-| Thomas Blake | `mess_hall`, `crew_quarters` | Room B lower berth beneath Sarah; workspace details TBD |
-| Olivia Hart | `medical_bay` | May attend incident locations when required |
-| Lucas Weber | `editing_room`, `mess_hall` | Can record in permitted spaces at specified times |
-| Elena Fischer | `dry_lab`, `wet_lab` before death | Opening warning occurs in dry lab; murder occurs in wet lab |
+| Sarah Morgan | `bridge` | Resumes control and restarts propulsion after the briefing |
+| Olivia Hart | `medical_bay` | Gives medical findings through conversation |
+| Thomas Blake | `mess_hall` | Available for conversation |
+| Lucas Weber | `editing_room` | Footage access requires cooperation/authorization |
+| Daniel Reyes | `engineering_workshop` | Maintenance records remain permission-controlled |
+| Maya Chen | `dry_lab` | Conversation access is separate from inspection rights |
+| Elena Fischer | `wet_lab` | Body remains behind barrier tape |
 
 ### 8.2 Movement and knowledge boundaries
 
@@ -644,20 +650,18 @@ For each exploration request, give the model only:
 
 **Settled context:** Pelagos Carbon operates the research project; Nereid Technologies is Maya’s private negotiation counterpart. The mission departed Galway on Sunday, the murder occurs Tuesday evening, and discovery is Wednesday morning in mid-December. Sarah’s received forecast indicates severe weather at least through Thursday evening, not a guaranteed assistance time. Exact calendar dates and detailed historical-incident locations are not outstanding world-design decisions. These author-facing facts do not expand NPC knowledge or grant access to private negotiations.
 
-**Established movements:** Story §7.1 fixes the evening routes, retirements, Sarah’s overnight bridge presence, Lucas’s bridge session and incidental corridor shot, and Elena’s advance statement to Olivia/Thomas about visiting Daniel. Remaining work concerns claims/corroboration, geometry and recording implementation, watch relief/rest and coverage, and discovery-response routes. The fixed discovery order is unchanged.
+**Established movements:** Story §7.1 fixes the evening routes, retirements, Sarah’s overnight bridge presence, Lucas’s bridge session and incidental corridor shot, and Elena’s advance statement to Olivia/Thomas about visiting Daniel. Remaining work concerns claims/corroboration, geometry and recording implementation, opening presentation and inspection implementation. The fixed discovery order is unchanged.
 
 | Question | Why it matters | Proposed owner |
 |---|---|---|
 | Final drawing, dimensions, and walking distances | Connections are confirmed in §2.3; geometry can be refined later when alibis are addressed. | World / level design |
-| Internal wet-to-dry lab door: lock and access-log behavior | Could change Maya's route and the value of surveillance footage | Narrative + world + evidence |
+| Internal wet-to-dry lab door: lock and access-log behavior | Must preserve the fixed internal-door mutual sighting and corridor-window recording | Narrative + world + evidence |
 | Exact cameras, recording coverage, and blind spots | Prevents impossible video evidence | Evidence + world |
 | Shared-room exploration and personal-storage permissions | Controls development scope and search permissions | Gameplay + evidence |
 | Detailed apparatus/weapon visuals and surrounding scene geometry | Hardware, cover failure, and 2 kg reference mass are fixed; drawings must support reach/contact comparison and evaluation of a secondary fall. | Narrative + visual design + evidence |
-| Alibi verification, sightlines, and sound propagation | Actual movements and door closures are fixed in Story §7.1. Realize Elena/Daniel’s mutual awareness during his check without another conversation. Preserve the unheard 23:10 clunk and no alert; separately settle earlier argument/strike audibility and microphone coverage. | Story + world + evidence |
-| Discovery routes and examination blocking | Lucas discovers through the wet-lab panel at 06:50; Sarah opens the door after arrival. The response order is fixed in Story §7.2. Preceding locations/routes and clue-relevant examination movements remain TBD; preserve the witnesses and Lucas's confusion. | Story + world |
-| Time-based NPC schedule after the murder | Prevents people appearing in impossible places | Character + gameplay |
+| Alibi verification, sightlines, and sound propagation | Actual movements and door closures are fixed in Story §7.1. Realize Elena/Daniel’s mutual awareness during his check without another conversation. Preserve the unheard 23:10 clunk and no alert; nobody registers the argument/strike and clip audio contains only Lucas’s footsteps/movement. | Story + world + evidence |
+| Opening presentation and examination detail | Morning routes and response are fixed in Story §§7.2–7.3; refine the visible opening and inspection presentation without revealing the cover exchange. | Story + world |
 | What authorizes wet-lab, shared-room and personal-storage searches | Keeps player's auditor role believable | Story + gameplay |
-| Credible operations of a vessel with only eight people | Small-cast premise needs a consistent degree of automation and watchkeeping | Story + world |
 | Precise room/object artwork and asset style | Keeps generated assets visually consistent | Art + world |
 
 Until these are agreed, avoid hard-coding decisions into NPC prompts or inventing them during playtests.

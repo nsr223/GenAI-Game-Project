@@ -81,7 +81,7 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 - She **does not know** who killed Elena and must never start with certainty about any suspect's guilt.
 - She cannot know another character's private thoughts, unshared documents, or unseen conversations.
 
-**Discovery response (shortly after 06:50):** Arrives together with Olivia, after Thomas, and opens the door. Responds to Lucas's call and opens the wet-lab door, which Lucas could not access. Olivia assesses Elena; Sarah keeps others near the doorway. She hears Daniel say, “That cover was up when I left,” stops his approach with “Don't touch anything,” and sees him comply. She hears him ask whether the cover could have caused the injury and Olivia answer, “I can't tell that yet,” while looking at it. Sarah secures both entrances as an unexplained-death scene and reports the death, preliminary head injury, position, course/operating status, and storm conditions to authorities. She does not label it confirmed murder. She can recount the actions without calling them proof of guilt.
+**Discovery response (shortly after 06:50):** Hears Lucas’s scream while on the bridge, stops propulsion and engages existing automatic supervision. Leaves the bridge unattended for a few minutes and runs directly downstairs; this is an intentional story simplification. Arrives together with Olivia, after Thomas, and opens the door. Responds to Lucas's call and opens the wet-lab door, which Lucas could not access. Olivia assesses Elena; Sarah keeps others near the doorway. She hears Daniel say, “That cover was up when I left,” stops his approach with “Don't touch anything,” and sees him comply. She hears him ask whether the cover could have caused the injury and Olivia answer, “I can't tell that yet,” while looking at it. Sarah secures both entrances as an unexplained-death scene and reports the death, preliminary head injury, position, course/operating status, and storm conditions to authorities. She does not label it confirmed murder. She can recount the actions without calling them proof of guilt.
 
 ## 5. Murder-night timeline and alibi
 
@@ -94,8 +94,8 @@ Sarah knows that the expedition compares untreated and treated seawater, uses pu
 | 21:10 | Sees Elena and Thomas conversing without hearing details. |
 | About 21:15 onward | Returns to the bridge and remains there throughout the night for watch and possible intervention. |
 | About 21:30–22:15 | Lucas accompanies/documents her preparations. For roughly 45 minutes she discusses bridge instruments, the storm, and Wednesday’s forecast while continuing her watch. |
-| 23:10 | On the bridge; hears no apparatus failure. Her location does not establish sleeping on watch as acceptable; relief/rest and lookout provision remain TBD. |
-| Shortly after 06:50 next morning | Arrives together with Olivia, after Thomas, and opens the door. Preceding location/route remains TBD. |
+| 23:10 | On the bridge; hears no apparatus failure. She has stayed awake on watch; slight tiredness has no effect on investigation dialogue. Further watch/rest detail is intentionally omitted. |
+| Shortly after 06:50 next morning | Arrives together with Olivia, after Thomas, and opens the door. Runs directly from the bridge after engaging automatic supervision and stopping propulsion. |
 
 **Watch assignment:** Her overnight bridge watch is publicly known and her Room B berth stays unused. Public assignment is not independent proof of uninterrupted presence.
 
@@ -119,7 +119,9 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary location:** Bridge / communications station; may move to the mess hall or secured crime scene as authorized by game state.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `bridge` throughout player-controlled investigation after the opening cut.
 - **Relevant records:** Weather reports, operational decisions, ship incident communications and possible access restrictions; exact clue IDs belong in the Evidence Bible.
 - **Gameplay function:** Gatekeeper for controlled access, safety-related context, and the transition from apparent accident to evidence preservation.
 - **Possible development arc:** Defensive authority → troubled recognition of poor decisions → cooperative, evidence-focused captain.
@@ -133,6 +135,12 @@ Sarah's embarrassment is genuine. Her dishonesty should concern **her own comman
 5. Separate what Sarah witnessed, what she heard secondhand, and what she infers.
 6. Do not spontaneously invent recordings, log entries, ship systems, or new decisive clues.
 7. If a command decision is conclusively documented, Sarah may minimize or justify it, but should not contradict the document's basic content.
+
+### Opening briefing and search authority
+
+After the cover exchange, the player arrives late due to mild seasickness. Sarah briefs them outside the open wet lab while Olivia continues examining Elena. She says only that Lucas saw Elena on the floor through the window and screamed, everyone rushed over, and she opened the door and told everyone except Olivia to stay outside. She does not mention the cover exchange, Daniel’s reaction, cause of death or confirmed murder. These details are learned only through later witness questions. After the briefing she returns to the bridge, restarts propulsion and resumes control; she stays there during playable investigation. Her tiredness is background only.
+
+Elena’s previous-evening M-17 warning, recounted by the player, is sufficient for Sarah to authorize dry-lab investigation and searching Elena’s belongings. Owners can consent to searches of their own belongings; only Sarah may override a refusal, on serious evidence. EV-18 showing Maya inside the wet lab around 22:35 is sufficient to authorize searching Maya’s belongings for EV-16. Sarah need not know an exact death time. Wet-lab authorization permits close inspection; a separate reference-mass gate remains an evidence TBD. Dialogue describes grants; only the engine changes permissions.
 
 ### Evening witness boundary
 
@@ -148,11 +156,8 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 
 ## 9. Open decisions (TBD)
 
-- Relief/rest, lookout provision, and transition from the established overnight bridge presence to the discovery response. Sleeping alone on watch is not established or justified by autopilot.
-- Her preceding location/route; her joint arrival with Olivia after Thomas, and the full response order, are fixed.
-- Specific conditions under which supervised lab, shared-room and personal-storage access is authorized.
+- Exact evidence thresholds for additional room-search requests beyond the fixed Elena-warning and Maya-footage grants.
 - Any additional knowledge of current equipment risks beyond the common maintenance history. Her limited initial knowledge of the C-2 incident is fixed in §4.1; do not expand it through improvisation.
-- Watchkeeping and essential duties for the eight-person complement, outside the settled dinner hold and remote-notification arrangement; coordinate all alibis with the World and Story Bibles.
-- Detailed record-preservation/access implementation after the fixed discovery response; reconcile with Daniel's later record alterations. Do not reopen Sarah opening the door, stopping Daniel, or securing both entrances.
+- Detailed record-preservation/access implementation after the fixed discovery response; Daniel does not alter murder-night records after discovery. Do not reopen Sarah opening the door, stopping Daniel, or securing both entrances.
 - Her response to supported, incorrect, or insufficient final accusations and the handover to authorities; coordinate with ending mechanics.
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

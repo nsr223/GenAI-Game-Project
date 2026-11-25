@@ -60,17 +60,17 @@ Also persist **NPC claims** (speaker, time, topic) so later contradictions can b
 | ID | What | Where | Gate |
 |---|---|---|---|
 | EV-00 | Elena's M-17 warning | journal at start | none |
-| EV-01–03 | M-17 index, raw data, investor summary | dry_lab | audit access |
+| EV-01–03 | M-17 index, raw data, investor summary | dry_lab | Sarah’s dry-lab grant following Elena’s warning |
 | EV-04–05 | Revision history, Thomas's pressure message | dry_lab | audit/specific access |
-| EV-06, 17, 21–23 | Elena's preserved notes (incl. C-2, Maya, Sarah, Lucas, Noah entries) | **storage TBD** (Room A / personal_storage_elena?) | authorization TBD |
+| EV-06, 17, 21–23 | Elena's preserved notes (incl. C-2, Maya, Sarah, Lucas, Noah entries) | Room A / personal_storage_elena; medium TBD | Sarah’s grant after Elena’s warning |
 | EV-07 | Sarah/Daniel testimony on C-2 | conversation | — |
 | EV-08–09 | Apparatus fault record, 23:10 cycle log | engineering_workshop | `engineering_record_review_authorized` or Daniel shares |
 | EV-10 | Olivia's preliminary observations | medical_bay | conversation |
 | EV-11 | Medical–technical reconstruction | medical_bay | needs EV-09 + EV-10 + detail + authorization |
 | EV-12–13 | Scene inspection, reference-mass anomaly | wet_lab | `wet_lab_inspection_authorized` |
 | EV-14 | Injury/weapon correspondence | medical_bay | EV-11 + EV-13 |
-| EV-15 | Maya's improvement history | dry_lab | audit access |
-| EV-16 | Draft Nereid agreement | dry_lab or Room A / personal_storage_maya (**TBD**) | authorized route |
+| EV-15 | Maya's improvement history | dry_lab | Sarah’s dry-lab grant following Elena’s warning |
+| EV-16 | Draft Nereid agreement | Room A / personal_storage_maya; medium TBD | consent or Sarah’s grant after EV-18 |
 | EV-18 | Lucas's partial corridor recording | editing_room | Lucas shares or Sarah authorizes |
 | EV-19 | Maya's contradictory statement | conversation | persisted claim vs EV-18 |
 | EV-20, 24, 26 | Dinner, Noah and discovery testimony | conversation | optional |
@@ -102,6 +102,8 @@ When the player presents evidence, send the **evidence ID plus its verified cont
 - A restricted room can't be entered via conversation alone.
 
 ## Open decisions that affect the engine
-Ending/accusation flow · storage and access of Elena's notes · EV-16 placement · Maya's post-contradiction response (EV-19 claim is fixed) · what authorizes the wet-lab and personal-storage searches · `medical_mechanical_detail_sufficient` content. **Stub these as config, don't invent canon.**
+Ending/accusation flow · exact media/containers for Elena’s notes and EV-16 · Maya's post-contradiction response (EV-19 claim is fixed) · what authorizes the wet-lab and personal-storage searches · `medical_mechanical_detail_sufficient` content. **Stub these as config, don't invent canon.**
 
 **Design/runtime migration boundary:** The bibles now specify two shared rooms and personal-storage permissions. Existing runtime data/tests may still use eight `cabin_*` rooms and the old cabin-search flag; migrate those together in a separate engine/content change. Room entry never grants access to a roommate’s belongings.
+
+**Opening implementation:** Follow Story §7.3 / World §§5, 8: briefing before the Room B start, stationary NPC conversations separate from inspection grants, no cover-exchange preload. EV-18 now shows Maya inside the wet lab around 22:35, not walking toward it. Runtime content, claims and permission gates require a coordinated follow-up migration; these document changes do not implement them.

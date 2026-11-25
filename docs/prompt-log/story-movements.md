@@ -23,3 +23,9 @@
 ## v4 — Lucas’s daily organization routine
 
 **Reason / user direction:** Supersedes v3’s daytime-footage review: Lucas spends roughly 22:35–22:55 organizing equipment and the day’s recording files, as he does every day. He does not review any footage during this evening routine. His return to Room A around 23:00 and all witness/alibi boundaries remain unchanged.
+
+## v5 — Discovery, opening and fixed investigation stations
+
+**Reason / user direction:** Canonize Lucas’s morning route via the mess; direct responses from beds, Maya’s undisclosed deliberate delay, Sarah’s brief unattended bridge under existing automatic supervision with propulsion stopped and then restarted, and the mildly seasick player arriving after the cover exchange. Sarah briefs only basic discovery/entry facts outside the open lab; cut to Room B for control, with six stationary NPCs and Elena behind barrier tape. Conversation access is distinct from search permission: owner consent or Sarah’s evidence-based override, initial dry-lab/Elena belongings grant after Elena’s warning, Maya belongings grant after EV-18. The draft stays in Maya’s belongings. Daniel’s concealment concerns past maintenance checks only. Elena/Daniel see each other through the internal-door window. EV-18 becomes a few-second view of Maya inside the wet lab around 22:35, talking to an unseen person; Elena is invisible and audio is Lucas’s footsteps/movement only. Nobody registers the argument/strike; dinner remains TBD.
+
+**Interpretation and limits:** The user’s reference to Elena overriding search refusals was interpreted as Sarah, consistent with the captain’s established authority and the user’s later explicit Maya-search instruction. The reference-mass inspection gate after EV-11 remains undecided; exact opening wording, warning reminder, physical artifacts and metadata implementation remain TBD. This changes documents, not runtime prompts/content/permissions.

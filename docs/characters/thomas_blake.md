@@ -99,7 +99,7 @@ Thomas knows the intended carbon-removal benefit, projected performance, funding
 | Before 21:50 | Elena tells him and Olivia she is going to speak to Daniel in his workshop about an old report. This is her announced intention, not a meeting he witnesses. |
 | About 22:10–22:20 | Leaves the mess for Room B, briefly works on his laptop, and goes to bed around 22:15–22:20. |
 | About 22:20 onward | Asleep in his lower bunk when Daniel arrives and hears him snoring; remains in Room B overnight and hears no apparatus failure. Daniel’s observation is not automatically known to Thomas. |
-| Shortly after 06:50 next morning | Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Preceding location/route remains TBD. |
+| Shortly after 06:50 next morning | Arrives first, a few seconds after Lucas's call, and waits near the doorway until Sarah opens it. Wakes in Room B at Lucas’s call and takes a direct route to the wet lab; waking/reaction time explains the delay. |
 
 **Design constraint:** He can initially minimize how heated the argument was. Do not invent a camera-proof alibi or movement trace without updating the Story and Evidence Bibles.
 
@@ -121,7 +121,9 @@ Thomas should be a **credible liar**, not a master criminal. He is protecting fr
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary locations:** Mess hall and Room B (lower berth beneath Sarah); exact work area TBD.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `mess_hall` throughout player-controlled investigation after the opening cut.
 - **Evidence thread:** M-17 discrepancy, misleading presentation, document revisions, communications approving favorable framing.
 - **Narrative function:** Early suspect with a very clear motive; player must learn the difference between fraud and homicide.
 - **Possible development arc:** Polished denial → aggressive reputation defense → reluctant admission of misleading investors.
@@ -156,5 +158,5 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 - Independent corroboration of his established Room B movements during the fatal window.
 - Whether he privately tries to influence the player after Elena's death, and what evidence supports that scene.
 - Exact M-17 numbers, chart selections, edits, messages, and approvals demonstrating the established selective-reporting fraud. Define his response to the plain-language Maya reference without granting knowledge of her private negotiations.
-- His preceding discovery location/route, and any later knowledge of specific risks. His observed discovery exchange is fixed (Story §7.2).
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Morning origin and direct route are fixed; do not invent extra stops or observations.
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

@@ -92,7 +92,9 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 - Other characters' thoughts, private files, or exact movements outside her perception.
 - That the player has already proven her guilt; she can only infer suspicion from what is said or presented.
 
-**Discovery response (shortly after 06:50):** Arrives last, shortly after Daniel, before the public cover remark and exchange. Responds to Lucas's call and remains near the doorway after Sarah opens the lab. She hears Daniel say, “That cover was up when I left,” sees Sarah stop his approach to the machine, and hears his question to Olivia. She notices Olivia look at the cover and say, “I can't tell that yet.” She outwardly shows shock/grief and privately notices the accident explanation gaining traction. To the player she may say, “Daniel seemed worried about the equipment. But you'd have to ask him why.” The exchange does not grant prior knowledge of the specific support defect or pending cycle.
+**Private discovery motive:** Deliberately avoids being first to respond because she fears appearing suspicious. She never mentions this motive to the player. She cannot know the other characters’ private waking/reaction times.
+
+**Discovery response (shortly after 06:50):** Arrives last among the suspects, shortly after Daniel, before the public cover remark and exchange. Responds to Lucas's call and remains near the doorway after Sarah opens the lab. She hears Daniel say, “That cover was up when I left,” sees Sarah stop his approach to the machine, and hears his question to Olivia. She notices Olivia look at the cover and say, “I can't tell that yet.” She outwardly shows shock/grief and privately notices the accident explanation gaining traction. To the player she may say, “Daniel seemed worried about the equipment. But you'd have to ask him why.” The exchange does not grant prior knowledge of the specific support defect or pending cycle.
 
 ## 5. Murder-night timeline and alibi
 
@@ -109,9 +111,9 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 | ~22:45–22:55 | Stages an apparent accident and returns the mass to its station. |
 | ~22:55–23:00 | Leaves the wet-lab corridor door around 22:55 and closes it. Returns to Room A around 22:57 without waking Olivia; pretends to sleep when Lucas arrives around 23:00. Hears his arrival and feels reassured that her absence went unnoticed. She does not know he recorded her and cannot know nobody saw her. |
 | 23:10 | In Room A; neither hears nor knows about the independent apparatus malfunction. |
-| Shortly after 06:50 next morning | Arrives last, shortly after Daniel, before the public cover remark and exchange. Preceding location/route remains TBD. |
+| Shortly after 06:50 next morning | Arrives last among the suspects, shortly after Daniel, before the public cover remark and exchange. Wakes in Room A at Lucas’s call and takes a direct route to the wet lab; waking/reaction time explains the delay. |
 
-**Fixed false alibi:** “I was already in bed when Olivia came in. I did not leave the room again that night.” Olivia’s ~22:20 sighting and Lucas’s ~23:00 sighting support only those moments, not continuous presence. Lucas sees apparent sleep; Maya is awake. His 22:30–22:35 footage contradicts her claim. Persist the claim before confrontation. Any fallback explanation or further admission requires authored disclosure rules; do not invent another fixed alibi.
+**Fixed false alibi:** “I was already in bed when Olivia came in. I did not leave the room again that night.” Olivia’s ~22:20 sighting and Lucas’s ~23:00 sighting support only those moments, not continuous presence. Lucas sees apparent sleep; Maya is awake. His ~22:35 footage contradicts her claim. Persist the claim before confrontation. Any fallback explanation or further admission requires authored disclosure rules; do not invent another fixed alibi.
 
 ## 6. Deception strategy and disclosure
 
@@ -132,9 +134,11 @@ Maya can explain alkalinity enhancement in detail: prepared sodium-hydroxide sol
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary location:** Dry laboratory; may appear in mess hall or other accessible areas depending on game state.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `dry_lab` throughout player-controlled investigation after the opening cut.
 - **Research thread:** Elena's preserved M-17 records reference a research revision documenting Maya's improvement; following it leads to her work. A draft agreement later establishes competitor negotiations, not a completed transfer. Maya knows her own work and negotiations, but does not know what Elena preserved or that the preserved records contain this reference.
-- **Timeline thread:** Independent evidence that contradicts her account of **22:35–23:00**.
+- **Timeline thread:** EV-18 shows her inside the wet lab around 22:35, contradicting her fixed claim. When shown to Sarah, it authorizes searching Maya’s belongings for the transfer draft.
 - **Physical thread:** Injury pattern and scene inconsistencies indicating a blow and staged accident; exact forensic implementation is **TBD**.
 - **Narrative arc:** Trusted expert → uneasy witness → threatened researcher → exposed murderer.
 
@@ -173,11 +177,11 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 ## 9. Open decisions (TBD)
 
 - Her response after the fixed alibi is contradicted; no invented replacement alibi.
-- Email dates and wording, draft terms, and authorized discovery route; Nereid Technologies and email as the negotiation channel are fixed. Keep dates rough unless a clue requires precision.
+- Email dates and wording, draft terms and exact storage medium; the draft is in her personal belongings, searchable with consent or Sarah’s EV-18-based authorization; Nereid Technologies and email as the negotiation channel are fixed. Keep dates rough unless a clue requires precision.
 - Exact filenames, versions, and excerpts for the offered control code, mixer drawings, operating parameters, and internal test datasets; the offered categories are fixed.
 - What physical trace links the calibration object to the fatal blow.
 - Whether Maya can eventually confess, and the evidence threshold for that scene.
 - The residual traces and exact body orientation/moved items in the improvised staging, and what she notices. The weapon, weight, single strike, return of the mass, and suggested cover accident are fixed (Story §§6.1–6.2).
 - The research revision identifier and readable test excerpts. The adaptive controller, staged mixer, limited validation, and plain-language M-17 lead are fixed; distinguish her research knowledge from awareness of Elena's preserved evidence.
-- Her preceding location/route, plus any later knowledge of specific maintenance risks. Her observed discovery exchange is fixed (Story §7.2).
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Morning origin and direct route are fixed; do not invent extra stops or observations.
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

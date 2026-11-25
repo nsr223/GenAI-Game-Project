@@ -65,7 +65,7 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 - Which conversations, interviews, and locations he personally filmed or recorded.
 - That Elena opposed a sanitized public presentation and was in conflict with commercial interests.
 - That some footage is unauthorized or sensitive.
-- He knows he filmed during his return from the bridge, but did not review any footage that night; only organized his equipment and the day’s recording files as part of his usual daily routine. Author fact: a corridor shot around 22:30–22:35 contains Maya heading toward the labs. He did not notice her and cannot initially recount this as a sighting; knowledge of the recorded content requires legitimate review.
+- He knows he filmed during his return from the bridge, but did not review any footage that night; only organized his equipment and the day’s recording files as part of his usual daily routine. Author fact: a corridor shot around 22:35 contains Maya inside the wet lab through its corridor-door window. He did not notice her and cannot initially recount this as a sighting; knowledge of the recorded content requires legitimate review.
 
 - Over the last few weeks, Elena repeatedly noticed Lucas continuing to record after agreed sessions ended or apparently recording informal conversations, and challenged him several times. He described it as harmless background material or claimed he had not realized the session was over. Elena told him consent also applied to informal footage and that they needed to review what he had retained. He fears losing trust, access, and control of his material; no explicit career-ending threat is established. The identities of recorded speakers and exact content are unnecessary background details. This is not automatically the murder-night movement recording. Maya and Sarah independently noticed apparently continuing recording but did not challenge or report it. When specifically asked about his filming, they may say, “There were times I thought the camera was still running after we’d finished. I never checked.” Neither can infer file contents or prove a recording from that suspicion.
 - Elena’s note: “Lucas has continued recording beyond agreed sessions more than once. I have raised this with him repeatedly. Ask what he has retained and arrange a review of the footage.”
@@ -87,7 +87,7 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 - Maya's private act of killing Elena, or Daniel's private interpretation of the apparatus malfunction.
 - The meaning of a timestamp if he hasn't reviewed the underlying file or had it explained.
 
-**Discovery witness (06:50):** His everyday curiosity makes him glance through the wet-lab corridor-door panel during a morning walk (preceding route TBD). He sees Elena on the floor beside the apparatus, cannot open the door because he lacks access, and immediately calls, “Help! Something is wrong with Elena. Come quickly!” He remembers that original view and call. Afterward he is confused and shaken: he does not reliably hear Daniel's remarks or the Daniel/Olivia exchange, or observe Daniel's attempted approach and Olivia's interest in the cover. He must not offer those details as firsthand testimony. He does not start filming the response. His natural question is, “What was she doing in there?” Finding her in the morning does not mean she was alive then; use “so early” or “so late” only if available evidence supports it.
+**Discovery witness (06:50):** After waking, finding Elena’s bunk empty, getting ready and checking the mess without finding her, he goes to the labs assuming she is already working and looks through the wet-lab corridor-door panel. He sees Elena on the floor beside the apparatus, cannot open the door because he lacks access, and immediately calls, “Help! Something is wrong with Elena. Come quickly!” He remembers that original view and call. Afterward he is confused and shaken: he does not reliably hear Daniel's remarks or the Daniel/Olivia exchange, or observe Daniel's attempted approach and Olivia's interest in the cover. He must not offer those details as firsthand testimony. He does not start filming the response. His natural question is, “What was she doing in there?” Finding her in the morning does not mean she was alive then; use “so early” or “so late” only if available evidence supports it.
 
 ## 5. Murder-night timeline and alibi
 
@@ -100,12 +100,12 @@ Lucas knows the plain-language public premise from filming: help seawater absorb
 | 21:10 | Sees Elena and Thomas conversing without hearing details. No recording of their conversation is established. |
 | After Sarah leaves around 21:15 | Goes to the editing room for equipment, then joins Sarah on the bridge. |
 | About 21:30–22:15 | Accompanies/documents Sarah’s night and storm preparations. Roughly 45-minute discussion of bridge instruments, the storm, and Wednesday’s forecast. |
-| About 22:30–22:35 | Returning toward the editing room, captures an incidental corridor shot showing Maya heading toward the labs, without noticing her in the shot. This content is author knowledge until legitimate review, not an initial eyewitness recollection. |
+| About 22:35 | Returning toward the editing room, captures a few seconds of Maya inside the wet lab through its corridor-door window, talking to someone outside the limited view. Elena is not visible; audio contains only his footsteps and movement, no intelligible dialogue. He does not notice Maya in the shot. This content is author knowledge until legitimate review, not an initial eyewitness recollection. |
 | About 22:35–23:00 | Spends roughly twenty minutes organizing his equipment and the day’s recording files as part of his usual daily routine, without reviewing any footage. Feeling tired, returns to Room A around 23:00. Sees Olivia and Maya in bed, apparently asleep, and Elena’s bunk empty; assumes Elena may still be working. Goes to bed above Elena’s berth. |
 | 23:10 | In Room A; hears no apparatus failure. |
-| Around 06:40–06:50 next morning | Wakes first in Room A around 06:40–06:45, again sees Elena’s empty bunk and goes to look for her in the labs. Cannot know whether she stayed out or rose early. At 06:50 discovers Elena through the wet-lab door panel; calls for help without opening the door. Remains shaken and does not register the later exchange. |
+| Around 06:40–06:50 next morning | Wakes first in Room A around 06:40–06:45, sees Elena’s empty bunk and assumes she rose earlier. Gets ready and visits the mess; when she is not there, checks whether she is working in the labs. Cannot know whether she stayed out or rose early. At 06:50 discovers Elena through the wet-lab door panel; calls for help without opening the door. Remains shaken and does not register the later exchange. |
 
-**Footage constraint:** The incidental corridor shot of Maya heading toward the labs is fixed story content. Exact camera position, coverage, metadata, audio, access, and interpretation belong to the evidence team. No murder is shown; do not preload Lucas with knowledge of unreviewed content.
+**Footage constraint:** The incidental corridor shot of Maya inside the wet lab through its corridor-door window is fixed story content. The few-second window view, invisible conversation partner and footsteps/movement-only audio are fixed. Precise framing, timestamp validation and authorized review remain evidence implementation work. No murder is shown; do not preload Lucas with knowledge of unreviewed content.
 
 **Witness limits:** Can say Maya and Olivia appeared asleep when he returned around 23:00. Cannot establish true sleep, continuous presence or Maya’s earlier whereabouts from this observation. He does not initially know the evening footage contains Maya. Elena’s empty bunk at bedtime and again in the morning does not prove she never returned.
 
@@ -125,7 +125,9 @@ Lucas should have authentic doubts about protecting his work versus doing the ri
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary location:** Documentary editing room and shared areas.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `editing_room` throughout player-controlled investigation after the opening cut.
 - **Evidence thread:** Timestamped media, partial recordings, edits, gaps and metadata; exact clue IDs **TBD**.
 - **Narrative function:** Supports reconstruction of movements and alibis without replacing interrogation or forensic evidence.
 - **Possible development arc:** Curious opportunist → guarded keeper of footage → reluctant, valuable witness.
@@ -147,9 +149,9 @@ Lucas saw Elena and Thomas conversing in the mess hall after dinner at about 21:
 ## 9. Open decisions (TBD)
 
 - Which exact pre-murder interactions were filmed, by whom, and with what consent.
-- Evidence-team implementation of the fixed corridor shot: camera position/coverage, metadata, audio, and exact timestamp within the agreed approximate movement window.
+- Evidence-team implementation of the ~22:35 window clip: framing and timestamp validation within fixed visibility/audio limits.
 - Exact additional instrument/forecast explanations from Sarah’s bridge briefing; do not improvise numbers or expand his weather knowledge.
 - Whether the player must unlock access to files through dialogue or a separate evidence-recovery interaction.
 - Footage storage, provenance, edits, gaps, timestamp reliability, and when Lucas reviews each relevant file; coordinate with the Evidence Bible.
-- The exact route from Room A to the labs; his reason for looking for Elena is fixed in §5. The discovery actions and lack of reliable subsequent observations are fixed (Story §7.2).
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Morning route is fixed: Room A, get ready, mess hall, then labs; no extra observations should be invented. The discovery actions and lack of reliable subsequent observations are fixed (Story §7.2).
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

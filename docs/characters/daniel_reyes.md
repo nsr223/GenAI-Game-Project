@@ -77,7 +77,7 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 ### 4.3 What Daniel conceals
 - The environmental incident and his participation in downplaying it.
 - The unresolved fault and his failure to act responsibly.
-- Any attempt to hide or alter maintenance documentation after the death. The exact manipulation and timing are **TBD**.
+- Concealment of past maintenance-check documentation. No alteration of murder-night event records or the 23:10 log after discovery is established. Exact artifacts, method and hiding location belong to Evidence §12 and remain TBD.
 
 ### 4.4 What Daniel does not know
 - No initial knowledge of detailed navigation or weather information: exact position, route, operating status, forecast duration (including the outlook through Thursday evening), or assistance timing. When asked, describe only directly observable conditions or personal experience and refer detailed questions to Sarah. A detail may be repeated only after explicitly learning it during play, with source attribution; do not infer it from author-facing World/Story Bible text.
@@ -97,12 +97,12 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 | 20:00–20:40 | Group dinner; hears Elena reject approval. Other dinner dialogue remains TBD. |
 | 20:40–21:50 | In the workshop, initially cleaning and organizing his workplace. |
 | 21:50–22:00 | Elena confronts him in his workshop about C-2; he acknowledges his decision and concealment to her. They do not discuss the current cover fault. |
-| About 22:05–22:15 | Performs the wet-lab maintenance check. He and Elena, working in the dry lab, notice each other without speaking. Maya is in Room A, but Daniel cannot infer her location from not seeing her. |
+| About 22:05–22:15 | Performs the wet-lab maintenance check. He and Elena, working in the dry lab, see each other through the window in the internal lab door without speaking. Maya is in Room A, but Daniel cannot infer her location from not seeing her. |
 | 22:15 | Leaves the wet lab with cover raised and automatic operation restored without clearing the pending task. |
 | About 22:15–22:20 | Water and a brief conversation with Olivia in the mess; reveals neither the fault nor the private contents of Elena’s confrontation. |
 | About 22:20 onward | Reaches Room B, sees Thomas in the lower bunk snoring, then goes to bed shortly afterward and stays there overnight. |
 | 23:10 | In Room B; does not hear the failure or inspect the cycle log that night. Learns of the cycle only through valid information after discovery. |
-| Shortly after 06:50 next morning | Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Preceding location/route remains TBD. |
+| Shortly after 06:50 next morning | Arrives about half a minute after Olivia and Sarah. His public cover remark occurs after Maya has also arrived. Wakes in Room B at Lucas’s call and takes a direct route to the wet lab; waking/reaction time explains the delay. |
 
 **Important:** Daniel may lie about the fault or why he was in the laboratory, but not invent a witnessed altercation he never saw.
 
@@ -125,7 +125,9 @@ After Elena is found near the equipment, he fears the unresolved fault **might h
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary location:** Engineering workshop; may be summoned to wet lab or common spaces based on game state.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `engineering_workshop` throughout player-controlled investigation after the opening cut.
 - **Evidence thread:** Prior environmental incident, missing or misleading reports, unresolved equipment fault, and the **23:10** log.
 - **Player's deduction:** The fault is real but its documented action cannot explain the fatal injury. Proving an earlier death is not required.
 - **Possible development arc:** Deflection → panic and apparent confession → recognition of mistaken responsibility → truthful admission of his own negligence.
@@ -162,5 +164,5 @@ When explicitly asked about Noah Bennett or his past incident, recall the hand i
 - Conditions and wording for further admissions when explicitly questioned about Elena's C-2 note (EV-06/EV-07). Historical technical excerpts are not required. Do not automatically know Elena questioned Sarah unless legitimately informed.
 - Earlier symptoms, missed repair/documentation history, and the evidence proving his knowledge. The support defect, restart error, pending-cycle retry, and absence of a cover sensor/alert are fixed (Story §5.2). Define any additional knowledge held by others explicitly.
 - Exact sightlines supporting the silent Elena/Daniel sighting during his maintenance check; neither gains knowledge of private actions from it.
-- The timing and access required for post-discovery record concealment or alteration, including how it fits Sarah securing the scene and records.
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Evidence Bible owns the past maintenance-record concealment details; no murder-night or post-discovery log tampering may be invented.
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

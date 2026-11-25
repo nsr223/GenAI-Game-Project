@@ -44,3 +44,30 @@ def test_no_retired_private_room_references_in_current_design():
     for file in files:
         text = (DOCS / file).read_text()
         assert not re.search(r"\bcabin_(?:player|elena|maya|olivia|lucas|daniel|thomas|sarah)\b", text), file
+
+
+def test_fixed_gameplay_stations_match_character_bibles():
+    world = (DOCS / "world_bible.md").read_text()
+    stations = re.findall(
+        r"^\| (\w+) (?:Morgan|Hart|Blake|Weber|Reyes|Chen) \| `(\w+)` \|",
+        world, re.MULTILINE,
+    )
+    assert len(stations) == 6
+    for name, location in stations:
+        character = next((DOCS / "characters").glob(f"{name.lower()}_*.md"))
+        assert f"**Fixed gameplay location:** `{location}`" in character.read_text()
+
+
+def test_current_documents_do_not_retain_superseded_discovery_rules():
+    files = list(DOCS.glob("*_bible.md")) + list((DOCS / "characters").glob("*.md"))
+    retired = [
+        "Maya heading toward the labs",
+        "preceding route TBD",
+        "Preceding location/route remains TBD",
+        "Relief/rest, additional lookout provision, and coverage during the discovery response remain TBD",
+        "Any attempt to hide or alter maintenance documentation after the death",
+    ]
+    for file in files:
+        text = file.read_text()
+        for phrase in retired:
+            assert phrase not in text, (file, phrase)

@@ -58,3 +58,5 @@ Version every prompt in `prompts/` (e.g. `prompts/npc/maya_chen/v1.md`, `v2.md`�
 - Ask about dinner: retain Elena’s refusal but do not invent the TBD discussion.
 - Ask Olivia/Thomas about Daniel’s meeting: distinguish Elena’s announced intention from firsthand witnessing.
 - Ask Lucas about the cover exchange (he must not know it firsthand).
+
+**New fixed boundaries:** Sarah’s opening speech omits the cover exchange and any cause-of-death finding. Her brief automatic-supervision absence and return to bridge control are settled, with no fatigue penalty. NPCs remain at World §8’s fixed gameplay locations. Maya privately delays her discovery response and never discloses that motive. Lucas first checks the mess before the labs; his ~22:35 recording shows Maya inside the wet lab but no Elena/intelligible speech, and he does not know this before review. Daniel’s concealment concerns past maintenance checks, not murder-night records. Conversation access is distinct from search permission; only Sarah overrides refusals on serious evidence, and the engine owns grants.

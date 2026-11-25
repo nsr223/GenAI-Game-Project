@@ -21,7 +21,7 @@ All "can I enter / did I unlock / is this a win" questions go to the engine. The
 ```
 DECK 03   Bridge
            | upper stairs
-DECK 02   Main corridor → Wet Lab ⇄ Dry Lab · Mess Hall · Medical Bay · Cabins · Editing Room
+DECK 02   Main corridor → Wet Lab ⇄ Dry Lab · Mess Hall · Medical Bay · Shared sleeping rooms · Editing Room
            | lower stairs
 DECK 01   Lower corridor → Engineering Workshop · Engine Room · Equipment Storage → Aft Deck
 ```
@@ -33,8 +33,10 @@ Each item shows **Observed** (exact text/clip/statement), optional **Interpretat
 
 ## Spoiler hygiene
 - Don't label the reference mass as a "weapon" in player-facing text (World §3.2).
-- The start state comes from the engine. Don't preload discovery-scene details into the journal (Story §7.2).
+- The start state comes from the engine. Only Sarah’s limited briefing facts may be supplied; do not preload the cover exchange, arrival order or reactions (Story §§7.2–7.3).
 - Leads like "Return to Olivia to compare…" appear only when the engine says the gate is open (Evidence §6.5).
 
 ## Open decisions affecting UI
-Accusation flow and endings · shared-room exploration and private-storage access · whether wet-lab inspection is a separate "supervised" mode · how the 06:50 opening is presented (briefing or conversations).
+Accusation flow and endings · exact opening speech and reminder of Elena’s warning · optional EV-11 prerequisite for reference-mass inspection. Access progression and close wet-lab inspection are fixed.
+
+**Fixed opening:** Show Sarah’s brief speech outside the open wet lab after the player arrives late; Olivia continues examining Elena. Sarah mentions Lucas’s discovery/call and her opening the door/keeping others out, but not the cover exchange or cause of death. Cut to Room B for player control. Elena’s body remains behind barrier tape. NPCs stay at their World §8 stations; conversations are available without search rights and require no entrance-dialogue flow. Room/record inspections and private searches require consent or Sarah’s evidence-based authorization. Elena’s warning unlocks the dry-lab/Elena-belongings grant through Sarah; EV-18 supports the Maya-belongings grant. The engine owns all state changes.

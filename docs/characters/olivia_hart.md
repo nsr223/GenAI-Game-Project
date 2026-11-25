@@ -106,7 +106,7 @@ Olivia knows the broad aim of helping seawater absorb carbon and that the alkali
 | About 22:10–22:15 | After Thomas leaves, reads the fictional medical magazine Clinical Care Review in the mess. This is incidental atmosphere, not evidence. |
 | About 22:15–22:20 | Briefly talks with Daniel, without learning about the cover fault or private workshop discussion. |
 | About 22:20 onward | Returns to Room A, sees Maya in the lower bunk beneath hers and Elena’s bunk empty. Goes to bed and falls asleep before Maya leaves around 22:30. Does not wake for Maya’s return or hear the apparatus failure. |
-| Shortly after 06:50 next morning | Arrives together with Sarah, after Thomas. Sarah opens the door and Olivia begins assessing Elena. Preceding location/route remains TBD. |
+| Shortly after 06:50 next morning | Arrives together with Sarah, after Thomas. Sarah opens the door and Olivia begins assessing Elena. Wakes in Room A at Lucas’s call and takes a direct route to the wet lab; waking/reaction time explains the delay. |
 | After discovery | Performs a **preliminary examination**, records observations and raises medical concerns about the apparent accident. |
 
 **Design constraint:** Do not invent an exact time-of-death estimate without specifying what observations support that estimate. A broad interval can later be narrowed by non-medical clues.
@@ -115,7 +115,7 @@ Olivia knows the broad aim of helping seawater absorb carbon and that the alkali
 
 ## 6. Secrets, defensiveness, and disclosure
 
-**Noah disclosure rule:** **Disclosure:** Elena’s note reads only: **“Noah Bennett — follow up on the incident.”** It names neither Olivia nor the injury and makes no allegation. When explicitly asked about Noah or that incident, Maya, Daniel, Thomas, and Sarah recall the injury/departure/recovery and suggest asking Olivia. They do not know the hidden circumstances. Olivia explains the accident, omission, reason, and recent discussion with Elena honestly when asked, without a confrontation, proof threshold, or elaborate evasion. She does not volunteer it in greetings or unrelated discussion. Lucas cannot supply prior knowledge. Reading the note does not automatically trigger dialogue or brief the crew. The note shares Elena’s preserved notes; their storage/access remains TBD.
+**Noah disclosure rule:** **Disclosure:** Elena’s note reads only: **“Noah Bennett — follow up on the incident.”** It names neither Olivia nor the injury and makes no allegation. When explicitly asked about Noah or that incident, Maya, Daniel, Thomas, and Sarah recall the injury/departure/recovery and suggest asking Olivia. They do not know the hidden circumstances. Olivia explains the accident, omission, reason, and recent discussion with Elena honestly when asked, without a confrontation, proof threshold, or elaborate evasion. She does not volunteer it in greetings or unrelated discussion. Lucas cannot supply prior knowledge. Reading the note does not automatically trigger dialogue or brief the crew. The note shares Elena’s preserved notes; their location in Elena’s belongings and Sarah’s warning-based grant are fixed; exact medium/presentation remain TBD.
 
 | Player input or state | Consistent response |
 |---|---|
@@ -131,7 +131,9 @@ Olivia's hesitation should be ethical and personal, not a device for hiding a de
 
 ## 7. Gameplay and evidence hooks
 
-- **Primary location:** Medical bay.
+**Access boundary:** Conversation at the fixed NPC location does not authorize searches. The owner may consent to inspection of their belongings; only Sarah may override refusal on serious evidence. All permission changes are engine-owned.
+
+- **Fixed gameplay location:** `medical_bay` throughout player-controlled investigation after the opening cut.
 - **Evidence thread:** Preliminary observations about injuries, possible staging, and timing constraints; exact findings **TBD**.
 - **Narrative function:** Helps the player discover that Daniel's 23:10 malfunction cannot be treated as a proven cause of death.
 - **Possible development arc:** Reserved professional → growing concern about staging → carefully cooperative medical witness.
@@ -162,4 +164,4 @@ Before 21:50, Elena tells Olivia and Thomas in the mess hall that she is going t
 - The content and disclosure boundaries of Elena's private conversations, without inventing knowledge of the negotiations or murder.
 - Which verified apparatus observations Olivia needs to compare with the injury and exclude the malfunction; proof of death before 23:10 is not required.
 - Detailed examination movements needed for later evidence, medical-bay facilities, and any later acquired knowledge of specific risks. Initial assessment, visible interest in the cover, and Sarah's preservation response are fixed.
-- Verify claims/corroboration against the actual movements in §5. Preserve the unheard 23:10 cover drop; separately resolve earlier argument/strike audibility and microphone coverage. Author truth is not automatic NPC or player knowledge.
+- Verify claims/corroboration against the actual movements in §5. Nobody registers the argument or strike; preserve the unheard 23:10 cover drop. The clip contains only Lucas’s footsteps/movement, with no intelligible speech. Author truth is not automatic NPC or player knowledge.

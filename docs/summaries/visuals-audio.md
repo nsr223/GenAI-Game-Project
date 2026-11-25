@@ -39,3 +39,5 @@ Kokoro / F5-TTS (voices), ACE-Step / MusicGen (music). Free image generation in 
 
 ## Prompt log
 Save your image and music prompts with versions in `prompts/assets/` (style reference, iterations, why you changed them). This counts towards the "prompt variety" and "iteration" grading criteria.
+
+**Opening/recording constraints:** The opening shows Sarah outside the open wet-lab door while Olivia continues examining Elena; do not replay the cover exchange. In playable investigation, barrier tape marks the area around Elena’s body and all NPCs remain at their fixed World §8 stations. EV-18 is a few-second corridor-window view of Maya inside the wet lab around 22:35, talking to a person outside the small window’s view. Elena is not visible. Audio is only Lucas’s footsteps and movement, with no intelligible dialogue.

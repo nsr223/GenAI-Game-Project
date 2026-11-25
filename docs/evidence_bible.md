@@ -59,7 +59,7 @@ These facts are **FIXED** and must remain consistent with the Story Bible:
 | Daniel | He helped conceal damage from an earlier deployment, knew of an unresolved apparatus fault, and left the wet lab at **22:15**. | His misconduct is provable; his belief that he caused Elena's death is false. |
 | Maya | She met Elena in the wet lab at **22:35**, killed her at approximately **22:45** using a heavy calibration object, and staged an accident before leaving by about **23:00**. | Clues must separately establish transfer motive, presence, and physical method. |
 | Apparatus | An independent abnormal automated cycle occurred at **23:10**, after Elena was murdered. | The fault log is genuine but initially ambiguous. |
-| Discovery | Lucas sees Elena through the wet-lab corridor-door panel at **06:50** and calls for help without opening the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel.; Sarah opens the lab and secures an unexplained-death scene after the initial response. | Witness content is fixed in Story §7.2 and EV-26; preceding locations/routes remain TBD; the arrival order and relative intervals are fixed. The player is not a discovery witness. |
+| Discovery | Lucas sees Elena through the wet-lab corridor-door panel at **06:50** and calls for help without opening the door. Thomas arrives a few seconds after Lucas calls; Olivia and Sarah arrive together next; Daniel arrives about half a minute after them; Maya arrives shortly after Daniel.; Sarah opens the lab and secures an unexplained-death scene after the initial response. | Witness content is fixed in Story §7.2 and EV-26; morning routes and response are fixed in Story §§7.2–7.3; the arrival order and relative intervals are fixed. The player misses the initial response and receives Sarah’s limited briefing afterward. |
 | Cast | One player, Elena (victim), and **six living suspects** comprise the depicted shipboard cast. | No hidden eyewitness, surprise seventh suspect, or improvised crew member. |
 
 **Important forensic qualification:** The Story Bible fixes the approximate death time for the writers. **A ship's preliminary medical assessment must not claim it can pinpoint a time of death to the minute.** The player should eventually exclude the *specific machinery mechanism* through a medically and technically supported reconstruction, then use other traces and testimony to reconstruct the broader time window. The exact physical details of that reconstruction are **TBD**.
@@ -107,7 +107,7 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 #### `EV-00` — Elena's warning (FIXED)
 - **Type / source:** The player's remembered conversation with Elena the previous evening; recorded as an initial journal lead.
 - **Location / time:** `dry_lab`, **18:10**, pre-murder.
-- **Discovery:** Remembered pre-game conversation, supplied as an initial M-17 lead when player control begins after the discovery response. No playable pre-murder scene or discovery-response knowledge is implied.
+- **Discovery:** Remembered pre-game conversation, remembered when player control begins in Room B; exact reminder presentation remains TBD. Telling Sarah about this warning authorizes dry-lab investigation and Elena’s personal belongings. No playable pre-murder scene or knowledge of the cover exchange is implied.
 - **Player receives:** Elena asks for a comparison of original M-17 readings with investor-facing results and promises an explanation tomorrow.
 - **Supports:** `elena_flagged_m17`; directs player to the experiment index and raw data.
 - **Does not prove:** Fraud, Maya's transfer, or murder.
@@ -123,11 +123,11 @@ Sarah controls scene preservation and permission to review sensitive systems; Ol
 #### `EV-02` — M-17 raw measurements (FIXED concept; PROPOSED presentation)
 - **Type / source:** Read-only dataset and simple comparison chart.
 - **Location / object:** `dry_lab` / `dry_lab_analysis_terminal`.
-- **Access:** Audit permissions, via `EV-01` or direct dataset navigation.
+- **Access:** Sarah’s dry-lab inspection grant following Elena’s warning, via `EV-01` or direct dataset navigation.
 - **Player receives:** Original results across multiple M-17 runs and observation times: variable early performance, later loss of retained alkalinity in some runs, and particle formation. Exact readable values and observation periods remain TBD; these are chemical measurements, not a direct weighing of atmospheric CO₂ removed.
 - **Supports:** `m17_raw_readings_found`.
 - **Does not prove:** Deliberate fraud without comparison against published claims.
-- **Preserved-record lead:** Elena's preserved M-17 records contain a reference to the research revision examined in `EV-15`. The player-facing wording is **“The treatment works less well over time. See Maya Chen’s improved mixing tests.”** and points to EV-15. It identifies related work, not misconduct. The preserved copy's storage, provenance, and fair discovery/access route remain **TBD**; ordinary access to `EV-02` does not automatically grant access to Elena's private archive.
+- **Preserved-record lead:** Elena's preserved M-17 records contain a reference to the research revision examined in `EV-15`. The player-facing wording is **“The treatment works less well over time. See Maya Chen’s improved mixing tests.”** and points to EV-15. It identifies related work, not misconduct. The preserved copy is among Elena’s personal belongings, accessible through Sarah’s warning-based grant. Exact medium/container and provenance presentation remain **TBD**; dry-lab access alone does not authorize private searches.
 - **Design note:** Use understandable quantities and a minimal visual comparison; exact scientific numbers are **TBD**.
 
 #### `EV-03` — Investor-facing M-17 summary (FIXED concept; PROPOSED presentation)
@@ -164,10 +164,10 @@ These optional testimony leads do not require finding Elena’s notes first and 
 
 ### 4.2 Environmental cover-up and equipment evidence
 
-#### `EV-06` — Elena's note about Daniel's past incident (FIXED lead; storage TBD)
-- **Type / source:** A short entry in Elena's preserved notes, sharing the eventual storage/access of `EV-17`.
+#### `EV-06` — Elena's note about Daniel's past incident (FIXED lead/location/access; presentation TBD)
+- **Type / source:** A short entry in Elena's preserved notes, sharing the fixed personal-storage location and authorization route of `EV-17`.
 - **Location / object:** Same authorized note source as `EV-17`; no separate technical archive search is required.
-- **Access:** Discover the note through the authored route to Elena's preserved materials; exact route remains TBD.
+- **Access:** Sarah’s grant after Elena’s previous-evening warning permits searching her belongings; exact note presentation remains TBD.
 - **Player receives:** “C-2 trial, about a year ago: revisit the incident involving Daniel. Sarah thought it had been dealt with. Ask Daniel what happened.”
 - **Supports:** `previous_incident_lead_found`; explicit questions for Daniel and Sarah about Elena's renewed interest.
 - **Does not prove:** Environmental harm, a safeguard override, a cover-up, or murder by itself.
@@ -197,6 +197,8 @@ These optional testimony leads do not require finding Elena’s notes first and 
 - **Supports:** `apparatus_fault_2310_verified`.
 - **Does not prove:** That Elena was alive, present, or injured during that cycle; **does not alone exclude** the machinery theory.
 - **Presentation note:** Initially, this log should make Daniel's fear understandable, not settle the mystery.
+
+**Past maintenance-record concealment:** Daniel’s concealed/misleading documentation concerns past maintenance checks only. He does not alter murder-night event records or the 23:10 log after discovery. Exact records, concealment method, hiding location and discovery route remain TBD; do not invent an artifact in NPC dialogue. This is distinct from the optional C-2 testimony route.
 
 ### 4.3 Medical and crime-scene evidence
 
@@ -231,7 +233,7 @@ These optional testimony leads do not require finding Elena’s notes first and 
 #### `EV-13` — Calibration-object discrepancy (FIXED weapon category; PROPOSED traces)
 - **Type / source:** Supervised inventory or visual inspection of calibration tools.
 - **Location / object:** `wet_lab` / `wet_lab_calibration_station`.
-- **Access:** After scene authorization; suspicious details may be inspectable before `EV-11`, but **definitive interpretation is gated**.
+- **Access:** Authorized wet-lab access permits close inspection. **TBD:** whether inspection of this reference mass specifically becomes available only after Olivia discloses EV-11 excluding machinery. Do not silently enable or require this extra gate; definitive interpretation still requires the authored comparison.
 - **Player receives:** An anomalous trace or handling discrepancy involving the **2 kg stainless-steel reference mass**, which Maya returned to the calibration station. Exact trace/corroboration is **TBD**; do not describe the weapon as missing without a coordinated story change.
 - **Supports:** `calibration_object_anomaly_found`.
 - **Does not prove:** Alone that it is the murder weapon or that Maya handled it.
@@ -249,34 +251,34 @@ These optional testimony leads do not require finding Elena’s notes first and 
 #### `EV-15` — Scientific revision / authorship history (FIXED concept; PROPOSED artifact)
 - **Type / source:** Research code commit history, dataset annotations, or experiment revision log.
 - **Location / object:** `dry_lab` / `dry_lab_analysis_terminal`.
-- **Access:** Ordinary audit access to relevant shared research work. The reference in Elena's preserved M-17 records provides an authored lead here; direct discovery through legitimate research navigation remains possible. The reference reads **“The treatment works less well over time. See Maya Chen’s improved mixing tests.”**; only the exact revision identifier and artifact presentation remain **TBD**.
+- **Access:** Sarah’s dry-lab inspection grant following Elena’s warning permits access to relevant shared research work. The reference in Elena's preserved M-17 records provides an authored lead here; direct discovery through legitimate research navigation remains possible. The reference reads **“The treatment works less well over time. See Maya Chen’s improved mixing tests.”**; only the exact revision identifier and artifact presentation remain **TBD**.
 - **Player receives:** Maya developed adaptive dosing software and a staged mixer. Limited controlled tests show less particle formation and better retained alkalinity than the existing system, not proven commercial readiness or universal safety.
 - **Supports:** `maya_improvement_identified`.
 - **Does not prove:** Theft, an unauthorized sale, or murder.
 
 #### `EV-16` — Competitor transfer proposal (FIXED concept; PROPOSED artifact)
 - **Type / source:** A draft agreement from Maya's email negotiations, discovered through an authorized route. Email correspondence may corroborate it but does not replace the draft; some exchanges predate this voyage.
-- **Location / object:** `dry_lab` shared project records **or** `sleeping_room_a` / `personal_storage_maya` with appropriate authorization; placement **TBD**.
-- **Access:** Specific permitted/consensual evidence disclosure; not free access to private accounts.
+- **Location / object:** `sleeping_room_a` / `personal_storage_maya`; the draft is among Maya’s personal belongings. Exact medium/container is **TBD**.
+- **Access:** Maya may consent; if she refuses, showing Sarah EV-18 of Maya inside the wet lab around 22:35 is a sufficient serious lead for Sarah to authorize searching Maya’s belongings. This does not require an exact death-time finding and grants no general access to private accounts.
 - **Player receives:** Maya offered unpublished control code, mixer drawings, operating parameters, and internal test datasets, with delivery proposed after final agreement, in return for compensation and a leading development role. Exact draft terms and excerpts remain TBD.
 - **Supports:** `maya_transfer_plan_supported`.
 - **Does not prove:** That a transfer was completed, or that she killed Elena.
 
 #### `EV-17` — Elena's preserved notes (FIXED concept; PROPOSED storage)
 - **Type / source:** Notebook, independent data archive, or preserved correspondence; exact medium **TBD**.
-- **Location / object:** `sleeping_room_a` / `personal_storage_elena` **or** a valid research archive, **TBD**.
-- **Access:** Permission from Sarah for evidence preservation, or a legitimate audit route. Provide an understandable lead to its storage.
+- **Location / object:** `sleeping_room_a` / `personal_storage_elena`; exact medium/container **TBD**.
+- **Access:** Sarah authorizes searching Elena’s belongings after the player recounts Elena’s previous-evening M-17 warning. Exact reminder and object presentation remain TBD.
 - **Player receives:** Elena knew about Maya's negotiations and intended to prevent the planned transfer and report the negotiations. She had not seen the draft agreement found as `EV-16`; her notes must not imply otherwise. The notes may also point back to the M-17 discrepancy.
 - **Supports:** `elena_knew_of_maya_negotiations`, `maya_motive_established` when combined with `EV-16`.
 - **Does not prove:** Who physically attacked Elena.
 - **Established supporting entry:** The C-2 note in `EV-06` is part of this note collection and leads to `EV-07` testimony, without requiring the historical technical records.
-- **Fixed supporting entries:** Sarah’s admission/request (`EV-21`), Lucas’s repeated recording violations (`EV-22`), and the brief Noah incident lead (`EV-23`) share these notes. Text is fixed below; storage/access remains open. Notes do not automatically prove every interpretation.
+- **Fixed supporting entries:** Sarah’s admission/request (`EV-21`), Lucas’s repeated recording violations (`EV-22`), and the brief Noah incident lead (`EV-23`) share these notes. Text is fixed below; the personal-storage location and Sarah’s authorization route are fixed; exact medium/presentation remain open. Notes do not automatically prove every interpretation.
 
-#### `EV-18` — Partial corridor recording / media metadata (FIXED story content; implementation TBD)
+#### `EV-18` — Brief wet-lab window recording / media metadata (FIXED story content; implementation TBD)
 - **Type / source:** Lucas's documented recording and its timestamp metadata.
 - **Location / object:** `editing_room` / `editing_workstation` or `media_drive_case`.
 - **Access:** Lucas willingly shares relevant footage or Sarah authorizes preservation/review; exact flow **TBD**.
-- **Fixed story content:** Returning from the bridge toward the editing room around 22:30–22:35, Lucas captures a corridor shot showing Maya heading toward the labs, without noticing her. He spends roughly 22:35–22:55 organizing his equipment and the day’s recording files as part of his usual daily routine, without reviewing any footage. He returns to Room A around 23:00, after Maya, and sees her and Olivia apparently asleep. The shot does not show the confrontation or murder. Exact camera position, coverage, timestamp metadata, audio, and review/access implementation are the evidence team’s **TBDs**.
+- **Fixed story content:** Around 22:35, as Lucas returns from the bridge toward the editing room, his moving camera incidentally captures a few seconds of Maya inside the wet lab through its corridor-door window, visibly talking to someone outside the small window’s view. Elena is not visible or identifiable. Audio contains only Lucas’s footsteps and movement, with no intelligible dialogue. Lucas does not notice Maya or review any footage that night. He organizes equipment and the day’s recording files around 22:35–22:55, then returns to Room A around 23:00 after Maya and sees her and Olivia apparently asleep. The clip establishes Maya’s wet-lab presence, not the other person’s identity, conversation content, attack or precise death time. Precise framing, timestamp validation and review UI remain TBD within these limits. Showing this clip to Sarah is sufficient for her to authorize searching Maya’s personal belongings for EV-16.
 - **Supports:** `maya_wet_lab_area_presence_supported` when compared to her stated alibi.
 - **Does not prove:** Entry through a specific door, the murder act, or precise time of death.
 - **Consistency note:** The wet and dry labs also have an internal connecting door. Camera coverage must not imply an impossible view of both routes.
@@ -288,7 +290,7 @@ These optional testimony leads do not require finding Elena’s notes first and 
 - **Player receives:** Maya's initial account is inconsistent with `EV-18` or another independently authored trace.
 - **Supports:** `maya_alibi_contradicted`.
 - **Does not prove:** Automatically that she murdered Elena.
-- **Fixed claim:** “I was already in bed when Olivia came in. I did not leave the room again that night.” Olivia arrives around 22:20. EV-18 shows Maya heading toward the labs around 22:30–22:35 and directly contradicts continuous presence. Persist her claim before comparison. Exact recording metadata/access and post-confrontation disclosure remain TBD.
+- **Fixed claim:** “I was already in bed when Olivia came in. I did not leave the room again that night.” Olivia arrives around 22:20. EV-18 shows Maya inside the wet lab around 22:35 and directly contradicts continuous presence. Persist her claim before comparison. Exact recording metadata/access and post-confrontation disclosure remain TBD.
 
 **Supporting bedtime testimony (speaker-attributed, not continuous alibis):** Olivia sees Maya in bed and Elena’s bunk empty in Room A around 22:20, then sleeps before Maya leaves. Lucas sees Maya and Olivia apparently asleep around 23:00 after Maya returns, and Elena’s bunk empty. Neither saw Maya’s bed empty; neither can verify continuous presence or actual sleep. Maya is awake when Lucas arrives. Daniel sees Thomas in his Room B bunk snoring around 22:20, not throughout the fatal window. Sarah’s public watch assignment is not continuous independent corroboration.
 
@@ -304,13 +306,13 @@ These optional testimony leads do not require finding Elena’s notes first and 
 - **Does not prove:** The murderer's identity or the timing of the fatal confrontation.
 
 #### `EV-21` — Sarah’s operational decision (FIXED, optional)
-- **Source:** Elena’s note, stored with `EV-17`; shared storage/access remains TBD. No additional bridge/weather record is discoverable for this thread.
+- **Source:** Elena’s note, stored with `EV-17`; shared location and authorization follow EV-17; exact medium/presentation remain TBD. No additional bridge/weather record is discoverable for this thread.
 - **Text:** “Sarah admitted she let the final sampling operation continue despite her weather concerns, under pressure from Thomas. She asked me to leave it out of the audit. Revisit this with her.”
 - **Follow-up:** Sarah explains the final sampling operation several weeks ago, worsening weather, commercial pressure, and absence of injury. Her private admission/request occurred ashore a few days before the voyage.
 - **Meaning:** A lead to her judgment and defensiveness, not evidence of murder.
 
 #### `EV-22` — Lucas’s unauthorized recording practice (FIXED background and note; optional)
-- **Source:** Elena’s note with `EV-17`; shared storage/access remains TBD.
+- **Source:** Elena’s note with `EV-17`; shared location and authorization follow EV-17; exact medium/presentation remain TBD.
 - **Text:** “Lucas has continued recording beyond agreed sessions more than once. I have raised this with him repeatedly. Ask what he has retained and arrange a review of the footage.”
 - **Follow-up:** Repeated challenges over recent weeks are fixed. Maya and Sarah can report their own suspicions when asked about filming, but never checked or challenged it. They cannot identify file contents from these observations.
 - **Meaning:** Grounds asking Lucas about retained material and arranging review; no automatic access to all files or proof of a specific recording. Review permissions, retention, storage, and technical implementation of the fixed murder-night footage remain TBD. This incident is not automatically `EV-18`.
@@ -322,7 +324,7 @@ Eight months before the murder, former sampling assistant **Noah Bennett** suffe
 Elena, Olivia, Maya, Daniel, Thomas, and Sarah know the basic injury, departure, and recovery history. Lucas joined later and initially knows nothing, as does the player. Among the onboard cast, only Elena and Olivia initially know the omitted warning and Olivia’s reason. During the last week Elena raised the incident with Olivia, who acknowledged the omission without a major confrontation; Elena said the account should be corrected. Detailed historical reports are unavailable aboard and inaccessible to Olivia at present. She remembers the central omission and motive, not exact dates, wording, or the reporting chain; these peripheral details and Elena’s earlier research route need no additional evidence design.
 
 #### `EV-23` — Elena’s Noah incident lead (FIXED, optional)
-- **Source:** Elena’s note, stored with `EV-17`; shared storage/access remains TBD.
+- **Source:** Elena’s note, stored with `EV-17`; shared location and authorization follow EV-17; exact medium/presentation remain TBD.
 - **Exact text:** “Noah Bennett — follow up on the incident.”
 - **Meaning:** Names Noah and an incident only; no mention of Olivia, injury, warning, or allegation.
 - **Follow-up:** On explicit questioning, Sarah, Thomas, Daniel, or Maya recall the injury/departure/recovery and point to Olivia. Lucas initially knows nothing. Directly asking Olivia is also valid; no mandatory NPC sequence.
@@ -335,19 +337,19 @@ Elena, Olivia, Maya, Daniel, Thomas, and Sarah know the basic injury, departure,
 #### `EV-25` — Retired proposed warning artifact
 - The warning remains a fixed historical fact explained by Olivia in `EV-24`. No separate warning document is accessible or required. Retain this ID only to avoid reusing an old clue identifier; remove it from gameplay dependencies.
 
-**Disclosure:** Elena’s note reads only: **“Noah Bennett — follow up on the incident.”** It names neither Olivia nor the injury and makes no allegation. When explicitly asked about Noah or that incident, Maya, Daniel, Thomas, and Sarah recall the injury/departure/recovery and suggest asking Olivia. They do not know the hidden circumstances. Olivia explains the accident, omission, reason, and recent discussion with Elena honestly when asked, without a confrontation, proof threshold, or elaborate evasion. She does not volunteer it in greetings or unrelated discussion. Lucas cannot supply prior knowledge. Reading the note does not automatically trigger dialogue or brief the crew. The note shares Elena’s preserved notes; their storage/access remains TBD.
+**Disclosure:** Elena’s note reads only: **“Noah Bennett — follow up on the incident.”** It names neither Olivia nor the injury and makes no allegation. When explicitly asked about Noah or that incident, Maya, Daniel, Thomas, and Sarah recall the injury/departure/recovery and suggest asking Olivia. They do not know the hidden circumstances. Olivia explains the accident, omission, reason, and recent discussion with Elena honestly when asked, without a confrontation, proof threshold, or elaborate evasion. She does not volunteer it in greetings or unrelated discussion. Lucas cannot supply prior knowledge. Reading the note does not automatically trigger dialogue or brief the crew. The note shares Elena’s preserved notes; their location in Elena’s belongings and Sarah’s warning-based grant are fixed; exact medium/presentation remain TBD.
 
 ### 4.7 Discovery testimony
 
 #### `EV-26` — Discovery and the cover exchange (FIXED events; presentation TBD)
 - **Type / source:** Speaker-attributed recollections of the 06:50 discovery and subsequent response in the fixed order of Story §7.2, not an invented recording. Thomas first, Olivia/Sarah together, Daniel about half a minute later, then Maya shortly afterward.
-- **Location / interaction:** Question relevant NPCs wherever legitimately present. Player control begins after the response; no opening replay or preloaded journal provides these details.
+- **Location / interaction:** Question relevant NPCs wherever legitimately present. Player control begins in Room B after Sarah’s limited opening briefing. The briefing supplies the basic discovery and door-opening facts only; the cover exchange and individual reactions require conversations.
 - **Lucas:** Saw Elena through the panel, could not open the door, and called for help. He does not reliably register the subsequent exchange/actions and cannot corroborate them firsthand. His question is why Elena was there, not an assertion of when she died.
 - **Sarah, Olivia, Daniel, Maya, Thomas:** Hear “That cover was up when I left,” Sarah stopping Daniel before he touches the apparatus, “Could the cover have done that?”, and Olivia's “I can't tell that yet.” They know Olivia visibly considered the cover; this is not a diagnosis. These events occur after the witnesses have arrived.
 - **Interpretations:** Thomas sees possible equipment responsibility; Maya may use Daniel's visible concern as misdirection; Sarah reports actions without assigning guilt; Olivia explains her uncertainty only as needed. Do not merge these interpretations into objective facts.
 - **Supports:** A lead to ask why Daniel left the cover raised and whether the equipment could account for the injury; establishes the public statement and attempted approach, not the truth of every inference.
 - **Does not prove:** The specific fault, that Daniel knew the 23:10 cycle ran, cause/time of death, or murder. Quiet/unheard remarks do not exist as evidence.
-- **Presentation boundary:** A discovered body is not a confirmed murder scene. The player has no firsthand or preloaded knowledge of the response. Conversations supply the details, preserving speaker/source and Lucas's exception.
+- **Presentation boundary:** A discovered body is not a confirmed murder scene. The player misses the initial response and cover exchange. Sarah’s briefing provides only the basic discovery facts (Story §7.3); conversations supply the remaining details, preserving speaker/source and Lucas’s exception.
 
 **MVP guidance:** Do not assume every numbered entry needs a separate interface. Several can be presented on the same terminal, and some can be conversation-derived clues. The IDs represent **logical evidence**, not necessarily separate physical props.
 
@@ -381,7 +383,7 @@ EV-10 Preliminary medical observations + EV-09 Verified apparatus record
   -> EV-13 Calibration anomaly + EV-14 injury/tool comparison
 
 MAYA'S MOTIVE / OPPORTUNITY
-Elena's preserved M-17 records (EV-02 preserved-record lead; storage TBD)
+Elena's preserved M-17 records (EV-02 preserved-record lead; personal-storage location fixed, presentation TBD)
   -> referenced research revision / EV-15 Improvement history
   -> EV-16 Transfer proposal + EV-17 Elena's preserved notes
   -> maya_motive_established
@@ -520,13 +522,13 @@ Avoid revealing developer-only fields such as `supports: maya_motive_established
 
 | Area | Relevant evidence | Intended access |
 |---|---|---|
-| `dry_lab` | `EV-00`–`EV-05`, `EV-15`; possibly `EV-16` and Elena's notes if placed there | Existing scientific audit rights; sensitive accounts remain restricted. |
-| `wet_lab` | `EV-12`, `EV-13` | Initially secured after the body is found; later supervised inspection only. |
+| `dry_lab` | `EV-00`–`EV-05`, `EV-15` | Sarah’s grant following Elena’s warning; NPC conversation access alone does not grant inspection rights. |
+| `wet_lab` | `EV-12`, `EV-13` | Initially secured after the body is found; later authorized close inspection. |
 | `medical_bay` | `EV-10`, `EV-11`, `EV-14` | Olivia provides appropriately scoped observations; definitive reconstruction is gated. |
 | `engineering_workshop` | `EV-08`–`EV-09` | Sarah's permission or Daniel's supervised cooperation. |
 | `editing_room` | `EV-18`, `EV-22` | Lucas's cooperation or authorized preservation. |
-| `crew_quarters` / `sleeping_room_a` / `personal_storage_elena` | `EV-17`, including `EV-06`, if stored there | Specific permission for Elena’s belongings; shared-room access alone is insufficient; exact placement TBD. |
-| `crew_quarters` / `sleeping_room_a` / `personal_storage_maya` | `EV-16` only if placed there | Shared-room access does not permit searching Maya’s personal storage; exact mechanism TBD. |
+| `crew_quarters` / `sleeping_room_a` / `personal_storage_elena` | `EV-17`, including `EV-06`, stored in Elena’s belongings | Specific permission for Elena’s belongings; shared-room access alone is insufficient; exact container/presentation TBD. |
+| `crew_quarters` / `sleeping_room_a` / `personal_storage_maya` | `EV-16` in Maya’s belongings | Maya’s consent or Sarah’s grant after seeing EV-18; shared-room access alone is insufficient. |
 | `mess_hall` | `EV-20`; `EV-07` if the relevant NPC is present | Open social area; testimony can also occur at other valid NPC locations. |
 | `bridge` | `EV-21`, access approvals | Captain-controlled records. |
 
@@ -534,7 +536,7 @@ Avoid revealing developer-only fields such as `supports: maya_motive_established
 
 The World Bible fixes a **secondary internal door connecting `wet_lab` and `dry_lab`**. Any statement about visibility, routes, door sensors, timestamps, or alibis must account for both entrances.
 
-Do not introduce comprehensive CCTV, biometric tracking, GPS pins for everyone, or a perfect shipwide access log merely to solve a narrative gap. If a precise recording proves Maya passed the wet-lab corridor, it should establish **presence in an area**, not make all other evidence unnecessary.
+Do not introduce comprehensive CCTV, biometric tracking, GPS pins for everyone, or a perfect shipwide access log merely to solve a narrative gap. EV-18 establishes Maya inside the wet lab around 22:35, not murder, the other person’s identity or an exact death time; other evidence remains necessary.
 
 ### 8.3 Evidence handling
 
@@ -702,17 +704,19 @@ investigation_state:
 | **Medical/scene corroboration of the established mechanism** | The fatal head injury, cover failure, and compact-object comparison are fixed. Define observable contact/reach evidence and exclude a secondary fall into nearby surfaces; proof of death before 23:10 is not required. | Story, Olivia, Daniel, World |
 | **Actual comparative evidence and authorized access needed for reconstruction** | Supports a defensible conclusion without requiring either motive confrontation. | Story, Olivia, Evidence |
 | **Maya’s response after contradiction** | Initial claim and bedtime observations are fixed in EV-19; author further disclosure without inventing a replacement alibi. | Maya, Lucas, Story |
-| **Lucas’s camera placement, metadata, and coverage** | The return from the bridge and incidental shot of Maya heading toward the labs around 22:30–22:35 are fixed. Evidence team implements exact view, timing metadata, audio, and discovery/review without expanding the story content. | Lucas, World |
+| **Lucas’s recording implementation** | Few-second window view of Maya in the wet lab around 22:35 and footsteps/movement-only audio are fixed. Implement framing, timestamp validation and authorized review without revealing Elena or dialogue. | Lucas, World |
 | **Reference mass trace and scene corroboration** | The 2 kg mass, strike, and return to the station are fixed. Define remaining discoverable traces without an unrealistic instant lab test. | Story, World, Olivia |
-| **Elena's preserved notes and how the player finds them** | Ensures the initial hint leads fairly to the transfer motive. | Story, World |
-| **Competitor agreement's storage and access permissions** | Prevents arbitrary search of Maya's private material. | Maya, World |
+| **Elena’s preserved notes: medium and presentation** | Ensures the initial hint leads fairly to the transfer motive. | Story, World |
+| **Competitor agreement’s physical presentation** | Maya’s belongings and the EV-18-based Sarah grant are fixed; define medium/container and readable excerpts. | Maya, World |
 | **Exact evidence for Thomas's approval of misleading claims** | Supports a strong motive without implying he killed Elena. | Thomas, Story |
-| **Discovery implementation and witness presentation** | Lucas and the initial response are fixed (Story §7.2, EV-26). Arrival order and relative intervals are fixed. Define preceding locations/routes and any clue-relevant examination movements; preserve the shared exchange, Lucas's exception, and the player's lack of discovery knowledge. | Story, Character Bibles, World |
-| **Supporting Elena notes: shared storage/access** | Texts for Sarah, Lucas, and Noah are fixed in EV-21–EV-23; implement their access through EV-17 without adding historical document hunts. | Story, Characters, World |
+| **Opening and witness presentation** | Morning routes, initial response and limited Sarah briefing are fixed (Story §§7.2–7.3). Author exact speech/reminder presentation; preserve the cover exchange for later conversations and Lucas’s witness exception. | Story, Character Bibles, World |
+| **Supporting Elena notes: shared presentation** | Texts for Sarah, Lucas, and Noah are fixed in EV-21–EV-23; implement their access through EV-17 without adding historical document hunts. | Story, Characters, World |
 | **Check that the combined evidence distinguishes Maya from another attacker** | Test whether the final reconstruction rules out a plausible later attacker or alternative sequence through authored alibis, timing, and/or attack/staging traces. Motive, nearby presence, and a lie alone are insufficient; precise clues remain TBD. | Story, all Character Bibles, World, Evidence |
 | **Alibi verification and noise consistency** | Actual positions and movements are fixed in Story §7.1; establish claims/corroboration. Preserve both lab doors closed, unheard 23:10 clunk, and no alert. Separately settle whether the earlier argument/strike could be heard or recorded. | All Character Bibles, Story, World |
 | **Readable M-17 values, periods, and artifact wording** | The treatment process, limitations, adaptive improvement, and fraud mechanism are fixed; choose illustrative measurements and clear charts without confusing potential uptake with verified removal. | Story, Maya, Thomas, World |
 | **Final accusation behavior and optional ending variants** | Controls whether a wrong guess ends the game or allows further investigation. | Story, game design |
+
+**Additional evidence TBDs:** Define Daniel’s past maintenance-check artifacts, concealment method and hiding location. Decide whether reference-mass inspection itself requires Olivia’s EV-11 disclosure.
 
 **Recommended order to resolve:** (1) claimed alibis, corroboration, and implementation of the established recording, (2) physical/medical mechanism, (3) reconstruction evidence and access requirements, (4) clue placement and permission paths, (5) numeric data and presentation details. The basic science and misconduct mechanisms are established; do not reopen them as unspecified technology.
 
