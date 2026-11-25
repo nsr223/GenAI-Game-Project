@@ -1,2 +1,3 @@
+# Dev dependencies for pip users. Source of truth is pyproject.toml ([dependency-groups].dev).
 -r requirements.txt
 pytest>=8.0
