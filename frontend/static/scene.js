@@ -102,10 +102,12 @@ export function showRoom(view) {
     byId("arrival").textContent = "Current location: " + room.name + ".";
   }
   locationId = room.id;
+  document.body.dataset.room = room.id; // audio.js plays this room's ambience
 }
 
 export function clearRoom() {
   locationId = undefined;
+  delete document.body.dataset.room;
   hotspots.replaceChildren();
   byId("deck").textContent = "Saved investigation";
   byId("room").textContent = "Save unavailable";
