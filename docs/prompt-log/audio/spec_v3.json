@@ -1,0 +1,27 @@
+[
+ {"id": "title_theme", "kind": "music", "version": 2, "seconds": 30, "seed": 1,
+  "prompt": "Exciting cinematic thriller main theme for a murder mystery game at sea, driving staccato string ostinato, pounding low drums and timpani, bold brass stabs, dark minor key, rising tension, storm and adventure, 120 bpm, energetic and suspenseful."},
+ {"id": "title_theme", "kind": "music", "version": 3, "seconds": 30, "seed": 2,
+  "prompt": "Exciting cinematic thriller main theme for a murder mystery game at sea, driving staccato string ostinato, pounding low drums and timpani, bold brass stabs, dark minor key, rising tension, storm and adventure, 120 bpm, energetic and suspenseful."},
+ {"id": "accusation_sting", "kind": "music", "version": 1, "seconds": 6, "seed": 1,
+  "prompt": "Short dramatic orchestral sting, one sudden deep brass and timpani hit followed by a tense string tremolo, dark suspenseful reveal."},
+ {"id": "evidence_found", "kind": "music", "version": 1, "seconds": 4, "seed": 1,
+  "prompt": "Short soft mysterious chime, three bell-like celesta and piano notes rising, a quiet moment of discovery, gentle, no drums."},
+
+ {"id": "medical_bay", "kind": "sfx", "version": 1, "seconds": 10, "seed": 1, "negative": "music, speech, silence, hiss, beeping, low quality",
+  "prompt": "Low ventilation hum and a soft refrigerator hum in a small clinic room"},
+ {"id": "crew_quarters", "kind": "sfx", "version": 1, "seconds": 10, "seed": 1, "negative": "music, speech, low quality",
+  "prompt": "Rain against a small porthole and the low creaking of a ship's hull inside a cabin"},
+ {"id": "editing_room", "kind": "sfx", "version": 1, "seconds": 10, "seed": 1, "negative": "music, speech, silence, hiss, low quality",
+  "prompt": "Steady low computer hum and quiet hard drive clicking in a small room"},
+ {"id": "aft_work_deck", "kind": "sfx", "version": 1, "seconds": 10, "seed": 1, "negative": "music, speech, low quality",
+  "prompt": "Strong wind howling on an open ship deck with crashing waves and sea spray"},
+ {"id": "locked_hint", "kind": "sfx", "version": 1, "seconds": 3, "seed": 1, "negative": "music, speech, low quality",
+  "prompt": "A single dull wooden knock"},
+ {"id": "thunder", "kind": "sfx", "version": 1, "seconds": 6, "seed": 1, "negative": "music, speech, rain, low quality",
+  "prompt": "Distant rolling thunder over the sea"},
+ {"id": "radio_crackle", "kind": "sfx", "version": 1, "seconds": 3, "seed": 1, "negative": "music, low quality",
+  "prompt": "Short burst of static crackle from a handheld walkie-talkie"},
+ {"id": "hull_groan", "kind": "sfx", "version": 1, "seconds": 6, "seed": 1, "negative": "music, speech, low quality",
+  "prompt": "Deep metallic groan of a ship hull straining in heavy waves"}
+]

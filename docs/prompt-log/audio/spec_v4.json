@@ -1,0 +1,4 @@
+[
+ {"id": "locked_hint", "kind": "sfx", "version": 2, "seconds": 3, "seed": 1, "negative": "music, speech, silence, low quality",
+  "prompt": "A dull thud of a fist knocking once on a heavy wooden door"}
+]

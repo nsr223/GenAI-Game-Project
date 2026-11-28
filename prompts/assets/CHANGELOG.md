@@ -104,3 +104,30 @@ Generated locally with the open models the course recommends: **MusicGen** (`fac
 | Page turn | [v1](sfx/page_turn/v1.md) | Two paper rustles | — | First rustle only, 1.0 s | Selected |
 
 Nineteen generations, five rejected. Not yet made: voices (TTS) and a room layer for the medical bay, crew quarters and editing room (they play the base layers only).
+
+## Music and sound, round 2 (28 Nov): new title theme, thinking hum, events and remaining rooms
+
+Team feedback on round 1: everything kept except the title theme, which should be **more exciting**. New requests: a "Hmmm" while NPCs think, a sound when the accusation opens, and the remaining effects and room layers. Same tools and measurements as round 1 (spectrograms: [batch 2](../../docs/prompt-log/audio/img/03-spectrograms-batch2.webp), [locked hint v2](../../docs/prompt-log/audio/img/04-locked-hint-v2.webp), [hum takes](../../docs/prompt-log/audio/img/05-thinking-hum-takes.webp)), plus **Bark** (`suno/bark-small`) for the hum. All sounds are now **wired into the player UI** (`frontend/static/audio.js`), with a "Sound on/off" button.
+
+| Asset | Version | What the measurement showed | Cause / reason | Change | Selection |
+| --- | --- | --- | --- | --- | --- |
+| Title theme | [v2](music/title_theme/v2.md) | Regular drum hits at ~120 bpm, denser after 17 s | v1 asked for "slow, sparse, no drums" | Driving strings, drums, brass, 120 bpm | **Selected**, replaces v1 |
+| Title theme | [v3](music/title_theme/v3.md) | Wall of fast ticks, 9 dB louder | Same prompt, seed 2: checks whether v2 was luck | — | Rejected |
+| Thinking hum | [v1](voice/thinking_hum/v1.md) | Six takes; two have a steady 1.5–2.9 s hum | Bark often breathes or trails off | Loop cut from the steady part | **Selected**: female_c, male_a |
+| Accusation sting | [v1](music/accusation_sting/v1.md) | One hit and decay, unrelated burst at 5.85 s | — | Cut at 4.5 s | Selected |
+| Evidence found | [v1](music/evidence_found/v1.md) | Three bell-like notes | — | First 1.9 s | Selected (not triggered yet, see below) |
+| Locked hint | [v1](sfx/locked_hint/v1.md) | Silent | Too abstract for AudioLDM | Concrete source, negative "silence" | Rejected |
+| Locked hint | [v2](sfx/locked_hint/v2.md) | Rolling rumble, not one knock | — | First 0.4 s as a thump | Selected (not triggered yet) |
+| Medical bay | [v1](sfx/medical_bay/v1.md) | Hum under bright hiss | Same as dry lab v2 | 2 kHz low-pass | Selected |
+| Editing room | [v1](sfx/editing_room/v1.md) | Hum with 4–6 kHz whine | — | 3 kHz low-pass | Selected |
+| Crew quarters | [v1](sfx/crew_quarters/v1.md) | Rain ticks and creaks | — | — | Selected, also all cabins |
+| Aft work deck | [v1](sfx/aft_work_deck/v1.md) | Wind and wave swells | — | Loudest room layer (outdoors) | Selected |
+| Thunder | [v1](sfx/thunder/v1.md) | Rumble with cracks | — | — | Selected (not triggered yet) |
+| Radio crackle | [v1](sfx/radio_crackle/v1.md) | Band-limited static | — | First 1.4 s | Selected (not triggered yet) |
+| Hull groan | [v1](sfx/hull_groan/v1.md) | Low straining drone | No sharp clunk on purpose: could hint at the 23:10 cover fall | — | Selected (not triggered yet) |
+
+**Considered and not made:** a spoken "Whodunit?" when the accusation opens. The thinking hum is already the one comic touch; the accusation is the climax of a real death, so it gets an orchestral sting instead. Easy to add later if the team wants it.
+
+**Triggered automatically** (audio.js watches the UI): title → investigation music, room ambience, footsteps on room change, thinking hum, accusation sting and music, journal page turn, ending music. **Not triggered yet**, because the UI does not show these moments clearly: evidence found, locked hint, thunder, radio, hull groan. Call `window.gameAudio.play("evidence_found")` etc. where the frontend knows the event happened.
+
+Sixteen new generations (title 2, hum 6, effects 8 + 1 retry), five rejected. Round 1 + 2: 37 generations, 10 rejected.

@@ -1,9 +1,9 @@
 {
-  "_comment": "Audio manifest (PROPOSED). Paths are relative to /static/audio/. Every room plays the base layers plus its own layer, all looping. Volumes are starting points in 0-1; files are already level-matched (music -20/-24 dBFS RMS, ambience -28 to -36, one-shots peak -4.5). Prompts and logs: prompts/assets/music, prompts/assets/sfx, CHANGELOG.md.",
+  "_comment": "Audio manifest (PROPOSED). Read by /static/audio.js. Paths are relative to /static/audio/. Every room plays the base layers plus its own layer, all looping. Volumes are starting points in 0-1; files are already level-matched (music -20/-24 dBFS RMS, ambience -26 to -36, one-shots peak -4.5). Prompts and logs: prompts/assets/music, prompts/assets/sfx, prompts/assets/voice, CHANGELOG.md.",
   "music": {
-    "title": {"file": "music/title_theme.ogg", "loop": true, "volume": 0.7},
+    "title": {"file": "music/title_theme.ogg", "loop": false, "volume": 0.7},
     "investigation": {"file": "music/investigation_loop.ogg", "loop": true, "volume": 0.35},
-    "accusation": {"file": "music/accusation.ogg", "loop": true, "volume": 0.7},
+    "accusation": {"file": "music/accusation.ogg", "loop": true, "volume": 0.6},
     "ending": {"file": "music/ending.ogg", "loop": false, "volume": 0.7}
   },
   "ambience": {
@@ -13,16 +13,44 @@
       "wet_lab": "ambience/wet_lab.ogg",
       "dry_lab": "ambience/dry_lab.ogg",
       "mess_hall": "ambience/mess_hall.ogg",
+      "medical_bay": "ambience/medical_bay.ogg",
+      "editing_room": "ambience/editing_room.ogg",
+      "crew_quarters": "ambience/crew_quarters.ogg",
+      "cabin_player": "ambience/crew_quarters.ogg",
+      "cabin_elena": "ambience/crew_quarters.ogg",
+      "cabin_sarah": "ambience/crew_quarters.ogg",
+      "cabin_daniel": "ambience/crew_quarters.ogg",
+      "cabin_maya": "ambience/crew_quarters.ogg",
+      "cabin_thomas": "ambience/crew_quarters.ogg",
+      "cabin_olivia": "ambience/crew_quarters.ogg",
+      "cabin_lucas": "ambience/crew_quarters.ogg",
       "engineering_workshop": "ambience/engineering_workshop.ogg",
-      "engine_room": "ambience/engineering_workshop.ogg"
+      "engine_room": "ambience/engineering_workshop.ogg",
+      "aft_work_deck": "ambience/aft_work_deck.ogg"
     },
-    "_rooms_without_own_layer": "medical_bay, crew_quarters, editing_room, cabins, corridors and stairs play the base layers only",
+    "_rooms_without_own_layer": "corridors, stairs, equipment storage and the lab door play the base layers only",
     "volume": 0.6
   },
   "sfx": {
     "move_room": {"file": "sfx/footsteps_metal.ogg", "volume": 0.5},
     "door": {"file": "sfx/door_steel.ogg", "volume": 0.5},
     "journal_open": {"file": "sfx/page_turn.ogg", "volume": 0.6},
-    "evidence_added": {"file": "sfx/page_turn.ogg", "volume": 0.6}
+    "accusation_open": {"file": "sfx/accusation_open.ogg", "volume": 0.7},
+    "evidence_found": {"file": "sfx/evidence_found.ogg", "volume": 0.5},
+    "locked_hint": {"file": "sfx/locked_hint.ogg", "volume": 0.6},
+    "thunder": {"file": "sfx/thunder.ogg", "volume": 0.5},
+    "radio": {"file": "sfx/radio_crackle.ogg", "volume": 0.5},
+    "hull_groan": {"file": "sfx/hull_groan.ogg", "volume": 0.5}
+  },
+  "thinking": {
+    "_comment": "Hum loop played while '<name> is thinking…' is visible, so it lasts as long as the model takes. Starts only after delay_ms so quick replies stay silent.",
+    "delay_ms": 600,
+    "volume": 0.35,
+    "default": "male",
+    "voices": {"male": "voice/thinking_male.ogg", "female": "voice/thinking_female.ogg"},
+    "speakers": {
+      "sarah_morgan": "female", "maya_chen": "female", "olivia_hart": "female",
+      "daniel_reyes": "male", "thomas_blake": "male", "lucas_weber": "male"
+    }
   }
 }
